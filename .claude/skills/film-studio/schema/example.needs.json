@@ -1,0 +1,23 @@
+{
+ "items": [
+  {
+   "id": "lead",
+   "kind": "character",
+   "description": "The viewer stand-in: a student, friendly, plain clothes.",
+   "scenes_used": [
+    "s1"
+   ],
+   "priority": 1
+  },
+  {
+   "id": "bulb",
+   "kind": "prop",
+   "description": "A light bulb standing for the daily cue.",
+   "scenes_used": [
+    "s2"
+   ],
+   "priority": 2,
+   "reuse": "bulb"
+  }
+ ]
+}

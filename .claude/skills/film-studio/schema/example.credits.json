@@ -1,0 +1,14 @@
+{
+ "items": [
+  {
+   "asset_id": "font-caveat-brush",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Caveat+Brush",
+   "author": "Impallari Type",
+   "license": "OFL-1.1",
+   "date_checked": "2026-01-01",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] licence on the specimen page."
+  }
+ ]
+}

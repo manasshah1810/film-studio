@@ -1,0 +1,115 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "panels": [
+    {
+     "id": "s1p1",
+     "duration": 2.5,
+     "layout": "title",
+     "recipe": "Page title",
+     "energy": "peak",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Small habits stick",
+      "emphasis": "stick"
+     },
+     "caption": "Big plans fail."
+    },
+    {
+     "id": "s1p2",
+     "duration": 2.5,
+     "layout": "figure",
+     "recipe": "Stick-figure moment",
+     "energy": "build",
+     "asset_ids": [
+      "lead"
+     ],
+     "slots": {
+      "headline": "Big plans fail",
+      "cast": [
+       {
+        "id": "lead",
+        "pose": "shrug",
+        "expr": "worried",
+        "says": "Too much."
+       }
+      ]
+     },
+     "caption": "Small habits stick."
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "panels": [
+    {
+     "id": "s2p1",
+     "duration": 3.5,
+     "layout": "object",
+     "recipe": "Doodle and note",
+     "energy": "calm",
+     "asset_ids": [
+      "bulb"
+     ],
+     "slots": {
+      "kicker": "Step one",
+      "headline": "One clear cue",
+      "prop": {
+       "id": "bulb",
+       "state": "glow"
+      },
+      "sub": "Something you already see"
+     },
+     "caption": "Pick one cue you see every day."
+    },
+    {
+     "id": "s2p2",
+     "duration": 3.5,
+     "layout": "title",
+     "energy": "build",
+     "asset_ids": [],
+     "slots": {
+      "headline": "One tiny action",
+      "emphasis": "tiny"
+     },
+     "caption": "Attach one tiny action to it."
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "panels": [
+    {
+     "id": "s3p1",
+     "duration": 3.5,
+     "layout": "list",
+     "recipe": "To-do list",
+     "energy": "build",
+     "asset_ids": [],
+     "slots": {
+      "headline": "The recipe",
+      "items": [
+       "Pick one cue",
+       "Make it tiny",
+       "Repeat daily"
+      ]
+     },
+     "caption": "Repeat it daily."
+    },
+    {
+     "id": "s3p2",
+     "duration": 2.5,
+     "layout": "title",
+     "energy": "release",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Small habits stick",
+      "emphasis": "stick"
+     },
+     "caption": "Small habits stick."
+    }
+   ]
+  }
+ ]
+}

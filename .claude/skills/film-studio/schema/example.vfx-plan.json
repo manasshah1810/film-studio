@@ -1,0 +1,41 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "effects": [
+    {
+     "panel_id": "s1p2",
+     "effect_id": "wobble",
+     "start": 0.6,
+     "duration": 0.6,
+     "params": {
+      "deg": 1.2
+     },
+     "merged_with": [],
+     "reason": "The plan is unstable: one small rock on \"fail\"."
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "effects": [
+    {
+     "panel_id": "s2p1",
+     "effect_id": "push-in",
+     "start": 0,
+     "duration": 3.5,
+     "params": {
+      "amount": 0.04
+     },
+     "merged_with": [],
+     "reason": "Lean toward the cue as it is named.",
+     "optional": true
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "effects": []
+  }
+ ]
+}

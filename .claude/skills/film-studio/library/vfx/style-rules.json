@@ -1,0 +1,108 @@
+{
+ "_note": "Which effect tags each style forbids, derived from the style's own forbidden list. scripts/validate.js rejects a vfx-plan that uses a banned tag. window: in = starts at 0 s of the panel; out = ends on the panel's last frame; hit = short, anywhere; whole = runs the whole panel (duration 0 in the library means \"use the panel length\").",
+ "banned_tags": {
+  "whiteboard": [
+   "fade",
+   "slide",
+   "glow",
+   "gradient",
+   "blur",
+   "glitch",
+   "party"
+  ],
+  "cartoon": [
+   "blur",
+   "glow",
+   "gradient"
+  ],
+  "infographic": [
+   "rotate",
+   "shake",
+   "decor",
+   "glow",
+   "gradient",
+   "bounce",
+   "continuous",
+   "blur",
+   "flash",
+   "glitch",
+   "pulse"
+  ],
+  "kinetic": [
+   "continuous",
+   "blur",
+   "glow",
+   "gradient",
+   "decor",
+   "fade"
+  ],
+  "comic": [
+   "fade",
+   "blur",
+   "glow",
+   "gradient"
+  ],
+  "sketchbook": [
+   "glow",
+   "gradient",
+   "flash",
+   "glitch"
+  ],
+  "pixel": [
+   "blur",
+   "glow",
+   "gradient",
+   "rotate",
+   "zoom",
+   "fade"
+  ],
+  "cutout": [
+   "zoom",
+   "glow",
+   "gradient",
+   "blur",
+   "glitch"
+  ],
+  "watercolor": [
+   "snap",
+   "bounce",
+   "shake",
+   "flash",
+   "glow",
+   "glitch",
+   "party",
+   "pulse"
+  ],
+  "noir": [
+   "bounce",
+   "shake",
+   "party",
+   "pulse",
+   "slide"
+  ],
+  "blueprint": [
+   "zoom",
+   "rotate",
+   "bounce",
+   "glow",
+   "gradient",
+   "blur",
+   "shake",
+   "party",
+   "pulse",
+   "glitch"
+  ],
+  "riso": [
+   "blur",
+   "glow",
+   "gradient"
+  ]
+ },
+ "limits": {
+  "max_effects_per_panel": 3,
+  "max_same_tag_overlap": 1,
+  "max_hit_effects_per_scene": 2,
+  "flash_min_gap_seconds": 0.34
+ },
+ "photosensitivity": "No more than 3 flashes in any one second (flash-tagged effects, strobe every >= 3 frames at 30 fps is the ceiling) [CHECK against WCAG 2.3.1 before publishing]."
+}

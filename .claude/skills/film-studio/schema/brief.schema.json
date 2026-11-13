@@ -1,0 +1,128 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "topic",
+  "platform",
+  "length_bucket",
+  "target_seconds",
+  "style",
+  "voiceover",
+  "design"
+ ],
+ "properties": {
+  "topic": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 200
+  },
+  "platform": {
+   "enum": [
+    "studying",
+    "instagram",
+    "youtube",
+    "tiktok",
+    "linkedin"
+   ],
+   "description": "Director question 1."
+  },
+  "length_bucket": {
+   "enum": [
+    "15-30s",
+    "30-1m",
+    "1-5m",
+    "5-10m",
+    "10m+"
+   ],
+   "description": "Director question 2."
+  },
+  "target_seconds": {
+   "type": "number",
+   "exclusiveMinimum": 0
+  },
+  "style": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$",
+   "description": "Director question 3. A folder name under styles/."
+  },
+  "style_note": {
+   "type": "string",
+   "description": "Only for a custom request: what the user asked for and which shipped style was chosen as the base."
+  },
+  "voiceover": {
+   "type": "boolean",
+   "description": "Director question 4."
+  },
+  "voice": {
+   "type": "object",
+   "required": [
+    "provider"
+   ],
+   "properties": {
+    "provider": {
+     "enum": [
+      "piper",
+      "system",
+      "elevenlabs",
+      "openai"
+     ]
+    },
+    "voice_id": {
+     "type": "string"
+    },
+    "env_key": {
+     "type": "string",
+     "pattern": "^[A-Z][A-Z0-9_]*$",
+     "description": "NAME of the environment variable that holds the key. Never the key."
+    }
+   },
+   "additionalProperties": false
+  },
+  "design": {
+   "type": "object",
+   "required": [
+    "palette_id",
+    "pairing_id",
+    "seed"
+   ],
+   "properties": {
+    "palette_id": {
+     "type": "string",
+     "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "pairing_id": {
+     "type": "string",
+     "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "seed": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 80
+    }
+   },
+   "additionalProperties": false,
+   "description": "Written by scripts/pick-design.js. Ids from the style design-system.json; never a hex or a font name."
+  },
+  "audience": {
+   "type": "string"
+  },
+  "tone": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": false,
+ "title": "brief",
+ "description": "The four Director answers plus the locked design.",
+ "if": {
+  "properties": {
+   "voiceover": {
+    "const": true
+   }
+  }
+ },
+ "then": {
+  "required": [
+   "voice"
+  ]
+ }
+}

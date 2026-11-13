@@ -1,0 +1,28 @@
+{
+  "name": "film-studio-components",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Per-style Remotion component kits. Build-time only: no video rendering (CLAUDE.md rule 2).",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "@remotion/bundler": "4.0.543",
+    "@remotion/cli": "4.0.543",
+    "@remotion/google-fonts": "4.0.543",
+    "@remotion/layout-utils": "4.0.543",
+    "@remotion/paths": "4.0.543",
+    "@remotion/renderer": "4.0.543",
+    "@remotion/three": "4.0.543",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.543",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.0",
+    "@types/three": "0.187.0",
+    "typescript": "5.9.3"
+  }
+}

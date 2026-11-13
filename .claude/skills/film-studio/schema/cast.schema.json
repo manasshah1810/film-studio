@@ -1,0 +1,211 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "assets"
+ ],
+ "properties": {
+  "assets": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "def",
+     "approved",
+     "round"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "need_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "notes": {
+      "type": "string"
+     },
+     "approved": {
+      "type": "boolean"
+     },
+     "round": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+     },
+     "def": {
+      "oneOf": [
+       {
+        "type": "object",
+        "required": [
+         "kind",
+         "color"
+        ],
+        "properties": {
+         "kind": {
+          "const": "character"
+         },
+         "name": {
+          "type": "string"
+         },
+         "color": {
+          "enum": [
+           "primary",
+           "secondary",
+           "highlight",
+           "shadow",
+           "ink"
+          ]
+         },
+         "hair": {
+          "enum": [
+           "none",
+           "short",
+           "bun",
+           "spike",
+           "cap",
+           "long"
+          ]
+         },
+         "build": {
+          "enum": [
+           "slim",
+           "mid",
+           "broad"
+          ]
+         },
+         "accessory": {
+          "enum": [
+           "none",
+           "tie",
+           "glasses",
+           "crown",
+           "scarf"
+          ]
+         },
+         "species": {
+          "enum": [
+           "human",
+           "cat"
+          ]
+         }
+        },
+        "additionalProperties": false
+       },
+       {
+        "type": "object",
+        "required": [
+         "kind"
+        ],
+        "properties": {
+         "kind": {
+          "const": "prop"
+         },
+         "name": {
+          "type": "string"
+         },
+         "base": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+         },
+         "vb": {
+          "type": "array",
+          "items": {
+           "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+         },
+         "shapes": {
+          "type": "array",
+          "items": {
+           "type": "object",
+           "required": [
+            "t"
+           ],
+           "properties": {
+            "t": {
+             "enum": [
+              "rect",
+              "ellipse",
+              "poly",
+              "line"
+             ]
+            },
+            "fill": {
+             "enum": [
+              "bg",
+              "ink",
+              "primary",
+              "secondary",
+              "highlight",
+              "shadow",
+              "none"
+             ]
+            },
+            "stroke": {
+             "enum": [
+              "bg",
+              "ink",
+              "primary",
+              "secondary",
+              "highlight",
+              "shadow",
+              "none"
+             ]
+            }
+           }
+          },
+          "maxItems": 40
+         }
+        },
+        "additionalProperties": false,
+        "anyOf": [
+         {
+          "required": [
+           "base"
+          ]
+         },
+         {
+          "required": [
+           "shapes",
+           "vb"
+          ]
+         }
+        ]
+       },
+       {
+        "type": "object",
+        "required": [
+         "kind",
+         "file",
+         "credit"
+        ],
+        "properties": {
+         "kind": {
+          "const": "media"
+         },
+         "file": {
+          "type": "string"
+         },
+         "credit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+         }
+        },
+        "additionalProperties": false
+       }
+      ]
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "cast",
+ "description": "Characters and props as data. Colours are palette roles; nothing here is an image prompt."
+}

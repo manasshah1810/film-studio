@@ -1,0 +1,677 @@
+{
+ "style": "whiteboard",
+ "version": 1,
+ "palettes": [
+  {
+   "id": "dry-erase",
+   "name": "Dry-erase classic",
+   "mood": "clear, brisk, classroom",
+   "best_for": [
+    "explainer",
+    "business",
+    "how-it-works",
+    "tech"
+   ],
+   "roles": {
+    "bg": "#F4F6F3",
+    "ink": "#1B1F2A",
+    "primary": "#D8352A",
+    "secondary": "#1F5FBF",
+    "highlight": "#FFD93B",
+    "shadow": "#C9CFCB"
+   }
+  },
+  {
+   "id": "chalkboard",
+   "name": "Lecture-hall chalk",
+   "mood": "scholarly, warm, old-school",
+   "best_for": [
+    "history",
+    "science",
+    "maths",
+    "education"
+   ],
+   "roles": {
+    "bg": "#23362F",
+    "ink": "#F1EFE6",
+    "primary": "#F2B8A0",
+    "secondary": "#9FD3C7",
+    "highlight": "#F7E27C",
+    "shadow": "#16241F"
+   }
+  },
+  {
+   "id": "night-glass",
+   "name": "Glass board at night",
+   "mood": "late-night strategy, urgent",
+   "best_for": [
+    "startup",
+    "strategy",
+    "crisis",
+    "finance"
+   ],
+   "roles": {
+    "bg": "#10182B",
+    "ink": "#EAF2FF",
+    "primary": "#FF5D8F",
+    "secondary": "#4DE1C1",
+    "highlight": "#FFE45C",
+    "shadow": "#0A0F1C"
+   }
+  },
+  {
+   "id": "kraft",
+   "name": "Kraft flipchart",
+   "mood": "workshop, hands-on, earthy",
+   "best_for": [
+    "craft",
+    "food",
+    "personal",
+    "small-business"
+   ],
+   "roles": {
+    "bg": "#D9B98A",
+    "ink": "#2A1B12",
+    "primary": "#9E1F18",
+    "secondary": "#1D4E6B",
+    "highlight": "#FFF3C4",
+    "shadow": "#B6935F"
+   }
+  },
+  {
+   "id": "blueprint",
+   "name": "Blueprint",
+   "mood": "engineered, precise, planned",
+   "best_for": [
+    "engineering",
+    "product",
+    "architecture",
+    "process"
+   ],
+   "roles": {
+    "bg": "#1D4F91",
+    "ink": "#F3F7FB",
+    "primary": "#FFD166",
+    "secondary": "#A9D2F7",
+    "highlight": "#FFC2A0",
+    "shadow": "#153B6E"
+   }
+  },
+  {
+   "id": "exam-paper",
+   "name": "Marked exam paper",
+   "mood": "verdict, grading, post-mortem",
+   "best_for": [
+    "failure",
+    "analysis",
+    "review",
+    "lessons"
+   ],
+   "roles": {
+    "bg": "#FBF7EA",
+    "ink": "#22283A",
+    "primary": "#C81D4E",
+    "secondary": "#2C6E63",
+    "highlight": "#B8F04A",
+    "shadow": "#DAD3BD"
+   }
+  },
+  {
+   "id": "mint-lab",
+   "name": "Mint lab board",
+   "mood": "fresh, health, calm clarity",
+   "best_for": [
+    "health",
+    "biology",
+    "wellbeing",
+    "environment"
+   ],
+   "roles": {
+    "bg": "#D6EEDD",
+    "ink": "#143027",
+    "primary": "#8E2C5A",
+    "secondary": "#23705F",
+    "highlight": "#F9C846",
+    "shadow": "#BFD6C8"
+   }
+  },
+  {
+   "id": "slate",
+   "name": "Slate and pastel",
+   "mood": "quiet, considered, modern",
+   "best_for": [
+    "design",
+    "psychology",
+    "culture",
+    "essay"
+   ],
+   "roles": {
+    "bg": "#3A3F47",
+    "ink": "#F5F2EA",
+    "primary": "#FF9F6B",
+    "secondary": "#8EC5FF",
+    "highlight": "#E8FF6A",
+    "shadow": "#272B31"
+   }
+  },
+  {
+   "id": "sticky-wall",
+   "name": "Sticky-note wall",
+   "mood": "playful brainstorm, human",
+   "best_for": [
+    "playful",
+    "animals",
+    "kids",
+    "life-hacks"
+   ],
+   "roles": {
+    "bg": "#FFDCCF",
+    "ink": "#2B1D2A",
+    "primary": "#D62B63",
+    "secondary": "#0F7C82",
+    "highlight": "#FFC83D",
+    "shadow": "#EBCFC4"
+   }
+  },
+  {
+   "id": "newsprint",
+   "name": "Newsprint and red pen",
+   "mood": "editorial, blunt, investigative",
+   "best_for": [
+    "news",
+    "politics",
+    "economics",
+    "serious"
+   ],
+   "roles": {
+    "bg": "#E8E4DA",
+    "ink": "#111111",
+    "primary": "#D42E10",
+    "secondary": "#3D5A5B",
+    "highlight": "#F5E663",
+    "shadow": "#C7C1B2"
+   }
+  }
+ ],
+ "contrast_pairs": [
+  [
+   "ink",
+   "bg",
+   4.5
+  ],
+  [
+   "primary",
+   "bg",
+   3
+  ],
+  [
+   "secondary",
+   "bg",
+   3
+  ],
+  [
+   "dark",
+   "highlight",
+   4.5
+  ]
+ ],
+ "contrast_note": "WCAG 2.x AA: 4.5:1 normal text, 3:1 large text (>= 24 px regular or 18.66 px bold) and graphics [CHECK against the current WCAG text]. Pseudo-roles: \"dark\" = the darker of ink and bg, \"light\" = the lighter. Text on a highlighter swipe is always set in \"dark\".",
+ "fonts": [
+  {
+   "id": "lecturer",
+   "name": "Lecturer",
+   "mood": "confident chisel-tip caps",
+   "display": {
+    "family": "Permanent Marker",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.02,
+    "case": "upper"
+   },
+   "body": {
+    "family": "Patrick Hand",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.22,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Caveat Brush",
+    "weight": 400,
+    "tracking": 0.02,
+    "lineHeight": 1.1,
+    "case": "none"
+   },
+   "mono": {
+    "family": "Cutive Mono",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   }
+  },
+  {
+   "id": "architect",
+   "name": "Architect",
+   "mood": "neat drafting hand",
+   "display": {
+    "family": "Architects Daughter",
+    "weight": 400,
+    "tracking": 0.02,
+    "lineHeight": 1.08,
+    "case": "upper"
+   },
+   "body": {
+    "family": "Kalam",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.25,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Rock Salt",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.3,
+    "case": "none"
+   },
+   "mono": {
+    "family": "DM Mono",
+    "weight": 400,
+    "tracking": -0.01,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 0.94
+  },
+  {
+   "id": "chalk-talk",
+   "name": "Chalk talk",
+   "mood": "serif chalk lettering",
+   "display": {
+    "family": "Fredericka the Great",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.04,
+    "case": "none"
+   },
+   "body": {
+    "family": "Schoolbell",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.22,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Cabin Sketch",
+    "weight": 700,
+    "tracking": 0.02,
+    "lineHeight": 1.1,
+    "case": "upper"
+   },
+   "mono": {
+    "family": "Special Elite",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   }
+  },
+  {
+   "id": "fast-notes",
+   "name": "Fast notes",
+   "mood": "tall, hurried, urgent",
+   "display": {
+    "family": "Covered By Your Grace",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 0.96,
+    "case": "upper"
+   },
+   "body": {
+    "family": "Gochi Hand",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Reenie Beanie",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1,
+    "case": "none"
+   },
+   "mono": {
+    "family": "Courier Prime",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 1.14
+  },
+  {
+   "id": "workshop",
+   "name": "Workshop",
+   "mood": "chunky poster marker",
+   "display": {
+    "family": "Londrina Solid",
+    "weight": 900,
+    "tracking": 0.01,
+    "lineHeight": 0.98,
+    "case": "upper"
+   },
+   "body": {
+    "family": "Shantell Sans",
+    "weight": 500,
+    "tracking": 0,
+    "lineHeight": 1.24,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Londrina Sketch",
+    "weight": 400,
+    "tracking": 0.02,
+    "lineHeight": 1,
+    "case": "upper"
+   },
+   "mono": {
+    "family": "Space Mono",
+    "weight": 400,
+    "tracking": -0.02,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 1.06
+  },
+  {
+   "id": "teachers-pen",
+   "name": "Teacher's pen",
+   "mood": "warm, legible, patient",
+   "display": {
+    "family": "Kalam",
+    "weight": 700,
+    "tracking": -0.01,
+    "lineHeight": 1.06,
+    "case": "none"
+   },
+   "body": {
+    "family": "Neucha",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.22,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Just Another Hand",
+    "weight": 400,
+    "tracking": 0.03,
+    "lineHeight": 1,
+    "case": "upper"
+   },
+   "mono": {
+    "family": "Syne Mono",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   }
+  },
+  {
+   "id": "brush-tip",
+   "name": "Brush tip",
+   "mood": "loose brush pen",
+   "display": {
+    "family": "Caveat Brush",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 0.98,
+    "case": "none"
+   },
+   "body": {
+    "family": "Handlee",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.24,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Sue Ellen Francisco",
+    "weight": 400,
+    "tracking": 0.04,
+    "lineHeight": 1,
+    "case": "upper"
+   },
+   "mono": {
+    "family": "Xanh Mono",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 1.1
+  },
+  {
+   "id": "sketchnote",
+   "name": "Sketchnote",
+   "mood": "conference sketchnote",
+   "display": {
+    "family": "Walter Turncoat",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.04,
+    "case": "upper"
+   },
+   "body": {
+    "family": "Playpen Sans",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.25,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Shadows Into Light Two",
+    "weight": 400,
+    "tracking": 0.02,
+    "lineHeight": 1.1,
+    "case": "none"
+   },
+   "mono": {
+    "family": "IBM Plex Mono",
+    "weight": 400,
+    "tracking": -0.01,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 0.96
+  },
+  {
+   "id": "kid-genius",
+   "name": "Kid genius",
+   "mood": "round, bouncy, friendly",
+   "display": {
+    "family": "Chewy",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.02,
+    "case": "none"
+   },
+   "body": {
+    "family": "Mali",
+    "weight": 500,
+    "tracking": 0,
+    "lineHeight": 1.25,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Gaegu",
+    "weight": 700,
+    "tracking": 0.01,
+    "lineHeight": 1.05,
+    "case": "none"
+   },
+   "mono": {
+    "family": "Kode Mono",
+    "weight": 400,
+    "tracking": 0,
+    "lineHeight": 1.2,
+    "case": "none"
+   }
+  },
+  {
+   "id": "field-notes",
+   "name": "Field notes",
+   "mood": "scratchy notebook hand",
+   "display": {
+    "family": "Rock Salt",
+    "weight": 400,
+    "tracking": -0.01,
+    "lineHeight": 1.22,
+    "case": "none"
+   },
+   "body": {
+    "family": "Delicious Handrawn",
+    "weight": 400,
+    "tracking": 0.01,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "accent": {
+    "family": "Nanum Pen Script",
+    "weight": 400,
+    "tracking": 0.02,
+    "lineHeight": 1,
+    "case": "none"
+   },
+   "mono": {
+    "family": "JetBrains Mono",
+    "weight": 400,
+    "tracking": -0.02,
+    "lineHeight": 1.2,
+    "case": "none"
+   },
+   "scale": 0.8
+  }
+ ],
+ "type_scale": {
+  "hero": 15,
+  "h1": 10.5,
+  "h2": 7.4,
+  "body": 4.6,
+  "label": 3.6,
+  "numeral": 30
+ },
+ "type_scale_note": "Sizes are in u (1 u = 1% of the short side). Max size; text is fitted down to its zone. A pairing may carry `scale` to correct a condensed or wide display face.",
+ "motion": {
+  "fps": 30,
+  "hold": 1,
+  "easings": {
+   "write": [
+    0.33,
+    0,
+    0.2,
+    1
+   ],
+   "flick": [
+    0.2,
+    0.9,
+    0.3,
+    1.25
+   ],
+   "settle": [
+    0.4,
+    0,
+    0.1,
+    1
+   ],
+   "wipe": [
+    0.7,
+    0,
+    0.3,
+    1
+   ]
+  },
+  "enter_frames": 26,
+  "stagger_frames": 11,
+  "min_hold_frames": 24,
+  "camera": "Locked off. The board never moves; at most one 3% push per film, on the turn. Things arrive by being written, never by sliding or fading."
+ },
+ "textures": {
+  "marker_width": 2.4,
+  "wobble": 0.7,
+  "double_stroke": 1,
+  "hatch_gap": 3.6,
+  "hatch_width": 1.5,
+  "hatch_angle": -38,
+  "ghost_opacity": 0.06,
+  "ghost_blur_px": 2.2,
+  "glare_opacity": 0.07,
+  "grain_freq": 0.9,
+  "grain_opacity": 0.05,
+  "highlighter_skew_deg": -1.6,
+  "highlighter_bleed": 0.14
+ },
+ "figure": {
+  "head": 17,
+  "headShape": "round",
+  "body": "bean",
+  "bodyW": 30,
+  "limb": 3.6,
+  "limbStyle": "noodle",
+  "legLen": 46,
+  "armLen": 50,
+  "face": "dots",
+  "hands": true,
+  "feet": true,
+  "skin": "bg",
+  "limbRole": "ink",
+  "torso": 50
+ },
+ "composition": {
+  "margin": 6,
+  "align": "left",
+  "anchors": [
+   "tl",
+   "tl",
+   "bl",
+   "tr"
+  ],
+  "tilt": [
+   -1.5,
+   1.2
+  ]
+ },
+ "signature_moves": [
+  {
+   "name": "Ghost of the last lesson",
+   "recipe": "Behind every panel, 3-5 strokes and one word of the PREVIOUS panel remain at ghost_opacity 0.06 with a 2.2 px blur and a 40 px horizontal smear. The board has a history; it is never factory-clean."
+  },
+  {
+   "name": "Hatch, never fill",
+   "recipe": "Closed shapes are filled with parallel marker strokes: gap 3.6, width 1.5, angle -38 deg, clipped to the shape, drawn after the outline reaches 45%. Flat fills are forbidden."
+  },
+  {
+   "name": "The circled number",
+   "recipe": "The one key figure per film is circled by a two-loop ellipse (rx = text width x 0.62, second loop offset 2%, rotated -4 deg), stroke primary, width 1.4 x marker_width, drawn in 14 frames with easing flick, after the number is written."
+  },
+  {
+   "name": "Highlighter swipe",
+   "recipe": "The emphasis word gets a highlight-role bar BEHIND it: height 62% of the line, skew -1.6 deg, overshooting the word by 14% on the right, multiply blend on light boards, 55% opacity on dark boards. One swipe per panel at most."
+  },
+  {
+   "name": "Because-arrow",
+   "recipe": "Text and drawing are joined by one curved arrow (cubic, bow 18% of its length, wobble 0.7, open two-stroke head) in secondary, drawn in 12 frames with easing write, starting 6 frames after the headline lands. It points from cause to effect; it is never decoration."
+  }
+ ],
+ "forbidden": [
+  "A photographic or clip-art hand holding a marker",
+  "Flat colour fills, gradients, drop shadows, glows",
+  "Centred symmetric layouts: content starts at an edge like real board writing",
+  "More than ink + 2 marker colours + 1 highlighter in a film",
+  "Fades, slides, zooms on entrance: marks are written or wiped",
+  "Perfect geometric lines without wobble",
+  "Any typeface that is not hand-lettered (the mono role is for source lines only)",
+  "Detailed faces: two dots and one line is the limit"
+ ]
+}

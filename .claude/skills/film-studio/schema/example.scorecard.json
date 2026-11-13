@@ -1,0 +1,64 @@
+{
+ "stage": "script",
+ "round": 1,
+ "scorer": "producer",
+ "rubric": "rubrics/script.md",
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "One idea",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Structure",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 8,
+   "evidence": "s2: claim still marked VERIFY."
+  },
+  {
+   "name": "Speakability",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Length fit",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Visual intent",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Ending",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Voice",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  },
+  {
+   "name": "Platform fit",
+   "score": 9.5,
+   "evidence": "Meets the 9 anchor."
+  }
+ ],
+ "average": 9.35,
+ "minimum": 8,
+ "passed": true,
+ "feedback": [
+  "s2: find a source for the cue claim or soften it to an instruction."
+ ]
+}

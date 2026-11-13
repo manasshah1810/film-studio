@@ -1,0 +1,25 @@
+{
+ "brief_hash": "example",
+ "stages": {
+  "brief": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/brief.json"
+  },
+  "budget": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/budget.json"
+  },
+  "script": {
+   "status": "passed",
+   "round": 1,
+   "output_path": "work/script.json"
+  },
+  "cast": {
+   "status": "running",
+   "round": 1,
+   "output_path": "work/cast.json"
+  }
+ }
+}

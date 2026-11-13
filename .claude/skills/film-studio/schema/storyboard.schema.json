@@ -1,0 +1,455 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "scenes"
+ ],
+ "properties": {
+  "scenes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "panels"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^s[0-9]+$"
+     },
+     "panels": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "id",
+        "duration",
+        "layout",
+        "slots",
+        "asset_ids"
+       ],
+       "properties": {
+        "id": {
+         "type": "string",
+         "pattern": "^s[0-9]+p[0-9]+$"
+        },
+        "duration": {
+         "type": "number",
+         "exclusiveMinimum": 0
+        },
+        "layout": {
+         "enum": [
+          "title",
+          "stat",
+          "figure",
+          "versus",
+          "chart",
+          "object",
+          "quote",
+          "timeline",
+          "list"
+         ]
+        },
+        "asset_ids": {
+         "type": "array",
+         "items": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+         }
+        },
+        "anchor": {
+         "enum": [
+          "tl",
+          "tr",
+          "bl",
+          "br"
+         ]
+        },
+        "scale": {
+         "enum": [
+          "tight",
+          "mid",
+          "wide"
+         ]
+        },
+        "energy": {
+         "enum": [
+          "calm",
+          "build",
+          "peak",
+          "release"
+         ]
+        },
+        "accent": {
+         "enum": [
+          "primary",
+          "secondary",
+          "highlight",
+          "ink"
+         ]
+        },
+        "caption": {
+         "type": "string",
+         "maxLength": 90
+        },
+        "recipe": {
+         "type": "string",
+         "description": "Name of the recipe from styles/<style>/recipes.md this panel follows."
+        },
+        "slots": {
+         "type": "object",
+         "required": [],
+         "properties": {
+          "kicker": {
+           "type": "string",
+           "minLength": 1,
+           "maxLength": 40
+          },
+          "headline": {
+           "type": "string",
+           "minLength": 1,
+           "maxLength": 70
+          },
+          "sub": {
+           "type": "string",
+           "minLength": 1,
+           "maxLength": 110
+          },
+          "emphasis": {
+           "type": "string",
+           "minLength": 1,
+           "maxLength": 30
+          },
+          "stat": {
+           "type": "object",
+           "required": [
+            "value"
+           ],
+           "properties": {
+            "value": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 10
+            },
+            "unit": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 8
+            },
+            "label": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 60
+            }
+           },
+           "additionalProperties": false
+          },
+          "cast": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "required": [
+             "id"
+            ],
+            "properties": {
+             "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+             },
+             "pose": {
+              "enum": [
+               "idle",
+               "point",
+               "walk",
+               "cheer",
+               "slump",
+               "think",
+               "shrug",
+               "run",
+               "hold",
+               "fall",
+               "reach"
+              ]
+             },
+             "expr": {
+              "enum": [
+               "neutral",
+               "happy",
+               "worried",
+               "shocked",
+               "smug",
+               "sad",
+               "angry"
+              ]
+             },
+             "flip": {
+              "type": "boolean"
+             },
+             "says": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+             }
+            },
+            "additionalProperties": false
+           },
+           "minItems": 1,
+           "maxItems": 2
+          },
+          "prop": {
+           "type": "object",
+           "required": [
+            "id"
+           ],
+           "properties": {
+            "id": {
+             "type": "string",
+             "pattern": "^[a-z0-9][a-z0-9-]*$"
+            },
+            "state": {
+             "enum": [
+              "normal",
+              "broken",
+              "glow",
+              "small"
+             ]
+            }
+           },
+           "additionalProperties": false
+          },
+          "chart": {
+           "type": "object",
+           "required": [
+            "type",
+            "series",
+            "x"
+           ],
+           "properties": {
+            "type": {
+             "enum": [
+              "line",
+              "bar",
+              "area"
+             ]
+            },
+            "x": {
+             "type": "array",
+             "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 8
+             },
+             "minItems": 2,
+             "maxItems": 8
+            },
+            "unit": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 8
+            },
+            "max": {
+             "type": "number"
+            },
+            "series": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "required": [
+               "name",
+               "values"
+              ],
+              "properties": {
+               "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 18
+               },
+               "role": {
+                "enum": [
+                 "primary",
+                 "secondary",
+                 "highlight",
+                 "ink"
+                ]
+               },
+               "values": {
+                "type": "array",
+                "items": {
+                 "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 8
+               }
+              },
+              "additionalProperties": false
+             },
+             "minItems": 1,
+             "maxItems": 3
+            },
+            "annot": {
+             "type": "object",
+             "required": [
+              "at",
+              "text"
+             ],
+             "properties": {
+              "at": {
+               "type": "integer",
+               "minimum": 0
+              },
+              "series": {
+               "type": "integer",
+               "minimum": 0
+              },
+              "text": {
+               "type": "string",
+               "minLength": 1,
+               "maxLength": 18
+              }
+             },
+             "additionalProperties": false
+            }
+           },
+           "additionalProperties": false
+          },
+          "sides": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "required": [
+             "label"
+            ],
+            "properties": {
+             "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 18
+             },
+             "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 10
+             },
+             "prop": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+             },
+             "cast": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+             },
+             "pose": {
+              "enum": [
+               "idle",
+               "point",
+               "walk",
+               "cheer",
+               "slump",
+               "think",
+               "shrug",
+               "run",
+               "hold",
+               "fall",
+               "reach"
+              ]
+             },
+             "expr": {
+              "enum": [
+               "neutral",
+               "happy",
+               "worried",
+               "shocked",
+               "smug",
+               "sad",
+               "angry"
+              ]
+             },
+             "win": {
+              "type": "boolean"
+             }
+            },
+            "additionalProperties": false
+           },
+           "minItems": 2,
+           "maxItems": 2
+          },
+          "quote": {
+           "type": "object",
+           "required": [
+            "text"
+           ],
+           "properties": {
+            "text": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 140
+            },
+            "by": {
+             "type": "string",
+             "minLength": 1,
+             "maxLength": 40
+            }
+           },
+           "additionalProperties": false
+          },
+          "points": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "required": [
+             "when",
+             "what"
+            ],
+            "properties": {
+             "when": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+             },
+             "what": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+             },
+             "hot": {
+              "type": "boolean"
+             }
+            },
+            "additionalProperties": false
+           },
+           "minItems": 2,
+           "maxItems": 5
+          },
+          "items": {
+           "type": "array",
+           "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+           },
+           "minItems": 2,
+           "maxItems": 5
+          },
+          "media": {
+           "type": "string",
+           "pattern": "^[a-z0-9][a-z0-9-]*$"
+          }
+         },
+         "additionalProperties": false
+        }
+       },
+       "additionalProperties": false
+      },
+      "minItems": 1
+     }
+    },
+    "additionalProperties": false
+   },
+   "minItems": 1
+  }
+ },
+ "additionalProperties": false,
+ "title": "storyboard",
+ "description": "Renderable panels: a closed layout plus typed slots. No prose shot descriptions."
+}

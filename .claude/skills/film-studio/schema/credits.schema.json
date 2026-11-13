@@ -1,0 +1,71 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "items"
+ ],
+ "properties": {
+  "items": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "asset_id",
+     "kind",
+     "source_url",
+     "author",
+     "license",
+     "date_checked",
+     "trademark_sensitive"
+    ],
+    "properties": {
+     "asset_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "kind": {
+      "enum": [
+       "font",
+       "image",
+       "video",
+       "audio",
+       "music",
+       "voice",
+       "code"
+      ]
+     },
+     "source_url": {
+      "type": "string",
+      "pattern": "^https://"
+     },
+     "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+     },
+     "license": {
+      "type": "string",
+      "description": "An id from library/licences.json."
+     },
+     "date_checked": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+     },
+     "trademark_sensitive": {
+      "type": "boolean"
+     },
+     "attribution": {
+      "type": "string"
+     },
+     "note": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "credits",
+ "description": "Written only by scripts/credits.js."
+}

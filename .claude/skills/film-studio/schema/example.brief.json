@@ -1,0 +1,15 @@
+{
+ "topic": "Why small habits win",
+ "platform": "instagram",
+ "length_bucket": "15-30s",
+ "target_seconds": 18,
+ "style": "sketchbook",
+ "voiceover": false,
+ "design": {
+  "palette_id": "composition-book",
+  "pairing_id": "class-notes",
+  "seed": "small-habits"
+ },
+ "audience": "students",
+ "tone": "warm, practical"
+}

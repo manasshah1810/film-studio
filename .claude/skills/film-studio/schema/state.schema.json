@@ -1,0 +1,65 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "brief_hash",
+  "stages"
+ ],
+ "properties": {
+  "brief_hash": {
+   "type": "string"
+  },
+  "updated": {
+   "type": "string"
+  },
+  "stages": {
+   "type": "object",
+   "propertyNames": {
+    "enum": [
+     "brief",
+     "budget",
+     "script",
+     "cast",
+     "storyboard",
+     "vfx",
+     "aicheck",
+     "render"
+    ]
+   },
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "status",
+     "round",
+     "output_path"
+    ],
+    "properties": {
+     "status": {
+      "enum": [
+       "pending",
+       "running",
+       "passed",
+       "flagged",
+       "failed"
+      ]
+     },
+     "round": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+     },
+     "output_path": {
+      "type": "string"
+     },
+     "note": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "state",
+ "description": "Written only by scripts/state.js. Lets a failed run resume."
+}

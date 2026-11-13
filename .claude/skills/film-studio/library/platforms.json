@@ -1,0 +1,10 @@
+{
+  "_note": "Machine-readable platform presets used by scripts. Safe insets are pixels at the listed size. All numbers come from third-party creator guides, not platform specs [CHECK]; re-verify on a device. The matching .md file in platforms/ explains each one.",
+  "instagram": {"label": "Instagram Reels", "ratio": "9:16", "width": 1080, "height": 1920, "safe": {"top": 250, "right": 120, "bottom": 350, "left": 60}, "hook_seconds": 2, "max_panel_seconds": 4, "caption_words": 6, "captions": true, "loop_ending": true, "max_file_mb": 4000},
+  "tiktok": {"label": "TikTok", "ratio": "9:16", "width": 1080, "height": 1920, "safe": {"top": 200, "right": 160, "bottom": 370, "left": 60}, "hook_seconds": 1, "max_panel_seconds": 3.5, "caption_words": 6, "captions": true, "loop_ending": true, "max_file_mb": 287},
+  "youtube": {"label": "YouTube (16:9)", "ratio": "16:9", "width": 1920, "height": 1080, "safe": {"top": 54, "right": 96, "bottom": 120, "left": 96}, "hook_seconds": 5, "max_panel_seconds": 7, "caption_words": 9, "captions": false, "loop_ending": false, "max_file_mb": 256000},
+  "youtube-shorts": {"label": "YouTube Shorts", "ratio": "9:16", "width": 1080, "height": 1920, "safe": {"top": 200, "right": 150, "bottom": 380, "left": 60}, "hook_seconds": 2, "max_panel_seconds": 4, "caption_words": 6, "captions": true, "loop_ending": true, "max_file_mb": 256000},
+  "linkedin": {"label": "LinkedIn feed", "ratio": "4:5", "width": 1080, "height": 1350, "safe": {"top": 70, "right": 70, "bottom": 130, "left": 70}, "hook_seconds": 3, "max_panel_seconds": 5, "caption_words": 8, "captions": true, "loop_ending": false, "max_file_mb": 5000},
+  "studying": {"label": "Study video (16:9)", "ratio": "16:9", "width": 1920, "height": 1080, "safe": {"top": 54, "right": 96, "bottom": 96, "left": 96}, "hook_seconds": 8, "max_panel_seconds": 10, "caption_words": 10, "captions": false, "loop_ending": false, "max_file_mb": 256000},
+  "_rules": {"youtube": "length_bucket 15-30s or 30-1m uses the youtube-shorts preset; longer uses youtube."}
+}

@@ -1,0 +1,259 @@
+{
+  "style": "kinetic",
+  "version": 1,
+  "palettes": [
+    {
+      "id": "newsroom",
+      "name": "Newsroom",
+      "mood": "urgent, front-page, blunt",
+      "best_for": ["news", "politics", "failure", "serious"],
+      "roles": {"bg": "#F2EFE6", "ink": "#0E0E0E", "primary": "#D4140A", "secondary": "#9A958A", "highlight": "#FFE600", "shadow": "#DCD7C9"}
+    },
+    {
+      "id": "blackout",
+      "name": "Blackout",
+      "mood": "manifesto, stark, loud",
+      "best_for": ["crisis", "sports", "music", "tech"],
+      "roles": {"bg": "#0B0B0B", "ink": "#F5F5F0", "primary": "#FFDD00", "secondary": "#4A4A4A", "highlight": "#FF3B30", "shadow": "#1C1C1C"}
+    },
+    {
+      "id": "ultramarine",
+      "name": "Ultramarine",
+      "mood": "bold, institutional, electric",
+      "best_for": ["startup", "product", "explainer", "politics"],
+      "roles": {"bg": "#1B2CC1", "ink": "#FFFFFF", "primary": "#FFD60A", "secondary": "#6C7BFF", "highlight": "#FF5C8A", "shadow": "#1522A0"}
+    },
+    {
+      "id": "hot-press",
+      "name": "Hot press",
+      "mood": "burning, impatient, sale-now",
+      "best_for": ["marketing", "rivalry", "food", "playful"],
+      "roles": {"bg": "#FF7A4F", "ink": "#130A06", "primary": "#5A0E00", "secondary": "#FFB199", "highlight": "#FFE14A", "shadow": "#FF9470"}
+    },
+    {
+      "id": "concrete",
+      "name": "Concrete",
+      "mood": "brutalist, cold, exact",
+      "best_for": ["architecture", "design", "economics", "essay"],
+      "roles": {"bg": "#D9D9D6", "ink": "#111111", "primary": "#0047FF", "secondary": "#A8A8A4", "highlight": "#FF4D00", "shadow": "#C4C4C0"}
+    },
+    {
+      "id": "acid",
+      "name": "Acid",
+      "mood": "rave flyer, cheeky, loud",
+      "best_for": ["internet", "gaming", "pop-culture", "playful"],
+      "roles": {"bg": "#D7FF3E", "ink": "#10140A", "primary": "#6B1FE0", "secondary": "#A9D420", "highlight": "#FF2E88", "shadow": "#BFEA2A"}
+    },
+    {
+      "id": "bone-and-blood",
+      "name": "Bone and blood",
+      "mood": "grave, historical, final",
+      "best_for": ["history", "crime", "failure", "war"],
+      "roles": {"bg": "#EDE6D8", "ink": "#1A1110", "primary": "#8E0E1B", "secondary": "#BDB3A0", "highlight": "#E8B10E", "shadow": "#D6CCBA"}
+    },
+    {
+      "id": "deep-forest",
+      "name": "Deep forest",
+      "mood": "quiet power, considered",
+      "best_for": ["climate", "finance", "strategy", "psychology"],
+      "roles": {"bg": "#0F2A1D", "ink": "#F1F5E9", "primary": "#FF7F3F", "secondary": "#2E5C45", "highlight": "#E6F14A", "shadow": "#17382A"}
+    },
+    {
+      "id": "pink-slip",
+      "name": "Pink slip",
+      "mood": "sharp, ironic, fashion",
+      "best_for": ["fashion", "dating", "work", "pop-culture"],
+      "roles": {"bg": "#FFB3D1", "ink": "#1A0A12", "primary": "#1B1BE0", "secondary": "#F58DB8", "highlight": "#FFF07A", "shadow": "#FF9AC2"}
+    },
+    {
+      "id": "graphite-mint",
+      "name": "Graphite mint",
+      "mood": "product launch, cool, clean",
+      "best_for": ["tech", "software", "gadgets", "health"],
+      "roles": {"bg": "#20262B", "ink": "#EAF7F1", "primary": "#5CFFB1", "secondary": "#3A444C", "highlight": "#FFC857", "shadow": "#2B3339"}
+    }
+  ],
+  "contrast_pairs": [
+    ["ink", "bg", 7],
+    ["primary", "bg", 3],
+    ["ink", "shadow", 4.5]
+  ],
+  "contrast_note": "WCAG 2.x AA: 4.5:1 normal text, 3:1 large text and graphics [CHECK against the current WCAG text]. Pseudo-roles: \"dark\" = the darker of ink and bg, \"light\" = the lighter. Words are the whole picture, so ink on bg is held to 7:1. secondary is only the ghost-glyph outline and is deliberately low contrast; never set text in it.",
+  "fonts": [
+    {
+      "id": "poster",
+      "name": "Poster",
+      "mood": "tall compressed shout",
+      "display": {"family": "Anton", "weight": 400, "tracking": 0, "lineHeight": 0.98, "case": "upper"},
+      "body": {"family": "Inter", "weight": 600, "tracking": -0.01, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Anton", "weight": 400, "tracking": 0.04, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "JetBrains Mono", "weight": 700, "tracking": -0.02, "lineHeight": 1.2, "case": "none"},
+      "scale": 1.12
+    },
+    {
+      "id": "marquee",
+      "name": "Marquee",
+      "mood": "cinema marquee caps",
+      "display": {"family": "Bebas Neue", "weight": 400, "tracking": 0.01, "lineHeight": 0.94, "case": "upper"},
+      "body": {"family": "Barlow", "weight": 600, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Bebas Neue", "weight": 400, "tracking": 0.08, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Space Mono", "weight": 700, "tracking": -0.02, "lineHeight": 1.2, "case": "none"},
+      "scale": 1.2
+    },
+    {
+      "id": "black-grotesk",
+      "name": "Black grotesk",
+      "mood": "heavy swiss, no nonsense",
+      "display": {"family": "Archivo Black", "weight": 400, "tracking": -0.03, "lineHeight": 0.98, "case": "upper"},
+      "body": {"family": "Archivo", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Archivo", "weight": 800, "tracking": 0.06, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "IBM Plex Mono", "weight": 600, "tracking": -0.01, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.9
+    },
+    {
+      "id": "wide-load",
+      "name": "Wide load",
+      "mood": "extended, techno, flat",
+      "display": {"family": "Unbounded", "weight": 800, "tracking": -0.03, "lineHeight": 1.02, "case": "upper"},
+      "body": {"family": "Sora", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Unbounded", "weight": 500, "tracking": 0.02, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Martian Mono", "weight": 600, "tracking": -0.03, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.7
+    },
+    {
+      "id": "slab-hammer",
+      "name": "Slab hammer",
+      "mood": "wood-type slab headline",
+      "display": {"family": "Alfa Slab One", "weight": 400, "tracking": -0.01, "lineHeight": 1, "case": "upper"},
+      "body": {"family": "Roboto Slab", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Roboto Slab", "weight": 800, "tracking": 0.04, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Courier Prime", "weight": 700, "tracking": 0, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.88
+    },
+    {
+      "id": "fashion-contrast",
+      "name": "Fashion contrast",
+      "mood": "high-contrast serif, magazine",
+      "display": {"family": "Playfair Display", "weight": 900, "tracking": -0.02, "lineHeight": 0.98, "case": "none"},
+      "body": {"family": "DM Sans", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Playfair Display", "weight": 700, "tracking": 0, "lineHeight": 1, "case": "none", "italic": true},
+      "mono": {"family": "DM Mono", "weight": 500, "tracking": -0.01, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.95
+    },
+    {
+      "id": "stencil-gothic",
+      "name": "League gothic",
+      "mood": "narrow protest placard",
+      "display": {"family": "League Gothic", "weight": 400, "tracking": 0.005, "lineHeight": 0.92, "case": "upper"},
+      "body": {"family": "Oswald", "weight": 500, "tracking": 0, "lineHeight": 1.22, "case": "none"},
+      "accent": {"family": "Oswald", "weight": 700, "tracking": 0.06, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Roboto Mono", "weight": 700, "tracking": -0.01, "lineHeight": 1.2, "case": "none"},
+      "scale": 1.3
+    },
+    {
+      "id": "big-shoulders",
+      "name": "Big shoulders",
+      "mood": "civic, industrial, tall",
+      "display": {"family": "Big Shoulders", "weight": 900, "tracking": 0, "lineHeight": 0.94, "case": "upper"},
+      "body": {"family": "Public Sans", "weight": 600, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Big Shoulders", "weight": 700, "tracking": 0.06, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Red Hat Mono", "weight": 600, "tracking": -0.01, "lineHeight": 1.2, "case": "none"},
+      "scale": 1.18
+    },
+    {
+      "id": "syne-shift",
+      "name": "Art school",
+      "mood": "odd, expressive, wide",
+      "display": {"family": "Syne", "weight": 800, "tracking": -0.03, "lineHeight": 1, "case": "none"},
+      "body": {"family": "Syne", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "Syne Mono", "weight": 400, "tracking": 0, "lineHeight": 1, "case": "upper"},
+      "mono": {"family": "Syne Mono", "weight": 400, "tracking": 0, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.9
+    },
+    {
+      "id": "didone-drama",
+      "name": "Didone drama",
+      "mood": "fat-face theatrical",
+      "display": {"family": "Abril Fatface", "weight": 400, "tracking": -0.01, "lineHeight": 1, "case": "none"},
+      "body": {"family": "Figtree", "weight": 500, "tracking": 0, "lineHeight": 1.25, "case": "none"},
+      "accent": {"family": "DM Serif Display", "weight": 400, "tracking": 0, "lineHeight": 1, "case": "none", "italic": true},
+      "mono": {"family": "Fira Code", "weight": 600, "tracking": -0.02, "lineHeight": 1.2, "case": "none"},
+      "scale": 0.92
+    }
+  ],
+  "type_scale": {
+    "hero": 22,
+    "h1": 15,
+    "h2": 9,
+    "body": 4.8,
+    "label": 3.2,
+    "numeral": 44
+  },
+  "type_scale_note": "Sizes are in u (1 u = 1% of the short side). Max size; text is fitted down to its zone. A pairing may carry `scale` to correct a condensed or wide display face.",
+  "motion": {
+    "fps": 30,
+    "hold": 1,
+    "easings": {
+      "slam": [0.9, 0, 0.1, 1],
+      "snap": [0.2, 0, 0, 1],
+      "whip": [0.7, 0, 0.2, 1]
+    },
+    "enter_frames": 7,
+    "stagger_frames": 3,
+    "min_hold_frames": 18,
+    "camera": "The frame is the page. Hard cuts on the beat; words slam from 150% to 100% in 7 frames, then hold dead still. The ghost glyph drifts 6 u per panel; nothing else moves while a word is being read."
+  },
+  "textures": {
+    "ghost_size": 0.95,
+    "ghost_stroke": 0.5,
+    "ghost_opacity": 0.5,
+    "drift": 6,
+    "slab_min": 0.16,
+    "slab_max": 0.3
+  },
+  "figure": {
+    "head": 14,
+    "headShape": "round",
+    "body": "block",
+    "bodyW": 36,
+    "limb": 7,
+    "limbStyle": "block",
+    "legLen": 56,
+    "torso": 50,
+    "armLen": 46,
+    "face": "none",
+    "hands": false,
+    "feet": false,
+    "skin": "ink",
+    "limbRole": "color"
+  },
+  "composition": {
+    "margin": 4,
+    "align": "left",
+    "anchors": ["tl", "bl", "tl", "br"],
+    "tilt": [0, 0]
+  },
+  "signature_moves": [
+    {
+      "name": "Ghost glyph",
+      "recipe": "The first letter of the panel's key word, set at 95% of the long side, outline only (0.5 u, secondary role, 50% opacity), cropped by at least one edge, drifting 6 u across the panel."
+    },
+    {
+      "name": "The slab",
+      "recipe": "One full-width slab in the shadow role, 16-30% of the height, flush to the top or bottom (by seed). Text may cross its edge; the slab never has a border."
+    },
+    {
+      "name": "Slam and stop",
+      "recipe": "Each line scales 150% to 100% in 7 frames with easing slam, lines staggered 3 frames. No settle, no bounce. The hold after the slam is at least 18 frames."
+    },
+    {
+      "name": "Boxed word",
+      "recipe": "The emphasis word sits in a solid accent box (padding 0.13 em each side) that wipes in left to right after the line lands; the word flips to whichever of ink or bg reads best on the box."
+    },
+    {
+      "name": "Signs, not people",
+      "recipe": "A figure is a single-colour block silhouette: no face, no hair, no outline, square caps, limbs 2.4x width. It cuts in on one frame."
+    }
+  ],
+  "forbidden": ["Illustration, texture, gradients, photographs", "More than three colours visible in a panel", "Fades, eases longer than 8 frames, drifting text", "Centred paragraphs; more than 9 words on screen", "Mixing two display faces in one film", "Text set in the secondary role", "Faces or outlined figures", "Motion while the viewer is meant to be reading"]
+}

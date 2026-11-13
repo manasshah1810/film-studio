@@ -1,0 +1,30 @@
+{
+ "assets": [
+  {
+   "id": "lead",
+   "need_id": "lead",
+   "approved": true,
+   "round": 1,
+   "notes": "Primary colour so the emphasis word and the lead match.",
+   "def": {
+    "kind": "character",
+    "name": "Lead",
+    "color": "primary",
+    "hair": "short",
+    "build": "mid",
+    "accessory": "none"
+   }
+  },
+  {
+   "id": "bulb",
+   "need_id": "bulb",
+   "approved": true,
+   "round": 1,
+   "def": {
+    "kind": "prop",
+    "name": "Cue",
+    "base": "bulb"
+   }
+  }
+ ]
+}

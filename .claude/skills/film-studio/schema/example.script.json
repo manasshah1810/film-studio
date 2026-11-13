@@ -1,0 +1,44 @@
+{
+ "title": "Why small habits win",
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0,
+   "duration": 5,
+   "beat": "hook",
+   "narration": "Big plans fail. Small habits stick.",
+   "on_screen_text": "Small habits stick",
+   "visual_intent": "A person shrugging at a huge to-do list, then one tiny tick.",
+   "emotion": "recognition",
+   "facts": []
+  },
+  {
+   "id": "s2",
+   "start": 5,
+   "duration": 7,
+   "beat": "turn",
+   "narration": "Pick one cue you already see every day, and attach one tiny action to it.",
+   "on_screen_text": "One cue, one tiny action",
+   "visual_intent": "A light bulb on a desk as the cue.",
+   "emotion": "clarity",
+   "facts": [
+    {
+     "claim": "Linking a new action to an existing daily cue makes it easier to repeat.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 12,
+   "duration": 6,
+   "beat": "close",
+   "narration": "Repeat it daily. Small habits stick.",
+   "on_screen_text": "Repeat daily",
+   "visual_intent": "Three steps as a list, ending on the opening line so the loop closes.",
+   "emotion": "resolve",
+   "facts": []
+  }
+ ]
+}

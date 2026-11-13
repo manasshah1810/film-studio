@@ -1,0 +1,98 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "stage",
+  "round",
+  "scorer",
+  "rubric",
+  "params",
+  "average",
+  "minimum",
+  "passed",
+  "feedback"
+ ],
+ "properties": {
+  "stage": {
+   "enum": [
+    "script",
+    "cast",
+    "storyboard",
+    "vfx",
+    "style",
+    "aicheck"
+   ]
+  },
+  "round": {
+   "type": "integer",
+   "minimum": 1,
+   "maximum": 3
+  },
+  "scorer": {
+   "enum": [
+    "producer",
+    "director-review",
+    "ai-checker"
+   ]
+  },
+  "rubric": {
+   "type": "string",
+   "description": "Path of the rubric file used."
+  },
+  "params": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "score",
+     "evidence"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60
+     },
+     "score": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "evidence": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+     }
+    },
+    "additionalProperties": false
+   },
+   "minItems": 10,
+   "maxItems": 30
+  },
+  "average": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 10
+  },
+  "minimum": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 10
+  },
+  "passed": {
+   "type": "boolean",
+   "description": "average >= 9.0 and minimum >= 7."
+  },
+  "feedback": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 400
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "scorecard"
+}

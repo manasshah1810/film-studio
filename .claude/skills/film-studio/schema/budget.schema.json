@@ -1,0 +1,80 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "total_units",
+  "reserve",
+  "stages",
+  "log"
+ ],
+ "properties": {
+  "total_units": {
+   "type": "number",
+   "minimum": 0
+  },
+  "reserve": {
+   "type": "number",
+   "minimum": 0
+  },
+  "bucket": {
+   "type": "string"
+  },
+  "cost_class": {
+   "type": "string"
+  },
+  "approved": {
+   "type": "boolean"
+  },
+  "stages": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "allowance",
+     "spent"
+    ],
+    "properties": {
+     "allowance": {
+      "type": "number",
+      "minimum": 0
+     },
+     "spent": {
+      "type": "number",
+      "minimum": 0
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  "log": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "stage",
+     "units",
+     "note",
+     "at"
+    ],
+    "properties": {
+     "stage": {
+      "type": "string"
+     },
+     "units": {
+      "type": "number"
+     },
+     "note": {
+      "type": "string"
+     },
+     "at": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "budget",
+ "description": "Written only by scripts/ledger.js."
+}

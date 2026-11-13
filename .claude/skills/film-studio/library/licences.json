@@ -1,0 +1,93 @@
+{
+ "_note": "Licence allow-list used by scripts/credits.js and scripts/validate.js. A licence that is not listed here is rejected: unclear means no. Terms change; re-read the source page on the day of use and record that date [CHECK]. This file is not legal advice.",
+ "allowed": {
+  "CC0-1.0": {
+   "name": "Creative Commons Zero 1.0",
+   "attribution": false,
+   "commercial": true,
+   "note": "Public-domain dedication."
+  },
+  "Public-Domain": {
+   "name": "Public domain (stated by the source)",
+   "attribution": false,
+   "commercial": true,
+   "note": "Record who says so and where. Public domain in one country is not public domain everywhere [CHECK]."
+  },
+  "CC-BY-4.0": {
+   "name": "Creative Commons Attribution 4.0",
+   "attribution": true,
+   "commercial": true,
+   "note": "Attribution text must appear in the credits."
+  },
+  "CC-BY-3.0": {
+   "name": "Creative Commons Attribution 3.0",
+   "attribution": true,
+   "commercial": true,
+   "note": "Attribution text must appear in the credits."
+  },
+  "OFL-1.1": {
+   "name": "SIL Open Font License 1.1",
+   "attribution": false,
+   "commercial": true,
+   "note": "Fonts. Covers every family loaded through @remotion/google-fonts that Google lists as OFL [CHECK per family]."
+  },
+  "Apache-2.0": {
+   "name": "Apache License 2.0",
+   "attribution": false,
+   "commercial": true,
+   "note": "Fonts and code."
+  },
+  "MIT": {
+   "name": "MIT License",
+   "attribution": false,
+   "commercial": true,
+   "note": "Code and some icon sets; keep the notice with redistributed source."
+  },
+  "Pexels": {
+   "name": "Pexels License",
+   "attribution": false,
+   "commercial": true,
+   "note": "No identifiable people in a bad light, no reselling unaltered [CHECK current terms]."
+  },
+  "Pixabay": {
+   "name": "Pixabay Content License",
+   "attribution": false,
+   "commercial": true,
+   "note": "[CHECK current terms]; some items carry extra restrictions."
+  },
+  "Unsplash": {
+   "name": "Unsplash License",
+   "attribution": false,
+   "commercial": true,
+   "note": "[CHECK current terms]."
+  },
+  "Own-work": {
+   "name": "Made by the user or drawn in code by this skill",
+   "attribution": false,
+   "commercial": true,
+   "note": "Code-drawn characters, props and effects need no entry; use this only for files the user supplies and says they own."
+  },
+  "Google-Fonts": {
+   "name": "Google Fonts catalogue (OFL 1.1, Apache 2.0 or Ubuntu Font Licence, per family)",
+   "attribution": false,
+   "commercial": true,
+   "note": "Only for families loaded through @remotion/google-fonts. [CHECK] the licence tab of the family before publishing."
+  }
+ },
+ "always_reject": [
+  "CC-BY-NC (any version): non-commercial only",
+  "CC-BY-ND (any version): no derivatives, and a film is a derivative",
+  "CC-BY-SA: share-alike would bind the whole film; reject unless the user accepts that in writing",
+  "Editorial use only",
+  "Rights-managed or royalty-free stock that needs a paid account",
+  "Anything scraped from a search engine, social post or video with no licence statement",
+  "AI-generated media from a service whose terms the user has not read"
+ ],
+ "trademark_flag_when": [
+  "A logo, wordmark, product shot or UI screenshot of a real company",
+  "A recognisable real person",
+  "A character, sprite or trade dress from an existing film, game or comic",
+  "A brand name used as more than plain text in narration"
+ ],
+ "trademark_rule": "Flagged items are not rejected automatically. They are recorded with trademark_sensitive: true and the user must approve each one before render. Plain-text mention of a company in a factual script is normal; drawing its logo is not."
+}

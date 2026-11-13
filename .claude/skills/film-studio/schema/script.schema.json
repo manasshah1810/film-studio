@@ -1,0 +1,105 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "title",
+  "scenes"
+ ],
+ "properties": {
+  "title": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 120
+  },
+  "scenes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "start",
+     "duration",
+     "narration",
+     "on_screen_text",
+     "visual_intent",
+     "emotion",
+     "facts"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^s[0-9]+$"
+     },
+     "start": {
+      "type": "number",
+      "minimum": 0
+     },
+     "duration": {
+      "type": "number",
+      "exclusiveMinimum": 0
+     },
+     "narration": {
+      "type": "string",
+      "description": "Spoken words, or the caption text when there is no voiceover."
+     },
+     "on_screen_text": {
+      "type": "string",
+      "maxLength": 120
+     },
+     "visual_intent": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+     },
+     "emotion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+     },
+     "beat": {
+      "enum": [
+       "hook",
+       "setup",
+       "turn",
+       "payoff",
+       "close"
+      ]
+     },
+     "facts": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "claim",
+        "status",
+        "source"
+       ],
+       "properties": {
+        "claim": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 300
+        },
+        "status": {
+         "enum": [
+          "verified",
+          "VERIFY"
+         ]
+        },
+        "source": {
+         "type": "string",
+         "description": "URL or citation. Empty only when status is VERIFY."
+        }
+       },
+       "additionalProperties": false
+      }
+     }
+    },
+    "additionalProperties": false
+   },
+   "minItems": 1
+  }
+ },
+ "additionalProperties": false,
+ "title": "script"
+}

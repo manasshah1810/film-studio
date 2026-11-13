@@ -1,0 +1,52 @@
+{
+  "_note": "Budget units, not money or tokens (exact token counts are not visible). All numbers are starting values [CHECK]; re-tune from real ledgers.",
+  "unit_costs": {
+    "review_round":            { "units": 2,    "per": "round",       "note": "Both reviewers, one pass over one file" },
+    "still_render":            { "units": 1.5,  "per": "still",       "note": "Code-drawn still or frame; times style multiplier" },
+    "asset_build":             { "units": 3,    "per": "asset",       "note": "Sprite, icon set, chart, 3D model, effect component; times style multiplier" },
+    "stock_download":          { "units": 0.5,  "per": "asset",       "note": "Search, licence check, credits.json entry" },
+    "voice_per_1000_chars":    { "units": 1.5,  "per": "1000 chars",  "note": "Narration track" },
+    "draft_render_per_second": { "units": 0.1,  "per": "second",      "note": "Low-resolution preview; times style multiplier" },
+    "final_render_per_second": { "units": 0.25, "per": "second",      "note": "Full resolution; times style multiplier" }
+  },
+  "style_multiplier": {
+    "applies_to": ["still_render", "asset_build", "draft_render_per_second", "final_render_per_second"],
+    "low": 0.7,
+    "medium": 1.0,
+    "high": 1.4,
+    "class_source": "styles/index.md cost column [CHECK: not yet in style frontmatter]"
+  },
+  "length_buckets": [
+    { "id": "short",    "seconds": [1, 30] },
+    { "id": "standard", "seconds": [31, 90] },
+    { "id": "long",     "seconds": [91, 180] },
+    { "id": "extended", "seconds": [181, 300] }
+  ],
+  "total_budget": {
+    "short":    { "low": 40,  "medium": 60,  "high": 80 },
+    "standard": { "low": 70,  "medium": 100, "high": 130 },
+    "long":     { "low": 120, "medium": 170, "high": 220 },
+    "extended": { "low": 180, "medium": 250, "high": 320 },
+    "over_300_seconds": "ask the user; no default"
+  },
+  "reserve_pct": 10,
+  "stage_split_pct_of_total": {
+    "script": 10,
+    "cast": 25,
+    "storyboard": 15,
+    "vfx": 15,
+    "render": 25,
+    "reserve": 10
+  },
+  "stage_split_note": "Stage keys must match state.json stage names [CHECK]. The five stage shares plus reserve sum to 100.",
+  "thresholds": { "warn_at": 0.8, "stop_at": 1.0 },
+  "cut_first_order": [
+    "Extra review rounds beyond round 2",
+    "Optional effects and merges (vfx-plan items marked optional)",
+    "Number of cast stills: reuse one still across shots",
+    "Draft renders: render only changed shots",
+    "Shot count: merge or drop the weakest shots",
+    "Film length: drop to the next shorter bucket (user approval)",
+    "Style: switch to a lower cost class (user approval)"
+  ]
+}

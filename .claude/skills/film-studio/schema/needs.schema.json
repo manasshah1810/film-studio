@@ -1,0 +1,59 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "required": [
+  "items"
+ ],
+ "properties": {
+  "items": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "kind",
+     "description",
+     "scenes_used",
+     "priority"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "kind": {
+      "enum": [
+       "character",
+       "prop",
+       "media"
+      ]
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+     },
+     "scenes_used": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "minItems": 1
+     },
+     "priority": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "reuse": {
+      "type": "string",
+      "description": "A built-in prop base (engine/props.ts) that already fits, if any."
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "title": "needs",
+ "description": "What the script needs on screen. Written by the Selector."
+}
