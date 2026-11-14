@@ -1,0 +1,766 @@
+{
+  "style": "glowing-plexus",
+  "version": 1,
+  "subject_mode": "ui-first",
+  "subject_note": "Mode C, UI and data first. The one subject is a network: seeded nodes, distance-weighted links and light packets that travel along them. No people, no actors, no photographs, no video, no icons standing in for people.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink",
+      "primary"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "plexus": {
+    "note": "A network drawn as light on a 2D canvas with additive compositing (lighter), projected from 3D by hand. Every position is a pure function of a seed and the frame number, so a frame renders the same every time.",
+    "seed": "glowing-plexus-20",
+    "rng": {
+      "generator": "mulberry32",
+      "hash": "fnv1a",
+      "note": "One generator, seeded once from the string, consumed in a fixed order at build time. Never call Math.random, never draw a random number inside a frame."
+    },
+    "camera": {
+      "fov": 40,
+      "z_start": 10,
+      "look": [
+        0,
+        0,
+        0
+      ],
+      "note": "A pinhole camera on +z looking at -z. Focal length in px is (1920 / 2) / tan(fov / 2)."
+    },
+    "field": {
+      "x": [
+        -2.5,
+        2.5
+      ],
+      "y": [
+        -3.2,
+        2.4
+      ],
+      "z": [
+        -1.5,
+        1.5
+      ],
+      "note": "World units. The web sits between the title and the readouts."
+    },
+    "clusters": {
+      "count": 3,
+      "nodes_each": 36,
+      "sigma": 0.55,
+      "clamp_sigma": 2.2,
+      "note": "Each labelled hub seeds a cluster: nodes placed around it on a clamped normal, so hubs read as dense knots."
+    },
+    "scatter": {
+      "nodes": 60,
+      "note": "Uniform nodes across the field: the loose web that ties the clusters together."
+    },
+    "min_spacing": 0.2,
+    "dust": {
+      "count": 90,
+      "x": [
+        -3.8,
+        3.8
+      ],
+      "y": [
+        -6.2,
+        6.2
+      ],
+      "z": [
+        -6,
+        -3
+      ],
+      "px": [
+        1,
+        2.2
+      ],
+      "alpha": [
+        0.15,
+        0.4
+      ],
+      "note": "Far points with no links, for depth. They drift slower than the web."
+    },
+    "edges": {
+      "link": 0.75,
+      "falloff_pow": 1.6,
+      "max_alpha": 0.5,
+      "core_px": 1.4,
+      "halo_px": 5,
+      "halo_alpha": 0.18,
+      "lit_boost": 2,
+      "lit_floor": 0.14,
+      "note": "Two nodes link when their 3D distance is under link times the larger reach. Opacity is max_alpha * (1 - d / limit) ^ 1.6, so a link fades to nothing exactly at the limit and never pops."
+    },
+    "hubs": {
+      "reach": 1.6,
+      "core_px": 11,
+      "halo_mult": 6,
+      "weight_pow": 0.8,
+      "node_core_px": [
+        2.2,
+        7.7
+      ],
+      "node_halo_mult": 4.5,
+      "note": "Hub weighting: a node grows with its degree, w = (deg / max deg) ^ 0.8. A labelled hub reaches 1.6 times further, so it has the most links, and is drawn biggest."
+    },
+    "drift": {
+      "z_per_frame": 0.008,
+      "bob_amp": 0.05,
+      "bob_period": [
+        90,
+        150
+      ],
+      "note": "Continuous Z-drift: the camera moves forward at a constant speed for the whole film, so near nodes slide out faster than far ones. Each node also bobs on its own sine with a seeded phase."
+    },
+    "focus": {
+      "coc_px_per_unit": 6,
+      "min_alpha": 0.15,
+      "move_frames": 14,
+      "note": "RackFocus: points away from the focus depth grow by a circle of confusion and dim so total light stays the same. The focus moves to each hub as it fires."
+    },
+    "pulse": {
+      "hop_frames": 8,
+      "hop_pad": 2,
+      "packet_px": 5,
+      "tail": 0.35,
+      "flash_frames": 6,
+      "bridge_frames": 24,
+      "note": "A packet crosses a link in hop_frames * d / link + hop_pad frames. A node lights when its first packet lands. Bridges are the cause and effect links from hub to hub."
+    },
+    "hub_zoom": {
+      "to": 1.6,
+      "spring": "elastic",
+      "ring_mult": 3.2,
+      "note": "Elastic hub zoom: when a hub fires it springs to 1.6 times its size with an overshoot."
+    },
+    "orbit": {
+      "ticks": 12,
+      "deg_per_frame": 2,
+      "tilt": 0.42,
+      "alpha": 0.85,
+      "older_alpha": 0.3
+    },
+    "beats": {
+      "fire": [
+        30,
+        70,
+        110
+      ],
+      "bridges": [
+        [
+          0,
+          1,
+          46
+        ],
+        [
+          1,
+          2,
+          86
+        ]
+      ],
+      "tags": [
+        34,
+        74,
+        114
+      ]
+    }
+  },
+  "palettes": [
+    {
+      "id": "neural-cyan",
+      "tier": "focused",
+      "name": "Neural cyan",
+      "mood": "cyan nodes on blue black, gold signal packets",
+      "best_for": [
+        "AI models",
+        "neural networks",
+        "the internet"
+      ],
+      "roles": {
+        "bg": "#04070D",
+        "ink": "#EAF4FF",
+        "primary": "#4FD8FF",
+        "highlight": "#FFE066",
+        "surface": "#0C1522"
+      }
+    },
+    {
+      "id": "synapse-amber",
+      "tier": "focused",
+      "name": "Synapse amber",
+      "mood": "warm amber web, rose packets",
+      "best_for": [
+        "neuroscience",
+        "brains",
+        "ideas spreading"
+      ],
+      "roles": {
+        "bg": "#0B0703",
+        "ink": "#FFF4E4",
+        "primary": "#FFB347",
+        "highlight": "#FF6F8E",
+        "surface": "#1A120A"
+      }
+    },
+    {
+      "id": "contagion-red",
+      "tier": "focused",
+      "name": "Contagion red",
+      "mood": "red web on a dried blood black, pale gold packets",
+      "best_for": [
+        "outbreaks",
+        "rumours",
+        "bank runs"
+      ],
+      "roles": {
+        "bg": "#0C0405",
+        "ink": "#FFECEE",
+        "primary": "#FF5A6E",
+        "highlight": "#FFE7A3",
+        "surface": "#1C0C0F"
+      }
+    },
+    {
+      "id": "bio-lime",
+      "tier": "focused",
+      "name": "Bio lime",
+      "mood": "lime web, ice blue packets",
+      "best_for": [
+        "ecosystems",
+        "biology",
+        "supply chains"
+      ],
+      "roles": {
+        "bg": "#050A04",
+        "ink": "#F1FFE8",
+        "primary": "#9DFF5C",
+        "highlight": "#5CE1FF",
+        "surface": "#0F1A0D"
+      }
+    },
+    {
+      "id": "ultraviolet",
+      "tier": "focused",
+      "name": "Ultraviolet",
+      "mood": "violet web, gold packets",
+      "best_for": [
+        "crypto",
+        "quantum",
+        "abstract ideas"
+      ],
+      "roles": {
+        "bg": "#08040F",
+        "ink": "#F5EEFF",
+        "primary": "#C08CFF",
+        "highlight": "#FFD45C",
+        "surface": "#160D24"
+      }
+    },
+    {
+      "id": "deep-mind",
+      "tier": "expanded",
+      "name": "Deep mind",
+      "mood": "sky blue web, gold packets, a pink second cluster, red and green states",
+      "best_for": [
+        "AI models",
+        "how a network learns",
+        "the internet"
+      ],
+      "roles": {
+        "bg": "#03060C",
+        "ink": "#EAF3FF",
+        "primary": "#5CC8FF",
+        "highlight": "#FFE45C",
+        "surface": "#0B1424",
+        "secondary": "#FF7AC6",
+        "dim": "#8FA6C2",
+        "link": "#1B3A5C",
+        "alert": "#FF4D5E",
+        "ok": "#5CFFA8"
+      }
+    },
+    {
+      "id": "forest-collapse",
+      "tier": "expanded",
+      "name": "Forest collapse",
+      "mood": "green web, amber packets, teal second cluster",
+      "best_for": [
+        "ecosystem collapse",
+        "food webs",
+        "climate"
+      ],
+      "roles": {
+        "bg": "#040904",
+        "ink": "#EEFFEA",
+        "primary": "#7CEB8A",
+        "highlight": "#FFD166",
+        "surface": "#0E1A10",
+        "secondary": "#4FD1C5",
+        "dim": "#9BB59E",
+        "link": "#1E3F25",
+        "alert": "#FF6B4A",
+        "ok": "#C6FF5C"
+      }
+    },
+    {
+      "id": "domino-ember",
+      "tier": "expanded",
+      "name": "Domino ember",
+      "mood": "orange web, pale gold packets, pink second cluster",
+      "best_for": [
+        "domino effects",
+        "markets",
+        "failures that cascade"
+      ],
+      "roles": {
+        "bg": "#0A0503",
+        "ink": "#FFF0E3",
+        "primary": "#FF9A3C",
+        "highlight": "#FFF1A8",
+        "surface": "#1B0F08",
+        "secondary": "#FF5C8A",
+        "dim": "#C2A592",
+        "link": "#4A2512",
+        "alert": "#FF3B3B",
+        "ok": "#8CFF7A"
+      }
+    },
+    {
+      "id": "social-magenta",
+      "tier": "expanded",
+      "name": "Social magenta",
+      "mood": "magenta web, cyan packets, amber second cluster",
+      "best_for": [
+        "social contagion",
+        "viral posts",
+        "influencers"
+      ],
+      "roles": {
+        "bg": "#0A040C",
+        "ink": "#FFEDFC",
+        "primary": "#FF5CCB",
+        "highlight": "#5CF0FF",
+        "surface": "#1A0C1E",
+        "secondary": "#FFB35C",
+        "dim": "#C49BBE",
+        "link": "#4A1A44",
+        "alert": "#FF4D4D",
+        "ok": "#6BFFB5"
+      }
+    },
+    {
+      "id": "arctic-signal",
+      "tier": "expanded",
+      "name": "Arctic signal",
+      "mood": "white web, red packets, ice blue second cluster",
+      "best_for": [
+        "infrastructure",
+        "power grids",
+        "serious explainers"
+      ],
+      "roles": {
+        "bg": "#05080C",
+        "ink": "#F2F7FC",
+        "primary": "#CFE3FF",
+        "highlight": "#FF5C5C",
+        "surface": "#101822",
+        "secondary": "#7FE0FF",
+        "dim": "#9BAABB",
+        "link": "#22324A",
+        "alert": "#FFA03C",
+        "ok": "#5CE6A0"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "sora-manrope-dmmono",
+      "mood": "clean tech, geometric",
+      "scale": 1,
+      "display": {
+        "family": "Sora",
+        "weight": 700,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Manrope",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Manrope",
+        "weight": 700,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "bricolage-inter-firacode",
+      "mood": "editorial science",
+      "scale": 1,
+      "display": {
+        "family": "Bricolage Grotesque",
+        "weight": 800,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Inter",
+        "weight": 700,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Fira Code",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "outfit-figtree-redhatmono",
+      "mood": "friendly product explainer",
+      "scale": 1,
+      "display": {
+        "family": "Outfit",
+        "weight": 700,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Figtree",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Figtree",
+        "weight": 700,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "redhat-display-text-mono",
+      "mood": "one family, calm and exact",
+      "scale": 1,
+      "display": {
+        "family": "Red Hat Display",
+        "weight": 800,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Red Hat Text",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Red Hat Display",
+        "weight": 700,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "epilogue-worksans-sourcecode",
+      "mood": "newsroom data desk",
+      "scale": 1,
+      "display": {
+        "family": "Epilogue",
+        "weight": 800,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Work Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Work Sans",
+        "weight": 600,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Source Code Pro",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "syne-dmsans-synemono",
+      "mood": "art lab, odd and modern",
+      "scale": 1,
+      "display": {
+        "family": "Syne",
+        "weight": 800,
+        "size": 100,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "DM Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "DM Sans",
+        "weight": 700,
+        "size": 46,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Syne Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    }
+  ],
+  "numerals": {
+    "variant": "tabular-nums",
+    "note": "Every live value is a fixed-length string in tabular numerals, so a plate never reflows."
+  },
+  "type_scale": {
+    "hero": 120,
+    "display": 100,
+    "h1": 76,
+    "h2": 52,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "tag": {
+      "radius": 10,
+      "pad": 20,
+      "border": {
+        "width": 2,
+        "role": "primary",
+        "alpha": 1
+      },
+      "scrim_px": 28,
+      "scrim_alpha": 0.9,
+      "note": "A hub label plate: opaque surface fill, a thin primary border and a soft bg scrim around it that knocks the glowing links back, so the label never sits on light."
+    },
+    "leader": {
+      "width": 2,
+      "role": "primary",
+      "ring": 10,
+      "draw_frames": 8,
+      "note": "A straight line from the plate edge to the projected hub, drawn after the plate lands."
+    },
+    "title_scrim": {
+      "to_y": 24,
+      "alpha": 0.92,
+      "note": "A bg fade over the top of the frame, so the title sits on dark, not on links."
+    },
+    "vignette": {
+      "alpha": 0.55
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 12,
+    "stagger_frames": 3,
+    "min_hold_frames": 6,
+    "camera": "continuous forward Z-drift at a constant speed; never stops, never cuts",
+    "easings": {
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "focus": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "draw": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "hub_zoom": {
+        "damping": 6,
+        "stiffness": 170,
+        "mass": 0.6
+      },
+      "tag": {
+        "damping": 14,
+        "stiffness": 180,
+        "mass": 0.7
+      }
+    },
+    "intro": {
+      "node_in": [
+        0,
+        20
+      ],
+      "seeded_delay": 14
+    },
+    "pacing": {
+      "note": "Web in by 20, title 6 to 26, readouts 14 to 30, hub 1 fires at 30, bridge to hub 2 at 46, hub 2 fires at 70, bridge to hub 3 at 86, hub 3 fires at 110, the last node lights about 160, hold the last frame at least 20 frames."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "kicker",
+      "title",
+      "web",
+      "hub plates",
+      "readouts"
+    ],
+    "safe": {
+      "x": [
+        9,
+        85
+      ],
+      "y": [
+        6,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "pulse-propagation",
+      "recipe": "From the firing hub, a shortest path tree over the links sets each node an arrival frame; a packet with a short tail crosses each tree link, and the node flashes highlight when it lands."
+    },
+    {
+      "name": "continuous-z-drift",
+      "recipe": "The camera moves forward 0.008 units a frame for the whole film; near nodes slide out faster, dust barely moves."
+    },
+    {
+      "name": "elastic-hub-zoom",
+      "recipe": "A firing hub springs to 1.6 times its size on a spring 6/170/0.6 with an overshoot, and an orbit ring opens around it."
+    },
+    {
+      "name": "distance-edge-opacity",
+      "recipe": "Link alpha is 0.5 * (1 - d / limit) ^ 1.6 from the live 3D distance, so links breathe as nodes bob and fade out without popping."
+    },
+    {
+      "name": "hub-weighting",
+      "recipe": "Node size and glow grow with degree; labelled hubs reach 1.6 times further and are the biggest lights."
+    },
+    {
+      "name": "rack-focus",
+      "recipe": "The focus depth moves to each firing hub over 14 frames; everything off that depth swells and dims."
+    }
+  ],
+  "widgets": [
+    "OrbitRing",
+    "GridCollapse",
+    "PlayingGrid",
+    "PromptBar",
+    "RackFocus"
+  ],
+  "forbidden": [
+    "Math.random or any unseeded randomness",
+    "a random number drawn inside a frame",
+    "a light bg (additive light needs a dark sky)",
+    "links that appear or vanish at full strength (popping)",
+    "a label on the web without a plate and scrim",
+    "more than 3 labelled hubs",
+    "a camera that stops, cuts or reverses",
+    "packets that teleport or travel off a link",
+    "a hex colour in a component",
+    "a person, a face or a person icon"
+  ]
+}
