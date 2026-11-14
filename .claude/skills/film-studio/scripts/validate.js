@@ -62,6 +62,28 @@ const semantic = {
       }
       if (words(s.narration) / s.duration > 3.2) W.push(`scene ${s.id}: ${(words(s.narration) / s.duration).toFixed(1)} words per second is too fast to speak (aim for 2.3-2.8)`);
     }
+    // retention: a hook or re-hook at least every 10 s until the payoff; re-hooks open on a turn word
+    const stop = d.scenes.find((s) => ['payoff', 'close'].includes(s.beat))?.start ?? at;
+    const marks = [...d.scenes.filter((s, i) => (i === 0 || s.rehook) && s.start < stop).map((s) => s.start), stop];
+    for (let i = 1; i < marks.length; i++) if (marks[i] - marks[i - 1] > 10) E.push(`no re-hook between ${marks[i - 1]} s and ${marks[i]} s (max 10 s). Fix: set "rehook": true on a scene that starts inside that gap and open it with But, Yet, Until or Except plus a new question.`);
+    for (const s of d.scenes.filter((x) => x.rehook)) if (!/^["'\s]*(but|yet|until|except|instead|so|then|and yet|only)\b/i.test(s.narration)) E.push(`scene ${s.id}: a re-hook must open on a turn word. Fix: start the narration with But, Yet, Until, Except or Instead.`);
+    if (!d.hook) W.push('script has no "hook" object (formula, belief, gap); the Storyboard needs it for the first 3 seconds');
+    // frame-timed caption chunks
+    const fps = d.fps ?? 30, norm = (x) => String(x).replace(/\s+/g, ' ').trim();
+    for (const s of d.scenes) {
+      if (!s.captions) { W.push(`scene ${s.id}: no frame-timed captions`); continue; }
+      const f0 = Math.round(s.start * fps), f1 = Math.round((s.start + s.duration) * fps);
+      let prev = f0;
+      for (const [from, to, text, power] of s.captions) {
+        const T = `scene ${s.id} caption "${text}"`;
+        if (words(text) > 5) E.push(`${T}: ${words(text)} words (max 5). Fix: split it into two chunks.`);
+        if (from < prev || to <= from || to > f1) E.push(`${T}: frames ${from}-${to} must be in order inside the scene (${f0}-${f1}) and start at or after ${prev}`);
+        if (power && !norm(text).toLowerCase().split(' ').map((w) => w.replace(/[^a-z0-9']/g, '')).includes(power.toLowerCase())) E.push(`${T}: power word "${power}" is not a word in the chunk`);
+        prev = to;
+      }
+      if (norm(s.captions.map((c) => c[2]).join(' ')) !== norm(s.narration)) E.push(`scene ${s.id}: the caption chunks joined do not equal the narration. Fix: chunk the narration word for word.`);
+      if (!s.captions.some((c) => c[3])) E.push(`scene ${s.id}: no power word. Fix: add a 4th item to one chunk, the single word to bold.`);
+    }
     if (!brief) return W.push('SKIP length checks: no brief next to file');
     const [lo, hi] = BUCKETS[brief.length_bucket];
     if (at < lo || at > hi) E.push(`script runs ${at} s, outside bucket ${brief.length_bucket}`);

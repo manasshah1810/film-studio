@@ -33,7 +33,7 @@ Ask nothing else. Decide the rest yourself and say what you decided in one line.
 |---|---|---|---|---|
 | 1 | brief | `personas/director.md` | `work/brief.json` | `validate.js --work work` |
 | 2 | budget | `roles/treasurer.md` | `work/budget.json` | `ledger.js estimate work`, then the user says yes |
-| 3 | script | `roles/writer.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
+| 3 | script | `personas/scriptwriter.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
 | 4 | cast | `roles/selector.md`, and when it is done `roles/talent-acquisition.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
 | 5 | storyboard | `styles/<style>/style.md` | `work/storyboard.json` | `validate.js --work work`; `check-ai-tells.js work --stage storyboard` |
 | 6 | vfx | `roles/vfx-director.md` | `work/vfx-plan.json` | `validate.js --work work`; `check-ai-tells.js work` |

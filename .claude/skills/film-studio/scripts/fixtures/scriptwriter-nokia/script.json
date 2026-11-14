@@ -1,0 +1,306 @@
+{
+ "title": "Nokia never missed the smartphone",
+ "fps": 30,
+ "hook": {
+  "formula": "assumption-flip",
+  "belief": "Nokia died because it was too slow to build a smartphone.",
+  "gap": "If Nokia had the smartphone first, what actually killed it?"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0,
+   "duration": 5.5,
+   "beat": "hook",
+   "narration": "Nokia never missed the smartphone. It sold one a full decade before the iPhone existed.",
+   "on_screen_text": "Nokia had it first",
+   "emotion": "disbelief",
+   "visual_intent": "A sales chart where a Nokia line starts a decade before the iPhone marker appears.",
+   "facts": [
+    {
+     "claim": "Nokia released the 9000 Communicator in 1996; the first iPhone went on sale in 2007.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     0,
+     33,
+     "Nokia never missed",
+     "never"
+    ],
+    [
+     33,
+     55,
+     "the smartphone."
+    ],
+    [
+     55,
+     88,
+     "It sold one"
+    ],
+    [
+     88,
+     121,
+     "a full decade",
+     "decade"
+    ],
+    [
+     121,
+     165,
+     "before the iPhone existed.",
+     "iPhone"
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "start": 5.5,
+   "duration": 4.5,
+   "beat": "setup",
+   "narration": "So when the iPhone arrived, Nokia owned about half of all smartphone sales.",
+   "on_screen_text": "Half the market",
+   "emotion": "confidence",
+   "visual_intent": "A share ring fills to about half in Nokia's colour as the iPhone marker lands.",
+   "facts": [
+    {
+     "claim": "Nokia held roughly half of worldwide smartphone sales in 2007.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     165,
+     217,
+     "So when the iPhone arrived,"
+    ],
+    [
+     217,
+     258,
+     "Nokia owned about half",
+     "half"
+    ],
+    [
+     258,
+     300,
+     "of all smartphone sales."
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 10,
+   "duration": 6,
+   "beat": "setup",
+   "rehook": true,
+   "narration": "But hardware never failed. The real threat sat inside Nokia, and its own engineers saw it.",
+   "on_screen_text": "The threat was inside",
+   "emotion": "unease",
+   "visual_intent": "The chart cracks from the inside; an internal warning card slides out of the Nokia line.",
+   "facts": [
+    {
+     "claim": "Nokia staff raised concerns about Symbian internally before the iPhone launch.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     300,
+     345,
+     "But hardware never failed.",
+     "But"
+    ],
+    [
+     345,
+     379,
+     "The real threat",
+     "threat"
+    ],
+    [
+     379,
+     412,
+     "sat inside Nokia,",
+     "inside"
+    ],
+    [
+     412,
+     458,
+     "and its own engineers"
+    ],
+    [
+     458,
+     480,
+     "saw it."
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "start": 16,
+   "duration": 4,
+   "beat": "setup",
+   "narration": "Symbian was built for buttons, so touch features took months.",
+   "on_screen_text": "Built for buttons",
+   "emotion": "frustration",
+   "visual_intent": "A keypad grid struggles to redraw as a touch grid while a release timer keeps slipping.",
+   "facts": [
+    {
+     "claim": "Symbian was designed for keypad phones and adapting it to touch took Nokia a long time.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     480,
+     516,
+     "Symbian was built"
+    ],
+    [
+     516,
+     540,
+     "for buttons,",
+     "buttons"
+    ],
+    [
+     540,
+     576,
+     "so touch features"
+    ],
+    [
+     576,
+     600,
+     "took months.",
+     "months"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "start": 20,
+   "duration": 6,
+   "beat": "turn",
+   "rehook": true,
+   "narration": "But slow code was survivable. Managers feared bad news, therefore every delay stayed hidden from the top.",
+   "on_screen_text": "Bad news stayed hidden",
+   "emotion": "dread",
+   "visual_intent": "Status reports turn from red to green as they climb an org chart toward the top.",
+   "facts": [
+    {
+     "claim": "A 2015 study by Vuori and Huy found Nokia middle managers withheld bad news out of fear.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     600,
+     632,
+     "But slow code"
+    ],
+    [
+     632,
+     653,
+     "was survivable.",
+     "survivable"
+    ],
+    [
+     653,
+     695,
+     "Managers feared bad news,",
+     "feared"
+    ],
+    [
+     695,
+     727,
+     "therefore every delay",
+     "therefore"
+    ],
+    [
+     727,
+     748,
+     "stayed hidden",
+     "hidden"
+    ],
+    [
+     748,
+     780,
+     "from the top."
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "start": 26,
+   "duration": 5,
+   "beat": "payoff",
+   "narration": "So Nokia kept promising until 2013, when it sold its phones to Microsoft.",
+   "on_screen_text": "Sold to Microsoft",
+   "emotion": "shock",
+   "visual_intent": "The Nokia share line falls to the floor and a sale stamp lands on it.",
+   "facts": [
+    {
+     "claim": "Nokia agreed to sell its devices business to Microsoft in 2013.",
+     "status": "VERIFY",
+     "source": ""
+    }
+   ],
+   "captions": [
+    [
+     780,
+     826,
+     "So Nokia kept promising",
+     "promising"
+    ],
+    [
+     826,
+     849,
+     "until 2013,"
+    ],
+    [
+     849,
+     907,
+     "when it sold its phones",
+     "sold"
+    ],
+    [
+     907,
+     930,
+     "to Microsoft."
+    ]
+   ]
+  },
+  {
+   "id": "s7",
+   "start": 31,
+   "duration": 4,
+   "beat": "close",
+   "narration": "No better phone beat Nokia. Its own silence did.",
+   "on_screen_text": "Silence beat Nokia",
+   "emotion": "resolve",
+   "visual_intent": "The falling line loops back into the opening chart with the first caption returning.",
+   "facts": [],
+   "captions": [
+    [
+     930,
+     970,
+     "No better phone"
+    ],
+    [
+     970,
+     997,
+     "beat Nokia."
+    ],
+    [
+     997,
+     1050,
+     "Its own silence did.",
+     "silence"
+    ]
+   ]
+  }
+ ]
+}

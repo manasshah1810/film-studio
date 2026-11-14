@@ -18,8 +18,8 @@ const AGENTS = path.join(SKILL, '..', '..', 'agents');
 const limit = (files, max, what) => { for (const f of files) { const n = lines(f); if (n >= max) E.push(`${rel(f)} has ${n} lines; ${what} must stay under ${max}`); } };
 if (!fs.existsSync(path.join(SKILL, 'SKILL.md'))) E.push('SKILL.md is missing'); else limit([path.join(SKILL, 'SKILL.md')], 110, 'SKILL.md');
 limit(ls('roles', '.md'), 161, 'a role manual');
-limit(ls('personas', '.md'), 151, 'a persona manual');
-for (const f of ls('personas', '.md')) { const n = lines(f); if (n < 110) E.push(`${rel(f)} has ${n} lines; a persona manual is 110 to 150`); }
+limit(ls('personas', '.md'), 161, 'a persona manual');
+for (const f of ls('personas', '.md')) { const n = lines(f); if (n < 110) E.push(`${rel(f)} has ${n} lines; a persona manual is 110 to 160`); }
 limit(ls('references', '.md'), 161, 'a reference');
 limit(ls('rubrics', '.md'), 80, 'a rubric');
 limit(ls('library/platforms', '.md'), 80, 'a platform file');
@@ -92,6 +92,8 @@ run('design systems', process.execPath, [path.join(__dirname, 'check-design.js')
 run('ai-tells selftest', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), '--selftest'], SKILL);
 run('schema examples', process.execPath, [path.join(__dirname, 'validate.js'), '--examples'], SKILL);
 run('director worked brief', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'director-nokia')], SKILL);
+run('scriptwriter worked script', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'scriptwriter-nokia')], SKILL);
+run('scriptwriter worked script tells', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), path.join(__dirname, 'fixtures', 'scriptwriter-nokia'), '--stage', 'script'], SKILL);
 if (!a['no-tsc']) run('type-check', process.execPath, [path.join(COMPONENTS, 'node_modules', 'typescript', 'bin', 'tsc'), '--noEmit', '-p', '.'], COMPONENTS);
 
 notes.forEach((n) => console.log('note ' + n));

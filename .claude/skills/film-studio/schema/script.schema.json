@@ -93,11 +93,80 @@
        },
        "additionalProperties": false
       }
+     },
+     "rehook": {
+      "type": "boolean",
+      "description": "True when this scene opens a new question. One every 8 to 10 seconds."
+     },
+     "captions": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Caption chunks: [from_frame, to_frame, text, power_word]. Frames count from the start of the film. Text is at most 5 words; the chunks joined give the narration.",
+      "items": {
+       "type": "array",
+       "minItems": 3,
+       "maxItems": 4,
+       "prefixItems": [
+        {
+         "type": "integer",
+         "minimum": 0
+        },
+        {
+         "type": "integer",
+         "minimum": 1
+        },
+        {
+         "type": "string",
+         "minLength": 1
+        },
+        {
+         "type": "string",
+         "minLength": 1
+        }
+       ],
+       "items": false
+      }
      }
     },
     "additionalProperties": false
    },
    "minItems": 1
+  },
+  "fps": {
+   "type": "integer",
+   "minimum": 12,
+   "maximum": 60,
+   "description": "Frame rate the caption frames are counted in. Default 30."
+  },
+  "hook": {
+   "type": "object",
+   "required": [
+    "formula",
+    "belief",
+    "gap"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "formula": {
+     "enum": [
+      "assumption-flip",
+      "paradox",
+      "binary-question"
+     ]
+    },
+    "belief": {
+     "type": "string",
+     "minLength": 5,
+     "maxLength": 160,
+     "description": "What the viewer assumes before the film."
+    },
+    "gap": {
+     "type": "string",
+     "minLength": 5,
+     "maxLength": 160,
+     "description": "The open question the film must close."
+    }
+   }
   }
  },
  "additionalProperties": false,

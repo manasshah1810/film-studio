@@ -3,6 +3,19 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 04: Scriptwriter persona.** `personas/scriptwriter.md` (144 lines) replaces
+  `roles/writer.md` (moved, then rewritten): retention mechanics, 3 hook formulas with bad/good
+  rewrites, But/Therefore chaining, caption and cadence rules, [VERIFY] rules, 10-row works/fails
+  table, worked 35 s Nokia script (`scripts/fixtures/scriptwriter-nokia/`, checked by the static
+  check with `validate.js` and `check-ai-tells.js --stage script`).
+  Script schema gains optional `fps`, `hook {formula, belief, gap}`, scene `rehook`, scene `captions`
+  as `[from_frame, to_frame, text, power_word]`. `validate.js` now FAILS a script with no hook or
+  re-hook start for over 10 s before the payoff, a re-hook that does not open on a turn word, or
+  captions that are over 5 words, out of order, outside the scene, not equal to the narration, or
+  without a power word; missing `hook` or `captions` is a WARN for now. Rule 1 opener regex also bans
+  "In this video", "Today we", "Welcome", "Hey guys", "Let's talk", "Have you ever", "Did you know"
+  (`references/ai-tells.md` rule 1 text not yet updated to list them).
+  Persona line cap is now 110-160. Storyboard and engine do not read script `captions` yet.
 - **2026-11-14 prompt 03: Director persona.** `personas/director.md` (146 lines) replaces
   `roles/director.md` (moved, then rewritten): short-form philosophy, the 4-question interview with
   platform-to-ratio table, focused/expanded palette tier rule (entity count decides), seeded variation,
@@ -79,6 +92,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 04 done. Scriptwriter persona, script schema fields, re-hook and caption checks.
 - 2026-11-14: prompt 03 done. Director persona, brief schema fields, tier-aware pick-design.
 - 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview
   (`library/preview.json`, `scripts/preview.js`), `rubrics/ai-tells.md` (28 tells) and the `ai-checker`

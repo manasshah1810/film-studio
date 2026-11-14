@@ -90,7 +90,7 @@ Rules:
 |---|---|---|---|---|---|
 | 1 | Director | this file, plus `references/style-cheatsheet.md` at Q3 | none | brief.json | style folders |
 | 2 | Treasurer | `roles/treasurer.md` | brief.json | budget.json | script, styles |
-| 3 | Writer | `roles/writer.md` | brief.json | script.json | styles, cast |
+| 3 | Writer | `personas/scriptwriter.md` | brief.json | script.json | styles, cast |
 | 4a | Selector | `roles/selector.md` | script.json | needs.json | styles |
 | 4b | Talent Acquisition | `roles/talent-acquisition.md` | needs.json, brief.json | cast.json | script |
 | 5 | Storyboard | `styles/<style>/style.md` | script.json, cast.json | storyboard.json | other styles |
