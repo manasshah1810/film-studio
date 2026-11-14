@@ -3,6 +3,35 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 14: tactical-vector-maps style, status: verified.** Added `styles/tactical-vector-maps/`
+  (`style.md` 120 lines, `design-system.json` 5 focused + 5 expanded multi-faction palettes, 6 font pairings
+  each with a serif stamp face, elevation tiers and route, ping, dial and camera tokens, `recipes.md` with
+  the projected camera, Bezier route splines, radar ping rings and the coordinate grid, `failures.md`) and
+  `components/styles/tactical-vector-maps/Preview.tsx` (fictional map: 4 layered landmasses, a dashed route
+  traced to a strait and cut, a SerifStamp, a reroute, 3 numbered pin beacons with radar pings, a DayDial and
+  a detour odometer, a coordinate pan and zoom camera that ends in an elastic pull-back, zero people).
+  Registered in `components/Root.tsx` as `Preview-tactical-vector-maps` and `PreviewSheet-tactical-vector-maps`
+  (needed to render it). Visual loop: Pass 1 rendered `night-atlas` and `trade-war` (3-beat sheet + frame 176,
+  stills only, `previews/tactical-vector-maps/` at repo root). Critique: the stamp covered the detour route, the
+  cut X sat under the beacon dot and read as a star, the sea channel was narrow so pins crowded, the day
+  counter was caught mid roll, ruler labels crossed the card corner, the coast zig-zagged evenly, the stamp
+  floated with no link to its place. Pass 2: stamp moved above the strait with a leader to pin 2, cut beacon is
+  an X with no dot, channel widened and coast re-authored, detour deepened, day counter rolls in the last 40
+  percent of a day and the sheet ends after it stops, ruler labels kept 60 px inside, land bands made lighter.
+  `check-design.js` and `check-safezones.js` PASS on both palettes, `--systems` PASS, `tsc` clean. All 10
+  palettes: every role is 4.5:1 or better on both `bg` and `surface` (lowest 5.1, iron-curtain highlight).
+  Accent-coloured text (stamp, plate values, detour number) is checked by that table, not by
+  `check-design.js`, which only knows `ink` text roles; the scratch work-dir boxes all use `ink`.
+  Choices where the prompt gave no number: palette ids and colours, the 6 pairings, authoring space 1000 x 800
+  drawn at 0.8, band depths 14 and 34 px, shadow 14 px, shelf 24 px, dash 30 on 18 off, march 1.4 px a frame,
+  3 rings 13 frames apart over 40 frames to 80 px, pin stem 44 and badge 28, stamp -8 degrees from 1.7 scale,
+  24 tick dial, camera zooms 2.0 to 2.4 to 1.5 to 0.85, springs pop 11/190/0.8, stamp 9/220/0.9, elastic 8/70/1,
+  limits in style.md (3 beacons, 1 stamp per event, 1 dial per 35 s). The geography, the 2140 km detour and the
+  place names Alder, Narrows, Kestrel are fictional and the film prints "FICTIONAL MAP" and "ILLUSTRATIVE DATA".
+  Widgets PictureDive, LensRing and OrbitRing are documented, not built; DayDial and SerifStamp are built in
+  the specimen. `check-static.js` not run; expected to fail like the earlier styles (no `kit.tsx`, not in
+  `components/styles/index.ts`, no `style-rules.json` entry). The first render re-downloaded the Chrome
+  Headless Shell (renderer tooling, no image or video generation).
 - **2026-11-14 prompt 13: dark-neon-dataviz style, status: verified.** Added `styles/dark-neon-dataviz/`
   (`style.md` 121 lines, `design-system.json` 5 focused + 5 expanded palettes, 6 tabular-numeral pairings,
   luminance tiers, glow tokens, `recipes.md` with the feGaussianBlur chain and animated area gradient,
@@ -161,6 +190,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 14 done (tactical-vector-maps style, verified).
 - 2026-11-14: prompt 12 done (neo-brutalist-ui style, verified).
 - 2026-11-14: prompt 13 done (dark-neon-dataviz style, verified).
 - 2026-11-14: prompt 11 done (hormozi-kinetic style, verified).

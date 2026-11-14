@@ -1,0 +1,753 @@
+{
+  "style": "tactical-vector-maps",
+  "version": 1,
+  "subject_mode": "ui-first",
+  "subject_note": "Mode C, data first. The map is the subject: landmasses, routes, beacons and a dial. Zero people. No flags, no soldiers, no faces. The geography is fictional unless the script sources a real one.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "elevation_tiers": [
+    {
+      "tier": 0,
+      "name": "sea",
+      "role": "bg",
+      "use": "the ocean, the whole frame"
+    },
+    {
+      "tier": 1,
+      "name": "shelf",
+      "role": "bg to surface 35 percent",
+      "use": "a wide soft band around every coast"
+    },
+    {
+      "tier": 2,
+      "name": "lowland",
+      "role": "surface",
+      "use": "the outer band of a landmass"
+    },
+    {
+      "tier": 3,
+      "name": "highland",
+      "role": "surface plus ink 10 percent",
+      "use": "the middle band"
+    },
+    {
+      "tier": 4,
+      "name": "ridge",
+      "role": "surface plus ink 20 percent",
+      "use": "the core of a landmass"
+    },
+    {
+      "tier": 5,
+      "name": "overlay",
+      "role": "primary, highlight, alert, ink",
+      "use": "routes, beacons, pins, stamps; always above every land tier"
+    }
+  ],
+  "palettes": [
+    {
+      "id": "night-atlas",
+      "tier": "focused",
+      "name": "Night atlas",
+      "mood": "deep navy sea, cyan route, amber beacon",
+      "best_for": [
+        "trade routes",
+        "shipping",
+        "geopolitics",
+        "supply chain"
+      ],
+      "roles": {
+        "bg": "#07111F",
+        "ink": "#E8F0FA",
+        "primary": "#38BDF8",
+        "highlight": "#FBBF24",
+        "surface": "#12243B"
+      }
+    },
+    {
+      "id": "iron-curtain",
+      "tier": "focused",
+      "name": "Iron curtain",
+      "mood": "cold war charcoal, green route, red target",
+      "best_for": [
+        "cold war",
+        "sanctions",
+        "blockades",
+        "espionage"
+      ],
+      "roles": {
+        "bg": "#0D1117",
+        "ink": "#ECEFF3",
+        "primary": "#4ADE80",
+        "highlight": "#FF5A4D",
+        "surface": "#1B242E"
+      }
+    },
+    {
+      "id": "desert-front",
+      "tier": "focused",
+      "name": "Desert front",
+      "mood": "warm dark sand, amber route, coral target",
+      "best_for": [
+        "oil",
+        "energy",
+        "conquest",
+        "caravan history"
+      ],
+      "roles": {
+        "bg": "#15100A",
+        "ink": "#F7EFE0",
+        "primary": "#F59E0B",
+        "highlight": "#FF6B4A",
+        "surface": "#2B2115"
+      }
+    },
+    {
+      "id": "silk-road",
+      "tier": "focused",
+      "name": "Silk road",
+      "mood": "jade sea, mint route, rose beacon",
+      "best_for": [
+        "ancient trade",
+        "silk road",
+        "spice routes",
+        "exploration"
+      ],
+      "roles": {
+        "bg": "#0B1517",
+        "ink": "#EEF4EF",
+        "primary": "#5EEAD4",
+        "highlight": "#F9A8D4",
+        "surface": "#173035"
+      }
+    },
+    {
+      "id": "polar-grid",
+      "tier": "focused",
+      "name": "Polar grid",
+      "mood": "steel blue ocean, ice route, yellow beacon",
+      "best_for": [
+        "arctic routes",
+        "climate",
+        "naval",
+        "weather"
+      ],
+      "roles": {
+        "bg": "#09162A",
+        "ink": "#EAF5FF",
+        "primary": "#93C5FD",
+        "highlight": "#FDE047",
+        "surface": "#14304F"
+      }
+    },
+    {
+      "id": "trade-war",
+      "tier": "expanded",
+      "name": "Trade war",
+      "mood": "two blocs and a third party, tariff lines",
+      "best_for": [
+        "tariffs",
+        "trade war",
+        "export bans",
+        "blocs"
+      ],
+      "roles": {
+        "bg": "#08101C",
+        "ink": "#EAF1FA",
+        "primary": "#38BDF8",
+        "highlight": "#FBBF24",
+        "surface": "#13233A",
+        "faction_a": "#FB7185",
+        "faction_b": "#60A5FA",
+        "faction_c": "#A78BFA",
+        "alert": "#FF5A5F",
+        "muted": "#9FB0C7"
+      }
+    },
+    {
+      "id": "conquest-ledger",
+      "tier": "expanded",
+      "name": "Conquest ledger",
+      "mood": "sepia night, empires in red, gold and green",
+      "best_for": [
+        "historical conquest",
+        "empires",
+        "wars",
+        "borders"
+      ],
+      "roles": {
+        "bg": "#120E0B",
+        "ink": "#F6EEDF",
+        "primary": "#F59E0B",
+        "highlight": "#FDE68A",
+        "surface": "#2A211A",
+        "faction_a": "#F87171",
+        "faction_b": "#FCD34D",
+        "faction_c": "#A3E635",
+        "alert": "#FF6B57",
+        "muted": "#B7A998"
+      }
+    },
+    {
+      "id": "supply-chain",
+      "tier": "expanded",
+      "name": "Supply chain",
+      "mood": "teal sea, one colour per supplier tier",
+      "best_for": [
+        "supply chain",
+        "logistics",
+        "ports",
+        "chips"
+      ],
+      "roles": {
+        "bg": "#081318",
+        "ink": "#E7F6F4",
+        "primary": "#2DD4BF",
+        "highlight": "#FBBF24",
+        "surface": "#112C33",
+        "faction_a": "#38BDF8",
+        "faction_b": "#F472B6",
+        "faction_c": "#A3E635",
+        "alert": "#FF6B6B",
+        "muted": "#8FB3B8"
+      }
+    },
+    {
+      "id": "alliance-grid",
+      "tier": "expanded",
+      "name": "Alliance grid",
+      "mood": "indigo night, alliances in distinct hues",
+      "best_for": [
+        "alliances",
+        "blocs",
+        "treaties",
+        "diplomacy"
+      ],
+      "roles": {
+        "bg": "#0A0F1E",
+        "ink": "#ECEFFB",
+        "primary": "#818CF8",
+        "highlight": "#FDE047",
+        "surface": "#18203A",
+        "faction_a": "#38BDF8",
+        "faction_b": "#FB923C",
+        "faction_c": "#34D399",
+        "alert": "#FF5C7A",
+        "muted": "#9AA5C9"
+      }
+    },
+    {
+      "id": "sea-lanes",
+      "tier": "expanded",
+      "name": "Sea lanes",
+      "mood": "ocean blue, chokepoints and navies",
+      "best_for": [
+        "chokepoints",
+        "naval",
+        "straits",
+        "shipping"
+      ],
+      "roles": {
+        "bg": "#06141F",
+        "ink": "#E6F6FF",
+        "primary": "#67E8F9",
+        "highlight": "#FDBA74",
+        "surface": "#0F2E40",
+        "faction_a": "#4ADE80",
+        "faction_b": "#F472B6",
+        "faction_c": "#C4B5FD",
+        "alert": "#FF7A7A",
+        "muted": "#8FB5C8"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "oswald-inter-playfair",
+      "mood": "newsreel headline, serif stamp",
+      "scale": 1.05,
+      "display": {
+        "family": "Oswald",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Playfair Display",
+        "weight": 800,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "barlow-baskerville",
+      "mood": "field report, typewriter coordinates",
+      "scale": 1.05,
+      "display": {
+        "family": "Barlow Condensed",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Barlow",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Libre Baskerville",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "archivo-fraunces",
+      "mood": "modern atlas, soft serif stamp",
+      "scale": 1,
+      "display": {
+        "family": "Archivo",
+        "weight": 800,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Public Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Fraunces",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "league-oldstandard",
+      "mood": "war room, tall capitals",
+      "scale": 1.1,
+      "display": {
+        "family": "League Gothic",
+        "weight": 400,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Source Sans 3",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Old Standard TT",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Share Tech Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "bigshoulders-sourceserif",
+      "mood": "industrial map, bold numerals",
+      "scale": 1.05,
+      "display": {
+        "family": "Big Shoulders",
+        "weight": 800,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Work Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Roboto Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "saira-cormorant",
+      "mood": "elegant survey, thin stamp",
+      "scale": 1.05,
+      "display": {
+        "family": "Saira Condensed",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Saira",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Cormorant Garamond",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.04,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Martian Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    }
+  ],
+  "numerals": {
+    "tabular": true,
+    "css": "font-variant-numeric: tabular-nums",
+    "rule": "Every number is tabular. Counters sit in fixed width digit columns."
+  },
+  "type_scale": {
+    "hero": 132,
+    "display": 108,
+    "h1": 84,
+    "h2": 64,
+    "body": 44,
+    "label": 34,
+    "stamp": 56
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 28,
+      "border": {
+        "width": 2,
+        "role": "ink",
+        "alpha": 0.18
+      }
+    },
+    "plate": {
+      "radius": 18,
+      "fill": "surface",
+      "border": {
+        "width": 3,
+        "role": "alert"
+      },
+      "note": "Every label sits on an opaque plate. Text never sits on land, a grid line or a route."
+    },
+    "map": {
+      "authoring_space": [
+        1000,
+        800
+      ],
+      "to_px": 0.8,
+      "ruler": {
+        "left": 120,
+        "bottom": 64,
+        "fill": "surface",
+        "label_role": "muted"
+      },
+      "note": "Author landmasses in a 1000 x 800 space and draw at 0.8, so the whole map fits the view at zoom 1."
+    },
+    "land": {
+      "shadow": {
+        "dx": 0,
+        "dy": 14,
+        "role": "bg darkened 55 percent"
+      },
+      "shelf": {
+        "width": 24,
+        "role": "bg to surface 35 percent"
+      },
+      "bands": {
+        "edge_depth": 14,
+        "mid_depth": 34,
+        "note": "Inner bands by clipped stroke: fill the ridge, stroke the highland 2 x 34, stroke the lowland 2 x 14, all clipped to the landmass. Depths scale with zoom."
+      },
+      "coast": {
+        "width": 2,
+        "role": "ink",
+        "alpha": 0.35
+      },
+      "faction_tint": 0.22
+    },
+    "grid": {
+      "spacing": 160,
+      "role": "ink",
+      "alpha": 0.12,
+      "width": 2,
+      "tick": 10,
+      "note": "Spacing in authoring units, a cross tick at each crossing."
+    },
+    "route": {
+      "width": 8,
+      "dash": [
+        30,
+        18
+      ],
+      "march_px_per_frame": 1.4,
+      "ghost": {
+        "dash": [
+          10,
+          14
+        ],
+        "alpha": 0.6,
+        "role": "alert"
+      },
+      "dead_alpha": 0.3,
+      "head_radius": 12,
+      "mask_width": 16
+    },
+    "beacon": {
+      "radius": 12,
+      "ping": {
+        "rings": 3,
+        "period": 40,
+        "stagger": 13,
+        "max_radius": 80,
+        "width": 3,
+        "alpha_curve": 1.5
+      }
+    },
+    "pin": {
+      "stem": 44,
+      "badge_radius": 28,
+      "badge_fill": "highlight",
+      "badge_text": "bg"
+    },
+    "stamp": {
+      "rotate": -8,
+      "border": 4,
+      "from_scale": 1.7,
+      "role": "alert",
+      "font": "accent"
+    },
+    "dial": {
+      "ticks": 24,
+      "ring_radius": 108,
+      "tick_len": 16,
+      "event_len": 28,
+      "progress_width": 8
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 10,
+    "stagger_frames": 6,
+    "min_hold_frames": 6,
+    "camera": "the map camera pans and zooms by coordinate: follow the route head, dwell on a beacon, then an elastic pull-back to the whole map",
+    "easings": {
+      "trace": [
+        0.45,
+        0,
+        0.2,
+        1
+      ],
+      "pan": [
+        0.4,
+        0,
+        0.2,
+        1
+      ],
+      "roll": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "pop": [
+        0.34,
+        1.56,
+        0.64,
+        1
+      ],
+      "fade": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "pop": {
+        "damping": 11,
+        "stiffness": 190,
+        "mass": 0.8
+      },
+      "stamp": {
+        "damping": 9,
+        "stiffness": 220,
+        "mass": 0.9
+      },
+      "elastic": {
+        "damping": 8,
+        "stiffness": 70,
+        "mass": 1
+      }
+    },
+    "pacing": {
+      "note": "A route draws in 36 to 40 frames, the camera dwells 24 to 28 frames on a beacon, and the next route starts after the camera has arrived."
+    }
+  },
+  "composition": {
+    "margin": 8,
+    "align": "left",
+    "anchors": [
+      "title-top",
+      "map-card",
+      "callout-plates-rail",
+      "dial-and-stat-lower"
+    ],
+    "safe": {
+      "x": [
+        8,
+        85
+      ],
+      "y": [
+        8,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "route-trace",
+      "recipe": "A dashed Bezier route is revealed by a mask whose stroke draws on with a real dash length. The dashes march along the route for the rest of the film."
+    },
+    {
+      "name": "radar-ping",
+      "recipe": "Three concentric rings 13 frames apart expand from a beacon to 80 px and fade, on a 40 frame loop."
+    },
+    {
+      "name": "coordinate-pan-zoom",
+      "recipe": "One camera: a centre in map coordinates and a zoom. Every point is projected each frame, so strokes stay crisp and the grid and rulers stay true."
+    },
+    {
+      "name": "elastic-pull-back",
+      "recipe": "After the last route lands, a spring with damping 8 takes the zoom from 1.5 to 0.85 and overshoots to about 0.75 before it settles."
+    },
+    {
+      "name": "serif-stamp",
+      "recipe": "A rotated serif word on an opaque plate thuds in at 1.7 scale on the stamp spring and holds. It marks one event."
+    },
+    {
+      "name": "day-dial",
+      "recipe": "A 24 tick ring with a sweeping progress arc and a rolling day counter. Event ticks are longer and coloured."
+    }
+  ],
+  "widgets": [
+    "PictureDive",
+    "LensRing",
+    "OrbitRing",
+    "DayDial",
+    "SerifStamp"
+  ],
+  "forbidden": [
+    "any person, flag, soldier or face",
+    "text on land, on the grid or on a route",
+    "a label under 4.5:1",
+    "a route or beacon colour under 4.5:1 on the sea",
+    "more than 2 accent colours in one map",
+    "default CSS ease or linear",
+    "a camera that cuts instead of panning",
+    "invented geography presented as real",
+    "real borders drawn without a source"
+  ]
+}
