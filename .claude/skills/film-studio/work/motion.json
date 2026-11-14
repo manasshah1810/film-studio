@@ -1,0 +1,183 @@
+{
+ "fps": 30,
+ "frames": 1350,
+ "max_gap": 105,
+ "ambient": [
+  {
+   "layer": "bg-grid",
+   "motion": "drift",
+   "px_per_frame": 0.3,
+   "frames": [
+    0,
+    1350
+   ]
+  },
+  {
+   "layer": "chart",
+   "motion": "parallax",
+   "px_per_frame": 0.5,
+   "frames": [
+    0,
+    1350
+   ]
+  },
+  {
+   "layer": "headline",
+   "motion": "breathe",
+   "scale": [
+    1,
+    1.02
+   ],
+   "period": 90,
+   "frames": [
+    0,
+    1350
+   ]
+  }
+ ],
+ "resets": [
+  {
+   "frame": 0,
+   "primitive": "spring-overshoot",
+   "phase": "hook",
+   "panel": "s1p1",
+   "note": "headline lands"
+  },
+  {
+   "frame": 45,
+   "primitive": "text-decode",
+   "phase": "hook",
+   "panel": "s1p1",
+   "note": "Charged, not crashed decodes",
+   "target": "h"
+  },
+  {
+   "frame": 75,
+   "primitive": "rgb-split-glitch",
+   "phase": "hook",
+   "panel": "s1p2",
+   "note": "zero hits"
+  },
+  {
+   "frame": 165,
+   "primitive": "whip-pan",
+   "phase": "rising",
+   "panel": "s2p1",
+   "note": "s1 to s2"
+  },
+  {
+   "frame": 249,
+   "primitive": "path-draw-on",
+   "phase": "rising",
+   "panel": "s2p2",
+   "note": "card stack draws in"
+  },
+  {
+   "frame": 345,
+   "primitive": "axis-flip",
+   "phase": "rising",
+   "panel": "s3p1",
+   "note": "s2 to s3"
+  },
+  {
+   "frame": 435,
+   "primitive": "stop-motion-jitter",
+   "phase": "rising",
+   "panel": "s3p2",
+   "note": "recruiting strains"
+  },
+  {
+   "frame": 487,
+   "primitive": "text-decode",
+   "phase": "rising",
+   "panel": "s3p2",
+   "note": "never stops decodes",
+   "target": "h"
+  },
+  {
+   "frame": 540,
+   "primitive": "whip-pan",
+   "phase": "rising",
+   "panel": "s4p1",
+   "note": "s3 to s4"
+  },
+  {
+   "frame": 615,
+   "primitive": "spring-overshoot",
+   "phase": "climax",
+   "panel": "s4p2",
+   "note": "the turn: belief"
+  },
+  {
+   "frame": 667,
+   "primitive": "pull-back-zoom",
+   "phase": "climax",
+   "panel": "s4p2",
+   "note": "coin glow reveal"
+  },
+  {
+   "frame": 720,
+   "primitive": "odometer-roll",
+   "phase": "climax",
+   "panel": "s4p3",
+   "note": "sold it on"
+  },
+  {
+   "frame": 772,
+   "primitive": "path-draw-on",
+   "phase": "climax",
+   "panel": "s4p3",
+   "note": "cursor path"
+  },
+  {
+   "frame": 825,
+   "primitive": "text-decode",
+   "phase": "rising",
+   "panel": "s5p1",
+   "note": "2017",
+   "target": "n"
+  },
+  {
+   "frame": 900,
+   "primitive": "axis-flip",
+   "phase": "rising",
+   "panel": "s5p2",
+   "note": "at large"
+  },
+  {
+   "frame": 990,
+   "primitive": "odometer-roll",
+   "phase": "climax",
+   "panel": "s5p3",
+   "note": "four billion counts up"
+  },
+  {
+   "frame": 1042,
+   "primitive": "rgb-split-glitch",
+   "phase": "climax",
+   "panel": "s5p3",
+   "note": "impact frame"
+  },
+  {
+   "frame": 1095,
+   "primitive": "whip-pan",
+   "phase": "resolution",
+   "panel": "s6p1",
+   "note": "s5 to s6"
+  },
+  {
+   "frame": 1170,
+   "primitive": "spring-overshoot",
+   "phase": "resolution",
+   "panel": "s6p2",
+   "note": "story headline"
+  },
+  {
+   "frame": 1260,
+   "primitive": "path-draw-on",
+   "phase": "resolution",
+   "panel": "s6p3",
+   "note": "zero line returns"
+  }
+ ]
+}

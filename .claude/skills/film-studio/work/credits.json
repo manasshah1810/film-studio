@@ -1,0 +1,34 @@
+{
+ "items": [
+  {
+   "asset_id": "font-space-grotesk",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Space+Grotesk",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-14",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  },
+  {
+   "asset_id": "font-inter",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Inter",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-14",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  },
+  {
+   "asset_id": "font-jetbrains-mono",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/JetBrains+Mono",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-14",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{"scenes":[
+{"id":"s1","effects":[{"panel_id":"s1p2","effect_id":"punch-in","start":0.45,"duration":0.2,"params":{"amount":0.06},"easing":"pop","reason":"Disbelief lands on the word worthless as the dollar-zero appears.","optional":true}]},
+{"id":"s2","effects":[]},
+{"id":"s3","effects":[]},
+{"id":"s4","effects":[{"panel_id":"s4p2","effect_id":"snap-zoom","start":0.55,"duration":0.3,"params":{"amount":0.06},"easing":"pop","reason":"The turn: a tight snap on the word Belief, where the film reveals what was really sold."}]},
+{"id":"s5","effects":[]},
+{"id":"s6","effects":[]}
+]}

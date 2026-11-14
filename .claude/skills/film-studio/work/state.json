@@ -22,10 +22,41 @@
    "output_path": "work/cast.json"
   },
   "art-director": {
-   "status": "running",
+   "status": "flagged",
    "round": 0,
    "output_path": "work/storyboard.json"
+  },
+  "widget-integrator": {
+   "status": "flagged",
+   "round": 0,
+   "output_path": "work/widgets.json"
+  },
+  "motion-choreographer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/motion.json"
+  },
+  "vfx-director": {
+   "status": "flagged",
+   "round": 0,
+   "output_path": "work/vfx-plan.json"
+  },
+  "sound-designer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/audio-cues.json"
+  },
+  "checks": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/reviews/checks.json"
+  },
+  "pass1": {
+   "status": "failed",
+   "round": 0,
+   "output_path": "work/out/pass1.mp4",
+   "note": "render.js: Remotion could not download Chrome Headless Shell (getaddrinfo ENOTFOUND remotion.media)"
   }
  },
- "updated": "2026-11-14T20:26:49.395Z"
+ "updated": "2026-11-14T20:33:46.787Z"
 }

@@ -1,0 +1,166 @@
+{
+ "fps": 30,
+ "frames": 1350,
+ "music": {
+  "bed": "pulse-loop",
+  "open_db": -8,
+  "ducked_db": -18,
+  "cuts": [
+   {
+    "from": 1027,
+    "to": 1042,
+    "frames": 15,
+    "why": "silence drop before the impact frame"
+   }
+  ]
+ },
+ "duck": {
+  "attack_frames": 6,
+  "release_frames": 12,
+  "merge_gaps_under": 15,
+  "voiceover": []
+ },
+ "risers": [],
+ "cues": [
+  {
+   "frame": 0,
+   "sfx": "tactile-pop",
+   "peak": "spring-overshoot, headline lands",
+   "pre_roll": 0,
+   "db": -12
+  },
+  {
+   "frame": 45,
+   "sfx": "digital-tick",
+   "peak": "text-decode, Charged, not crashed decodes",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 75,
+   "sfx": "static-zap",
+   "peak": "rgb-split-glitch, zero hits",
+   "pre_roll": 0,
+   "db": -12
+  },
+  {
+   "frame": 165,
+   "sfx": "fast-whoosh",
+   "peak": "whip-pan, s1 to s2",
+   "pre_roll": 6,
+   "db": -10
+  },
+  {
+   "frame": 249,
+   "sfx": "pen-scratch",
+   "peak": "path-draw-on, card stack draws in",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 345,
+   "sfx": "card-flick",
+   "peak": "axis-flip, s2 to s3",
+   "pre_roll": 3,
+   "db": -12
+  },
+  {
+   "frame": 435,
+   "sfx": "stop-tick",
+   "peak": "stop-motion-jitter, recruiting strains",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 487,
+   "sfx": "digital-tick",
+   "peak": "text-decode, never stops decodes",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 540,
+   "sfx": "fast-whoosh",
+   "peak": "whip-pan, s3 to s4",
+   "pre_roll": 6,
+   "db": -10
+  },
+  {
+   "frame": 615,
+   "sfx": "tactile-pop",
+   "peak": "spring-overshoot, the turn: belief",
+   "pre_roll": 0,
+   "db": -12
+  },
+  {
+   "frame": 667,
+   "sfx": "zoom-swell",
+   "peak": "pull-back-zoom, coin glow reveal",
+   "pre_roll": 9,
+   "db": -12
+  },
+  {
+   "frame": 720,
+   "sfx": "digital-tick",
+   "peak": "odometer-roll, sold it on",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 772,
+   "sfx": "pen-scratch",
+   "peak": "path-draw-on, cursor path",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 825,
+   "sfx": "digital-tick",
+   "peak": "text-decode, 2017",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 900,
+   "sfx": "card-flick",
+   "peak": "axis-flip, at large",
+   "pre_roll": 3,
+   "db": -12
+  },
+  {
+   "frame": 990,
+   "sfx": "digital-tick",
+   "peak": "odometer-roll, four billion counts up",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 1042,
+   "sfx": "sub-bass-hit",
+   "peak": "rgb-split-glitch, impact frame",
+   "pre_roll": 0,
+   "db": -6
+  },
+  {
+   "frame": 1095,
+   "sfx": "fast-whoosh",
+   "peak": "whip-pan, s5 to s6",
+   "pre_roll": 6,
+   "db": -10
+  },
+  {
+   "frame": 1170,
+   "sfx": "tactile-pop",
+   "peak": "spring-overshoot, story headline",
+   "pre_roll": 0,
+   "db": -12
+  },
+  {
+   "frame": 1260,
+   "sfx": "pen-scratch",
+   "peak": "path-draw-on, zero line returns",
+   "pre_roll": 0,
+   "db": -16
+  }
+ ]
+}

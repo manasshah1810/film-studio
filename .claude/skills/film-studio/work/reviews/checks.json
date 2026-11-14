@@ -1,8 +1,9 @@
 {
  "pass": true,
- "stage": "storyboard",
+ "stage": "final",
  "ran": [
   "validate-schema",
+  "validate-schema render-manifest",
   "check-design",
   "check-safezones",
   "check-ai-tells"

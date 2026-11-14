@@ -11,7 +11,7 @@
   },
   "cast": {
    "allowance": 25,
-   "spent": 0
+   "spent": 2
   },
   "storyboard": {
    "allowance": 15,
@@ -32,6 +32,12 @@
    "units": 0,
    "note": "dry-run approved",
    "at": "2026-11-14T18:27:45.035Z"
+  },
+  {
+   "stage": "cast",
+   "units": 2,
+   "note": "2 custom props",
+   "at": "2026-11-14T20:31:39.229Z"
   }
  ]
 }
