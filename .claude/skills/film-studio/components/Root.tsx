@@ -15,6 +15,7 @@ import {Preview as IsoPreview, PreviewSheet as IsoSheet, PREVIEW_FRAMES as ISO_F
 import {Preview as HoloPreview, PreviewSheet as HoloSheet, PREVIEW_FRAMES as HOLO_FRAMES, SHEET_SIZE as HOLO_SHEET} from './styles/holographic-wireframe/Preview';
 import {Preview as PlexPreview, PreviewSheet as PlexSheet, PREVIEW_FRAMES as PLEX_FRAMES, SHEET_SIZE as PLEX_SHEET} from './styles/glowing-plexus/Preview';
 import {Preview as VoxPreview, PreviewSheet as VoxSheet, PREVIEW_FRAMES as VOX_FRAMES, SHEET_SIZE as VOX_SHEET} from './styles/voxel-art/Preview';
+import {Preview as DoodlePreview, PreviewSheet as DoodleSheet, PREVIEW_FRAMES as DOODLE_FRAMES, SHEET_SIZE as DOODLE_SHEET} from './styles/minimalist-doodle/Preview';
 import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_FRAMES, SHEET_SIZE as NEO_SHEET} from './styles/neo-brutalist-ui/Preview';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
@@ -73,6 +74,8 @@ export const Root: React.FC = () => (
 		<Composition id="PreviewSheet-glowing-plexus" component={PlexSheet} durationInFrames={PLEX_FRAMES} fps={30} width={PLEX_SHEET.width} height={PLEX_SHEET.height} defaultProps={{palette: 'deep-mind', pairing: 'sora-manrope-dmmono'}} />
 		<Composition id="Preview-voxel-art" component={VoxPreview} durationInFrames={VOX_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'sunny-isle', pairing: 'lilita-nunito-spacemono'}} />
 		<Composition id="PreviewSheet-voxel-art" component={VoxSheet} durationInFrames={VOX_FRAMES} fps={30} width={VOX_SHEET.width} height={VOX_SHEET.height} defaultProps={{palette: 'sunny-isle', pairing: 'lilita-nunito-spacemono'}} />
+		<Composition id="Preview-minimalist-doodle" component={DoodlePreview} durationInFrames={DOODLE_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'kraft-red', pairing: 'kalam-nunito-courierprime'}} />
+		<Composition id="PreviewSheet-minimalist-doodle" component={DoodleSheet} durationInFrames={DOODLE_FRAMES} fps={30} width={DOODLE_SHEET.width} height={DOODLE_SHEET.height} defaultProps={{palette: 'kraft-red', pairing: 'kalam-nunito-courierprime'}} />
 		<Composition id="Baseline-nokia"component={NokiaBaseline} durationInFrames={1350} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-cats" component={CatsBaseline} durationInFrames={900} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />

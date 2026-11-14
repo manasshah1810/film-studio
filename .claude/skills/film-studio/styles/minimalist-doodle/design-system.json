@@ -1,0 +1,716 @@
+{
+  "style": "minimalist-doodle",
+  "version": 1,
+  "subject_mode": "layered",
+  "subject_note": "Mode B, story actor, or Mode A presenter. An expressive illustrated host built in layers (back hair, torso, neck, head, ear, front hair, face, arms), drawn on in ink and filled with spot marker colour. Never a stick figure, never a real person, never a known cartoon character.",
+  "surface_roles": [
+    "bg",
+    "surface",
+    "highlight"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "doodle": {
+    "note": "Everything is inline SVG on a 1080 x 1920 viewBox, so stroke widths and lengths are real pixels. Ink lines draw on, spot colour fills follow, the ink layer boils on twos.",
+    "board": {
+      "grain_freq": 0.8,
+      "grain_octaves": 3,
+      "grain_alpha": 0.16,
+      "fibre_freq": [
+        0.012,
+        0.9
+      ],
+      "fibre_alpha": 0.08,
+      "vignette": 0.07,
+      "note": "A warm textured board: flat bg, seeded fractal grain in ink at low alpha, long horizontal fibres, a soft edge vignette. Static: the board never boils."
+    },
+    "ink": {
+      "line": 7,
+      "thin": 4.5,
+      "marker": 10,
+      "cap": "round",
+      "join": "round",
+      "note": "One ink colour for every line. Line 7 px for outlines, thin 4.5 px for face details, marker 10 px for markup."
+    },
+    "draw": {
+      "px_per_frame": 45,
+      "min_frames": 4,
+      "max_frames": 16,
+      "overlap_frames": 2,
+      "easing": "draw",
+      "note": "Progressive draw-on: pathLength 1, dasharray 1, dashoffset 1 - t. Duration is length / 45 px, clamped to 4 to 16 frames. Strokes draw in pen order, each starting 2 frames before the last ends."
+    },
+    "boil": {
+      "hold": 2,
+      "seeds": [
+        3,
+        11,
+        23
+      ],
+      "freq": 0.018,
+      "octaves": 2,
+      "scale": 3.5,
+      "note": "2-frame line boil: feTurbulence feeds feDisplacementMap on the ink layer only. The seed holds for 2 frames and cycles through 3 values, so lines shimmer like redrawn animation. Max shift 1.75 px. Text and the board never boil."
+    },
+    "fill": {
+      "pitch": 30,
+      "width": 42,
+      "angle": -35,
+      "offset": [
+        7,
+        5
+      ],
+      "streak": {
+        "width": 5,
+        "mix": 0.2
+      },
+      "frames": 12,
+      "note": "Spot colour marker fill: a zigzag scribble clipped to the shape, drawn on after the outline closes, set 7 px right and 5 px down from the line like a misregistered print. Thin darker streaks give the marker grain."
+    },
+    "markup": {
+      "ellipse_stroke": 9,
+      "ellipse_turn": 1.15,
+      "swipe_frames": 8,
+      "note": "LiveMarkup: a marker ellipse that overshoots its start by 15 percent, a highlighter swipe behind one label, and a hand arrow with a short note."
+    },
+    "spot": {
+      "max_per_frame": 2,
+      "note": "Selective spot colour: primary on the host clothing and one markup, highlight behind one label. Everything else is ink on the board."
+    }
+  },
+  "host": {
+    "note": "One layered illustrated host. Head about 0.36 of the visible height, a strong hair silhouette, readable brows and eyes, a dynamic pose with a bent elbow. Never a stick figure.",
+    "layers": [
+      "back hair (bun)",
+      "torso and sweater fill",
+      "neck",
+      "head fill and outline",
+      "ear",
+      "front hair fill and outline",
+      "brows",
+      "eyes with catch-lights",
+      "nose",
+      "mouth",
+      "pointing arm (upper arm, forearm, hand)"
+    ],
+    "size": {
+      "head_w": 212,
+      "head_h": 240,
+      "neck_to_top": 400,
+      "shoulders": 300
+    },
+    "roles": {
+      "line": "ink",
+      "skin": "skin (surface on focused palettes)",
+      "hair": "hair (ink on focused palettes)",
+      "sweater": "primary",
+      "catch_light": "surface"
+    },
+    "asymmetry": {
+      "brow_raise_px": 9,
+      "brow_tilt_deg": -8,
+      "head_tilt_deg": 4
+    },
+    "states": {
+      "idle": "breathing bob 4 px on twos over 48 frames, a blink every 60 to 90 frames (3 frames)",
+      "react": "brows up 12 px, eyes 1.35 times taller, mouth an O, a 14 px hop on the pop spring, for 14 frames",
+      "act": "the arm swings up to point at the diagram on the point spring, the head tilts toward it, the mouth opens to explain"
+    },
+    "arm": {
+      "upper": 140,
+      "fore": 125,
+      "rest_deg": [
+        78,
+        8
+      ],
+      "point_deg": [
+        -54,
+        -22
+      ]
+    }
+  },
+  "palettes": [
+    {
+      "id": "kraft-red",
+      "tier": "focused",
+      "name": "Kraft red",
+      "mood": "brown kraft board, cream cards, a red marker",
+      "best_for": [
+        "psychology",
+        "habits",
+        "self-improvement"
+      ],
+      "roles": {
+        "bg": "#E8D6B3",
+        "surface": "#FFF9EC",
+        "ink": "#1F1A15",
+        "primary": "#E0412F",
+        "highlight": "#FFD84D"
+      }
+    },
+    {
+      "id": "cream-teal",
+      "tier": "focused",
+      "name": "Cream teal",
+      "mood": "cream paper, a teal marker, a warm yellow highlighter",
+      "best_for": [
+        "wellbeing",
+        "calm explainers",
+        "mindfulness"
+      ],
+      "roles": {
+        "bg": "#F5ECD9",
+        "surface": "#FFFDF5",
+        "ink": "#18262A",
+        "primary": "#16968A",
+        "highlight": "#FFC85A"
+      }
+    },
+    {
+      "id": "butter-cobalt",
+      "tier": "focused",
+      "name": "Butter cobalt",
+      "mood": "butter paper, a cobalt marker, a peach highlighter",
+      "best_for": [
+        "productivity",
+        "learning",
+        "how the mind works"
+      ],
+      "roles": {
+        "bg": "#FAEFC8",
+        "surface": "#FFFDF1",
+        "ink": "#171C33",
+        "primary": "#2D62D8",
+        "highlight": "#FF9F7A"
+      }
+    },
+    {
+      "id": "oat-coral",
+      "tier": "focused",
+      "name": "Oat coral",
+      "mood": "oat board, white cards, a coral marker, a mint highlighter",
+      "best_for": [
+        "relationships",
+        "communication",
+        "social psychology"
+      ],
+      "roles": {
+        "bg": "#EEE4D4",
+        "surface": "#FFFFFF",
+        "ink": "#2A211E",
+        "primary": "#EE5E52",
+        "highlight": "#9FDCCF"
+      }
+    },
+    {
+      "id": "chalk-night",
+      "tier": "focused",
+      "name": "Chalk night",
+      "mood": "a green chalkboard, chalk lines, an orange marker",
+      "best_for": [
+        "night thoughts",
+        "sleep",
+        "reflective stories"
+      ],
+      "roles": {
+        "bg": "#22302A",
+        "surface": "#2E3E37",
+        "ink": "#F3EEE0",
+        "primary": "#FF8A5C",
+        "highlight": "#33627F"
+      }
+    },
+    {
+      "id": "sunday-journal",
+      "tier": "expanded",
+      "name": "Sunday journal",
+      "mood": "a warm journal page, a red pen, a blue second ink",
+      "best_for": [
+        "self-improvement",
+        "journaling",
+        "habits"
+      ],
+      "roles": {
+        "bg": "#F3E7D0",
+        "surface": "#FFFBF1",
+        "ink": "#1D1B18",
+        "primary": "#E5483A",
+        "highlight": "#FFD95C",
+        "secondary": "#3A7BD5",
+        "skin": "#F6D3B5",
+        "hair": "#2B1D16",
+        "rule": "#D9C9AC",
+        "shade": "#E6D6BA"
+      }
+    },
+    {
+      "id": "grain-notebook",
+      "tier": "expanded",
+      "name": "Grain notebook",
+      "mood": "a grainy notebook, a green marker, an orange second ink",
+      "best_for": [
+        "learning science",
+        "study tips",
+        "focus"
+      ],
+      "roles": {
+        "bg": "#ECE3CF",
+        "surface": "#FBF7EC",
+        "ink": "#22201C",
+        "primary": "#2F8F6B",
+        "highlight": "#FFE07A",
+        "secondary": "#E9724C",
+        "skin": "#C98E66",
+        "hair": "#3B2A20",
+        "rule": "#CFC2A6",
+        "shade": "#DCD0B6"
+      }
+    },
+    {
+      "id": "terracotta-studio",
+      "tier": "expanded",
+      "name": "Terracotta studio",
+      "mood": "a peach studio board, terracotta and teal inks",
+      "best_for": [
+        "creativity",
+        "motivation",
+        "confidence"
+      ],
+      "roles": {
+        "bg": "#F1DCC6",
+        "surface": "#FFF6EC",
+        "ink": "#2B1B14",
+        "primary": "#C9502E",
+        "highlight": "#F6C453",
+        "secondary": "#2E7D7A",
+        "skin": "#8D5A3B",
+        "hair": "#1F1410",
+        "rule": "#DCC0A4",
+        "shade": "#E5CDB4"
+      }
+    },
+    {
+      "id": "sage-classroom",
+      "tier": "expanded",
+      "name": "Sage classroom",
+      "mood": "a sage board, an orange marker, a blue second ink",
+      "best_for": [
+        "psychology 101",
+        "biases",
+        "conceptual explainers"
+      ],
+      "roles": {
+        "bg": "#E3E8D5",
+        "surface": "#F9FBF2",
+        "ink": "#1C2420",
+        "primary": "#D9572B",
+        "highlight": "#F7D154",
+        "secondary": "#4C6FB0",
+        "skin": "#F0CDAE",
+        "hair": "#2A2A2A",
+        "rule": "#C8CFB8",
+        "shade": "#D6DCC6"
+      }
+    },
+    {
+      "id": "midnight-sketch",
+      "tier": "expanded",
+      "name": "Midnight sketch",
+      "mood": "a navy board, cream chalk lines, a coral marker, a mint second ink",
+      "best_for": [
+        "anxiety",
+        "sleep",
+        "late night thoughts"
+      ],
+      "roles": {
+        "bg": "#1E2433",
+        "surface": "#2A3245",
+        "ink": "#F2EDE3",
+        "primary": "#FF7A59",
+        "highlight": "#3B5F8F",
+        "secondary": "#7FD1B9",
+        "skin": "#5C3B2E",
+        "hair": "#B9A58A",
+        "rule": "#3A4458",
+        "shade": "#262E40"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "kalam-nunito-courierprime",
+      "mood": "friendly marker hand, round body",
+      "scale": 1,
+      "display": {
+        "family": "Kalam",
+        "weight": 700,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Nunito",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Caveat",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weight": 700,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "patrickhand-figtree-dmmono",
+      "mood": "neat notebook hand",
+      "scale": 1,
+      "display": {
+        "family": "Patrick Hand",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Figtree",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Patrick Hand",
+        "weight": 400,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "gochi-outfit-spacemono",
+      "mood": "bouncy classroom hand",
+      "scale": 1,
+      "display": {
+        "family": "Gochi Hand",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Outfit",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Gochi Hand",
+        "weight": 400,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "caveatbrush-karla-plexmono",
+      "mood": "brush title, quick notes",
+      "scale": 1,
+      "display": {
+        "family": "Caveat Brush",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Karla",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Caveat",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "architects-manrope-jetbrains",
+      "mood": "architect lettering, calm body",
+      "scale": 1,
+      "display": {
+        "family": "Architects Daughter",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Manrope",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Architects Daughter",
+        "weight": 400,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "shantell-sourcesans-redhatmono",
+      "mood": "warm marker, sturdy body",
+      "scale": 1,
+      "display": {
+        "family": "Shantell Sans",
+        "weight": 700,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Source Sans 3",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Shantell Sans",
+        "weight": 500,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 600,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    }
+  ],
+  "numerals": {
+    "variant": "tabular-nums",
+    "note": "Counters and step numbers are fixed-length strings."
+  },
+  "type_scale": {
+    "hero": 120,
+    "display": 104,
+    "h1": 76,
+    "h2": 52,
+    "body": 44,
+    "label": 32
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 22,
+      "pad": 20,
+      "wobble": 4,
+      "border": {
+        "width": 6,
+        "role": "ink"
+      },
+      "fill": "surface",
+      "note": "A hand-drawn card: surface fill, a wobbly 6 px ink outline drawn on, corners about 22 px. No drop shadow, no blur."
+    },
+    "check": {
+      "box": 40,
+      "stroke": 6,
+      "note": "RunningList box in ink, the tick in primary."
+    },
+    "arrow": {
+      "stroke": 6,
+      "head": 26,
+      "head_deg": 28
+    },
+    "kicker": {
+      "role": "ink"
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 10,
+    "stagger_frames": 4,
+    "min_hold_frames": 6,
+    "camera": "locked; the board never moves, ink draws on, cards pop, the host acts",
+    "easings": {
+      "draw": [
+        0.45,
+        0,
+        0.55,
+        1
+      ],
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "snap": [
+        0.5,
+        0,
+        0.1,
+        1
+      ]
+    },
+    "springs": {
+      "pop": {
+        "damping": 10,
+        "stiffness": 190,
+        "mass": 0.6
+      },
+      "point": {
+        "damping": 12,
+        "stiffness": 140,
+        "mass": 0.8
+      }
+    },
+    "stepped": {
+      "on": 2,
+      "note": "Word wipes and pops are sampled on twos to match the 2-frame boil."
+    },
+    "pacing": {
+      "note": "Title 6 to 34, host drawn 10 to 54, cards pop at 46, 72 and 96, arrows 58, 84 and 106, the loop closes at 118 (host reacts), the arm points at 128, markup 130 to 156, list 144 to 176, hold to 180."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "kicker",
+      "title",
+      "diagram",
+      "host",
+      "list"
+    ],
+    "safe": {
+      "x": [
+        9,
+        85
+      ],
+      "y": [
+        6,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "svg-path-draw-on",
+      "recipe": "pathLength 1 and dashoffset 1 - t on the draw easing, in pen order, 45 px a frame."
+    },
+    {
+      "name": "two-frame-line-boil",
+      "recipe": "feTurbulence into feDisplacementMap on the ink layer, seed held 2 frames, 3 seeds, scale 3.5."
+    },
+    {
+      "name": "spring-pop-in",
+      "recipe": "Cards and checks scale 0.6 to 1 on the pop spring (10 / 190 / 0.6), sampled on twos."
+    },
+    {
+      "name": "spot-marker-fill",
+      "recipe": "A clipped zigzag scribble in primary, offset 7, 5 px from the line, drawn on after the outline."
+    }
+  ],
+  "widgets": [
+    "SketchWords",
+    "GreasePencilSheet",
+    "LiveMarkup",
+    "RunningList",
+    "HeadStack"
+  ],
+  "forbidden": [
+    "a stick figure or a circle-head figure",
+    "a real person or a known cartoon character",
+    "more than 2 spot colours in one frame",
+    "gradients or glossy shading on the drawing",
+    "boil on text or on the board",
+    "all strokes appearing at once",
+    "clip-art or stock icons",
+    "a hex colour in a component",
+    "a real logo"
+  ]
+}
