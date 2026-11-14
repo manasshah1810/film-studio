@@ -18,6 +18,7 @@ import {Preview as VoxPreview, PreviewSheet as VoxSheet, PREVIEW_FRAMES as VOX_F
 import {Preview as DoodlePreview, PreviewSheet as DoodleSheet, PREVIEW_FRAMES as DOODLE_FRAMES, SHEET_SIZE as DOODLE_SHEET} from './styles/minimalist-doodle/Preview';
 import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_FRAMES, SHEET_SIZE as NEO_SHEET} from './styles/neo-brutalist-ui/Preview';
 import {SocialSheet, SocialReel, SOCIAL_SHEET_SIZE, SOCIAL_REEL_FRAMES} from './widgets/social/Sheet';
+import {EditorialSheet, EditorialReel, EDITORIAL_SHEET_SIZE, EDITORIAL_REEL_FRAMES} from './widgets/editorial/Sheet';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
 
@@ -82,5 +83,7 @@ export const Root: React.FC = () => (
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />
 		<Composition id="SocialSheet" component={SocialSheet} durationInFrames={1} fps={30} width={SOCIAL_SHEET_SIZE.width} height={SOCIAL_SHEET_SIZE.height} defaultProps={{style: 'neo-brutalist-ui', palette: 'butter-ink', pairing: 'bricolage-dmsans'}} />
 		<Composition id="SocialReel" component={SocialReel} durationInFrames={SOCIAL_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: 'neo-brutalist-ui', palette: 'butter-ink', pairing: 'bricolage-dmsans'}} />
+		<Composition id="EditorialSheet" component={EditorialSheet} durationInFrames={1} fps={30} width={EDITORIAL_SHEET_SIZE.width} height={EDITORIAL_SHEET_SIZE.height} defaultProps={{style: 'archival-grunge', palette: 'newsprint', pairing: 'playfair-specialelite-reenie'}} />
+		<Composition id="EditorialReel" component={EditorialReel} durationInFrames={EDITORIAL_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: 'archival-grunge', palette: 'newsprint', pairing: 'playfair-specialelite-reenie'}} />
 	</>
 );
