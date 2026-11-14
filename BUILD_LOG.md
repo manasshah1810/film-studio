@@ -3,6 +3,25 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 12: neo-brutalist-ui style, status: verified.** Added `styles/neo-brutalist-ui/`
+  (`style.md` 111 lines, `design-system.json` 5 focused + 5 expanded palettes, 6 font pairings, border,
+  offset-shadow and backdrop-blur tokens, `recipes.md`, `failures.md`) and
+  `components/styles/neo-brutalist-ui/Preview.tsx` (tactile creator workspace: gravity-drop window, PromptBar
+  with Keycaps, LiveCursor, 3D axis flip to an NLETimeline, two frosted glass metric cards). Registered in
+  `components/Root.tsx` as `Preview-neo-brutalist-ui` and `PreviewSheet-neo-brutalist-ui` (needed to render it).
+  Visual loop: Pass 1 rendered `butter-ink` and `night-shift` (3-beat sheet each, stills only,
+  `previews/neo-brutalist-ui/` (repo root)). Critique: sub-line collided with the keycaps, timeline touched the card
+  edge, cursor covered the Generate label and a metric chip, "GENERATE" overflowed in the wide accent face.
+  Pass 2: window 33% to 36% tall, glass cards moved down 2 points, cursor aimed at empty corners, button label
+  in the body face. `check-design.js` and `check-safezones.js` PASS on both, `--systems` PASS, `tsc` clean.
+  One render stop: Space Mono has no weight 500, set to 400 in the data and re-rendered once.
+  Choices where the prompt gave no number: palette ids and colours, the 6 pairings, spring values, glass fill
+  alpha 0.74 and saturate 1.4, radius 10/8/6, and `frame_scale` 3 (tokens kept as the prompt's 3 px border,
+  5 px shadow, in design px on a 360 x 640 canvas, so they are 9 px and 15 px on the 1080 frame).
+  PostWall, PromptBar, Keycaps, NLETimeline, LiveCursor are documented in `style.md`; the specimen draws
+  PromptBar, Keycaps, NLETimeline and LiveCursor inline, no shared widget components were added.
+  `check-static.js` is expected to fail for this style the same way as hormozi-kinetic (no `kit.tsx`, not in
+  `components/styles/index.ts`, no `style-rules.json` entry): the prompt did not ask for them.
 - **2026-11-14 prompt 11: hormozi-kinetic style, status: verified.** Added `styles/hormozi-kinetic/`
   (`style.md` 111 lines, `design-system.json` 5 focused + 5 expanded palettes and 6 font pairings,
   `recipes.md`, `failures.md`) and `components/styles/hormozi-kinetic/Preview.tsx`, registered in
@@ -120,6 +139,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 12 done (neo-brutalist-ui style, verified).
 - 2026-11-14: prompt 11 done (hormozi-kinetic style, verified).
 - 2026-11-14: prompt 10 done (QA inspector manual).
 - 2026-11-14: prompt 09 done (sound designer manual).
