@@ -20,6 +20,7 @@ import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_F
 import {SocialSheet, SocialReel, SOCIAL_SHEET_SIZE, SOCIAL_REEL_FRAMES} from './widgets/social/Sheet';
 import {EditorialSheet, EditorialReel, EDITORIAL_SHEET_SIZE, EDITORIAL_REEL_FRAMES} from './widgets/editorial/Sheet';
 import {DataSheet, DataReel, DATA_SHEET_SIZE, DATA_REEL_FRAMES} from './widgets/data/Sheet';
+import {CameraSheet, CameraReel, CAMERA_SHEET_SIZE, CAMERA_REEL_FRAMES} from './widgets/camera/Sheet';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
 
@@ -88,5 +89,7 @@ export const Root: React.FC = () => (
 		<Composition id="EditorialReel" component={EditorialReel} durationInFrames={EDITORIAL_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: 'archival-grunge', palette: 'newsprint', pairing: 'playfair-specialelite-reenie'}} />
 		<Composition id="DataSheet" component={DataSheet} durationInFrames={1} fps={30} width={DATA_SHEET_SIZE.width} height={DATA_SHEET_SIZE.height} defaultProps={{style: 'dark-neon-dataviz', palette: 'obsidian-cyan', pairing: 'grotesk-inter-jb'}} />
 		<Composition id="DataReel" component={DataReel} durationInFrames={DATA_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: 'dark-neon-dataviz', palette: 'obsidian-cyan', pairing: 'grotesk-inter-jb'}} />
+		<Composition id="CameraSheet" component={CameraSheet} durationInFrames={1} fps={30} width={CAMERA_SHEET_SIZE.width} height={CAMERA_SHEET_SIZE.height} defaultProps={{style: '2-5d-parallax-depth', palette: 'dusk-harbour', pairing: 'anton-dmsans-dmserif'}} />
+		<Composition id="CameraReel" component={CameraReel} durationInFrames={CAMERA_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: '2-5d-parallax-depth', palette: 'dusk-harbour', pairing: 'anton-dmsans-dmserif'}} />
 	</>
 );
