@@ -63,6 +63,7 @@ function checkSystem(ds, tag) {
     if (!roles.bg || !roles.ink) err(`${pt}: roles "bg" and "ink" are required`);
     const n = new Set(hexes.map((h) => h.toLowerCase())).size, range = TIERS[p.tier];
     if (!range) err(`${pt}: tier is ${JSON.stringify(p.tier)}. Fix: "focused" (3-5 colours) or "expanded" (8-12 colours).`);
+    else if (p.tier === 'expanded' && ['hero', 'rival', 'environment', 'highlight'].some((r) => !roles[r])) err(`${pt}: an expanded palette must name the roles hero, rival, environment and highlight (missing ${['hero', 'rival', 'environment', 'highlight'].filter((r) => !roles[r]).join(', ')}). Fix: add them; each is one distinct swatch.`);
     else if (n < range[0] || n > range[1]) err(`${pt}: ${n} distinct colours; a ${p.tier} palette has ${range[0]} to ${range[1]}. Fix: ${n < range[0] ? 'add' : 'remove'} ${n < range[0] ? range[0] - n : n - range[1]} or change the tier.`);
     // every text role on every surface role
     for (const [kind, min] of [['body', BODY_MIN], ['display', DISPLAY_MIN]]) for (const t of ds.text_roles?.[kind] ?? []) for (const s of ds.surface_roles ?? []) {

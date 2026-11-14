@@ -1,0 +1,188 @@
+{
+ "scenes": [
+  {
+   "id": "s2",
+   "panels": [
+    {
+     "id": "s2p1",
+     "duration": 2.5,
+     "layout": "title",
+     "composition": "hero-data",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Half the market"
+     },
+     "anchor": "l",
+     "recipe": "market-ring",
+     "energy": "build",
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.4
+      }
+     ],
+     "beats": [
+      {
+       "at": 0.4,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "snap"
+      },
+      {
+       "at": 1.5,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "pop"
+      }
+     ],
+     "captions": [
+      "So when the iPhone arrived,",
+      "Nokia owned about half"
+     ],
+     "boxes": [
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 46
+      },
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Half the market",
+       "x": 48,
+       "y": 26,
+       "w": 37,
+       "h": 20,
+       "px": 120,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Archivo Black",
+       "lines": [
+        "Half the",
+        "market"
+       ]
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Nokia, 2007",
+       "x": 48,
+       "y": 50,
+       "w": 37,
+       "h": 6,
+       "px": 44,
+       "color": "primary",
+       "bg": "bg",
+       "font": "Inter Tight"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 74,
+       "w": 79,
+       "h": 6,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    },
+    {
+     "id": "s2p2",
+     "duration": 2,
+     "layout": "object",
+     "composition": "top-bottom",
+     "asset_ids": [
+      "phone"
+     ],
+     "slots": {
+      "prop": {
+       "id": "phone"
+      }
+     },
+     "anchor": "t",
+     "recipe": "phone-drop",
+     "energy": "peak",
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.2
+      }
+     ],
+     "beats": [
+      {
+       "at": 0.2,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.2,
+       "duration": 0.5,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "of all smartphone sales."
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Nokia led",
+       "x": 6,
+       "y": 8,
+       "w": 70,
+       "h": 18,
+       "px": 120,
+       "color": "alert",
+       "bg": "bg",
+       "font": "Archivo Black",
+       "lines": [
+        "Nokia led"
+       ]
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 44,
+       "w": 79,
+       "h": 24,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 74,
+       "w": 79,
+       "h": 6,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "share-ring",
+       "anchor": "b",
+       "at": 0.3,
+       "easing": "pop"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -93,6 +93,9 @@ run('ai-tells selftest', process.execPath, [path.join(__dirname, 'check-ai-tells
 run('schema examples', process.execPath, [path.join(__dirname, 'validate.js'), '--examples'], SKILL);
 run('director worked brief', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'director-nokia')], SKILL);
 run('casting rig worked asset', process.execPath, [path.join(__dirname, 'validate.js'), 'cast', path.join(__dirname, 'fixtures', 'casting-rig', 'cast.json')], SKILL);
+run('art director worked scene', process.execPath, [path.join(__dirname, 'validate.js'), 'storyboard', path.join(__dirname, 'fixtures', 'art-director-nokia', 'storyboard.json')], SKILL);
+run('art director design lock', process.execPath, [path.join(__dirname, 'check-design.js'), path.join(__dirname, 'fixtures', 'art-director-nokia'), '--ds', path.join(__dirname, 'fixtures', 'art-director-nokia', 'design-system.json')], SKILL);
+run('art director safe zones', process.execPath, [path.join(__dirname, 'check-safezones.js'), path.join(__dirname, 'fixtures', 'art-director-nokia')], SKILL);
 run('scriptwriter worked script', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'scriptwriter-nokia')], SKILL);
 run('scriptwriter worked script tells', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), path.join(__dirname, 'fixtures', 'scriptwriter-nokia'), '--stage', 'script'], SKILL);
 if (!a['no-tsc']) run('type-check', process.execPath, [path.join(COMPONENTS, 'node_modules', 'typescript', 'bin', 'tsc'), '--noEmit', '-p', '.'], COMPONENTS);

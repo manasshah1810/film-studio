@@ -4,7 +4,7 @@ Every later task must follow these rules.
 
 ## 1. Product
 film-studio turns a topic into a video through a crew of roles:
-Director, Writer, Selector, Casting and Rig Designer, Storyboard, Treasurer,
+Director, Writer, Selector, Casting and Rig Designer, Art Director, Treasurer,
 VFX Director, Renderer. Independent reviewers (Producer, Director-review)
 judge taste; the 25 AI tells are checked by `scripts/check-ai-tells.js`, not by a reviewer. Skill lives in `.claude/skills/film-studio/`; subagents in
 `.claude/agents/`.

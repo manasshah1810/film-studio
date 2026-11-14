@@ -146,6 +146,12 @@ const semantic = {
     const minSec = ds ? ds.motion.enter_frames / ds.motion.fps : 0, goodSec = ds ? (ds.motion.enter_frames + ds.motion.min_hold_frames) / ds.motion.fps : 0;
     const ids = new Set();
     let first = true, shown = 0, onStyle = 0;
+    // composition templates (personas/art-director.md): no neighbour repeats, none above 40% of a long film
+    const flat = d.scenes.flatMap((sc) => sc.panels);
+    flat.slice(1).forEach((p, i) => { if (p.composition && p.composition === flat[i].composition) E.push(`panels ${flat[i].id} and ${p.id} both use composition "${p.composition}". Fix: switch ${p.id} to a different template (split-comparison, hero-data, full-bleed-stage, top-bottom, diagonal-divide, card-stack).`); });
+    const withC = flat.filter((p) => p.composition);
+    if (flat.length >= 6 && withC.length < flat.length) W.push(`${flat.length - withC.length} of ${flat.length} panels have no "composition"`);
+    for (const c of new Set(withC.map((p) => p.composition))) { const n = withC.filter((p) => p.composition === c).length; if (withC.length >= 6 && n / withC.length > 0.4) W.push(`composition "${c}" is ${n} of ${withC.length} panels (over 40%). Fix: rotate in another template.`); }
     if (script) for (const s of script.scenes) if (!d.scenes.some((x) => x.id === s.id)) E.push(`scene ${s.id} from the script has no panels`);
     for (const sc of d.scenes) {
       const ss = script?.scenes.find((s) => s.id === sc.id);

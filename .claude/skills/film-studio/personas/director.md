@@ -93,7 +93,7 @@ Rules:
 | 3 | Writer | `personas/scriptwriter.md` | brief.json | script.json | styles, cast |
 | 4a | Selector | `roles/selector.md` | script.json | needs.json | styles |
 | 4b | Casting and Rig Designer | `personas/casting-rig-designer.md` | needs.json, brief.json | cast.json | script |
-| 5 | Storyboard | `styles/<style>/style.md` | script.json, cast.json | storyboard.json | other styles |
+| 5 | Art Director | `personas/art-director.md` + `styles/<style>/style.md` | script.json, cast.json | storyboard.json | other styles |
 | 6 | VFX Director | `roles/vfx-director.md` | storyboard.json, brief.json | vfx-plan.json | script |
 | 8 | Renderer | `roles/renderer.md` | storyboard.json, vfx-plan.json | film.json, out/ | manuals |
 Stage 7 of the pipeline (aicheck) is scripts only and loads nothing. The dispatch line you send is

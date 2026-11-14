@@ -1,0 +1,13 @@
+{
+ "topic": "Nokia lost the phone market in the 2000s despite leading it",
+ "platform": "instagram",
+ "length_bucket": "30-1m",
+ "target_seconds": 45,
+ "style": "fixture-nokia",
+ "voiceover": false,
+ "design": {
+  "palette_id": "midnight-signal",
+  "pairing_id": "grotesk",
+  "seed": "nokia-fall-20261114-1"
+ }
+}

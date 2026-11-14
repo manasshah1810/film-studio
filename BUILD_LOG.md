@@ -3,6 +3,19 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 06: Art Director persona.** `personas/art-director.md` (112 lines) replaces
+  `roles/storyboard.md` (moved, rewritten) as the Storyboard author: closed design-system law,
+  65/25/10 focused vs expanded (hero, rival, environment, highlight) allocation, mobile typography and
+  contrast, 6 composition templates, 8-row works/fails table, worked Nokia scene spec
+  (`scripts/fixtures/art-director-nokia/`: storyboard, design system, brief; static check runs
+  `validate.js storyboard`, `check-design.js`, `check-safezones.js` on it).
+  Stage 5 now reads TWO files: the Art Director manual and the brief's `style.md` (SKILL.md and the
+  Director matrix updated); `style.md` is now only the style's recipes, widgets and motion, not the
+  storyboard manual. Storyboard schema gains panel `composition` (6 ids); `validate.js` fails the same
+  composition on neighbouring panels (across scenes) and warns above 40% share; `check-design.js`
+  requires hero/rival/environment/highlight roles in an expanded palette.
+  NOT machine-checked: the 65/25/10 area split and the "one accent per panel" rule (taste review only).
+  Fixture ds is named `fixture-nokia`; no real style is built yet.
 - **2026-11-14 prompt 05: Casting and Rig Designer persona.** `personas/casting-rig-designer.md`
   (123 lines) replaces `roles/talent-acquisition.md` (moved, then rewritten): Mode A presenter bust,
   Mode B story actor, Mode C ui-first (no characters; the 6 ui-first styles), anatomy and appeal
@@ -50,8 +63,8 @@ Read this first when resuming. Newest state at the top of each section.
   - `node scripts/check-static.js` PASS (runs the selftest too).
   OWED next:
   - Build the 12 styles: `styles/<id>/design-system.json` (shape = the tells-pass fixture),
-    `styles/<id>/style.md` (100-160 lines; it is ALSO the storyboard manual, SKILL.md stage 5 reads
-    only that file), `components/styles/<id>/kit.tsx`, registered in `components/styles/index.ts`.
+    `styles/<id>/style.md` (100-160 lines; recipes, widgets, motion; SKILL.md stage 5 reads it after
+    personas/art-director.md), `components/styles/<id>/kit.tsx`, registered in `components/styles/index.ts`.
   - Engine does not yet draw `boxes`, `beats`, `widgets`, `sfx`, `transition` (new optional storyboard
     fields; the validators read them, `build-film.js` and `Film.tsx` ignore them). The 9 closed
     layouts and the stick rig `components/engine/figure.ts` are still in the engine.
@@ -105,6 +118,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 06 done. Art Director persona, composition field and checks.
 - 2026-11-14: prompt 05 done. Casting and rig designer persona, rig schema and checks.
 - 2026-11-14: prompt 04 done. Scriptwriter persona, script schema fields, re-hook and caption checks.
 - 2026-11-14: prompt 03 done. Director persona, brief schema fields, tier-aware pick-design.
