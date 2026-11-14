@@ -24,17 +24,17 @@
  "cues": [
   {
    "frame": 0,
-   "sfx": "tactile-pop",
-   "peak": "spring-overshoot, headline lands",
-   "pre_roll": 0,
-   "db": -12
-  },
-  {
-   "frame": 45,
    "sfx": "digital-tick",
    "peak": "text-decode, Charged, not crashed decodes",
    "pre_roll": 0,
    "db": -14
+  },
+  {
+   "frame": 45,
+   "sfx": "tactile-pop",
+   "peak": "spring-overshoot, coin lands",
+   "pre_roll": 0,
+   "db": -12
   },
   {
    "frame": 75,

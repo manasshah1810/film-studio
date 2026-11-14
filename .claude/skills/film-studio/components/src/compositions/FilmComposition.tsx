@@ -302,7 +302,9 @@ export const FilmComposition: React.FC<RenderManifest> = (m) => {
 	};
 	const segs = m.audio.voiceover?.segments ?? [];
 	const talking = (f: number) => (segs.length ? segs.some(([a, b]) => f >= a && f <= b) : !!captionAt(m.captions, f));
-	const drift = zeroDeadVelocityDrift(frame, {start: 0, end: m.meta.frames, seed: m.design.seed});
+	// Drift restarts on every panel: one pan across the whole film accumulates 400+ px at the library's minimum speed and pushes content off the frame.
+	const dp = m.panels.find((q) => frame >= q.from && frame < q.from + q.frames) ?? m.panels[0];
+	const drift = zeroDeadVelocityDrift(frame - dp.from, {start: 0, end: Math.max(2, dp.frames), seed: `${m.design.seed}-${dp.id}`});
 	const sf = m.meta.safe;
 	const ctx = {
 		design: {style: m.design.style, palette: {id: m.design.palette_id, roles: d.roles}, fonts: d.pairing, seed: m.design.seed, system: d.ds} as unknown as Design,

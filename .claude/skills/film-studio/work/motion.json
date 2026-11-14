@@ -38,18 +38,18 @@
  "resets": [
   {
    "frame": 0,
-   "primitive": "spring-overshoot",
-   "phase": "hook",
-   "panel": "s1p1",
-   "note": "headline lands"
-  },
-  {
-   "frame": 45,
    "primitive": "text-decode",
    "phase": "hook",
    "panel": "s1p1",
    "note": "Charged, not crashed decodes",
    "target": "h"
+  },
+  {
+   "frame": 45,
+   "primitive": "spring-overshoot",
+   "phase": "hook",
+   "panel": "s1p1",
+   "note": "coin lands"
   },
   {
    "frame": 75,

@@ -155,26 +155,12 @@
      "font": "display"
     },
     {
-     "id": "chart",
-     "kind": "card",
+     "id": "hero",
+     "kind": "subject",
      "x": 6,
      "y": 30,
      "w": 79,
-     "h": 30
-    },
-    {
-     "id": "il",
-     "kind": "text",
-     "x": 6,
-     "y": 62,
-     "w": 79,
-     "h": 5,
-     "role": "body",
-     "text": "Illustrative data",
-     "px": 44,
-     "color": "ink",
-     "bg": "bg",
-     "font": "body"
+     "h": 34
     },
     {
      "id": "cap",
@@ -190,20 +176,31 @@
      "font": "body"
     }
    ],
-   "cast": [],
+   "cast": [
+    {
+     "id": "coin",
+     "box": {
+      "x": 6,
+      "y": 30,
+      "w": 79,
+      "h": 34
+     },
+     "from": 0
+    }
+   ],
    "widgets": [],
    "motion": [
     {
-     "primitive": "spring-overshoot",
+     "primitive": "text-decode",
      "frame": 0,
      "target": "h",
-     "note": "headline lands"
+     "note": "Charged, not crashed decodes"
     },
     {
-     "primitive": "text-decode",
+     "primitive": "spring-overshoot",
      "frame": 45,
      "target": "h",
-     "note": "Charged, not crashed decodes"
+     "note": "coin lands"
     }
    ],
    "beats": [
@@ -1241,8 +1238,8 @@
      "font": "body"
     },
     {
-     "id": "w",
-     "kind": "widget",
+     "id": "hero",
+     "kind": "subject",
      "x": 6,
      "y": 44,
      "w": 79,
@@ -1262,34 +1259,19 @@
      "font": "body"
     }
    ],
-   "cast": [],
-   "widgets": [
+   "cast": [
     {
-     "id": "banknote",
-     "anchor": "b",
-     "from": 1008,
-     "frames": 87,
+     "id": "cash",
      "box": {
       "x": 6,
       "y": 44,
       "w": 79,
       "h": 22
      },
-     "props": {
-      "from": 0,
-      "to": 4,
-      "symbol": "$",
-      "dec": 0,
-      "label": "billion invested",
-      "years": [
-       "Start",
-       "Now"
-      ],
-      "caption": "Invested worldwide, per DOJ",
-      "seed": "onecoin-banknote"
-     }
+     "from": 990
     }
    ],
+   "widgets": [],
    "motion": [
     {
      "primitive": "odometer-roll",
@@ -1510,12 +1492,20 @@
      "font": "display"
     },
     {
-     "id": "chart",
-     "kind": "card",
+     "id": "hero",
+     "kind": "subject",
      "x": 40,
      "y": 46,
      "w": 45,
-     "h": 20
+     "h": 22
+    },
+    {
+     "id": "w",
+     "kind": "widget",
+     "x": 6,
+     "y": 40,
+     "w": 30,
+     "h": 26
     },
     {
      "id": "cap",
@@ -1531,8 +1521,37 @@
      "font": "body"
     }
    ],
-   "cast": [],
-   "widgets": [],
+   "cast": [
+    {
+     "id": "coin",
+     "box": {
+      "x": 40,
+      "y": 46,
+      "w": 45,
+      "h": 22
+     },
+     "from": 1260
+    }
+   ],
+   "widgets": [
+    {
+     "id": "rack-focus",
+     "anchor": "b",
+     "from": 1278,
+     "frames": 72,
+     "box": {
+      "x": 6,
+      "y": 40,
+      "w": 30,
+      "h": 26
+     },
+     "props": {
+      "label": "Belief was the price",
+      "near": "Coin",
+      "far": "Belief"
+     }
+    }
+   ],
    "motion": [
     {
      "primitive": "path-draw-on",
@@ -1736,13 +1755,13 @@
  "audio": {
   "sfx": [
    {
-    "id": "tactile-pop",
+    "id": "digital-tick",
     "frame": 0,
     "peak_frame": 0,
     "pre_roll": 0,
-    "db": -12,
+    "db": -14,
     "sync": "cut:s1p1",
-    "file": null
+    "file": "audio/sfx/digital-tick.wav"
    },
    {
     "id": "thud",
@@ -1751,16 +1770,16 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s1p1#0",
-    "file": null
+    "file": "audio/sfx/thud.wav"
    },
    {
-    "id": "digital-tick",
+    "id": "tactile-pop",
     "frame": 45,
     "peak_frame": 45,
     "pre_roll": 0,
-    "db": -14,
+    "db": -12,
     "sync": "motion:s1p1#1",
-    "file": null
+    "file": "audio/sfx/tactile-pop.wav"
    },
    {
     "id": "static-zap",
@@ -1769,7 +1788,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "cut:s1p2",
-    "file": null
+    "file": "audio/sfx/static-zap.wav"
    },
    {
     "id": "snap",
@@ -1778,7 +1797,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s1p2#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    },
    {
     "id": "fast-whoosh",
@@ -1787,7 +1806,7 @@
     "pre_roll": 6,
     "db": -10,
     "sync": "cut:s2p1",
-    "file": null
+    "file": "audio/sfx/fast-whoosh.wav"
    },
    {
     "id": "click-soft",
@@ -1796,7 +1815,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s2p1#0",
-    "file": null
+    "file": "audio/sfx/click-soft.wav"
    },
    {
     "id": "pen-scratch",
@@ -1805,7 +1824,7 @@
     "pre_roll": 0,
     "db": -16,
     "sync": "cut:s2p2",
-    "file": null
+    "file": "audio/sfx/pen-scratch.wav"
    },
    {
     "id": "soft-chime",
@@ -1814,7 +1833,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s2p2#0",
-    "file": null
+    "file": "audio/sfx/soft-chime.wav"
    },
    {
     "id": "card-flick",
@@ -1823,7 +1842,7 @@
     "pre_roll": 3,
     "db": -12,
     "sync": "cut:s3p1",
-    "file": null
+    "file": "audio/sfx/card-flick.wav"
    },
    {
     "id": "snap",
@@ -1832,7 +1851,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s3p1#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    },
    {
     "id": "stop-tick",
@@ -1841,7 +1860,7 @@
     "pre_roll": 0,
     "db": -16,
     "sync": "cut:s3p2",
-    "file": null
+    "file": "audio/sfx/stop-tick.wav"
    },
    {
     "id": "thud",
@@ -1850,7 +1869,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s3p2#0",
-    "file": null
+    "file": "audio/sfx/thud.wav"
    },
    {
     "id": "digital-tick",
@@ -1859,7 +1878,7 @@
     "pre_roll": 0,
     "db": -14,
     "sync": "motion:s3p2#1",
-    "file": null
+    "file": "audio/sfx/digital-tick.wav"
    },
    {
     "id": "fast-whoosh",
@@ -1868,7 +1887,7 @@
     "pre_roll": 6,
     "db": -10,
     "sync": "cut:s4p1",
-    "file": null
+    "file": "audio/sfx/fast-whoosh.wav"
    },
    {
     "id": "thud",
@@ -1877,7 +1896,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s4p1#0",
-    "file": null
+    "file": "audio/sfx/thud.wav"
    },
    {
     "id": "tactile-pop",
@@ -1886,7 +1905,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "cut:s4p2",
-    "file": null
+    "file": "audio/sfx/tactile-pop.wav"
    },
    {
     "id": "snap",
@@ -1895,7 +1914,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s4p2#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    },
    {
     "id": "zoom-swell",
@@ -1904,7 +1923,7 @@
     "pre_roll": 9,
     "db": -12,
     "sync": "motion:s4p2#1",
-    "file": null
+    "file": "audio/sfx/zoom-swell.wav"
    },
    {
     "id": "digital-tick",
@@ -1913,7 +1932,7 @@
     "pre_roll": 0,
     "db": -14,
     "sync": "cut:s4p3",
-    "file": null
+    "file": "audio/sfx/digital-tick.wav"
    },
    {
     "id": "soft-chime",
@@ -1922,7 +1941,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s4p3#0",
-    "file": null
+    "file": "audio/sfx/soft-chime.wav"
    },
    {
     "id": "pen-scratch",
@@ -1931,7 +1950,7 @@
     "pre_roll": 0,
     "db": -16,
     "sync": "motion:s4p3#1",
-    "file": null
+    "file": "audio/sfx/pen-scratch.wav"
    },
    {
     "id": "digital-tick",
@@ -1940,7 +1959,7 @@
     "pre_roll": 0,
     "db": -14,
     "sync": "cut:s5p1",
-    "file": null
+    "file": "audio/sfx/digital-tick.wav"
    },
    {
     "id": "thud",
@@ -1949,7 +1968,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s5p1#0",
-    "file": null
+    "file": "audio/sfx/thud.wav"
    },
    {
     "id": "card-flick",
@@ -1958,7 +1977,7 @@
     "pre_roll": 3,
     "db": -12,
     "sync": "cut:s5p2",
-    "file": null
+    "file": "audio/sfx/card-flick.wav"
    },
    {
     "id": "snap",
@@ -1967,7 +1986,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s5p2#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    },
    {
     "id": "digital-tick",
@@ -1976,7 +1995,7 @@
     "pre_roll": 0,
     "db": -14,
     "sync": "cut:s5p3",
-    "file": null
+    "file": "audio/sfx/digital-tick.wav"
    },
    {
     "id": "thud",
@@ -1985,7 +2004,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s5p3#0",
-    "file": null
+    "file": "audio/sfx/thud.wav"
    },
    {
     "id": "sub-bass-hit",
@@ -1994,7 +2013,7 @@
     "pre_roll": 0,
     "db": -6,
     "sync": "motion:s5p3#1",
-    "file": null
+    "file": "audio/sfx/sub-bass-hit.wav"
    },
    {
     "id": "fast-whoosh",
@@ -2003,7 +2022,7 @@
     "pre_roll": 6,
     "db": -10,
     "sync": "cut:s6p1",
-    "file": null
+    "file": "audio/sfx/fast-whoosh.wav"
    },
    {
     "id": "snap",
@@ -2012,7 +2031,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s6p1#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    },
    {
     "id": "tactile-pop",
@@ -2021,7 +2040,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "cut:s6p2",
-    "file": null
+    "file": "audio/sfx/tactile-pop.wav"
    },
    {
     "id": "soft-chime",
@@ -2030,7 +2049,7 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s6p2#0",
-    "file": null
+    "file": "audio/sfx/soft-chime.wav"
    },
    {
     "id": "pen-scratch",
@@ -2039,7 +2058,7 @@
     "pre_roll": 0,
     "db": -16,
     "sync": "cut:s6p3",
-    "file": null
+    "file": "audio/sfx/pen-scratch.wav"
    },
    {
     "id": "snap",
@@ -2048,11 +2067,24 @@
     "pre_roll": 0,
     "db": -12,
     "sync": "beat:s6p3#0",
-    "file": null
+    "file": "audio/sfx/snap.wav"
    }
   ],
   "voiceover": null,
-  "music": null
+  "music": {
+   "file": "audio/music/pulse-loop.wav",
+   "open_db": -8,
+   "ducked_db": -18,
+   "attack_frames": 6,
+   "release_frames": 12,
+   "merge_gaps_under": 15,
+   "cuts": [
+    {
+     "from": 1027,
+     "to": 1042
+    }
+   ]
+  }
  },
  "showSafeZones": false
 }
