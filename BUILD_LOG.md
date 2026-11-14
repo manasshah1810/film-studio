@@ -3,6 +3,19 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 05: Casting and Rig Designer persona.** `personas/casting-rig-designer.md`
+  (123 lines) replaces `roles/talent-acquisition.md` (moved, then rewritten): Mode A presenter bust,
+  Mode B story actor, Mode C ui-first (no characters; the 6 ui-first styles), anatomy and appeal
+  bans, seeded asset ledger, 8-row works/fails table, worked presenter asset
+  (`scripts/fixtures/casting-rig/cast.json`, validated by the static check).
+  Cast schema gains character `mode` (presenter|actor), `seed`, `variant_of`, `rig`. `validate.js`
+  cast check now fails: duplicate or missing seed, bad `variant_of`, no shadow or head layer, raw
+  `line` in a limb layer, head with under 3 shapes, and for presenters: hair-back/hair-front,
+  3 eye states and blink range, 2 brow joints and 3 states, 5 visemes, arm joints, shadow opacity.
+  Note: the cheatsheet lists hormozi-kinetic and neo-brutalist-ui as ui-first, so they are Mode C
+  (no host) even though the prompt named only 4 styles for Mode C. Change the cheatsheet if a host is wanted there.
+  Props and media rules moved into the same file. Engine still draws old figures; it does not read
+  `layers`, `rig` or `seed` yet.
 - **2026-11-14 prompt 04: Scriptwriter persona.** `personas/scriptwriter.md` (144 lines) replaces
   `roles/writer.md` (moved, then rewritten): retention mechanics, 3 hook formulas with bad/good
   rewrites, But/Therefore chaining, caption and cadence rules, [VERIFY] rules, 10-row works/fails
@@ -92,6 +105,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 05 done. Casting and rig designer persona, rig schema and checks.
 - 2026-11-14: prompt 04 done. Scriptwriter persona, script schema fields, re-hook and caption checks.
 - 2026-11-14: prompt 03 done. Director persona, brief schema fields, tier-aware pick-design.
 - 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview

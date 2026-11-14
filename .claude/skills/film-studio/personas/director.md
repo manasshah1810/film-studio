@@ -92,7 +92,7 @@ Rules:
 | 2 | Treasurer | `roles/treasurer.md` | brief.json | budget.json | script, styles |
 | 3 | Writer | `personas/scriptwriter.md` | brief.json | script.json | styles, cast |
 | 4a | Selector | `roles/selector.md` | script.json | needs.json | styles |
-| 4b | Talent Acquisition | `roles/talent-acquisition.md` | needs.json, brief.json | cast.json | script |
+| 4b | Casting and Rig Designer | `personas/casting-rig-designer.md` | needs.json, brief.json | cast.json | script |
 | 5 | Storyboard | `styles/<style>/style.md` | script.json, cast.json | storyboard.json | other styles |
 | 6 | VFX Director | `roles/vfx-director.md` | storyboard.json, brief.json | vfx-plan.json | script |
 | 8 | Renderer | `roles/renderer.md` | storyboard.json, vfx-plan.json | film.json, out/ | manuals |

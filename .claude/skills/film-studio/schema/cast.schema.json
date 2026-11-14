@@ -121,6 +121,112 @@
            },
            "additionalProperties": false
           }
+         },
+         "mode": {
+          "enum": [
+           "presenter",
+           "actor"
+          ],
+          "description": "Mode A (presenter bust) or Mode B (story actor). Mode C has no characters."
+         },
+         "seed": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*-[0-9a-f]{4}$",
+          "description": "Deterministic identity, <role>-<style>-<4 hex>. Unique in the film, never edited."
+         },
+         "variant_of": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Id of the asset this look is a variant of."
+         },
+         "rig": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "eyes": {
+            "type": "object",
+            "properties": {
+             "states": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             },
+             "blink_every": {
+              "type": "array",
+              "items": {
+               "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+             }
+            }
+           },
+           "brows": {
+            "type": "object",
+            "properties": {
+             "joints": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             },
+             "states": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             }
+            }
+           },
+           "mouth": {
+            "type": "object",
+            "properties": {
+             "visemes": {
+              "type": "array",
+              "items": {
+               "enum": [
+                "MBP",
+                "AA",
+                "OH",
+                "EE",
+                "FV"
+               ]
+              }
+             }
+            }
+           },
+           "arms": {
+            "type": "object",
+            "properties": {
+             "upper": {
+              "type": "string"
+             },
+             "fore": {
+              "type": "string"
+             },
+             "hand": {
+              "type": "string"
+             }
+            }
+           },
+           "shadow": {
+            "type": "object",
+            "properties": {
+             "kind": {
+              "type": "string"
+             },
+             "role": {
+              "type": "string"
+             },
+             "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+             }
+            }
+           }
+          }
          }
         },
         "additionalProperties": false

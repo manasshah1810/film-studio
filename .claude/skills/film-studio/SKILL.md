@@ -1,6 +1,6 @@
 ---
 name: film-studio
-description: Turn a topic into an art-directed 9:16 short video (Remotion, code-drawn, no paid generation APIs). Use when the user asks to make a video, reel, short, explainer or animation about a topic. Runs a crew (Director, Treasurer, Writer, Selector, Talent Acquisition, Storyboard, VFX Director, Renderer) with zero-token validator scripts and independent reviewers.
+description: Turn a topic into an art-directed 9:16 short video (Remotion, code-drawn, no paid generation APIs). Use when the user asks to make a video, reel, short, explainer or animation about a topic. Runs a crew (Director, Treasurer, Writer, Selector, Casting and Rig Designer, Storyboard, VFX Director, Renderer) with zero-token validator scripts and independent reviewers.
 ---
 # film-studio
 
@@ -34,7 +34,7 @@ Ask nothing else. Decide the rest yourself and say what you decided in one line.
 | 1 | brief | `personas/director.md` | `work/brief.json` | `validate.js --work work` |
 | 2 | budget | `roles/treasurer.md` | `work/budget.json` | `ledger.js estimate work`, then the user says yes |
 | 3 | script | `personas/scriptwriter.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
-| 4 | cast | `roles/selector.md`, and when it is done `roles/talent-acquisition.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
+| 4 | cast | `roles/selector.md`, and when it is done `personas/casting-rig-designer.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
 | 5 | storyboard | `styles/<style>/style.md` | `work/storyboard.json` | `validate.js --work work`; `check-ai-tells.js work --stage storyboard` |
 | 6 | vfx | `roles/vfx-director.md` | `work/vfx-plan.json` | `validate.js --work work`; `check-ai-tells.js work` |
 | 7 | aicheck | nothing | `work/reviews/aicheck.json` (the script writes it) | `check-ai-tells.js work --out work/reviews/aicheck.json`; `check-design.js work`; `check-safezones.js work` |
