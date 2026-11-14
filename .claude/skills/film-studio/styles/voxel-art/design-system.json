@@ -1,0 +1,766 @@
+{
+  "style": "voxel-art",
+  "version": 1,
+  "subject_mode": "layered",
+  "subject_note": "Mode B, story actor (Mode A presenter also allowed). Expressive voxel characters built from cubes on a half-voxel grid, standing in a cube diorama. Never a flat 2D figure, never a stick figure, never an existing game character or a real person.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "voxel": {
+    "note": "Everything is a cube on one grid, drawn with InstancedMesh in @remotion/three through a true isometric orthographic camera. Faces are unlit: each face takes one of three exact shades from its world normal.",
+    "camera": {
+      "type": "orthographic",
+      "position": [
+        20,
+        20,
+        20
+      ],
+      "pitch_deg": 35.264,
+      "yaw_deg": 45,
+      "zoom_px_per_unit": 78,
+      "near": 0.1,
+      "far": 100,
+      "centre_px": {
+        "x": 540,
+        "y": 960
+      }
+    },
+    "grid": {
+      "unit": 1,
+      "hero_unit": 0.25,
+      "note": "World blocks are 1 unit. Characters are built from 0.25 unit cubes (a quarter grid), and their feet land on whole-unit tops. Nothing sits off the grid at rest."
+    },
+    "shade": {
+      "top": 1,
+      "left": 0.8,
+      "right": 0.62,
+      "bottom": 0.5,
+      "note": "Three-shade cube lighting: the light comes from the upper left, so top faces are the palette colour, left faces 0.8 of it and right faces 0.62. Picked from the world normal, so a turned cube keeps the right shade."
+    },
+    "ao": {
+      "steps": [
+        1,
+        0.9,
+        0.82,
+        0.76
+      ],
+      "depth_steps": [
+        1,
+        0.88,
+        0.78,
+        0.7
+      ],
+      "note": "Stepped ambient shadows: a block darkens one step for each occupied cell beside it one layer up (at most 3). Underside layers darken one step per layer down. No smooth falloff."
+    },
+    "cast": {
+      "march": [
+        -1,
+        1,
+        1
+      ],
+      "max_steps": 6,
+      "factor": 0.8,
+      "note": "Grid-marched cast shadows: from each top block, step toward the light one cell at a time; any block on the way puts it in shadow at 0.8. Hard-edged, cell sized."
+    },
+    "grain": {
+      "levels": [
+        0.96,
+        1,
+        1.04
+      ],
+      "note": "Seeded per-block tint in 3 steps, so a flat run of same-colour blocks still shows the grid."
+    },
+    "island": {
+      "size": 8,
+      "underside_layers": 4,
+      "corner_cut": true,
+      "note": "An 8 x 8 floating island: grass top, earth below, each lower layer inset by one cell. Tall things on the back rows."
+    },
+    "drop": {
+      "height": 6,
+      "fall_frames": 8,
+      "spread": [
+        2,
+        42
+      ],
+      "squash": 0.78,
+      "note": "Gravity drop: a block falls 6 units in 8 frames with constant acceleration (y = h * (1 - t ^ 2)), then squashes for 2 frames. Order: lowest layer first, centre out, seeded jitter."
+    },
+    "hero_shadow": {
+      "factor": 0.8,
+      "sizes": [
+        1,
+        0.75,
+        0.5
+      ],
+      "note": "The hero casts an opaque patch in the cast-shadow shade of the ground, shrinking in 3 steps as it rises."
+    },
+    "impact": {
+      "frames": 2,
+      "silhouette": {
+        "sky": "highlight",
+        "rays": "surface",
+        "world": "ink",
+        "hero": "surface"
+      },
+      "shake_px": [
+        10,
+        -8,
+        5,
+        0
+      ],
+      "rays": 14,
+      "max_per_10s": 2
+    },
+    "flip": {
+      "hop": 2.5,
+      "frames": 16,
+      "turn_deg": 360,
+      "axis": "x"
+    },
+    "float": {
+      "amp": 0.12,
+      "period": 72,
+      "note": "The island bobs on twos, in steps of 1/32 unit."
+    }
+  },
+  "hero": {
+    "note": "One expressive voxel character. Head about a third of the height, a clear silhouette, one asymmetry (a raised brow), one accessory (a cap with a brim and a scarf).",
+    "build": {
+      "legs": [
+        2,
+        3,
+        2
+      ],
+      "torso": [
+        5,
+        3,
+        3
+      ],
+      "arms": [
+        1,
+        3,
+        2
+      ],
+      "head": [
+        6,
+        4,
+        5
+      ],
+      "cap": [
+        6,
+        1,
+        5
+      ],
+      "brim": [
+        6,
+        1,
+        2
+      ],
+      "units": "hero cells (0.25 unit), width x height x depth"
+    },
+    "roles": {
+      "suit": "highlight",
+      "face": "surface",
+      "eyes": "ink",
+      "cap": "ink",
+      "scarf": "primary",
+      "boots": "ink"
+    },
+    "states": {
+      "idle": "bob 1/8 unit every 10 frames, blink every 60 to 90 frames",
+      "react": "land: squash then stepped spring back, eyes wide, mouth open",
+      "act": "wave: one arm up, swinging 20 degrees on twos"
+    }
+  },
+  "palettes": [
+    {
+      "id": "lagoon-day",
+      "tier": "focused",
+      "name": "Lagoon day",
+      "mood": "sky blue, grass green, an orange hero",
+      "best_for": [
+        "kids explainers",
+        "how things work",
+        "friendly intros"
+      ],
+      "roles": {
+        "bg": "#9EDCFF",
+        "surface": "#FFFFFF",
+        "ink": "#12213B",
+        "primary": "#4CCB5A",
+        "highlight": "#FF7A3D"
+      }
+    },
+    {
+      "id": "candy-pop",
+      "tier": "focused",
+      "name": "Candy pop",
+      "mood": "pink sky, mint grass, a blue hero",
+      "best_for": [
+        "pop culture",
+        "toys",
+        "fun facts"
+      ],
+      "roles": {
+        "bg": "#FFD3E8",
+        "surface": "#FFFFFF",
+        "ink": "#2A1240",
+        "primary": "#5FD08A",
+        "highlight": "#3D7BFF"
+      }
+    },
+    {
+      "id": "desert-quest",
+      "tier": "focused",
+      "name": "Desert quest",
+      "mood": "apricot sky, sand ground, a teal hero",
+      "best_for": [
+        "history",
+        "ancient worlds",
+        "treasure hunts"
+      ],
+      "roles": {
+        "bg": "#FFE3B0",
+        "surface": "#FFF8EC",
+        "ink": "#3A1E0E",
+        "primary": "#E9A23B",
+        "highlight": "#1FA6A0"
+      }
+    },
+    {
+      "id": "mint-arcade",
+      "tier": "focused",
+      "name": "Mint arcade",
+      "mood": "mint sky, green ground, a yellow hero",
+      "best_for": [
+        "gaming history",
+        "arcades",
+        "speedruns"
+      ],
+      "roles": {
+        "bg": "#C9F5E4",
+        "surface": "#FFFFFF",
+        "ink": "#0F2E2A",
+        "primary": "#38B26B",
+        "highlight": "#FFC93C"
+      }
+    },
+    {
+      "id": "night-camp",
+      "tier": "focused",
+      "name": "Night camp",
+      "mood": "indigo night, green ground, an amber hero",
+      "best_for": [
+        "bedtime stories",
+        "mysteries",
+        "space camp"
+      ],
+      "roles": {
+        "bg": "#141A3A",
+        "surface": "#232B5C",
+        "ink": "#F4F1FF",
+        "primary": "#3FB57A",
+        "highlight": "#FFB547"
+      }
+    },
+    {
+      "id": "sunny-isle",
+      "tier": "expanded",
+      "name": "Sunny isle",
+      "mood": "a bright summer island: green grass, red roofs, an orange hero",
+      "best_for": [
+        "playful explainers",
+        "origin stories",
+        "kids"
+      ],
+      "roles": {
+        "bg": "#8FD6FF",
+        "surface": "#FFFFFF",
+        "ink": "#14203A",
+        "primary": "#5ACB4F",
+        "highlight": "#FF6B3D",
+        "secondary": "#E8434F",
+        "earth": "#A8693A",
+        "stone": "#A9B4C2",
+        "wood": "#7A4A2A",
+        "leaf": "#2E9E4F"
+      }
+    },
+    {
+      "id": "sunset-arcade",
+      "tier": "expanded",
+      "name": "Sunset arcade",
+      "mood": "peach sunset, lime grass, a blue hero, pink roofs",
+      "best_for": [
+        "gaming histories",
+        "retro tech",
+        "nostalgia"
+      ],
+      "roles": {
+        "bg": "#FFB38A",
+        "surface": "#FFF4EA",
+        "ink": "#2B1030",
+        "primary": "#8BD44A",
+        "highlight": "#3E7BFA",
+        "secondary": "#FF4F79",
+        "earth": "#B0583A",
+        "stone": "#C7A99A",
+        "wood": "#6E3B2A",
+        "leaf": "#3F9E3A"
+      }
+    },
+    {
+      "id": "frost-quest",
+      "tier": "expanded",
+      "name": "Frost quest",
+      "mood": "ice sky, snow tops, a red hero, blue roofs",
+      "best_for": [
+        "epic journeys",
+        "expeditions",
+        "winter stories"
+      ],
+      "roles": {
+        "bg": "#BFE3F7",
+        "surface": "#FFFFFF",
+        "ink": "#0E2238",
+        "primary": "#EAF6FF",
+        "highlight": "#FF5A5A",
+        "secondary": "#3E6BE0",
+        "earth": "#6F8CA6",
+        "stone": "#93A7BA",
+        "wood": "#6A4A3A",
+        "leaf": "#2F8F7A"
+      }
+    },
+    {
+      "id": "night-candy",
+      "tier": "expanded",
+      "name": "Night candy",
+      "mood": "violet night, green grass, a gold hero, pink roofs",
+      "best_for": [
+        "epic character stories",
+        "myths",
+        "dreams"
+      ],
+      "roles": {
+        "bg": "#1B1446",
+        "surface": "#2C2366",
+        "ink": "#FFF6E0",
+        "primary": "#46D17A",
+        "highlight": "#FFD23F",
+        "secondary": "#FF5FA2",
+        "earth": "#7A4B8C",
+        "stone": "#6E74A8",
+        "wood": "#8A5A3C",
+        "leaf": "#2FA866"
+      }
+    },
+    {
+      "id": "jungle-myth",
+      "tier": "expanded",
+      "name": "Jungle myth",
+      "mood": "warm sand sky, deep jungle, an orange hero, red roofs",
+      "best_for": [
+        "legends",
+        "adventures",
+        "lost cities"
+      ],
+      "roles": {
+        "bg": "#FDE7B4",
+        "surface": "#FFFFF4",
+        "ink": "#142A12",
+        "primary": "#3FBF4A",
+        "highlight": "#FF8F1C",
+        "secondary": "#D7263D",
+        "earth": "#8C5A2B",
+        "stone": "#9AA39A",
+        "wood": "#5E3B1E",
+        "leaf": "#1E7A34"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "lilita-nunito-spacemono",
+      "mood": "chunky and friendly",
+      "scale": 1,
+      "display": {
+        "family": "Lilita One",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Nunito",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Nunito",
+        "weight": 800,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "bowlby-figtree-dmmono",
+      "mood": "loud poster, clean body",
+      "scale": 1,
+      "display": {
+        "family": "Bowlby One",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Figtree",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Figtree",
+        "weight": 800,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "titan-baloo-firacode",
+      "mood": "round toy box",
+      "scale": 1,
+      "display": {
+        "family": "Titan One",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Baloo 2",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Baloo 2",
+        "weight": 800,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Fira Code",
+        "weight": 600,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "rammetto-rubik-jetbrains",
+      "mood": "wide arcade cabinet",
+      "scale": 1,
+      "display": {
+        "family": "Rammetto One",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Rubik",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Rubik",
+        "weight": 700,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 600,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "pixelify-outfit-silkscreen",
+      "mood": "pixel nostalgia",
+      "scale": 1,
+      "display": {
+        "family": "Pixelify Sans",
+        "weight": 700,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Outfit",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Outfit",
+        "weight": 700,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Silkscreen",
+        "weight": 400,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "dela-sora-redhatmono",
+      "mood": "heavy story title, calm body",
+      "scale": 1,
+      "display": {
+        "family": "Dela Gothic One",
+        "weight": 400,
+        "size": 104,
+        "tracking": 0,
+        "lineHeight": 0.98,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Sora",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Sora",
+        "weight": 700,
+        "size": 48,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 600,
+        "size": 32,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    }
+  ],
+  "numerals": {
+    "variant": "tabular-nums",
+    "note": "Live counters are fixed-length strings in tabular numerals."
+  },
+  "type_scale": {
+    "hero": 120,
+    "display": 104,
+    "h1": 76,
+    "h2": 52,
+    "body": 44,
+    "label": 32
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "plate": {
+      "radius": 14,
+      "pad": 22,
+      "border": {
+        "width": 4,
+        "role": "ink"
+      },
+      "drop": {
+        "x": 0,
+        "y": 8,
+        "role": "ink"
+      },
+      "note": "A toy-like plate: surface fill, a 4 px ink border and a hard 8 px ink drop below it, like a block edge. No blur."
+    },
+    "leader": {
+      "width": 4,
+      "role": "ink",
+      "dot": 9
+    },
+    "kicker": {
+      "role": "ink"
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 12,
+    "stagger_frames": 3,
+    "min_hold_frames": 6,
+    "camera": "fixed isometric; blocks drop, the hero moves, the island floats",
+    "easings": {
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "snap": [
+        0.5,
+        0,
+        0.1,
+        1
+      ],
+      "flip": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "bounce": {
+        "damping": 9,
+        "stiffness": 180,
+        "mass": 0.7
+      },
+      "plate": {
+        "damping": 11,
+        "stiffness": 200,
+        "mass": 0.6
+      }
+    },
+    "stepped": {
+      "on": 2,
+      "quantum": 0.125,
+      "note": "Stepped spring bounce: the spring is sampled on twos (the frame floored to an even number) and its output snapped to 1/8, so motion clicks like stop-motion toys."
+    },
+    "pacing": {
+      "note": "Island drops in 2 to 52, title 6 to 26, hero drops at 52 and lands at 60 (impact), plate at 70, wave 84 to 118, hop and flip 124 to 140 (impact), blink at 152, hold to 180."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "kicker",
+      "title",
+      "island",
+      "hero plate",
+      "counters"
+    ],
+    "safe": {
+      "x": [
+        9,
+        85
+      ],
+      "y": [
+        6,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "gravity-drop-assembly",
+      "recipe": "Blocks fall 6 units in 8 frames, lowest layer first, centre out, and squash for 2 frames on landing."
+    },
+    {
+      "name": "stepped-spring-bounce",
+      "recipe": "Any spring is sampled on twos and snapped to 1/8: squash, plate pops, the hero landing."
+    },
+    {
+      "name": "3d-axis-flip",
+      "recipe": "The hero hops 2.5 units and turns 360 degrees about one axis in 16 frames on the flip easing, then lands on the grid."
+    },
+    {
+      "name": "impact-frame",
+      "recipe": "On a hard landing: 1 frame of silhouettes (the world in ink, the hero cut out in surface) on a highlight sky with surface rays, 1 frame of ink-outlined rays, 4 frames of shake."
+    },
+    {
+      "name": "three-shade-cubes",
+      "recipe": "Top 1, left 0.8, right 0.62 of the palette colour, picked from the world normal."
+    }
+  ],
+  "widgets": [
+    "GravityDrop",
+    "PlayingGrid",
+    "Banknote",
+    "DayDial",
+    "ImpactFrame"
+  ],
+  "forbidden": [
+    "a flat 2D or stick figure",
+    "a character or block pattern copied from an existing game",
+    "smooth lit shading or real-time lights on the blocks",
+    "blocks or characters off the grid at rest",
+    "a soft transparent black shadow",
+    "textures or images on the cubes",
+    "more than 2 impact frames per 10 s",
+    "a hex colour in a component",
+    "a real person or a real logo"
+  ]
+}
