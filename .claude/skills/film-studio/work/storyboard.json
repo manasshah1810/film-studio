@@ -1,0 +1,1517 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "panels": [
+    {
+     "id": "s1p1",
+     "duration": 2.75,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Charged, not crashed",
+      "sub": "Its coins, per prosecutors"
+     },
+     "anchor": "t",
+     "recipe": "top-bottom",
+     "energy": "peak",
+     "accent": "highlight",
+     "captions": [
+      "OneCoin never crashed.",
+      "Prosecutors called its coins"
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.32,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Charged, not crashed",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 16,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Charged,",
+        "not crashed"
+       ]
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Its coins, per prosecutors",
+       "x": 6,
+       "y": 27,
+       "w": 79,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s1p2",
+     "duration": 2.75,
+     "layout": "stat",
+     "asset_ids": [
+      "coin"
+     ],
+     "slots": {
+      "stat": {
+       "value": "0",
+       "label": "Coin worth"
+      },
+      "prop": {
+       "id": "coin",
+       "state": "small"
+      }
+     },
+     "anchor": "l",
+     "recipe": "hero-data",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "worthless, and still",
+      "billions poured in."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "count",
+       "easing": "roll"
+      },
+      {
+       "at": 1.32,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 40
+      },
+      {
+       "id": "n",
+       "kind": "text",
+       "role": "display",
+       "text": "0",
+       "x": 48,
+       "y": 24,
+       "w": 37,
+       "h": 18,
+       "px": 200,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk"
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Coin worth",
+       "x": 48,
+       "y": 46,
+       "w": 37,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 53,
+       "w": 79,
+       "h": 15,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "banknote",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "panels": [
+    {
+     "id": "s2p1",
+     "duration": 3.0,
+     "layout": "object",
+     "asset_ids": [
+      "coin"
+     ],
+     "slots": {
+      "headline": "Buyers became sellers",
+      "prop": {
+       "id": "coin"
+      }
+     },
+     "anchor": "tl",
+     "recipe": "diagonal-divide",
+     "energy": "build",
+     "accent": "primary",
+     "captions": [
+      "So what did buyers get?",
+      "Commissions for recruiting,"
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "enter",
+       "easing": "pop"
+      },
+      {
+       "at": 1.45,
+       "duration": 0.4,
+       "kind": "move",
+       "easing": "drift"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "click-soft",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Buyers became sellers",
+       "x": 6,
+       "y": 10,
+       "w": 52,
+       "h": 22,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Buyers",
+        "became",
+        "sellers"
+       ]
+      },
+      {
+       "id": "proof",
+       "kind": "subject",
+       "x": 40,
+       "y": 40,
+       "w": 45,
+       "h": 26
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 36,
+       "w": 30,
+       "h": 28,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "orbit-ring",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    },
+    {
+     "id": "s2p2",
+     "duration": 3.0,
+     "layout": "list",
+     "asset_ids": [],
+     "slots": {
+      "items": [
+       "Buy in",
+       "Recruit",
+       "Earn commission"
+      ]
+     },
+     "anchor": "c",
+     "recipe": "card-stack",
+     "energy": "build",
+     "accent": "primary",
+     "captions": [
+      "which made every buyer",
+      "a salesperson."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.07,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.83,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "soft-chime",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "a",
+       "kind": "text",
+       "role": "body",
+       "text": "Buy in",
+       "x": 6,
+       "y": 20,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Recruit",
+       "x": 12,
+       "y": 34,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "c",
+       "kind": "text",
+       "role": "body",
+       "text": "Earn commission",
+       "x": 18,
+       "y": 48,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "panels": [
+    {
+     "id": "s3p1",
+     "duration": 3.25,
+     "layout": "versus",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Who pays whom",
+      "sides": [
+       {
+        "label": "Early members",
+        "value": "Paid"
+       },
+       {
+        "label": "New members",
+        "value": "Pay in"
+       }
+      ]
+     },
+     "anchor": "c",
+     "recipe": "split-comparison",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "Yet those commissions came",
+      "from newer members' money,"
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "enter",
+       "easing": "pop"
+      },
+      {
+       "at": 1.57,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Who pays whom",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 12,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Who pays whom"
+       ]
+      },
+      {
+       "id": "l",
+       "kind": "text",
+       "role": "body",
+       "text": "Early members: paid",
+       "x": 6,
+       "y": 26,
+       "w": 38,
+       "h": 24,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter",
+       "lines": [
+        "Early members:",
+        "paid"
+       ]
+      },
+      {
+       "id": "r",
+       "kind": "text",
+       "role": "body",
+       "text": "New members: pay in",
+       "x": 47,
+       "y": 26,
+       "w": 38,
+       "h": 24,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter",
+       "lines": [
+        "New members:",
+        "pay in"
+       ]
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 54,
+       "w": 79,
+       "h": 14,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "clone-row",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    },
+    {
+     "id": "s3p2",
+     "duration": 3.25,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Recruiting never stops",
+      "sub": "or the payouts stop"
+     },
+     "anchor": "t",
+     "recipe": "top-bottom",
+     "energy": "peak",
+     "accent": "highlight",
+     "captions": [
+      "so recruiting",
+      "could never stop."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.57,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Recruiting never stops",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 16,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Recruiting",
+        "never stops"
+       ]
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "or the payouts stop",
+       "x": 6,
+       "y": 27,
+       "w": 79,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "panels": [
+    {
+     "id": "s4p1",
+     "duration": 3.17,
+     "layout": "object",
+     "asset_ids": [
+      "coin"
+     ],
+     "slots": {
+      "prop": {
+       "id": "coin",
+       "state": "broken"
+      }
+     },
+     "anchor": "l",
+     "recipe": "hero-data",
+     "energy": "peak",
+     "accent": "highlight",
+     "captions": [
+      "But the coin was",
+      "never the product."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.53,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 40
+      },
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Not the coin",
+       "x": 46,
+       "y": 24,
+       "w": 39,
+       "h": 16,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Not the",
+        "coin"
+       ]
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "was the product",
+       "x": 48,
+       "y": 44,
+       "w": 37,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s4p2",
+     "duration": 3.17,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Belief was the product"
+     },
+     "anchor": "tl",
+     "recipe": "diagonal-divide",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "Belief was.",
+      "Every recruit was sold it,"
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.53,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Belief was the product",
+       "x": 6,
+       "y": 10,
+       "w": 52,
+       "h": 22,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Belief",
+        "was the",
+        "product"
+       ]
+      },
+      {
+       "id": "p",
+       "kind": "text",
+       "role": "body",
+       "text": "Sold on, recruit to recruit",
+       "x": 30,
+       "y": 52,
+       "w": 55,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 34,
+       "w": 79,
+       "h": 14,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "rack-focus",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    },
+    {
+     "id": "s4p3",
+     "duration": 3.16,
+     "layout": "list",
+     "asset_ids": [],
+     "slots": {
+      "items": [
+       "Sold the belief",
+       "Sold it on",
+       "Sold it again"
+      ]
+     },
+     "anchor": "c",
+     "recipe": "card-stack",
+     "energy": "release",
+     "accent": "primary",
+     "captions": [
+      "and every recruit had",
+      "to sell it on."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.12,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.94,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "soft-chime",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "a",
+       "kind": "text",
+       "role": "body",
+       "text": "Sold the belief",
+       "x": 6,
+       "y": 20,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Sold it on",
+       "x": 12,
+       "y": 34,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "c",
+       "kind": "text",
+       "role": "body",
+       "text": "Sold it again",
+       "x": 18,
+       "y": 48,
+       "w": 60,
+       "h": 10,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "panels": [
+    {
+     "id": "s5p1",
+     "duration": 3.0,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Charged in 2017",
+      "sub": "Ruja Ignatova, founder"
+     },
+     "anchor": "t",
+     "recipe": "top-bottom",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "In 2017 prosecutors charged",
+      "founder Ruja Ignatova."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.45,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Charged in 2017",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 16,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Charged",
+        "in 2017"
+       ]
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Ruja Ignatova, founder",
+       "x": 6,
+       "y": 27,
+       "w": 79,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s5p2",
+     "duration": 3.0,
+     "layout": "timeline",
+     "asset_ids": [],
+     "slots": {
+      "points": [
+       {
+        "when": "2017",
+        "what": "Charged in the US"
+       },
+       {
+        "when": "Now",
+        "what": "Still at large",
+        "hot": true
+       }
+      ]
+     },
+     "anchor": "tl",
+     "recipe": "diagonal-divide",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "She is still at large."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.45,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Still at large",
+       "x": 6,
+       "y": 10,
+       "w": 52,
+       "h": 22,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Still",
+        "at large"
+       ]
+      },
+      {
+       "id": "p",
+       "kind": "text",
+       "role": "body",
+       "text": "2017: charged. Now: at large.",
+       "x": 30,
+       "y": 46,
+       "w": 55,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s5p3",
+     "duration": 3.0,
+     "layout": "stat",
+     "asset_ids": [
+      "cash"
+     ],
+     "slots": {
+      "stat": {
+       "value": "$4B+",
+       "label": "Invested worldwide"
+      },
+      "prop": {
+       "id": "cash"
+      }
+     },
+     "anchor": "t",
+     "recipe": "top-bottom",
+     "energy": "peak",
+     "accent": "highlight",
+     "captions": [
+      "Investors worldwide put in",
+      "over four billion dollars."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "count",
+       "easing": "roll"
+      },
+      {
+       "at": 1.45,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "n",
+       "kind": "text",
+       "role": "display",
+       "text": "$4B+",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 22,
+       "px": 200,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk"
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Invested worldwide, per DOJ",
+       "x": 6,
+       "y": 33,
+       "w": 79,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 44,
+       "w": 38,
+       "h": 22
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 48,
+       "y": 44,
+       "w": 37,
+       "h": 22,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "grid-collapse",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "panels": [
+    {
+     "id": "s6p1",
+     "duration": 2.8,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Not a better coin"
+     },
+     "anchor": "tl",
+     "recipe": "diagonal-divide",
+     "energy": "build",
+     "accent": "highlight",
+     "captions": [
+      "Nobody lost to",
+      "a better coin."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "pop"
+      },
+      {
+       "at": 1.35,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "focus"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Not a better coin",
+       "x": 6,
+       "y": 10,
+       "w": 52,
+       "h": 22,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Not a",
+        "better",
+        "coin"
+       ]
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s6p2",
+     "duration": 2.85,
+     "layout": "object",
+     "asset_ids": [
+      "coin"
+     ],
+     "slots": {
+      "headline": "They lost to a story",
+      "prop": {
+       "id": "coin",
+       "state": "glow"
+      }
+     },
+     "anchor": "t",
+     "recipe": "top-bottom",
+     "energy": "release",
+     "accent": "highlight",
+     "captions": [
+      "They lost to a story",
+      "that only worked while"
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "enter",
+       "easing": "pop"
+      },
+      {
+       "at": 1.38,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "drift"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "soft-chime",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "They lost to a story",
+       "x": 6,
+       "y": 8,
+       "w": 79,
+       "h": 16,
+       "px": 108,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "They lost",
+        "to a story"
+       ]
+      },
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 30,
+       "w": 79,
+       "h": 34
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s6p3",
+     "duration": 2.85,
+     "layout": "stat",
+     "asset_ids": [
+      "coin"
+     ],
+     "slots": {
+      "stat": {
+       "value": "0",
+       "label": "Coin worth"
+      },
+      "prop": {
+       "id": "coin",
+       "state": "small"
+      }
+     },
+     "anchor": "l",
+     "recipe": "hero-data",
+     "energy": "release",
+     "accent": "highlight",
+     "captions": [
+      "enough people kept believing it."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "count",
+       "easing": "roll"
+      },
+      {
+       "at": 1.38,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "snap",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 40
+      },
+      {
+       "id": "n",
+       "kind": "text",
+       "role": "display",
+       "text": "0",
+       "x": 48,
+       "y": 24,
+       "w": 37,
+       "h": 18,
+       "px": 200,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk"
+      },
+      {
+       "id": "d",
+       "kind": "text",
+       "role": "body",
+       "text": "Coin worth",
+       "x": 48,
+       "y": 46,
+       "w": 37,
+       "h": 6,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
+       "id": "w",
+       "kind": "widget",
+       "x": 6,
+       "y": 53,
+       "w": 79,
+       "h": 15,
+       "anchor": "b"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      }
+     ],
+     "widgets": [
+      {
+       "id": "reel-cascade",
+       "anchor": "b",
+       "at": 0.6,
+       "easing": "pop"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

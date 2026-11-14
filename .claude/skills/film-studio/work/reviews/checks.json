@@ -1,8 +1,10 @@
 {
  "pass": true,
- "stage": "script",
+ "stage": "storyboard",
  "ran": [
   "validate-schema",
+  "check-design",
+  "check-safezones",
   "check-ai-tells"
  ],
  "items": []

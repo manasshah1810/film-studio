@@ -12,10 +12,20 @@
    "output_path": "work/budget.json"
   },
   "scriptwriter": {
-   "status": "running",
+   "status": "flagged",
    "round": 0,
    "output_path": "work/script.json"
+  },
+  "casting": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/cast.json"
+  },
+  "art-director": {
+   "status": "running",
+   "round": 0,
+   "output_path": "work/storyboard.json"
   }
  },
- "updated": "2026-11-14T18:28:02.288Z"
+ "updated": "2026-11-14T20:26:49.395Z"
 }

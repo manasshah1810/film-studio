@@ -1,0 +1,4 @@
+{"items":[
+{"id":"coin","kind":"prop","description":"A coin that stands for OneCoin; it must read as a coin at thumbnail size.","scenes_used":["s1","s2","s4","s6"],"priority":1,"reuse":"coin"},
+{"id":"cash","kind":"prop","description":"A cash stack for the money flowing in at the payoff.","scenes_used":["s5"],"priority":2,"reuse":"cash"}
+]}

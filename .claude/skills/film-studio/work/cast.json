@@ -1,0 +1,4 @@
+{"assets":[
+{"id":"coin","need_id":"coin","approved":true,"round":1,"notes":"Built-in coin base; no logo, stands for OneCoin generically.","def":{"kind":"prop","name":"Coin","base":"coin"}},
+{"id":"cash","need_id":"cash","approved":true,"round":1,"notes":"Built-in cash base for the payoff counter.","def":{"kind":"prop","name":"Cash","base":"cash"}}
+]}
