@@ -3,6 +3,31 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 15: 2-5d-parallax-depth style, status: verified.** Added `styles/2-5d-parallax-depth/`
+  (`style.md` 116 lines, `design-system.json` 5 focused + 5 expanded atmospheric story palettes, 6 font
+  pairings each with a serif accent, 4 depth planes with z, parallax and blur tokens, `recipes.md` with the
+  CSS perspective and translateZ scale-compensation math and the differential parallax table, `failures.md`
+  with 30 rows) and `components/styles/2-5d-parallax-depth/Preview.tsx` (a courier with a lantern on a pier at
+  dusk: Z0 sky, moon, hills and sea, Z1 town and a lighthouse, Z2 the layered Story Actor with idle, react and
+  act states, Z3 a dark blurred post and reed frame, a continuous Z-push, a directional whip pan to the tower,
+  a rack focus to the tower and back, a layer legend that shows each plane's parallax and live blur). Real CSS
+  perspective, no photo or video. Registered in `components/Root.tsx` as `Preview-2-5d-parallax-depth` and
+  `PreviewSheet-2-5d-parallax-depth` (needed to render it). Visual loop: Pass 1 rendered `dusk-harbour` (3-beat
+  sheet at frames 30, 118, 172, plus whip frame 95, stills only, `previews/2-5d-parallax-depth/` at repo root).
+  Critique: legend text touched the plate edge, the foreground frame was nearly out of shot at rest, the top
+  foreground branch was left invisible. Pass 2: legend line 2 shortened to "1.56X B7" (B is blur px), posts
+  moved to x 40 and 1040 so they frame the edges at rest, branch and leaves added. Edge clipping checked on the
+  whip frame (95) and the three sheet frames: no plane edge shows. Depth contrast: far planes lighter and hazier,
+  near planes darker, the actor the most saturated shape, hero sharp at rest (0 px) and Z1 sharp after the rack.
+  `check-design.js` and `check-safezones.js` PASS on `dusk-harbour` and `noir-city` scratch work dirs, `--systems`
+  PASS, `tsc` clean. Text roles (ink, primary, highlight, coat) are 4.5:1 or better on `bg` and `surface`
+  (lowest 5.6). Choices where the prompt gave no number: palette ids and colours, the 6 pairings, perspective
+  1400 px, z values -1400, -700, 0, 500 (parallax 0.50, 0.67, 1.00, 1.56), push 220 px, plane size 1900 x 2200,
+  blur 3, 2, 0, 7 px at rest, rack 24 frames with a second swap back, whip 260 px in 10 frames with a settle spring
+  14/120/1, actor states timed at frames 58 and 138, limits in style.md (1 whip pan, 2 rack swaps, 1 actor per
+  35 s). The story is fictional. Widgets LayerExplode, PictureDive, DollyZoom and StoryboardDeck are documented,
+  not built; RackFocus, the whip pan and the Z-push are built. `check-static.js` not run; expected to fail like
+  the earlier styles (no `kit.tsx`, not in `components/styles/index.ts`, no `style-rules.json` entry).
 - **2026-11-14 prompt 14: tactical-vector-maps style, status: verified.** Added `styles/tactical-vector-maps/`
   (`style.md` 120 lines, `design-system.json` 5 focused + 5 expanded multi-faction palettes, 6 font pairings
   each with a serif stamp face, elevation tiers and route, ping, dial and camera tokens, `recipes.md` with
@@ -191,6 +216,7 @@ All `requires: none` (code-drawn, no generation API).
 
 ## Log
 - 2026-11-14: prompt 14 done (tactical-vector-maps style, verified).
+- 2026-11-14: prompt 15 done (2-5d-parallax-depth style, verified).
 - 2026-11-14: prompt 12 done (neo-brutalist-ui style, verified).
 - 2026-11-14: prompt 13 done (dark-neon-dataviz style, verified).
 - 2026-11-14: prompt 11 done (hormozi-kinetic style, verified).

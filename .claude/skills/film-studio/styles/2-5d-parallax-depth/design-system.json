@@ -1,0 +1,701 @@
+{
+  "style": "2-5d-parallax-depth",
+  "version": 1,
+  "subject_mode": "layered",
+  "subject_note": "Mode B, a layered Story Actor. One flat vector cut-out figure on Z2, a world on Z0 and Z1, a soft frame on Z3. No photographs, no video, no network images.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "depth_planes": [
+    {
+      "id": "Z3",
+      "name": "foreground frame",
+      "z": 500,
+      "blur_px": 7,
+      "parallax": 1.56,
+      "content": "rope, railing, reeds, a doorway edge; dark, soft, at the frame edges only"
+    },
+    {
+      "id": "Z2",
+      "name": "hero subject / Story Actor",
+      "z": 0,
+      "blur_px": 0,
+      "parallax": 1,
+      "content": "the actor and what the actor touches; the only sharp plane at rest"
+    },
+    {
+      "id": "Z1",
+      "name": "midground architecture",
+      "z": -700,
+      "blur_px": 2,
+      "parallax": 0.67,
+      "content": "buildings, arches, a tower, lamp posts; a lit window or lamp carries the story beat"
+    },
+    {
+      "id": "Z0",
+      "name": "atmospheric backdrop",
+      "z": -1400,
+      "blur_px": 3,
+      "parallax": 0.5,
+      "content": "sky, moon, far hills, haze; the lightest plane, nearly still"
+    }
+  ],
+  "camera": {
+    "perspective": 1400,
+    "push_px": 220,
+    "push_frames": 180,
+    "note": "perspective 1400 px; a layer at translateZ(z) is scaled by (P - z0) / P at rest so every plane keeps its authored size; parallax = P / (P - z)"
+  },
+  "palettes": [
+    {
+      "id": "dusk-harbour",
+      "tier": "focused",
+      "name": "Dusk harbour",
+      "mood": "violet dusk, coral horizon, lantern gold",
+      "best_for": [
+        "night stories",
+        "travel",
+        "quiet drama",
+        "journeys"
+      ],
+      "roles": {
+        "bg": "#120D24",
+        "ink": "#F4EEFF",
+        "primary": "#F87171",
+        "highlight": "#FBBF24",
+        "surface": "#241B40"
+      }
+    },
+    {
+      "id": "neon-rain",
+      "tier": "focused",
+      "name": "Neon rain",
+      "mood": "wet night street, magenta and cyan signs",
+      "best_for": [
+        "city stories",
+        "tech",
+        "thrillers",
+        "night life"
+      ],
+      "roles": {
+        "bg": "#0A0E1A",
+        "ink": "#EAF2FF",
+        "primary": "#22D3EE",
+        "highlight": "#F472B6",
+        "surface": "#16203A"
+      }
+    },
+    {
+      "id": "golden-hour",
+      "tier": "focused",
+      "name": "Golden hour",
+      "mood": "warm brown dusk, amber light, rust coat",
+      "best_for": [
+        "memoir",
+        "nostalgia",
+        "travel",
+        "food"
+      ],
+      "roles": {
+        "bg": "#1A110B",
+        "ink": "#FFF3E2",
+        "primary": "#F59E0B",
+        "highlight": "#FB7185",
+        "surface": "#33231A"
+      }
+    },
+    {
+      "id": "blue-hour",
+      "tier": "focused",
+      "name": "Blue hour",
+      "mood": "cold steel blue, ice light, soft yellow window",
+      "best_for": [
+        "calm",
+        "science",
+        "winter",
+        "wellness"
+      ],
+      "roles": {
+        "bg": "#08131F",
+        "ink": "#EAF6FF",
+        "primary": "#7DD3FC",
+        "highlight": "#FDE047",
+        "surface": "#12293D"
+      }
+    },
+    {
+      "id": "ember-night",
+      "tier": "focused",
+      "name": "Ember night",
+      "mood": "charcoal night, ember orange, warm cream",
+      "best_for": [
+        "survival",
+        "history",
+        "war stories",
+        "campfire tales"
+      ],
+      "roles": {
+        "bg": "#140C0A",
+        "ink": "#FFF1E6",
+        "primary": "#FB923C",
+        "highlight": "#FCD34D",
+        "surface": "#2B1A15"
+      }
+    },
+    {
+      "id": "misty-forest",
+      "tier": "expanded",
+      "name": "Misty forest",
+      "mood": "green fog, pine silhouettes, lantern gold",
+      "best_for": [
+        "fairy tale",
+        "nature",
+        "mystery",
+        "folklore"
+      ],
+      "roles": {
+        "bg": "#08140F",
+        "ink": "#EDF8F0",
+        "primary": "#4ADE80",
+        "highlight": "#FACC15",
+        "surface": "#122A20",
+        "sky": "#0E2A22",
+        "haze": "#2F6B57",
+        "mid": "#143528",
+        "fore": "#04100B",
+        "coat": "#86EFAC"
+      }
+    },
+    {
+      "id": "desert-dawn",
+      "tier": "expanded",
+      "name": "Desert dawn",
+      "mood": "rose sky, sand dunes, long shadows",
+      "best_for": [
+        "adventure",
+        "history",
+        "travel",
+        "epic"
+      ],
+      "roles": {
+        "bg": "#1B0F14",
+        "ink": "#FFF1EA",
+        "primary": "#FB923C",
+        "highlight": "#FDE68A",
+        "surface": "#36202A",
+        "sky": "#3B1B33",
+        "haze": "#C2566B",
+        "mid": "#4A2330",
+        "fore": "#150A0E",
+        "coat": "#FDBA74"
+      }
+    },
+    {
+      "id": "noir-city",
+      "tier": "expanded",
+      "name": "Noir city",
+      "mood": "ink blue towers, one red sign, cool fog",
+      "best_for": [
+        "crime",
+        "finance",
+        "mystery",
+        "tech"
+      ],
+      "roles": {
+        "bg": "#090B14",
+        "ink": "#ECEFFA",
+        "primary": "#94A3FF",
+        "highlight": "#FF5A6E",
+        "surface": "#171B2E",
+        "sky": "#10142A",
+        "haze": "#3B4574",
+        "mid": "#1A2040",
+        "fore": "#05060D",
+        "coat": "#C7D2FE"
+      }
+    },
+    {
+      "id": "aurora-coast",
+      "tier": "expanded",
+      "name": "Aurora coast",
+      "mood": "teal aurora over a dark sea, snow ridges",
+      "best_for": [
+        "arctic",
+        "science",
+        "wonder",
+        "travel"
+      ],
+      "roles": {
+        "bg": "#06121A",
+        "ink": "#E8F8FF",
+        "primary": "#5EEAD4",
+        "highlight": "#C4B5FD",
+        "surface": "#0F2A36",
+        "sky": "#0B2A3A",
+        "haze": "#2BA6A0",
+        "mid": "#10384A",
+        "fore": "#030A10",
+        "coat": "#99F6E4"
+      }
+    },
+    {
+      "id": "storm-front",
+      "tier": "expanded",
+      "name": "Storm front",
+      "mood": "slate sky, lightning yellow, grey sea",
+      "best_for": [
+        "disaster",
+        "sea stories",
+        "news",
+        "tension"
+      ],
+      "roles": {
+        "bg": "#0C1016",
+        "ink": "#EEF2F7",
+        "primary": "#93C5FD",
+        "highlight": "#FDE047",
+        "surface": "#1B2430",
+        "sky": "#18202C",
+        "haze": "#566579",
+        "mid": "#222D3B",
+        "fore": "#06090D",
+        "coat": "#CBD5E1"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "anton-dmsans-dmserif",
+      "mood": "tall headline, soft serif accent",
+      "scale": 1.1,
+      "display": {
+        "family": "Anton",
+        "weight": 400,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "DM Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "DM Serif Display",
+        "weight": 400,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "bebas-inter-instrument",
+      "mood": "poster headline, editorial accent",
+      "scale": 1.1,
+      "display": {
+        "family": "Bebas Neue",
+        "weight": 400,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Instrument Serif",
+        "weight": 400,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "syne-manrope-fraunces",
+      "mood": "art-house, wonky serif",
+      "scale": 1,
+      "display": {
+        "family": "Syne",
+        "weight": 800,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Manrope",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Fraunces",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "oswald-lora",
+      "mood": "newsreel and book serif",
+      "scale": 1.05,
+      "display": {
+        "family": "Oswald",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Lora",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Lora",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "unbounded-outfit-garamond",
+      "mood": "wide modern, classic accent",
+      "scale": 0.95,
+      "display": {
+        "family": "Unbounded",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Outfit",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "EB Garamond",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "sora-grotesk-cormorant",
+      "mood": "clean tech, elegant accent",
+      "scale": 1,
+      "display": {
+        "family": "Sora",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Space Grotesk",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Cormorant Garamond",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "none"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    }
+  ],
+  "numerals": {
+    "tabular": true,
+    "css": "font-variant-numeric: tabular-nums",
+    "rule": "Every number is tabular."
+  },
+  "type_scale": {
+    "hero": 132,
+    "display": 108,
+    "h1": 84,
+    "h2": 64,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 28,
+      "border": {
+        "width": 2,
+        "role": "ink",
+        "alpha": 0.18
+      }
+    },
+    "plate": {
+      "radius": 18,
+      "fill": "surface",
+      "note": "Every label sits on an opaque plate. Text is never put on a blurred or moving plane."
+    },
+    "plane": {
+      "bleed": {
+        "w": 1900,
+        "h": 2200
+      },
+      "note": "Each plane is authored 1900 x 2200 and centred, so a push and a pan never show its edge."
+    },
+    "atmosphere": {
+      "haze": "blend(haze, bg, 0.35) at the horizon",
+      "tint_far": 0.28,
+      "tint_mid": 0.55,
+      "note": "Far planes lean toward the haze colour; near planes lean toward bg darkened."
+    },
+    "blur": {
+      "z3": 7,
+      "z2": 0,
+      "z1": 2,
+      "z0": 3,
+      "rack_frames": 24,
+      "note": "Rack focus swaps which plane is 0. Z1 goes 2 to 0, Z2 goes 0 to 4, Z3 goes 7 to 8 and Z0 goes 3 to 4 px."
+    },
+    "actor": {
+      "states": [
+        "idle",
+        "react",
+        "act"
+      ],
+      "layers": [
+        "shadow",
+        "back-arm",
+        "legs",
+        "coat",
+        "scarf",
+        "head",
+        "front-arm",
+        "lantern",
+        "glow"
+      ],
+      "note": "Flat vector cut-out, built once, three states, the same seed in every scene."
+    },
+    "whip": {
+      "frames": 10,
+      "blur_px": 18,
+      "note": "A directional blur along x that follows the pan speed, and a settle on a spring."
+    },
+    "vignette": {
+      "alpha": 0.5,
+      "note": "A radial darkening at the frame edge, drawn above every plane."
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 10,
+    "stagger_frames": 6,
+    "min_hold_frames": 6,
+    "camera": "a continuous Z-push (the camera moves forward all film), a short directional whip pan to the story beat, and a rack focus that follows it",
+    "easings": {
+      "push": [
+        0.25,
+        0.1,
+        0.25,
+        1
+      ],
+      "whip": [
+        0.7,
+        0,
+        0.2,
+        1
+      ],
+      "rack": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "fade": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "settle": {
+        "damping": 14,
+        "stiffness": 120,
+        "mass": 1
+      },
+      "pop": {
+        "damping": 11,
+        "stiffness": 190,
+        "mass": 0.8
+      }
+    },
+    "pacing": {
+      "note": "Push all film, whip pan 10 frames, rack focus 24 frames starting 4 frames after the whip, hold the new focus at least 30 frames."
+    }
+  },
+  "composition": {
+    "margin": 8,
+    "align": "left",
+    "anchors": [
+      "title-top",
+      "actor-lower-third",
+      "layer-ladder-right",
+      "caption-bottom"
+    ],
+    "safe": {
+      "x": [
+        8,
+        85
+      ],
+      "y": [
+        8,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "continuous-z-push",
+      "recipe": "The camera moves forward by 220 px over the film. Each plane moves by its own parallax, so over the film Z3 grows 32 percent, Z2 19, Z1 12 and Z0 9."
+    },
+    {
+      "name": "rack-focus-swap",
+      "recipe": "Over 24 frames the blur of the hero plane rises to 4 px and the blur of the story plane falls to 0. Text and plates never blur."
+    },
+    {
+      "name": "directional-whip-pan",
+      "recipe": "The camera x moves 260 px in 10 frames on the whip bezier and settles on a spring; every plane gets an x only blur that follows the speed."
+    },
+    {
+      "name": "layer-explode",
+      "recipe": "The four planes slide apart along Z with the push, so the viewer sees the stack, then close up."
+    },
+    {
+      "name": "dolly-zoom",
+      "recipe": "The push goes forward while the perspective widens, so the subject stays the same size and the world behind it stretches."
+    },
+    {
+      "name": "actor-states",
+      "recipe": "The actor has idle, react and act. It breathes in idle, turns the head and lifts the lantern in react, and steps forward in act."
+    }
+  ],
+  "widgets": [
+    "LayerExplode",
+    "PictureDive",
+    "RackFocus",
+    "DollyZoom",
+    "StoryboardDeck"
+  ],
+  "forbidden": [
+    "text on a blurred or moving plane",
+    "a plane edge visible during a push or a pan",
+    "every plane blurred the same amount",
+    "a flat scene with only one plane",
+    "a hero that is not the sharpest plane at rest",
+    "parallax multipliers that do not rise from Z0 to Z3",
+    "a photograph or a video",
+    "default CSS ease or linear",
+    "a label under 4.5:1",
+    "a foreground plane that covers the actor face"
+  ]
+}
