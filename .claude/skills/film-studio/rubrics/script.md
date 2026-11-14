@@ -12,7 +12,7 @@ Protocol and gate: `rubrics/review-protocol.md`.
 | 5 | Written for the ear | Short sentences, concrete nouns, active verbs; reads aloud at 2.3-2.8 words per second without a stumble. | Long written-style sentences, stacked clauses, or a pace over 3 words per second. |
 | 6 | On-screen text | Each `on_screen_text` is 2-6 words, adds to the narration, and is the phrase worth a screenshot. | It repeats the narration, runs long, or is missing where the scene needs an anchor. |
 | 7 | Visual intent | Each scene says what the viewer should understand from the picture, in castable terms. | Camera or style jargon, abstractions with nothing to show, or the same picture in every scene. |
-| 8 | Voice | Sounds like one specific person; no stock phrases; rhythm varies; humour or weight fits the tone in the brief. | Generic explainer voice, or any text tell from `rubrics/ai-tells.md`. |
+| 8 | Voice | Sounds like one specific person; no stock phrases; rhythm varies; humour or weight fits the tone in the brief. | Generic explainer voice, or any FAIL from `scripts/check-ai-tells.js`. |
 | 9 | Length and pacing | Total is within 10% of `target_seconds`; scene lengths follow information load; the platform's pace is respected. | Padding, a rushed payoff, or scenes of equal length regardless of content. |
 | 10 | Ending | The close lands the idea in a line that would not fit another video; on loop platforms it hands back to the hook. | It summarises, asks for likes, or trails off. |
 
@@ -22,5 +22,5 @@ Protocol and gate: `rubrics/review-protocol.md`.
   that each `source` is specific. You are not asked to browse; score what is recorded.
 - Parameter 5: read every `narration` aloud in your head at speaking pace and count words per second
   for the densest scene.
-- Parameter 8: search for the text tells listed in `rubrics/ai-tells.md` and name each one found.
+- Parameter 8: the tells are checked by `scripts/check-ai-tells.js`; score only what a script cannot: does it sound like one person.
 - Evidence always cites a scene id (`s2`).

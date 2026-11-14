@@ -65,10 +65,37 @@
         },
         "optional": {
          "type": "boolean"
+        },
+        "easing": {
+         "type": "string",
+         "pattern": "^[a-z0-9][a-z0-9-]*$",
+         "description": "A named easing from the design system or the built-in list. Never linear."
         }
        },
        "additionalProperties": false
       }
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  "sfx": {
+   "type": "array",
+   "description": "Sound cues by absolute frame.",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "frame"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "frame": {
+      "type": "integer",
+      "minimum": 0
      }
     },
     "additionalProperties": false

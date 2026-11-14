@@ -3,6 +3,26 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 02: legacy purged, validators in.** The skill has **0 built styles** and cannot
+  render a film until styles are rebuilt. What exists now:
+  - `SKILL.md` (router, under 110 lines): 4 questions, one file to read per stage, scripts per stage.
+  - `references/style-cheatsheet.md`: the 12 new style ids (look, best for, subject mode).
+  - `references/ai-tells.md`: the 25 rules with fail/pass examples and the panel fields they read.
+  - `scripts/check-ai-tells.js` (25 rules, `--stage`, `--selftest`, `--out`), `scripts/check-design.js`
+    (contrast 4.5 body / 3.0 display, palette lock, new design-system shape), `scripts/check-safezones.js`
+    (bottom 20% / right 15% on 9:16), `scripts/plan.js` (shared loader).
+  - `scripts/fixtures/tells-pass/` passes 25/25; `scripts/fixtures/tells-fail/` trips 25/25.
+  - `node scripts/check-static.js` PASS (runs the selftest too).
+  OWED next:
+  - Build the 12 styles: `styles/<id>/design-system.json` (shape = the tells-pass fixture),
+    `styles/<id>/style.md` (100-160 lines; it is ALSO the storyboard manual, SKILL.md stage 5 reads
+    only that file), `components/styles/<id>/kit.tsx`, registered in `components/styles/index.ts`.
+  - Engine does not yet draw `boxes`, `beats`, `widgets`, `sfx`, `transition` (new optional storyboard
+    fields; the validators read them, `build-film.js` and `Film.tsx` ignore them). The 9 closed
+    layouts and the stick rig `components/engine/figure.ts` are still in the engine.
+  - Widget library (50) and its id list; rule 18 checks ids against it once it exists.
+  - Role files are still the old 57-73 line versions; `roles/storyboard.md` is no longer routed to.
+  - `previews/` (24 legacy sheets) kept as post-mortem evidence; delete when no longer wanted.
 - **2026-11-14 HALT + ARCHITECTURE LOCK (prompt 01).** The preview/template build is stopped. Read
   `.claude/skills/film-studio/POST_MORTEM.md` before any other work: 6 failure modes, 7 laws, and the
   3-layer progressive-disclosure contract. Do not run `scripts/preview.js`, do not render more sheets,
@@ -50,6 +70,11 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview
+  (`library/preview.json`, `scripts/preview.js`), `rubrics/ai-tells.md` (28 tells) and the `ai-checker`
+  agent. Added router SKILL.md, two references, three validators, fixtures. Schemas extended
+  (storyboard panel: boxes, beats, widgets, captions, sfx, transition; vfx-plan: sfx, easing; cast:
+  layers). Stage 7 is now a script.
 - 2026-11-14: prompt 01 done. Preview loop confirmed not running; skill folder inventoried (no
   deletions); POST_MORTEM.md written (6 failures, 7 laws, 3-layer contract). NEXT: rebuild under the
   laws, starting with SKILL.md as the under-110-line router and the validators.

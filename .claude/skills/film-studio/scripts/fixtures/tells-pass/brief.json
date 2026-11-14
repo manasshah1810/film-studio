@@ -1,0 +1,13 @@
+{
+ "topic": "Smaller plans beat discipline",
+ "platform": "instagram",
+ "length_bucket": "15-30s",
+ "target_seconds": 17,
+ "style": "fixture",
+ "voiceover": false,
+ "design": {
+  "palette_id": "ink-lime",
+  "pairing_id": "grotesk",
+  "seed": "fixture"
+ }
+}

@@ -1,0 +1,286 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "panels": [
+    {
+     "id": "s1p1",
+     "duration": 4,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Why small habits win",
+      "stat": {
+       "value": "42",
+       "unit": "%"
+      },
+      "cast": [
+       {
+        "id": "lead",
+        "pose": "shrug"
+       }
+      ]
+     },
+     "caption": "this caption chunk has far too many words in it",
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Small habits always win",
+       "lines": [
+        "Small habits always",
+        "win"
+       ],
+       "x": 10,
+       "y": 62,
+       "w": 80,
+       "h": 24,
+       "px": 60,
+       "color": "#333333",
+       "bg": "bg",
+       "font": "Arial"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Lorem ipsum placeholder line",
+       "x": 10,
+       "y": 70,
+       "w": 80,
+       "h": 10,
+       "px": 40,
+       "color": "ink",
+       "bg": "bg"
+      },
+      {
+       "id": "deco",
+       "kind": "decor",
+       "x": 0,
+       "y": 0,
+       "w": 100,
+       "h": 100,
+       "gradient": [
+        "#667eea",
+        "#764ba2"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s1p2",
+     "duration": 4,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Why small habits win",
+      "stat": {
+       "value": "42",
+       "unit": "%"
+      }
+     },
+     "caption": "this caption chunk has far too many words in it",
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Small habits always win",
+       "lines": [
+        "Small habits always",
+        "win"
+       ],
+       "x": 10,
+       "y": 62,
+       "w": 80,
+       "h": 24,
+       "px": 60,
+       "color": "#333333",
+       "bg": "bg",
+       "font": "Arial"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Lorem ipsum placeholder line",
+       "x": 10,
+       "y": 70,
+       "w": 80,
+       "h": 10,
+       "px": 40,
+       "color": "ink",
+       "bg": "bg"
+      },
+      {
+       "id": "deco",
+       "kind": "decor",
+       "x": 0,
+       "y": 0,
+       "w": 100,
+       "h": 100,
+       "gradient": [
+        "#667eea",
+        "#764ba2"
+       ]
+      }
+     ],
+     "transition": {
+      "id": "fade-in",
+      "easing": "linear"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "panels": [
+    {
+     "id": "s2p1",
+     "duration": 4,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Why small habits win",
+      "stat": {
+       "value": "42",
+       "unit": "%"
+      }
+     },
+     "caption": "this caption chunk has far too many words in it",
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Small habits always win",
+       "lines": [
+        "Small habits always",
+        "win"
+       ],
+       "x": 10,
+       "y": 62,
+       "w": 80,
+       "h": 24,
+       "px": 60,
+       "color": "#333333",
+       "bg": "bg",
+       "font": "Arial"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Lorem ipsum placeholder line",
+       "x": 10,
+       "y": 70,
+       "w": 80,
+       "h": 10,
+       "px": 40,
+       "color": "ink",
+       "bg": "bg"
+      },
+      {
+       "id": "deco",
+       "kind": "decor",
+       "x": 0,
+       "y": 0,
+       "w": 100,
+       "h": 100,
+       "gradient": [
+        "#667eea",
+        "#764ba2"
+       ]
+      }
+     ],
+     "transition": {
+      "id": "fade-in",
+      "easing": "linear"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "panels": [
+    {
+     "id": "s3p1",
+     "duration": 4,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {
+      "headline": "Why small habits win",
+      "stat": {
+       "value": "42",
+       "unit": "%"
+      }
+     },
+     "caption": "this caption chunk has far too many words in it",
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Small habits always win",
+       "lines": [
+        "Small habits always",
+        "win"
+       ],
+       "x": 10,
+       "y": 62,
+       "w": 80,
+       "h": 24,
+       "px": 60,
+       "color": "#333333",
+       "bg": "bg",
+       "font": "Arial"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Lorem ipsum placeholder line",
+       "x": 10,
+       "y": 70,
+       "w": 80,
+       "h": 10,
+       "px": 40,
+       "color": "ink",
+       "bg": "bg"
+      },
+      {
+       "id": "deco",
+       "kind": "decor",
+       "x": 0,
+       "y": 0,
+       "w": 100,
+       "h": 100,
+       "gradient": [
+        "#667eea",
+        "#764ba2"
+       ]
+      }
+     ],
+     "transition": {
+      "id": "fade-in",
+      "easing": "linear"
+     },
+     "widgets": [
+      {
+       "id": "toast",
+       "at": 3.9,
+       "easing": "linear"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "whoosh",
+       "at": 0.25
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

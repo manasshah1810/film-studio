@@ -61,8 +61,13 @@
         "anchor": {
          "enum": [
           "tl",
+          "t",
           "tr",
+          "l",
+          "c",
+          "r",
           "bl",
+          "b",
           "br"
          ]
         },
@@ -95,7 +100,7 @@
         },
         "recipe": {
          "type": "string",
-         "description": "Name of the recipe from styles/<style>/recipes.md this panel follows."
+         "description": "Name of the layout recipe from the style manual this panel follows."
         },
         "slots": {
          "type": "object",
@@ -437,6 +442,289 @@
           }
          },
          "additionalProperties": false
+        },
+        "captions": {
+         "type": "array",
+         "description": "Caption chunks, 5 words at most each.",
+         "items": {
+          "type": "string",
+          "minLength": 1
+         }
+        },
+        "transition": {
+         "type": "object",
+         "required": [
+          "id",
+          "easing"
+         ],
+         "properties": {
+          "id": {
+           "type": "string",
+           "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "easing": {
+           "type": "string",
+           "pattern": "^[a-z0-9][a-z0-9-]*$",
+           "description": "A named easing from the design system or the built-in list. Never linear."
+          }
+         },
+         "additionalProperties": false
+        },
+        "beats": {
+         "type": "array",
+         "description": "Visual events inside the panel. at and duration are seconds from the panel start.",
+         "items": {
+          "type": "object",
+          "required": [
+           "at",
+           "kind",
+           "easing"
+          ],
+          "properties": {
+           "at": {
+            "type": "number",
+            "minimum": 0
+           },
+           "duration": {
+            "type": "number",
+            "exclusiveMinimum": 0
+           },
+           "kind": {
+            "enum": [
+             "enter",
+             "exit",
+             "move",
+             "scale",
+             "swap",
+             "camera",
+             "reveal",
+             "count",
+             "emphasis"
+            ]
+           },
+           "easing": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "description": "A named easing from the design system or the built-in list. Never linear."
+           },
+           "target": {
+            "type": "string"
+           }
+          },
+          "additionalProperties": false
+         }
+        },
+        "widgets": {
+         "type": "array",
+         "description": "Diegetic micro-widgets. anchor is a frame edge or @<box id>.",
+         "items": {
+          "type": "object",
+          "required": [
+           "id",
+           "anchor",
+           "easing"
+          ],
+          "properties": {
+           "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+           },
+           "anchor": {
+            "type": "string",
+            "pattern": "^(tl|t|tr|l|r|bl|b|br|@[a-z0-9][a-z0-9-]*)$"
+           },
+           "at": {
+            "type": "number",
+            "minimum": 0
+           },
+           "easing": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "description": "A named easing from the design system or the built-in list. Never linear."
+           },
+           "props": {
+            "type": "object"
+           },
+           "x": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "y": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "h": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "text": {
+            "type": "string"
+           },
+           "lines": {
+            "type": "array",
+            "items": {
+             "type": "string"
+            }
+           },
+           "role": {
+            "enum": [
+             "display",
+             "body",
+             "label",
+             "caption"
+            ]
+           },
+           "px": {
+            "type": "number",
+            "exclusiveMinimum": 0
+           },
+           "color": {
+            "type": "string"
+           },
+           "bg": {
+            "type": "string"
+           },
+           "font": {
+            "type": "string"
+           },
+           "from": {
+            "type": "number",
+            "minimum": 0
+           },
+           "to": {
+            "type": "number",
+            "minimum": 0
+           }
+          },
+          "additionalProperties": false
+         }
+        },
+        "boxes": {
+         "type": "array",
+         "description": "Where things sit, in percent of the frame from the top-left. Read by check-safezones.js and check-ai-tells.js.",
+         "items": {
+          "type": "object",
+          "required": [
+           "id",
+           "kind",
+           "x",
+           "y",
+           "w",
+           "h"
+          ],
+          "properties": {
+           "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+           },
+           "kind": {
+            "enum": [
+             "text",
+             "caption",
+             "face",
+             "card",
+             "widget",
+             "subject",
+             "decor"
+            ]
+           },
+           "anchor": {
+            "type": "string"
+           },
+           "x": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "y": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "h": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+           },
+           "text": {
+            "type": "string"
+           },
+           "lines": {
+            "type": "array",
+            "items": {
+             "type": "string"
+            }
+           },
+           "role": {
+            "enum": [
+             "display",
+             "body",
+             "label",
+             "caption"
+            ]
+           },
+           "px": {
+            "type": "number",
+            "exclusiveMinimum": 0
+           },
+           "color": {
+            "type": "string"
+           },
+           "bg": {
+            "type": "string"
+           },
+           "font": {
+            "type": "string"
+           },
+           "from": {
+            "type": "number",
+            "minimum": 0
+           },
+           "to": {
+            "type": "number",
+            "minimum": 0
+           }
+          },
+          "additionalProperties": false
+         }
+        },
+        "sfx": {
+         "type": "array",
+         "description": "Sound cues. at is seconds from the panel start and must sit on a cut, beat, widget or effect start.",
+         "items": {
+          "type": "object",
+          "required": [
+           "id"
+          ],
+          "properties": {
+           "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+           },
+           "at": {
+            "type": "number",
+            "minimum": 0
+           },
+           "frame": {
+            "type": "integer",
+            "minimum": 0
+           }
+          },
+          "additionalProperties": false
+         }
         }
        },
        "additionalProperties": false

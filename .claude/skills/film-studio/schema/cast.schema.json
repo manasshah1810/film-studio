@@ -90,6 +90,37 @@
            "human",
            "cat"
           ]
+         },
+         "layers": {
+          "type": "array",
+          "minItems": 4,
+          "description": "A layered subject: at least 4 named layers (head or face, torso, limbs, shadow). Not only ellipse and line shapes.",
+          "items": {
+           "type": "object",
+           "required": [
+            "name",
+            "shapes"
+           ],
+           "properties": {
+            "name": {
+             "type": "string"
+            },
+            "depth": {
+             "type": "number"
+            },
+            "shapes": {
+             "type": "array",
+             "minItems": 1,
+             "items": {
+              "type": "object",
+              "required": [
+               "t"
+              ]
+             }
+            }
+           },
+           "additionalProperties": false
+          }
          }
         },
         "additionalProperties": false

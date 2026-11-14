@@ -61,8 +61,12 @@ the reason, and what was given up.
 18. **Licence allow-list, not a block-list.** `library/licences.json` names what is accepted;
     everything else is refused by `scripts/credits.js`. Trademarks are flagged for the user rather
     than auto-rejected, because a licence cannot settle them.
-19. **Kit proofs use a neutral specimen.** `library/preview.json` has placeholder content with no
-    factual claims, so style checks never depend on a topic and never put unverified facts on screen.
+19. **Reversed (2026-11-14).** Kit proofs used one shared neutral specimen. That made all 12 styles
+    one wireframe (see POST_MORTEM.md, F1). The specimen and its script are deleted; each style
+    brings its own preview copy.
+20. **AI tells are a script, not a reviewer.** The 25 rules in `references/ai-tells.md` are hardcoded
+    in `scripts/check-ai-tells.js`, with `scripts/check-design.js` and `scripts/check-safezones.js`.
+    A small model cannot reliably list or judge them; a script costs zero tokens and never drifts.
 
 ## Open items [CHECK]
 - Claude Code skill and agent frontmatter fields were checked against summaries, not the primary spec.

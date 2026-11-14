@@ -16,8 +16,9 @@ const AGENTS = path.join(SKILL, '..', '..', 'agents');
 
 // 1. line limits
 const limit = (files, max, what) => { for (const f of files) { const n = lines(f); if (n >= max) E.push(`${rel(f)} has ${n} lines; ${what} must stay under ${max}`); } };
-if (!fs.existsSync(path.join(SKILL, 'SKILL.md'))) E.push('SKILL.md is missing'); else limit([path.join(SKILL, 'SKILL.md')], 100, 'SKILL.md');
-limit(ls('roles', '.md'), 80, 'a role file');
+if (!fs.existsSync(path.join(SKILL, 'SKILL.md'))) E.push('SKILL.md is missing'); else limit([path.join(SKILL, 'SKILL.md')], 110, 'SKILL.md');
+limit(ls('roles', '.md'), 161, 'a role manual');
+limit(ls('references', '.md'), 161, 'a reference');
 limit(ls('rubrics', '.md'), 80, 'a rubric');
 limit(ls('library/platforms', '.md'), 80, 'a platform file');
 if (fs.existsSync(AGENTS)) limit(fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)), 80, 'an agent file');
@@ -26,10 +27,10 @@ if (fs.existsSync(AGENTS)) limit(fs.readdirSync(AGENTS).filter((f) => f.endsWith
 const styles = listStyles();
 const reg = fs.readFileSync(path.join(COMPONENTS, 'styles', 'index.ts'), 'utf8');
 for (const s of styles) {
-  for (const f of ['style.md', 'design-system.json', 'recipes.md', 'failures.md', 'rubric.md']) if (!fs.existsSync(path.join(SKILL, 'styles', s, f))) E.push(`styles/${s}/${f} is missing`);
+  for (const f of ['style.md', 'design-system.json']) if (!fs.existsSync(path.join(SKILL, 'styles', s, f))) E.push(`styles/${s}/${f} is missing`);
   const sm = path.join(SKILL, 'styles', s, 'style.md');
   if (fs.existsSync(sm)) {
-    limit([sm], 100, 'style.md');
+    limit([sm], 161, 'style.md');
     const fm = frontmatter(s);
     if (!['none', 'web'].includes(fm.requires)) E.push(`styles/${s}: requires is "${fm.requires}"; a style that needs a paid generation API must be removed`);
     if (!['draft', 'verified'].includes(fm.status)) E.push(`styles/${s}: status must be draft or verified`);
@@ -58,8 +59,8 @@ const rules = readJson(path.join(vdir, 'style-rules.json'));
 for (const s of styles) if (!rules.banned_tags[s]) E.push(`library/vfx/style-rules.json has no entry for style ${s}`);
 
 // 4. docs: every backticked repo path must exist; no secrets anywhere
-const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('rubrics', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
-const ROOTS = /^(scripts|roles|rubrics|schema|library|styles|components|providers)\//;
+const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('rubrics', '.md'), ...ls('references', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
+const ROOTS = /^(scripts|roles|rubrics|references|schema|library|styles|components|providers)\//;
 for (const f of docs) {
   const txt = fs.readFileSync(f, 'utf8');
   for (const m of txt.matchAll(/`([A-Za-z0-9_./<>*-]+\.(?:md|json|js|tsx?|ts))`/g)) {
@@ -74,9 +75,19 @@ const walk = (d) => fs.readdirSync(d, {withFileTypes: true}).flatMap((e) => (e.n
 for (const f of walk(SKILL)) if (/\.(md|json|js|ts|tsx|env)$/.test(f) && fs.statSync(f).size < 400000 && SECRET.test(fs.readFileSync(f, 'utf8'))) E.push(`${rel(f)} looks like it contains an API key`);
 if (walk(SKILL).some((f) => path.basename(f) === '.env')) E.push('a .env file sits inside the skill folder; keys belong in the project root .env, listed in .gitignore');
 
+// 4b. references: the cheatsheet lists exactly the 12 styles; every built style is one of them; 25 tells documented
+const sheet = path.join(SKILL, 'references', 'style-cheatsheet.md'), tells = path.join(SKILL, 'references', 'ai-tells.md');
+const sheetIds = fs.existsSync(sheet) ? [...fs.readFileSync(sheet, 'utf8').matchAll(/^\| `([a-z0-9-]+)` \|/gm)].map((m) => m[1]) : [];
+if (sheetIds.length !== 12) E.push(`references/style-cheatsheet.md lists ${sheetIds.length} styles; it needs exactly 12`);
+for (const s of styles) if (!sheetIds.includes(s)) E.push(`styles/${s} is not a row in references/style-cheatsheet.md`);
+const tellRows = fs.existsSync(tells) ? [...fs.readFileSync(tells, 'utf8').matchAll(/^\| (\d+) \|/gm)].map((m) => +m[1]).sort((x, y) => x - y) : [];
+if (tellRows.join() !== Array.from({length: 25}, (_, i) => i + 1).join()) E.push(`references/ai-tells.md documents rules [${tellRows.join(', ')}]; it needs 1 to 25, once each`);
+for (const f of ['preview.json']) if (fs.existsSync(path.join(SKILL, 'library', f))) E.push(`library/${f} is the retired shared preview; delete it`);
+
 // 5. sub-checks
 const run = (label, cmd, argv, cwd) => { const r = spawnSync(cmd, argv, {cwd, encoding: 'utf8', shell: process.platform === 'win32' && cmd.endsWith('tsc')}); if (r.status !== 0) E.push(`${label} failed:\n${(r.stdout + r.stderr).trim().split('\n').slice(-12).join('\n')}`); else notes.push(`${label}: ok`); };
 run('design systems', process.execPath, [path.join(__dirname, 'check-design.js'), '--systems'], SKILL);
+run('ai-tells selftest', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), '--selftest'], SKILL);
 run('schema examples', process.execPath, [path.join(__dirname, 'validate.js'), '--examples'], SKILL);
 if (!a['no-tsc']) run('type-check', process.execPath, [path.join(COMPONENTS, 'node_modules', 'typescript', 'bin', 'tsc'), '--noEmit', '-p', '.'], COMPONENTS);
 

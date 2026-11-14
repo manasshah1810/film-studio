@@ -1,0 +1,44 @@
+{
+ "title": "Why small habits win",
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0,
+   "duration": 8,
+   "beat": "hook",
+   "narration": "Why do small habits win? In a fast-paced world, habits are game-changers. First, pick one clear cue. Second, make it very tiny.",
+   "on_screen_text": "Why small habits win",
+   "visual_intent": "Title card.",
+   "emotion": "neutral",
+   "facts": []
+  },
+  {
+   "id": "s2",
+   "start": 8,
+   "duration": 4,
+   "beat": "setup",
+   "narration": "Also, 80% of people quit. Finally, repeat it every day.",
+   "on_screen_text": "80% quit",
+   "visual_intent": "Stat card.",
+   "emotion": "neutral",
+   "facts": []
+  },
+  {
+   "id": "s3",
+   "start": 12,
+   "duration": 4,
+   "beat": "close",
+   "narration": "Next, track your daily streak.",
+   "on_screen_text": "Track it",
+   "visual_intent": "List card.",
+   "emotion": "neutral",
+   "facts": [
+    {
+     "claim": "Tracking doubles success.",
+     "status": "verified",
+     "source": ""
+    }
+   ]
+  }
+ ]
+}

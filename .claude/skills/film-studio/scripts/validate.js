@@ -32,6 +32,7 @@ const NEEDS = {title: ['headline'], stat: ['stat'], figure: ['cast'], versus: ['
 // Each check gets (data, ctx) where ctx.get(name) returns a sibling file or null. Pushes to E (errors) and W (warnings).
 const semantic = {
   brief(d, ctx, E, W) {
+    if (!listStyles().length) return W.push(`style "${d.style}": no style is built yet, so the design cannot be checked`);
     if (!listStyles().includes(d.style)) return E.push(`style "${d.style}" has no design system (have: ${listStyles().join(', ')})`);
     const fm = frontmatter(d.style);
     if (!['none', 'web'].includes(fm.requires)) E.push(`style "${d.style}" has requires: ${fm.requires ?? 'missing'}; only none or web may be offered`);
@@ -125,23 +126,19 @@ const semantic = {
           if (p.duration < minSec) E.push(`${T} ${p.duration} s is shorter than the ${brief.style} entrance (${minSec.toFixed(2)} s)`);
           else if (p.duration < goodSec) W.push(`${T} ${p.duration} s is under the ${brief.style} comfortable minimum (${goodSec.toFixed(1)} s)`);
           const w = words(panelText(s));
-          if (brief.style === 'kinetic' && w > 9) E.push(`${T} ${w} words on screen; kinetic allows 9`);
-          if (brief.style === 'infographic' && s.stat && (!s.stat.label || (!s.stat.unit && !/[%$]/.test(s.stat.value)))) W.push(`${T} infographic stat needs a label and a unit`);
-          if (brief.style === 'infographic' && (s.cast ?? []).some((c) => c.says)) E.push(`${T} infographic forbids speech bubbles`);
-          if (brief.style === 'blueprint' && s.stat && !/^[\d.,]+$/.test(s.stat.value)) W.push(`${T} blueprint counts numbers up; "${s.stat.value}" is not numeric`);
           if (w > 24) W.push(`${T} ${w} words on screen is a lot for one panel`);
           if (p.recipe) onStyle++;
         }
         if (pf) {
           if (p.duration > pf.max_panel_seconds) W.push(`${T} ${p.duration} s is over the ${brief.platform} pace (${pf.max_panel_seconds} s)`);
           if (first && p.duration > pf.hook_seconds + 1.5) W.push(`${T} the first panel runs ${p.duration} s; the ${brief.platform} hook window is ${pf.hook_seconds} s`);
-          if ((pf.captions || !brief.voiceover) && !p.caption) E.push(`${T} caption missing (${brief.voiceover ? brief.platform + ' needs burned-in captions' : 'captions-only film'})`);
+          if ((pf.captions || !brief.voiceover) && !p.caption && !p.captions?.length) E.push(`${T} caption missing (${brief.voiceover ? brief.platform + ' needs burned-in captions' : 'captions-only film'})`);
           if (p.caption && words(p.caption) > pf.caption_words + 3) W.push(`${T} caption has ${words(p.caption)} words; ${brief.platform} reads ${pf.caption_words} at a time`);
         }
         first = false; shown++;
       }
     }
-    if (ds && shown && onStyle / shown < 0.5) W.push(`only ${onStyle} of ${shown} panels name a recipe from styles/${brief.style}/recipes.md; aim for two thirds`);
+    if (ds && shown && onStyle / shown < 0.5) W.push(`only ${onStyle} of ${shown} panels name a recipe from styles/${brief.style}/style.md; aim for two thirds`);
     const lay = d.scenes.flatMap((s) => s.panels.map((p) => p.layout));
     for (let i = 2; i < lay.length; i++) if (lay[i] === lay[i - 1] && lay[i] === lay[i - 2]) { W.push(`three ${lay[i]} panels in a row from panel ${i - 1}; vary the layout`); break; }
   },

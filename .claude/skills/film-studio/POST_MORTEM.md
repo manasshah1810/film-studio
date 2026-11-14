@@ -141,6 +141,11 @@ Rules:
 6. **Budgets are enforced by script.** A file over its line budget fails the static check.
 
 ## 4. What this means for the existing files
+**Update, prompt 02 (2026-11-14):** on the user's instruction the 12 legacy style folders, their 12
+kits, `library/preview.json`, `scripts/preview.js` and the 28-tell rubric were deleted before their
+replacements exist. The list below is the state at prompt 01 and is kept as history. The line limits
+in the static check now match the contract.
+
 - Superseded, pending rebuild: `library/preview.json`, `scripts/preview.js`,
   `components/engine/figure.ts`, all 12 `styles/*` folders and `components/styles/*` kits, the 6-slot
   palette shape, the hook rules in `roles/writer.md` and `rubrics/script.md`.

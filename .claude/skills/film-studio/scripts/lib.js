@@ -11,7 +11,7 @@ const FONT_ROLES = ['display', 'body', 'accent', 'mono'];
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const writeJson = (p, v) => { fs.mkdirSync(path.dirname(p), {recursive: true}); fs.writeFileSync(p, JSON.stringify(v, null, 1) + '\n'); };
-const listStyles = () => fs.readdirSync(path.join(SKILL, 'styles')).filter((d) => fs.existsSync(path.join(SKILL, 'styles', d, 'design-system.json'))).sort();
+const listStyles = () => (fs.existsSync(path.join(SKILL, 'styles')) ? fs.readdirSync(path.join(SKILL, 'styles')) : []).filter((d) => fs.existsSync(path.join(SKILL, 'styles', d, 'design-system.json'))).sort();
 const loadDS = (style) => {
   const p = path.join(SKILL, 'styles', style, 'design-system.json');
   if (!fs.existsSync(p)) throw new Error(`no design system for style "${style}" (${p})`);

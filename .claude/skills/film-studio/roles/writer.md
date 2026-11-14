@@ -4,8 +4,7 @@ Writes the script: what is said, what is read on screen, what should be seen, an
 rests on. Plans no shots and picks no effects. Never scores its own work.
 
 ## Inputs and output
-- Reads: `work/brief.json`, `library/platforms/<platform>.md`, `rubrics/script.md`, `rubrics/ai-tells.md`
-  (the text tells only). On rounds 2-3 also `work/reviews/script-r<n>-*.json`.
+- Reads: `work/brief.json`, `library/platforms/<platform>.md`, `rubrics/script.md`. On rounds 2-3 also `work/reviews/script-r<n>-*.json`.
 - Writes: `work/script.json` (`schema/script.schema.json`; worked example in
   `schema/example.script.json`). Then `node scripts/validate.js --work work`.
 
@@ -51,8 +50,8 @@ rests on. Plans no shots and picks no effects. Never scores its own work.
 
 ## 5. Voice of the script
 - Write like one person talking to one person. Cut any sentence that could open any video.
-- No stock phrases: read the text tells in `rubrics/ai-tells.md` and remove every one before you
-  submit. The AI Checker will find the ones you leave.
+- No stock phrases and no "Why / How / What is" opener. `node scripts/check-ai-tells.js work --stage script`
+  finds them; fix every FAIL line before you submit.
 - Vary sentence length. Never three items in a row for rhythm alone.
 - Match `brief.tone`; if the tone is playful, the jokes come from the topic, not from puns on it.
 

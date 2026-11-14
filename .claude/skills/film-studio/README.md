@@ -34,7 +34,9 @@ Working files go in `work/` in your project. A run that stops can be resumed: th
 | Command | What it does |
 |---|---|
 | `node scripts/pick-design.js --suggest "<topic>"` | top 3 styles for a topic |
-| `node scripts/preview.js <style> [--palette id] [--pairing id]` | proof sheet of a style, nine layouts |
+| `node scripts/check-ai-tells.js work` | the 25 AI-tell rules; `--stage script` or `storyboard`, `--selftest` |
+| `node scripts/check-design.js work` | contrast and palette lock; `--systems` checks the design systems |
+| `node scripts/check-safezones.js work` | no text or face in the bottom 20% or right 15% of 9:16 |
 | `node scripts/pick-design.js work` | lock palette, pairing and seed into the brief |
 | `node scripts/ledger.js estimate work` | budget dry run; `init`, `spend`, `status` |
 | `node scripts/validate.js --work work` | schema and cross-file checks for every stage file |
@@ -52,15 +54,16 @@ Working files go in `work/` in your project. A run that stops can be resumed: th
 ```
 SKILL.md                 the Director: questions, stages, gate, rules
 roles/                   one file per crew role
-rubrics/                 what reviewers score; the 28 AI tells; the review protocol
-styles/<id>/             style.md, design-system.json, recipes.md, failures.md, rubric.md
+rubrics/                 what reviewers score; the review protocol
+references/              style-cheatsheet.md (pick a style), ai-tells.md (the 25 rules)
+styles/<id>/             style.md (the style manual), design-system.json
 library/platforms/       per-platform rules; platforms.json is the machine-readable preset
 library/vfx/             the effect library, style rules, merge recipes
 library/costs.json       budget units          library/licences.json   licence allow-list
 schema/                  JSON schemas and one worked example run
 scripts/                 every command above
 components/              Remotion project: engine/, styles/<id>/kit.tsx, effects/
-../../agents/            producer, director-review, ai-checker (the independent reviewers)
+../../agents/            producer, director-review (the independent reviewers)
 ```
 
 ## Safety rules the skill enforces
@@ -74,15 +77,17 @@ components/              Remotion project: engine/, styles/<id>/kit.tsx, effects
 - **Stop on failure.** A failed script or render is reported once. Nothing loops.
 
 ## Add a style
-1. `styles/<id>/design-system.json`: 10 palettes with the six roles, 10 pairings, type scale, motion
-   with 3-5 named easings, textures, figure template, five signature moves with numbers, forbidden list.
+Only the 12 ids in `references/style-cheatsheet.md` may be built.
+1. `styles/<id>/design-system.json`: `subject_mode` (layered or ui-first), palettes with a `tier`
+   (focused 3-5 colours, expanded 8-12), `text_roles`, `surface_roles`, font pairings, `type_scale`
+   (display at least 2.2x body), `motion` with named easings. A working example is
+   `scripts/fixtures/tells-pass/design-system.json`.
 2. `components/styles/<id>/kit.tsx` implementing the `Kit` contract in `components/engine/types.ts`;
    register it in `components/styles/index.ts`.
-3. `style.md` (with `requires: none` or `web`), `recipes.md`, `failures.md`, `rubric.md` (10 unique
-   parameters). Add the style's banned effect tags to `library/vfx/style-rules.json`.
-4. `node scripts/gen-fonts.js`, `node scripts/check-design.js --systems`, `node scripts/preview.js <id>`
-   on two palettes, have a reviewer score the sheets with the rubric, then set `status: verified`.
-5. `node scripts/check-static.js`.
+3. `styles/<id>/style.md`: the style manual (100 to 160 lines, `requires: none` or `web`), with the
+   style's own layouts, widgets, motion and preview copy. No shared preview file exists.
+4. `node scripts/gen-fonts.js`, `node scripts/check-design.js --systems <id>`, then
+   `node scripts/check-static.js`.
 
 ## Limits worth knowing
 - Figures and props are simple vector shapes. This is motion design, not character animation.

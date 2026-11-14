@@ -1,0 +1,65 @@
+{
+ "style": "fixture",
+ "version": 2,
+ "palettes": [
+  {
+   "id": "ink-lime",
+   "name": "Ink and lime",
+   "tier": "focused",
+   "roles": {
+    "bg": "#0B0D10",
+    "surface": "#1A1F26",
+    "ink": "#3A3F47",
+    "primary": "#C6FF3D",
+    "alert": "#FF5A4F"
+   }
+  }
+ ],
+ "text_roles": {
+  "body": [
+   "ink"
+  ],
+  "display": [
+   "ink",
+   "primary",
+   "alert"
+  ]
+ },
+ "surface_roles": [
+  "bg",
+  "surface"
+ ],
+ "fonts": [
+  {
+   "id": "grotesk",
+   "display": {
+    "family": "Archivo Black",
+    "weight": 400
+   },
+   "body": {
+    "family": "Inter Tight",
+    "weight": 500
+   }
+  }
+ ],
+ "type_scale": {
+  "display": 60,
+  "body": 40
+ },
+ "motion": {
+  "fps": 30,
+  "enter_frames": 10,
+  "easings": {
+   "linear": [
+    0,
+    0,
+    1,
+    1
+   ]
+  }
+ },
+ "figure": {
+  "body": "line",
+  "limbStyle": "line"
+ }
+}

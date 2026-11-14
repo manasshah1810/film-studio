@@ -1,0 +1,47 @@
+{
+ "assets": [
+  {
+   "id": "lead",
+   "approved": true,
+   "round": 0,
+   "def": {
+    "kind": "character",
+    "color": "primary",
+    "layers": [
+     {
+      "name": "head",
+      "shapes": [
+       {
+        "t": "ellipse"
+       }
+      ]
+     },
+     {
+      "name": "body",
+      "shapes": [
+       {
+        "t": "line"
+       }
+      ]
+     },
+     {
+      "name": "arms",
+      "shapes": [
+       {
+        "t": "line"
+       }
+      ]
+     },
+     {
+      "name": "legs",
+      "shapes": [
+       {
+        "t": "line"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

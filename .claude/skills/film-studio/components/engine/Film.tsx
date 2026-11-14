@@ -64,7 +64,7 @@ export const Film: React.FC<FilmDef> = (film) => {
 	);
 };
 
-/** Contact sheet: every panel frozen at `at` of its duration, in a grid. Review tool only (scripts/preview.js --sheet). */
+/** Contact sheet: every panel frozen at `at` of its duration, in a grid. Review tool only (scripts/stills.js --sheet). */
 export const sheetSize = (film: FilmDef & {sheet?: {cols?: number; cell?: number}}) => {
 	const n = film.scenes.reduce((a, s) => a + s.panels.length, 0) || 1;
 	const cols = film.sheet?.cols ?? Math.min(n, 5);
