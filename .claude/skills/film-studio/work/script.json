@@ -1,5 +1,5 @@
 {
- "title": "OneCoin never had a coin",
+ "title": "OneCoin never crashed",
  "fps": 30,
  "hook": {
   "formula": "assumption-flip",
@@ -12,52 +12,58 @@
    "start": 0,
    "duration": 5.5,
    "beat": "hook",
-   "narration": "OneCoin did not crash like a coin. Prosecutors called every coin worthless.",
-   "on_screen_text": "Coin worth: zero",
+   "narration": "OneCoin never crashed. Prosecutors called its coins worthless, and still billions poured in.",
+   "on_screen_text": "Charged, not crashed",
    "emotion": "disbelief",
-   "visual_intent": "A price chart where the OneCoin line is flat at zero while a Bitcoin line climbs beside it.",
+   "visual_intent": "A Bitcoin price line climbs while the OneCoin line is a flat zero with a prosecutor's stamp on it.",
    "facts": [
     {
      "claim": "The US Department of Justice described OneCoin coins as worthless.",
      "status": "verified",
      "source": "https://www.theblock.co/post/15090/u-s-prosecutors-charges-leaders-behind-onecoin-a-multibillion-dollar-crypto-pyramid-scheme"
+    },
+    {
+     "claim": "Victims invested over $4 billion worldwide into OneCoin, according to the Justice Department.",
+     "status": "verified",
+     "source": "https://www.theblock.co/amp/post/397319/us-justice-opens-claims-onecoin-fraud"
     }
    ],
    "captions": [
     [
      0,
-     55,
-     "OneCoin did not crash",
-     "crash"
+     38,
+     "OneCoin never crashed.",
+     "never"
     ],
     [
-     55,
-     96,
-     "like a coin."
-    ],
-    [
-     96,
-     151,
-     "Prosecutors called every coin",
+     38,
+     89,
+     "Prosecutors called its coins",
      "worthless"
     ],
     [
-     151,
+     89,
+     127,
+     "worthless, and still",
+     "worthless"
+    ],
+    [
+     127,
      165,
-     "worthless.",
-     "worthless"
+     "billions poured in.",
+     "billions"
     ]
    ]
   },
   {
    "id": "s2",
    "start": 5.5,
-   "duration": 7.5,
+   "duration": 6,
    "beat": "setup",
-   "narration": "So what did buyers get? Commissions for bringing in new members, which turned every buyer into a salesperson.",
-   "on_screen_text": "Buyers became sellers",
+   "narration": "So what did buyers get? Commissions for recruiting, which made every buyer a salesperson.",
+   "on_screen_text": "Every buyer recruits",
    "emotion": "greed",
-   "visual_intent": "A network tree grows node by node, each new node sending a coin icon up to its parent.",
+   "visual_intent": "A buyer receives a coin, then is handed a referral badge and walks toward a queue of new faces.",
    "facts": [
     {
      "claim": "OneCoin operated as a pyramid-style scheme where members earned commissions for recruiting new members.",
@@ -68,44 +74,39 @@
    "captions": [
     [
      165,
-     227,
+     229,
      "So what did buyers get?",
      "get"
     ],
     [
-     227,
-     265,
-     "Commissions for bringing",
+     229,
+     268,
+     "Commissions for recruiting,",
      "Commissions"
     ],
     [
-     265,
-     303,
-     "in new members,"
-    ],
-    [
-     303,
-     353,
-     "which turned every buyer",
+     268,
+     319,
+     "which made every buyer",
      "buyer"
     ],
     [
-     353,
-     390,
-     "into a salesperson.",
+     319,
+     345,
+     "a salesperson.",
      "salesperson"
     ]
    ]
   },
   {
    "id": "s3",
-   "start": 13.0,
+   "start": 11.5,
    "duration": 6.5,
    "beat": "setup",
-   "narration": "Yet commissions came from newer members' money, so recruiting could never stop.",
-   "on_screen_text": "Money from newcomers",
+   "narration": "Yet those commissions came from newer members' money, so recruiting could never stop.",
+   "on_screen_text": "Pay in to pay out",
    "emotion": "unease",
-   "visual_intent": "Inflow and outflow bars, the inflow bar must stay taller than the outflow bar or the structure falls.",
+   "visual_intent": "People pass coins hand over hand toward the front of a line while the back of the line keeps needing new people.",
    "facts": [
     {
      "claim": "In a pyramid-style scheme, payouts to earlier members depend on money from newer members.",
@@ -115,26 +116,26 @@
    ],
    "captions": [
     [
-     390,
-     439,
-     "Yet commissions came",
+     345,
+     405,
+     "Yet those commissions came",
      "Yet"
     ],
     [
-     439,
-     504,
+     405,
+     465,
      "from newer members' money,",
      "newer"
     ],
     [
-     504,
-     536,
+     465,
+     495,
      "so recruiting",
      "recruiting"
     ],
     [
-     536,
-     585,
+     495,
+     540,
      "could never stop.",
      "never"
     ]
@@ -143,61 +144,61 @@
   },
   {
    "id": "s4",
-   "start": 19.5,
-   "duration": 9,
+   "start": 18.0,
+   "duration": 9.5,
    "beat": "turn",
-   "narration": "But the coin was never the product. Belief was. Every recruit bought a share of it, and every share needed another believer.",
-   "on_screen_text": "They sold belief",
+   "narration": "But the coin was never the product. Belief was. Every recruit was sold it, and every recruit had to sell it on.",
+   "on_screen_text": "The real product",
    "emotion": "dread",
    "visual_intent": "A glowing coin dissolves into a speech bubble that is passed from person to person along the tree.",
    "facts": [],
    "captions": [
     [
-     585,
-     634,
+     540,
+     592,
      "But the coin was",
      "But"
     ],
     [
-     634,
-     671,
+     592,
+     631,
      "never the product.",
      "never"
     ],
     [
-     671,
-     695,
+     631,
+     657,
      "Belief was.",
      "Belief"
     ],
     [
-     695,
-     757,
-     "Every recruit bought a share",
-     "share"
+     657,
+     721,
+     "Every recruit was sold it,",
+     "sold"
     ],
     [
-     757,
-     818,
-     "of it, and every share",
+     721,
+     773,
+     "and every recruit had",
      "every"
     ],
     [
-     818,
-     855,
-     "needed another believer.",
-     "believer"
+     773,
+     825,
+     "to sell it on.",
+     "sell"
     ]
    ],
    "rehook": true
   },
   {
    "id": "s5",
-   "start": 28.5,
+   "start": 27.5,
    "duration": 9,
    "beat": "payoff",
    "narration": "In 2017 prosecutors charged founder Ruja Ignatova. She is still at large. Investors worldwide put in over four billion dollars.",
-   "on_screen_text": "Over four billion in",
+   "on_screen_text": "$4B in, one fugitive",
    "emotion": "shock",
    "visual_intent": "A bar counter rolls up to four billion while a wanted-poster frame holds the founder's name.",
    "facts": [
@@ -219,32 +220,32 @@
    ],
    "captions": [
     [
-     855,
-     909,
+     825,
+     879,
      "In 2017 prosecutors charged",
      "2017"
     ],
     [
-     909,
-     949,
+     879,
+     919,
      "founder Ruja Ignatova.",
      "Ignatova"
     ],
     [
-     949,
-     1017,
+     919,
+     987,
      "She is still at large.",
      "large"
     ],
     [
-     1017,
-     1071,
+     987,
+     1041,
      "Investors worldwide put in",
      "Investors"
     ],
     [
-     1071,
-     1125,
+     1041,
+     1095,
      "over four billion dollars.",
      "billion"
     ]
@@ -252,7 +253,7 @@
   },
   {
    "id": "s6",
-   "start": 37.5,
+   "start": 36.5,
    "duration": 8.5,
    "beat": "close",
    "narration": "Nobody lost to a better coin. They lost to a story that only worked while enough people kept believing it.",
@@ -262,32 +263,32 @@
    "facts": [],
    "captions": [
     [
-     1125,
-     1163,
+     1095,
+     1133,
      "Nobody lost to",
      "lost"
     ],
     [
-     1163,
-     1201,
+     1133,
+     1171,
      "a better coin.",
      "coin"
     ],
     [
-     1201,
-     1265,
+     1171,
+     1235,
      "They lost to a story",
      "story"
     ],
     [
-     1265,
-     1316,
+     1235,
+     1286,
      "that only worked while",
      "only"
     ],
     [
-     1316,
-     1380,
+     1286,
+     1350,
      "enough people kept believing it.",
      "believing"
     ]
