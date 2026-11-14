@@ -5,6 +5,7 @@ import {Film, Sheet, filmFrames, sheetSize} from './engine/Film';
 import {NokiaBaseline} from './baseline/NokiaBaseline';
 import {CatsBaseline} from './baseline/CatsBaseline';
 import {CrisisBaseline} from './baseline/CrisisBaseline';
+import {Preview as HormoziPreview, PreviewSheet as HormoziSheet, PREVIEW_FRAMES as HORMOZI_FRAMES, SHEET_SIZE as HORMOZI_SHEET} from './styles/hormozi-kinetic/Preview';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
 
@@ -40,6 +41,8 @@ export const Root: React.FC = () => (
 				return {width: z.width, height: z.height, fps: 30, durationInFrames: 1};
 			}}
 		/>
+		<Composition id="Preview-hormozi-kinetic" component={HormoziPreview} durationInFrames={HORMOZI_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'blackout-gold', pairing: 'anton-inter'}} />
+		<Composition id="PreviewSheet-hormozi-kinetic" component={HormoziSheet} durationInFrames={HORMOZI_FRAMES} fps={30} width={HORMOZI_SHEET.width} height={HORMOZI_SHEET.height} defaultProps={{palette: 'blackout-gold', pairing: 'anton-inter'}} />
 		<Composition id="Baseline-nokia" component={NokiaBaseline} durationInFrames={1350} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-cats" component={CatsBaseline} durationInFrames={900} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />

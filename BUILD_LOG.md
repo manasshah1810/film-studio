@@ -3,6 +3,22 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 11: hormozi-kinetic style, status: verified.** Added `styles/hormozi-kinetic/`
+  (`style.md` 111 lines, `design-system.json` 5 focused + 5 expanded palettes and 6 font pairings,
+  `recipes.md`, `failures.md`) and `components/styles/hormozi-kinetic/Preview.tsx`, registered in
+  `components/Root.tsx` as `Preview-hormozi-kinetic` and `PreviewSheet-hormozi-kinetic` (needed to render it).
+  Visual loop: Pass 1 rendered `blackout-gold` and `paper-red` (3-beat sheet each, stills only,
+  `previews/hormozi-kinetic/`); `check-design.js` and `check-safezones.js` PASS on both. Critique: headline
+  filled only 2/3 of its box and the raised hand read as a stub. Pass 2: display size 0.93x to 1.0x, bigger
+  hand, rule moved to y 50; re-rendered, both checks PASS again, `tsc` clean. Choices where the prompt gave
+  no number: palette ids and colours, the 6 pairings, spring values, the comment copy "@marcus_builds",
+  `subject_mode: layered` (the prompt asks for a Mode A bust; `references/style-cheatsheet.md` lists this
+  style as ui-first, left unchanged). The hook keeps the em dash exactly as written in the prompt.
+  Checks ran on a scratch storyboard that mirrors `BOXES` in Preview.tsx (not committed).
+  Known: `node scripts/check-static.js` now FAILS 4 ways because it expects things the prompt did not ask
+  for: no `components/styles/hormozi-kinetic/kit.tsx`, not registered in `components/styles/index.ts`, no
+  entry in `library/vfx/style-rules.json`, and the example brief names style `sketchbook`, which has no
+  design system. Left untouched.
 - **2026-11-14 prompt 10: QA inspector manual only.** Added `personas/qa-inspector.md`: Stage 1
   four-script hard-fail gate, Stage 2 10-parameter rubric (9.0 average, none under 7), 2-pass visual
   critique with rework handoff line, 8-row works/fails table, worked Nokia audit report. Nothing else
@@ -104,6 +120,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 11 done (hormozi-kinetic style, verified).
 - 2026-11-14: prompt 10 done (QA inspector manual).
 - 2026-11-14: prompt 09 done (sound designer manual).
 - 2026-11-14: prompt 08 done (motion choreographer manual).
