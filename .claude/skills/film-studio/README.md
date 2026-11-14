@@ -2,67 +2,85 @@
 
 A Claude Code skill that turns a topic into a short, art-directed video. Everything on screen is
 drawn in code with Remotion: no image or video generation service, no stock art by default, no paid
-API needed. A crew of roles writes, casts, storyboards and plans effects; two independent reviewers
-score every stage; nothing ships under 9.0 without being flagged.
+API needed. A persona crew writes, casts, lays out, animates and scores the film; every rule that can
+be counted is checked by a script, so a small model at low effort gets the same gate as a large one.
 
-## What you get
-- 12 styles, each with 10 palettes, 10 font pairings, its own motion rules, five signature moves, a
-  forbidden list, panel recipes, known failure modes and a 10-point rubric:
-  whiteboard, cartoon, infographic, kinetic, comic, sketchbook, pixel, cutout, watercolor, noir,
-  blueprint, riso.
-- One render composition driven by one JSON file. No per-film code is written.
-- 86 effects, each a real component, with per-style rules about which ones a style forbids.
-- Platform presets for study video, Instagram, YouTube (16:9 and Shorts), TikTok and LinkedIn.
-- Voice: captions only, a free local voice, or your own ElevenLabs or OpenAI key from the environment.
-- A budget ledger, a licence ledger, resume after failure, and a static check for the skill itself.
-
-## Requirements
-- Node 18 or newer (built on 22). `ffmpeg` and `ffprobe` on PATH for render checks and voice timing.
-- First run: `cd .claude/skills/film-studio/components && npm install` (Remotion 4, React 19).
-  The first still downloads a headless browser; later ones take about 40 seconds.
+## Install (one line)
+```
+git clone --depth 1 https://github.com/manasshah1810/film-studio.git && cd film-studio/.claude/skills/film-studio/components && npm install
+```
+Then open Claude Code in `film-studio/`. To use the skill in another project, copy
+`.claude/skills/film-studio/` into that project's `.claude/skills/` and run `npm install` in its
+`components/`. Needs Node 18 or newer (built on 22), and `ffmpeg` / `ffprobe` on PATH for render checks.
+The first render downloads a headless browser.
 
 ## Use it
-Ask Claude Code for a video: "make a 45 second Instagram video about why Nokia fell".
-The Director asks four questions (platform, length, style, voiceover) and then runs on its own,
-stopping only for: budget approval, anything with an unclear licence or a trademark, unsourced facts
-before render, and your yes on the proof sheet and the 3-second draft.
+Say only the topic: "make a video on why Nokia fell". The Director asks four questions, one at a
+time (platform, length, style with three picks and a reason each, voiceover); say "auto" to skip them.
+Then the crew runs on its own and stops only for: budget approval, an unclear licence or a trademark,
+and unsourced facts before render. It always renders Pass 1, runs every check, has the QA Inspector
+critique it, applies the fixes and renders the Pass 2 polish before showing you the video.
+Working files go in `work/`. An interrupted run resumes from the last completed persona stage
+(`work/state.json`).
 
-Working files go in `work/` in your project. A run that stops can be resumed: the skill reads
-`work/state.json` and continues from the first unfinished stage.
+## How a model is routed (one file per persona)
+| Stage | Persona | Opens only | Writes |
+|---|---|---|---|
+| 1 | Director | `personas/director.md` | `work/brief.json` |
+| 2 | Treasurer | `roles/treasurer.md` | `work/budget.json` |
+| 3 | Scriptwriter | `personas/scriptwriter.md` | `work/script.json` |
+| 4 | Selector, Casting and Rig Designer | `roles/selector.md`, `personas/casting-rig-designer.md` | `work/needs.json`, `work/cast.json` |
+| 5 | Art Director | `personas/art-director.md` + one `styles/<id>/style.md` | `work/storyboard.json` |
+| 6 | Widget Integrator | `personas/widget-integrator.md` | `work/widgets.json` |
+| 7 | Motion Choreographer | `personas/motion-choreographer.md` | `work/motion.json` |
+| 8 | VFX Director | `roles/vfx-director.md` | `work/vfx-plan.json` |
+| 9 | Sound Designer | `personas/sound-designer.md` | `work/audio-cues.json` |
+| 10 | scripts | nothing | `work/render-manifest.json` |
+| 11 | Renderer, Pass 1 | `roles/renderer.md` | `work/out/pass1.mp4` |
+| 12 | QA Inspector | `personas/qa-inspector.md` | `work/reviews/qa-audit.json` |
+| 13 | Renderer, Pass 2 | `roles/renderer.md` | `work/out/final.mp4` |
+Full card with inputs and gates: `references/director-cheatsheet.md`. `node scripts/state-manager.js
+next work` prints the row to run now.
+
+## The pipeline contract
+- `schemas/brief`, `script`, `storyboard` and `render-manifest` `.schema.json` enforce the palette tier
+  (focused 3-5 colours, expanded 8-12), caption chunks of 5 words or fewer, a visual event every 3.5 s
+  or less, anchored widget boxes inside the 9:16 safe rectangle, and SFX cues tied to a keyframe.
+- `scripts/build-film.js` joins the persona files into `work/render-manifest.json`: all frames, no hex,
+  no font names, no topic text in code.
+- `components/src/compositions/FilmComposition.tsx` renders only that manifest: it loads the chosen
+  style's `design-system.json` by id, draws layered narrators and actors (or a UI-first frame), mounts
+  any of the 50 widgets (`library/widgets.json`, `components/widgets/registry.ts`), runs the four motion
+  modules in `components/motions/`, plays SFX on their frames and ducks music under the voice.
+  `showSafeZones` draws the bottom 20% and right 15% dead zones (on for Pass 1).
 
 ## Commands (run from the skill folder)
 | Command | What it does |
 |---|---|
-| `node scripts/pick-design.js --suggest "<topic>"` | top 3 styles for a topic |
-| `node scripts/check-ai-tells.js work` | the 25 AI-tell rules; `--stage script` or `storyboard`, `--selftest` |
-| `node scripts/check-design.js work` | contrast and palette lock; `--systems` checks the design systems |
-| `node scripts/check-safezones.js work` | no text or face in the bottom 20% or right 15% of 9:16 |
-| `node scripts/pick-design.js work` | lock palette, pairing and seed into the brief |
+| `node scripts/run-all-checks.js work` | the whole gate: schemas, design lock and WCAG AA, safe zones, 25 AI tells; JSON fix lines on failure; `--selftest` |
+| `node scripts/state-manager.js next work` | the stage to run now (resume); `set`, `show` |
+| `node scripts/pick-design.js --suggest "<topic>"` | top 3 styles for a topic; `work` locks tier, palette, pairing, seed |
+| `node scripts/validate-schema.js --work work` | schema and cross-file checks; `render-manifest <file>` for one manifest |
+| `node scripts/build-film.js work` | write `work/render-manifest.json` |
+| `node scripts/stills.js --manifest work/render-manifest.json --all` | one still per panel; `--safe-zones` |
+| `node scripts/render.js work --pass 1` or `--pass 2` | review render (half size, safe zones) or the polish render |
+| `node scripts/check-render.js work --pass 2` | size, frame rate, length, audio, blank-frame check |
 | `node scripts/ledger.js estimate work` | budget dry run; `init`, `spend`, `status` |
-| `node scripts/validate.js --work work` | schema and cross-file checks for every stage file |
-| `node scripts/cast-sheet.js work` | one sheet of every character and prop |
-| `node scripts/build-film.js work` | join the stage files into `work/film.json` |
-| `node scripts/stills.js --film work/film.json --sheet` | contact sheet of every panel |
 | `node scripts/voice.js check` | which voices can run here; `make work` to generate |
-| `node scripts/render.js work --draft` or `--final` | one 3-second draft, or the final MP4 |
-| `node scripts/check-render.js work --final` | size, frame rate, length, audio, blank-frame check |
 | `node scripts/credits.js check work` | licence ledger; `add`, `fonts`, `text`, `licences` |
-| `node scripts/state.js next work` | where to resume |
 | `node scripts/check-static.js` | check the skill itself after editing it |
 
 ## Layout
 ```
-SKILL.md                 the Director: questions, stages, gate, rules
-roles/                   one file per crew role
-rubrics/                 what reviewers score; the review protocol
-references/              style-cheatsheet.md (pick a style), ai-tells.md (the 25 rules)
+SKILL.md                 the Director's map: trigger rule, stages, gates, rules
+personas/                the 8 persona manuals          roles/   treasurer, selector, vfx, renderer, voice
+references/              director-cheatsheet.md, style-cheatsheet.md, ai-tells.md, widget and motion manuals
 styles/<id>/             style.md (the style manual), design-system.json
-library/platforms/       per-platform rules; platforms.json is the machine-readable preset
-library/vfx/             the effect library, style rules, merge recipes
-library/costs.json       budget units          library/licences.json   licence allow-list
-schema/                  JSON schemas and one worked example run
-scripts/                 every command above
-components/              Remotion project: engine/, styles/<id>/kit.tsx, effects/
+schemas/                 JSON schemas and one worked example run
+library/                 widgets.json, platforms.json, vfx/, costs.json, licences.json
+scripts/                 every command above; fixtures/pipeline-pass is a full worked work folder
+components/              Remotion project: src/compositions/FilmComposition.tsx, Root.tsx, widgets/,
+                         motions/, effects/, styles/<id>/Preview.tsx
 ../../agents/            producer, director-review (the independent reviewers)
 ```
 
@@ -76,21 +94,11 @@ components/              Remotion project: engine/, styles/<id>/kit.tsx, effects
   `.gitignore`). They are never printed or written. If you paste a key into chat, rotate it.
 - **Stop on failure.** A failed script or render is reported once. Nothing loops.
 
-## Add a style
-Only the 12 ids in `references/style-cheatsheet.md` may be built.
-1. `styles/<id>/design-system.json`: `subject_mode` (layered or ui-first), palettes with a `tier`
-   (focused 3-5 colours, expanded 8-12), `text_roles`, `surface_roles`, font pairings, `type_scale`
-   (display at least 2.2x body), `motion` with named easings. A working example is
-   `scripts/fixtures/tells-pass/design-system.json`.
-2. `components/styles/<id>/kit.tsx` implementing the `Kit` contract in `components/engine/types.ts`;
-   register it in `components/styles/index.ts`.
-3. `styles/<id>/style.md`: the style manual (100 to 160 lines, `requires: none` or `web`), with the
-   style's own layouts, widgets, motion and preview copy. No shared preview file exists.
-4. `node scripts/gen-fonts.js`, `node scripts/check-design.js --systems <id>`, then
-   `node scripts/check-static.js`.
-
 ## Limits worth knowing
-- Figures and props are simple vector shapes. This is motion design, not character animation.
+- Characters are layered vector shapes with idle motion (breathing, head bob, arm sway, a nod while
+  speaking). This is motion design, not character animation.
+- Widgets are laid out on the 1080 x 1920 frame; other ratios are reframed, not redesigned.
+- SFX and music files are not bundled: put them in `work/audio/sfx/` and `work/audio/music/`; a cue
+  without a file stays silent and is listed as a warning.
 - Platform safe-area numbers come from third-party guides and are marked [CHECK].
 - Fonts load from Google Fonts at render time, so the first render of a pairing needs a network.
-- Hyperframes is not used. Remotion is the only renderer.

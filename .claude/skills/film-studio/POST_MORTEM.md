@@ -59,7 +59,7 @@ search bar, a progress ring, a chat bubble). Panels hold still for their whole 3
 ### F6. Blog-title hooks
 Scripts open with a passive headline or question ("Why small habits win").
 - Root cause: `roles/writer.md` and `rubrics/script.md` score structure and facts but never require a
-  curiosity gap in the first seconds; the examples in `schema/` model the weak opening.
+  curiosity gap in the first seconds; the examples in `schemas/` model the weak opening.
 - Effect: nothing to stop the scroll. The viewer is told the topic instead of being given a reason to
   stay.
 

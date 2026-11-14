@@ -1,22 +1,22 @@
 {
  "brief_hash": "example",
  "stages": {
-  "brief": {
+  "director": {
    "status": "passed",
    "round": 0,
    "output_path": "work/brief.json"
   },
-  "budget": {
+  "treasurer": {
    "status": "passed",
    "round": 0,
    "output_path": "work/budget.json"
   },
-  "script": {
+  "scriptwriter": {
    "status": "passed",
    "round": 1,
    "output_path": "work/script.json"
   },
-  "cast": {
+  "casting": {
    "status": "running",
    "round": 1,
    "output_path": "work/cast.json"

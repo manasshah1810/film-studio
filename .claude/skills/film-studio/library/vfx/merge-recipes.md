@@ -16,7 +16,7 @@ Each file is `{"category": "...", "entries": [...]}`. One entry:
 | `window` | `in` starts at 0 s; `out` ends with the panel; `hit` is short, anywhere; `whole` runs the full panel |
 | `default_seconds` | a starting duration; 0 on `whole` effects means "use the panel length" |
 | `tags` | what kind of effect it is; styles ban tags, not ids (`library/vfx/style-rules.json`) |
-| `cost_units` | budget units, added up by `scripts/validate.js` |
+| `cost_units` | budget units, added up by `scripts/validate-schema.js` |
 | `what_it_does`, `when_to_use`, `when_not_to_use` | read all three before choosing |
 | `params` | every allowed key with its default; colours are a palette `role` |
 

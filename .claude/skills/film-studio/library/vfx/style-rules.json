@@ -1,6 +1,21 @@
 {
- "_note": "Which effect tags each style forbids, derived from the style's own forbidden list. scripts/validate.js rejects a vfx-plan that uses a banned tag. window: in = starts at 0 s of the panel; out = ends on the panel's last frame; hit = short, anywhere; whole = runs the whole panel (duration 0 in the library means \"use the panel length\").",
- "banned_tags": {},
+ "_note": "Which effect tags each style forbids, derived from each styles/<id>/design-system.json \"forbidden\" list (a line that only limits how often or where is not a ban). scripts/validate-schema.js rejects a vfx-plan that uses a banned tag. window: in = starts at 0 s of the panel; out = ends on the panel's last frame; hit = short, anywhere; whole = runs the whole panel (duration 0 in the library means \"use the panel length\").",
+ "banned_tags": {
+  "2-5d-parallax-depth": [],
+  "archival-grunge": [],
+  "dark-neon-dataviz": [],
+  "glowing-plexus": [],
+  "holographic-wireframe": [],
+  "hormozi-kinetic": [],
+  "low-poly-isometric": [],
+  "minimalist-doodle": [],
+  "neo-brutalist-ui": [
+   "blur"
+  ],
+  "scifi-hud": [],
+  "tactical-vector-maps": [],
+  "voxel-art": []
+ },
  "limits": {
   "max_effects_per_panel": 3,
   "max_same_tag_overlap": 1,

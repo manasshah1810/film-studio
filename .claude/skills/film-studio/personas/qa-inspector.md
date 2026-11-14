@@ -10,15 +10,15 @@ Order is fixed: Stage 1 (scripts), then Stage 2 (rubric), inside the 2-pass visu
 score a film that failed Stage 1.
 
 ## 1. Stage 1: hard-fail automated gate
-Run all four scripts. Read only their output, never their source.
+Run `node scripts/run-all-checks.js work`: one command that chains all four scripts below. Read only its
+output (one JSON line per defect: check, file, item, problem, fix), never the scripts' source.
 | # | Script | Catches |
 |---|---|---|
 | 1 | `validate-schema.js` | malformed or missing plan files, wrong ids, timing that does not add up |
 | 2 | `check-design.js` | out-of-palette colours, unapproved fonts, contrast under 4.5:1 body or 3.0:1 display |
 | 3 | `check-safezones.js` | text, faces or widgets in the bottom 20% or right 15% of a 9:16 frame |
 | 4 | `check-ai-tells.js` | the 25 AI tells: weak openers, placeholder strings, stick figures, static holds, unsynced SFX |
-`validate-schema.js` is the schema check; in this repo today it is run as
-`node scripts/validate.js --work work`. The other three take `work` as their argument.
+Its report is saved to `work/reviews/checks.json`; exit 0 is a clean Stage 1.
 Rules:
 - **Any single violation blocks approval immediately.** One FAIL line in any script means verdict
   `rejected`, stage `1`. Do not continue to Stage 2 and do not average it away.
@@ -52,8 +52,8 @@ Scoring rules:
 ## 3. The mandatory 2-pass visual critique
 Both passes always run, even when Pass 1 looks clean.
 **Pass 1: initial still render and defect log.**
-1. Render stills only, never full video: one still per panel plus the first frame, the impact frame
-   and the last frame (`node scripts/stills.js`).
+1. Look at the Renderer's Pass 1 render (`work/out/pass1.mp4`, safe zones drawn) and its stills
+   (`node scripts/stills.js --manifest work/render-manifest.json --all --safe-zones`).
 2. Run Stage 1. If it fails, write the report and stop.
 3. Look at every still at phone size. Log each defect: id, panel, frame, parameter, severity
    (`blocker`, `major`, `minor`), what you see, and the owner persona.
@@ -61,7 +61,8 @@ Both passes always run, even when Pass 1 looks clean.
 **Pass 2: targeted fix and re-render.**
 1. Each defect goes back to its owner as one line (format below). The owner changes only that.
 2. Re-run Stage 1 in full; a fix may break something else.
-3. Re-render only the stills of the panels that changed, plus their neighbours.
+3. Rebuild (`node scripts/build-film.js work`) and re-render only the stills of the panels that changed,
+   plus their neighbours. The Pass 2 polish render follows your `approved` verdict.
 4. Mark each defect `fixed`, `partial` or `open`, and re-score only the parameters the fixes touched.
 5. Verdict: `approved` when Stage 1 passes, the average is 9.0 or more, nothing is below 7 and no
    `blocker` or `major` defect is open. Otherwise `rejected`.
@@ -96,14 +97,14 @@ Example: `D2 | art-director | work/storyboard.json s4p1 frame 510 | caption box 
   {"id": "D1", "panel": "s4p1", "frame": 510, "parameter": 9, "severity": "blocker", "owner": "art-director",
    "seen": "caption box ends at y 86, under the platform buttons", "status": "fixed"},
   {"id": "D2", "panel": "s3p1", "frame": 345, "parameter": 6, "severity": "major", "owner": "widget-integrator",
-   "seen": "NotificationBanner uses a hardcoded red, not the alert role", "status": "fixed"},
+   "seen": "voice-note uses a hardcoded red, not the alert role", "status": "fixed"},
   {"id": "D3", "panel": "s5p1", "frame": 735, "parameter": 8, "severity": "minor", "owner": "sound-designer",
    "seen": "static-zap onset 2 frames after the glitch peak, inside tolerance", "status": "open"}],
  "stage2": [
   {"n": 1, "parameter": "Hook Strength", "score": 10, "evidence": "s1 frame 0-90: 'Nokia never missed the smartphone' with decode and glitch"},
   {"n": 2, "parameter": "Causal Story Flow", "score": 9, "evidence": "re-hooks open on But at s3 and s5; payoff at s6"},
   {"n": 3, "parameter": "Subject Appeal / Zero Stick Figures", "score": 9, "evidence": "ui-first, no characters in any still"},
-  {"n": 4, "parameter": "Color & Contrast Discipline", "score": 9, "evidence": "after D2 every colour is a midnight-signal role"},
+  {"n": 4, "parameter": "Color & Contrast Discipline", "score": 9, "evidence": "after D2 every colour is a obsidian-cyan role"},
   {"n": 5, "parameter": "Typography Hierarchy", "score": 9, "evidence": "s2p1 display 120 px over body 44 px; no orphans"},
   {"n": 6, "parameter": "Widget Integration", "score": 9, "evidence": "6 widgets in 7 scenes, each tied to a claim"},
   {"n": 7, "parameter": "3-4s Pacing & Motion Variety", "score": 10, "evidence": "largest gap 75 frames; no transition repeats"},

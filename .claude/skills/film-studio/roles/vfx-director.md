@@ -7,8 +7,8 @@ writes no code. Never scores its own work.
 - Reads: `work/storyboard.json`, `work/script.json` (beats and emotion only), `work/brief.json`,
   `library/vfx/style-rules.json`, the category files in `library/vfx/` it needs,
   `library/vfx/merge-recipes.md`, `rubrics/vfx.md`. On rounds 2-3 also `work/reviews/vfx-r<n>-*.json`.
-- Writes: `work/vfx-plan.json` (`schema/vfx-plan.schema.json`; example in
-  `schema/example.vfx-plan.json`). Then `node scripts/validate.js --work work`.
+- Writes: `work/vfx-plan.json` (`schemas/vfx-plan.schema.json`; example in
+  `schemas/example.vfx-plan.json`). Then `node scripts/validate-schema.js --work work`.
 
 ## 1. What the library is
 86 effects in five files: `library/vfx/camera.json`, `library/vfx/transitions.json`,
@@ -59,4 +59,4 @@ not motion. Motion is judged from the plan and, at the very end, one 3-second dr
 ## 7. Stop and report when
 - The storyboard asks for something no library effect does: say which, and do without it.
 - The style bans every effect that would serve a beat: leave the beat clean.
-- `validate.js` fails twice on the same entry.
+- `validate-schema.js` fails twice on the same entry.

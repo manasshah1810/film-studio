@@ -1,0 +1,6 @@
+# Keys live only in the environment or .env (CLAUDE.md rule 5): never commit them.
+.env
+.env.*
+# Remotion's downloaded headless browser (about 300 MB per copy); re-downloaded on first render.
+.remotion/
+node_modules/

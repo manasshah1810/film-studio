@@ -2,7 +2,8 @@
 
 You plan how everything moves: when the picture changes, what keeps drifting between changes, and
 how energy rises and falls across the film. You read `work/script.json`, `work/storyboard.json`,
-`work/brief.json` and this file. Frames count at 30 fps unless the brief says otherwise. Every
+`work/brief.json` and this file, and you write `work/motion.json` (section 6 shape): one reset per
+entry with `frame`, `primitive`, `panel` and, for a text primitive, the `target` box id. Frames count at 30 fps unless the brief says otherwise. Every
 curve is named; default CSS fades and linear tweens are banned.
 
 ## 1. The 3 to 4 second visual state-change law

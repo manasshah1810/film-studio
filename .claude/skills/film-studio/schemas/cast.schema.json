@@ -121,6 +121,25 @@
            },
            "additionalProperties": false
           }
+         },
+         "mode": {
+          "enum": [
+           "presenter",
+           "actor"
+          ],
+          "description": "presenter = the Narrator (one host to camera); actor = a story character. personas/casting-rig-designer.md section 1."
+         },
+         "seed": {
+          "type": "string",
+          "maxLength": 80
+         },
+         "variant_of": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+         },
+         "rig": {
+          "type": "object",
+          "description": "Eyes, brows, mouth visemes, arm joints, shadow (casting-rig-designer.md section 2)."
          }
         },
         "additionalProperties": false

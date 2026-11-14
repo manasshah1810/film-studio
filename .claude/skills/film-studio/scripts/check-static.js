@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 // Usage: node check-static.js [--no-tsc]
 // The skill's own static check. Run after any edit to the skill. Checks, without rendering anything:
-//   line limits, every style complete and registered, effects library == effect components, design systems,
-//   schema examples, file references inside the docs, no secrets, style gate (requires: none|web), type-check.
+//   line limits, every style complete (design system, style.md, Preview.tsx) and registered for FilmComposition,
+//   effects library == effect components, widget library == widget registry (50), design systems, schema
+//   examples, file references inside every doc and persona, no secrets, style gate (requires: none|web),
+//   the run-all-checks gate selftest, type-check.
 const fs = require('fs');
 const path = require('path');
 const {spawnSync} = require('child_process');
@@ -18,14 +20,18 @@ const AGENTS = path.join(SKILL, '..', '..', 'agents');
 const limit = (files, max, what) => { for (const f of files) { const n = lines(f); if (n >= max) E.push(`${rel(f)} has ${n} lines; ${what} must stay under ${max}`); } };
 if (!fs.existsSync(path.join(SKILL, 'SKILL.md'))) E.push('SKILL.md is missing'); else limit([path.join(SKILL, 'SKILL.md')], 110, 'SKILL.md');
 limit(ls('roles', '.md'), 161, 'a role manual');
-limit(ls('references', '.md'), 161, 'a reference');
+// library manuals (one widget family or one motion module each) are opened only by the persona that needs them
+const LIB_REF = /references[\\/](widgets|motion)-/;
+limit(ls('references', '.md').filter((f) => !LIB_REF.test(f)), 161, 'a reference');
+limit(ls('references', '.md').filter((f) => LIB_REF.test(f)), 330, 'a widget or motion library manual');
+limit(ls('personas', '.md'), 161, 'a persona manual');
 limit(ls('rubrics', '.md'), 80, 'a rubric');
 limit(ls('library/platforms', '.md'), 80, 'a platform file');
 if (fs.existsSync(AGENTS)) limit(fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)), 80, 'an agent file');
 
-// 2. styles: five files, frontmatter, kit registered, rubric has exactly 10 parameters
+// 2. styles: files, frontmatter, Preview.tsx, registered in the FilmComposition design-system list
 const styles = listStyles();
-const reg = fs.readFileSync(path.join(COMPONENTS, 'styles', 'index.ts'), 'utf8');
+const reg = fs.readFileSync(path.join(COMPONENTS, 'src', 'design-systems.ts'), 'utf8');
 for (const s of styles) {
   for (const f of ['style.md', 'design-system.json']) if (!fs.existsSync(path.join(SKILL, 'styles', s, f))) E.push(`styles/${s}/${f} is missing`);
   const sm = path.join(SKILL, 'styles', s, 'style.md');
@@ -39,8 +45,8 @@ for (const s of styles) {
   }
   const rb = path.join(SKILL, 'styles', s, 'rubric.md');
   if (fs.existsSync(rb)) { const n = (fs.readFileSync(rb, 'utf8').match(/^\| \d+ \|/gm) ?? []).length; if (n !== 10) E.push(`styles/${s}/rubric.md has ${n} parameters; it needs exactly 10`); }
-  if (!fs.existsSync(path.join(COMPONENTS, 'styles', s, 'kit.tsx'))) E.push(`components/styles/${s}/kit.tsx is missing`);
-  if (!new RegExp(`\\b${s}\\b`).test(reg.split('KITS')[1] ?? '')) E.push(`style ${s} is not registered in components/styles/index.ts`);
+  if (!fs.existsSync(path.join(COMPONENTS, 'styles', s, 'Preview.tsx'))) E.push(`components/styles/${s}/Preview.tsx is missing`);
+  if (!reg.includes(`'../../styles/${s}/design-system.json'`)) E.push(`style ${s} is not in components/src/design-systems.ts, so FilmComposition cannot render it`);
 }
 // no two styles may share a rubric parameter list (each rubric is unique)
 const sig = new Map();
@@ -58,9 +64,17 @@ if (lib.length < 50) E.push(`library/vfx has ${lib.length} effects; 50 are requi
 const rules = readJson(path.join(vdir, 'style-rules.json'));
 for (const s of styles) if (!rules.banned_tags[s]) E.push(`library/vfx/style-rules.json has no entry for style ${s}`);
 
+// 3b. widgets: library/widgets.json == components/widgets/registry.ts, 50 ids, every file exists
+const wl = readJson(path.join(SKILL, 'library', 'widgets.json')).entries;
+const wr = fs.readFileSync(path.join(COMPONENTS, 'widgets', 'registry.ts'), 'utf8');
+const wrIds = [...wr.matchAll(/^\t'([a-z0-9-]+)': \{family/gm)].map((m) => m[1]);
+if (wl.length !== 50) E.push(`library/widgets.json has ${wl.length} widgets; 50 are required`);
+for (const w of wl) { if (!wrIds.includes(w.id)) E.push(`widget "${w.id}" is in library/widgets.json but not in components/widgets/registry.ts`); if (!fs.existsSync(path.join(SKILL, w.file))) E.push(`widget "${w.id}": ${w.file} does not exist`); }
+for (const id of wrIds) if (!wl.some((w) => w.id === id)) E.push(`widget "${id}" is in registry.ts but not in library/widgets.json`);
+
 // 4. docs: every backticked repo path must exist; no secrets anywhere
-const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('rubrics', '.md'), ...ls('references', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
-const ROOTS = /^(scripts|roles|rubrics|references|schema|library|styles|components|providers)\//;
+const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('personas', '.md'), ...ls('rubrics', '.md'), ...ls('references', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
+const ROOTS = /^(scripts|roles|personas|rubrics|references|schemas|library|styles|components|providers)\//;
 for (const f of docs) {
   const txt = fs.readFileSync(f, 'utf8');
   for (const m of txt.matchAll(/`([A-Za-z0-9_./<>*-]+\.(?:md|json|js|tsx?|ts))`/g)) {
@@ -88,7 +102,8 @@ for (const f of ['preview.json']) if (fs.existsSync(path.join(SKILL, 'library', 
 const run = (label, cmd, argv, cwd) => { const r = spawnSync(cmd, argv, {cwd, encoding: 'utf8', shell: process.platform === 'win32' && cmd.endsWith('tsc')}); if (r.status !== 0) E.push(`${label} failed:\n${(r.stdout + r.stderr).trim().split('\n').slice(-12).join('\n')}`); else notes.push(`${label}: ok`); };
 run('design systems', process.execPath, [path.join(__dirname, 'check-design.js'), '--systems'], SKILL);
 run('ai-tells selftest', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), '--selftest'], SKILL);
-run('schema examples', process.execPath, [path.join(__dirname, 'validate.js'), '--examples'], SKILL);
+run('schema examples', process.execPath, [path.join(__dirname, 'validate-schema.js'), '--examples'], SKILL);
+run('run-all-checks selftest', process.execPath, [path.join(__dirname, 'run-all-checks.js'), '--selftest'], SKILL);
 if (!a['no-tsc']) run('type-check', process.execPath, [path.join(COMPONENTS, 'node_modules', 'typescript', 'bin', 'tsc'), '--noEmit', '-p', '.'], COMPONENTS);
 
 notes.forEach((n) => console.log('note ' + n));

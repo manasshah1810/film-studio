@@ -1,5 +1,5 @@
 {
- "_note": "Licence allow-list used by scripts/credits.js and scripts/validate.js. A licence that is not listed here is rejected: unclear means no. Terms change; re-read the source page on the day of use and record that date [CHECK]. This file is not legal advice.",
+ "_note": "Licence allow-list used by scripts/credits.js and scripts/validate-schema.js. A licence that is not listed here is rejected: unclear means no. Terms change; re-read the source page on the day of use and record that date [CHECK]. This file is not legal advice.",
  "allowed": {
   "CC0-1.0": {
    "name": "Creative Commons Zero 1.0",

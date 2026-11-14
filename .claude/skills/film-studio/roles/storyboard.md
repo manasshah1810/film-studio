@@ -8,10 +8,10 @@ There is no prose shot description: if it is not in a slot, it is not on screen.
 - Reads: `work/script.json`, `work/cast.json`, `work/brief.json`, `library/platforms/<platform>.md`,
   `styles/<style>/recipes.md`, `styles/<style>/failures.md`, `rubrics/storyboard.md`. On rounds 2-3
   also `work/reviews/storyboard-r<n>-*.json`.
-- Writes: `work/storyboard.json` (`schema/storyboard.schema.json`; example in
-  `schema/example.storyboard.json`). Then `node scripts/validate.js --work work`.
+- Writes: `work/storyboard.json` (`schemas/storyboard.schema.json`; example in
+  `schemas/example.storyboard.json`). Then `node scripts/validate-schema.js --work work`.
 - Proof: `node scripts/build-film.js work` then
-  `node scripts/stills.js --film work/film.json --sheet --out work/stills`.
+  `node scripts/stills.js --manifest work/render-manifest.json --all --out work/stills`.
 
 ## 1. The nine layouts
 | layout | needs | use it for |

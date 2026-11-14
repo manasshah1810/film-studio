@@ -1,0 +1,478 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "panels": [
+    {
+     "id": "s1p1",
+     "duration": 2,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {},
+     "sfx": [
+      {
+       "id": "thud",
+       "at": 0
+      }
+     ],
+     "anchor": "l",
+     "beats": [
+      {
+       "at": 0.7,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 1.4,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "You do not need",
+      "more discipline"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Not more discipline",
+       "lines": [
+        "Not more",
+        "discipline"
+       ],
+       "x": 8,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    },
+    {
+     "id": "s1p2",
+     "duration": 3,
+     "layout": "object",
+     "asset_ids": [],
+     "slots": {},
+     "sfx": [],
+     "anchor": "l",
+     "transition": {
+      "id": "whip-pan-in",
+      "easing": "snap"
+     },
+     "beats": [
+      {
+       "at": 1.2,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 2.2,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "You need a smaller plan",
+      "because big plans collapse"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "A smaller plan",
+       "lines": [
+        "A smaller",
+        "plan"
+       ],
+       "x": 8,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Big plans collapse on day three.",
+       "x": 8,
+       "y": 46,
+       "w": 70,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Nunito"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "panels": [
+    {
+     "id": "s2p1",
+     "duration": 3,
+     "layout": "stat",
+     "asset_ids": [],
+     "slots": {},
+     "sfx": [
+      {
+       "id": "tick",
+       "at": 0
+      }
+     ],
+     "anchor": "c",
+     "beats": [
+      {
+       "at": 1,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 2,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "Most people set",
+      "a huge goal"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Missed one day",
+       "lines": [
+        "Missed",
+        "one day"
+       ],
+       "x": 15,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "So the first slip feels like failure.",
+       "x": 15,
+       "y": 46,
+       "w": 70,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Nunito"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    },
+    {
+     "id": "s2p2",
+     "duration": 3,
+     "layout": "versus",
+     "asset_ids": [],
+     "slots": {},
+     "sfx": [
+      {
+       "id": "tick",
+       "at": 0
+      }
+     ],
+     "anchor": "l",
+     "transition": {
+      "id": "wipe-up",
+      "easing": "snap"
+     },
+     "beats": [
+      {
+       "at": 1.1,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 2.1,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "But two minutes",
+      "survives a bad day"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Two minutes survives",
+       "lines": [
+        "Two minutes",
+        "survives"
+       ],
+       "x": 8,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Tiny habits outlast bad days.",
+       "x": 8,
+       "y": 46,
+       "w": 70,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Nunito"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "panels": [
+    {
+     "id": "s3p1",
+     "duration": 3,
+     "layout": "timeline",
+     "asset_ids": [],
+     "slots": {},
+     "sfx": [
+      {
+       "id": "tick",
+       "at": 0
+      }
+     ],
+     "anchor": "l",
+     "transition": {
+      "id": "wipe-up",
+      "easing": "snap"
+     },
+     "beats": [
+      {
+       "at": 1,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 2,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "Shrink it until",
+      "skipping feels silly"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Shrink it",
+       "lines": [
+        "Shrink it"
+       ],
+       "x": 8,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "b",
+       "kind": "text",
+       "role": "body",
+       "text": "Until skipping it feels silly.",
+       "x": 8,
+       "y": 46,
+       "w": 70,
+       "h": 12,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Nunito"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      }
+     ]
+    },
+    {
+     "id": "s3p2",
+     "duration": 3,
+     "layout": "title",
+     "asset_ids": [
+      "host"
+     ],
+     "slots": {},
+     "sfx": [
+      {
+       "id": "tick",
+       "at": 0
+      }
+     ],
+     "anchor": "c",
+     "transition": {
+      "id": "flash-cut",
+      "easing": "settle"
+     },
+     "beats": [
+      {
+       "at": 0.8,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "settle"
+      },
+      {
+       "at": 1.6,
+       "duration": 0.4,
+       "kind": "swap",
+       "easing": "snap"
+      }
+     ],
+     "captions": [
+      "Then repeat"
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Then repeat",
+       "lines": [
+        "Then",
+        "repeat"
+       ],
+       "x": 15,
+       "y": 18,
+       "w": 70,
+       "h": 24,
+       "px": 132,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Kalam"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 8,
+       "y": 68,
+       "w": 74,
+       "h": 8,
+       "px": 56,
+       "color": "ink",
+       "bg": "bg"
+      },
+      {
+       "id": "host",
+       "kind": "subject",
+       "x": 44,
+       "y": 42,
+       "w": 40,
+       "h": 24
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "fps": 30,
+ "frames": 510,
+ "max_gap": 105,
+ "ambient": [
+  {
+   "layer": "stage",
+   "motion": "drift",
+   "frames": [
+    0,
+    510
+   ]
+  }
+ ],
+ "resets": [
+  {
+   "frame": 21,
+   "primitive": "text-decode",
+   "phase": "hook",
+   "panel": "s1p1",
+   "target": "h",
+   "frames": 20,
+   "note": "the hook decodes"
+  },
+  {
+   "frame": 96,
+   "primitive": "spring-overshoot",
+   "phase": "rising",
+   "panel": "s1p2",
+   "target": "h",
+   "note": "smaller plan lands"
+  },
+  {
+   "frame": 186,
+   "primitive": "stop-motion-jitter",
+   "phase": "rising",
+   "panel": "s2p1",
+   "target": "h",
+   "frames": 30,
+   "note": "the huge goal wobbles"
+  },
+  {
+   "frame": 276,
+   "primitive": "path-draw-on",
+   "phase": "turn",
+   "panel": "s2p2",
+   "target": "h",
+   "frames": 20,
+   "note": "underline the turn"
+  },
+  {
+   "frame": 450,
+   "primitive": "spring-overshoot",
+   "phase": "payoff",
+   "panel": "s3p2",
+   "target": "h",
+   "note": "then repeat"
+  }
+ ]
+}

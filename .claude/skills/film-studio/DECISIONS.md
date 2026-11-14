@@ -4,10 +4,10 @@ Why the skill is built the way it is. Newest first within each section. Each ent
 the reason, and what was given up.
 
 ## Architecture
-1. **One composition, driven by data.** `components/engine/Film.tsx` renders `work/film.json`. No role
+1. **One composition, driven by data.** `components/src/compositions/FilmComposition.tsx` renders `work/render-manifest.json`. No role
    writes TSX. Reason: per-film code is where generic output and render failures came from; a closed
    data contract can be validated before anything is drawn. Given up: one-off bespoke shots.
-2. **Closed layout vocabulary.** Nine layouts with typed slots (`schema/storyboard.schema.json`).
+2. **Closed layout vocabulary.** Nine layouts with typed slots (`schemas/storyboard.schema.json`).
    Reason: a prose shot description cannot be rendered or checked. Given up: free-form staging; a
    style may still override a layout in its kit.
 3. **Style kits behind one contract.** Every style implements the same `Kit`
@@ -32,7 +32,7 @@ the reason, and what was given up.
 8. **Authors never score.** Two reviewer agents with read-only tools score every gated stage from the
    files alone and return JSON; the Director saves it. Reason: self-scoring inflated every score in
    the first audit.
-9. **Gate in code where possible.** `scripts/validate.js` checks what a rubric should not have to:
+9. **Gate in code where possible.** `scripts/validate-schema.js` checks what a rubric should not have to:
    durations, cast ids, number provenance, per-style limits, banned effects, scorecard arithmetic.
    Reviewers spend their attention on judgement.
 10. **Exactly four questions.** Platform, length, style, voiceover. Everything else is decided and
@@ -40,7 +40,7 @@ the reason, and what was given up.
 11. **Budget in units, enforced.** `scripts/ledger.js` refuses spend without an approved dry run and
     refuses to exceed a stage allowance. Units are a planning number because token counts are not
     visible to the skill.
-12. **Resume from state.** `scripts/state.js` records each stage; a changed brief resets later stages;
+12. **Resume from state.** `scripts/state-manager.js` records each stage; a changed brief resets later stages;
     a `failed` stage stops the run instead of looping.
 13. **Stills before video.** Proof is a low-resolution contact sheet; video is one 3-second draft and
     then the final. Reason: a sheet shows composition and style in one image at a fraction of the cost.

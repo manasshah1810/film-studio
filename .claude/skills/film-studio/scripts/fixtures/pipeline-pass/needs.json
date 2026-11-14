@@ -1,0 +1,13 @@
+{
+ "items": [
+  {
+   "id": "host",
+   "kind": "character",
+   "description": "A friendly presenter who closes the film: glasses, long hair, plain clothes.",
+   "scenes_used": [
+    "s3"
+   ],
+   "priority": 1
+  }
+ ]
+}

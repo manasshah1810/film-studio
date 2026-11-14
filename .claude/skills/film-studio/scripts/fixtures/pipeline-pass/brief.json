@@ -1,0 +1,20 @@
+{
+ "topic": "Smaller plans beat discipline",
+ "platform": "instagram",
+ "ratio": "9:16",
+ "length_bucket": "15-30s",
+ "target_seconds": 17,
+ "style": "minimalist-doodle",
+ "subject_mode": "layered",
+ "angle": "People blame missing discipline; the plan is simply too big to survive a bad day.",
+ "voiceover": false,
+ "design": {
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "palette_id": "kraft-red",
+  "pairing_id": "kalam-nunito-courierprime",
+  "seed": "smaller-plans-20261114-1"
+ },
+ "audience": "students",
+ "tone": "warm, practical"
+}

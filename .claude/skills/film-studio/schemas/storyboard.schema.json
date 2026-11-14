@@ -445,10 +445,11 @@
         },
         "captions": {
          "type": "array",
-         "description": "Caption chunks, 5 words at most each.",
+         "description": "Caption chunks, 5 words at most each (schema-enforced).",
          "items": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "^\\s*\\S+(\\s+\\S+){0,4}\\s*$"
          }
         },
         "transition": {
@@ -527,7 +528,8 @@
           "properties": {
            "id": {
             "type": "string",
-            "pattern": "^[a-z0-9][a-z0-9-]*$"
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "description": "A widget id from library/widgets.json (the 50 built components)."
            },
            "anchor": {
             "type": "string",
@@ -547,23 +549,23 @@
            },
            "x": {
             "type": "number",
-            "minimum": 0,
+            "minimum": 6,
             "maximum": 100
            },
            "y": {
             "type": "number",
-            "minimum": 0,
+            "minimum": 8,
             "maximum": 100
            },
            "w": {
             "type": "number",
             "minimum": 0,
-            "maximum": 100
+            "maximum": 79
            },
            "h": {
             "type": "number",
             "minimum": 0,
-            "maximum": 100
+            "maximum": 72
            },
            "text": {
             "type": "string"
@@ -604,7 +606,8 @@
             "minimum": 0
            }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "description": "Diegetic micro-widget. anchor is a safe-rectangle edge or @<box id>. A box (x, y, w, h) rests inside x 6..85, y 8..80."
          }
         },
         "boxes": {

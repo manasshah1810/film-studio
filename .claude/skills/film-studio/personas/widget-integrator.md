@@ -2,14 +2,14 @@
 
 You attach micro-widgets to the story. For each scene you pick the widget that proves the claim and
 write where, when and how it enters. You read `work/script.json`, `work/storyboard.json`, `work/brief.json`
-and this file. You choose widgets by id from the table in section 2 and never invent one. The 50
-widgets are components in `components/widgets/`; you place them, you do not draw them.
+and this file, and you write `work/widgets.json` (section 6 shape). You choose widgets by id from the
+table in section 2 (the same 50 ids as `library/widgets.json`) and never invent one. They are components in `components/widgets/`; you place them, you do not draw them.
 
 ## 1. Diegetic proof principles
 A widget is an object that could exist in the world of the video: a cursor, a comment, a banknote, a
 torn page. It is proof, not decoration.
 1. **Claim to artifact.** Every abstract claim gets a concrete thing the viewer can see. "Nokia hid bad
-   news" becomes a RedactBar over a report; "half the market" becomes a ProgressRing at 50%.
+   news" becomes `live-markup` striking a report; "half the market" becomes an `orbit-ring` at 50%.
 2. **Frequency.** At least one widget in every 2 scenes. A film of 7 scenes has 4 or more placements.
 3. **One per panel.** Two widgets in one panel fight for the eye. Pick the stronger one.
 4. **On the beat.** The widget enters on the word that carries the claim (the power word in the
@@ -22,58 +22,58 @@ torn page. It is proof, not decoration.
 
 ## 2. The 50-widget narrative beat lookup
 Find the claim you must prove, take the widget on that row.
-| Category | Widget | Use it when the claim is | It shows |
+| Family | Widget id | Use it when the claim is | It shows |
 |---|---|---|---|
-| Social/UI | LiveCursor | a person or company acts | a cursor moves and clicks a button |
-| Social/UI | CommentDrop | public reaction, backlash | a comment pops in under a post |
-| Social/UI | NotificationBanner | a warning or news arrives | a banner slides in from the top |
-| Social/UI | SearchBar | a question people ask | a query typed with suggestions |
-| Social/UI | ToggleSwitch | a choice or a setting flips | a switch changes state |
-| Social/UI | ChatBubble | something is said or promised | a message bubble with a tail |
-| Social/UI | LikeBurst | approval, hype, virality | a heart pops and counts up |
-| Social/UI | TypingDots | hesitation, a pause before an answer | three dots pulse |
-| Social/UI | BrowserWindow | a website, a product, a source | a window frame with a title bar |
-| Social/UI | TrendingTag | something goes viral | a hashtag chip climbing a list |
-| Editorial/Print | PaperTear | a reveal, a secret exposed | a torn page uncovers a headline |
-| Editorial/Print | HighlighterSwipe | the key phrase of a claim | a marker stroke across words |
-| Editorial/Print | StickyNote | a reminder, a rule, an aside | a note slaps on |
-| Editorial/Print | RedactBar | censored, hidden, withheld | a black bar covers a line |
-| Editorial/Print | RubberStamp | a verdict, a final outcome | a stamp lands with a thud |
-| Editorial/Print | Polaroid | a memory, a person, an era | a photo card drops and tilts |
-| Editorial/Print | NewsClipping | a public record, a headline | a cut-out column slides in |
-| Editorial/Print | MarginDoodle | an annotation, a doubt | a scribbled circle or arrow |
-| Editorial/Print | PushPin | a location, evidence on a board | a pin drops onto a card |
-| Editorial/Print | TapeStrip | something stuck together or fixed | tape pins a card in place |
-| Data/Time/Money | Banknote | money earned, lost, spent | a note unrolls and counts |
-| Data/Time/Money | NLETimeline | time passing, eras, a sequence | a timeline scrubs across clips |
-| Data/Time/Money | CounterTicker | a number that grows or falls | digits roll to a total |
-| Data/Time/Money | ProgressRing | a share, a percentage, a goal | a ring fills to a value |
-| Data/Time/Money | BarRace | a ranking that changes | bars overtake each other |
-| Data/Time/Money | SparkLine | a trend over time | a small line draws itself |
-| Data/Time/Money | PriceTag | cost, value, a deal | a tag swings in with a price |
-| Data/Time/Money | CalendarFlip | a date, a deadline, years | pages flip to a date |
-| Data/Time/Money | Stopwatch | speed, urgency, a delay | a dial sweeps |
-| Data/Time/Money | StockTicker | markets, valuation, a crash | a scrolling symbol strip |
-| Camera/Grade | ViewfinderFrame | observing, surveillance, focus | corner brackets close in |
-| Camera/Grade | RecDot | a record, footage, a witness | a red dot blinks |
-| Camera/Grade | ShutterFlash | a moment captured, a hard cut | a white flash and click |
-| Camera/Grade | LensFlareSweep | a hero moment, hope | a light streak crosses |
-| Camera/Grade | ColorGradeSwatch | a mood change | a swatch row shifts the grade |
-| Camera/Grade | VHSGlitchBar | old, broken, corrupted | a glitch band tears across |
-| Camera/Grade | FocusPull | what matters sharpens | blur resolves on one item |
-| Camera/Grade | LetterboxBars | drama, a flashback | cinema bars slide in |
-| Camera/Grade | TimecodeBurn | evidence, an exact moment | a running timecode |
-| Camera/Grade | FilmCountdown | a start, a deadline | a leader countdown |
-| Kinetic/Spatial | MapPin | a place | a pin drops and bounces |
-| Kinetic/Spatial | RouteTrace | a journey, a spread | a line draws between points |
-| Kinetic/Spatial | ArrowCallout | point at one detail | an arrow snaps to a target |
-| Kinetic/Spatial | MagnifierLens | a hidden detail | a lens enlarges a spot |
-| Kinetic/Spatial | CardFlip | before and after, two sides | a card turns over |
-| Kinetic/Spatial | ShockwaveRing | an impact, a break | a ring expands from a point |
-| Kinetic/Spatial | ExplodedView | how parts fit, what is inside | parts drift apart |
-| Kinetic/Spatial | OrbitDots | a network, a crowd, many | dots circle a centre |
-| Kinetic/Spatial | SlideStack | a sequence of items | cards stack with depth |
-| Kinetic/Spatial | SplitWipe | a contrast, a before/after cut | a wipe reveals the second state |
+| social | `live-cursor` | a person or company acts | A cursor glides along an arc to a button on a profile card,... |
+| social | `comment-drop` | public reaction, backlash, "people were confused" | A post with its caption, then up to 3 comments drop in on the... |
+| social | `voice-note` | something said in private, a leaked message, "she sent me a... | A voice bubble pops in, play is tapped, the waveform fills in... |
+| social | `post-wall` | consistency, a body of work, "she posted every day for a year",... | A profile header, then a 3 x 3 grid of posts pops in along the... |
+| social | `reel-feed` | the scroll, short attention, "you swipe past it in a second" | A phone bezel (the darker of `ink` and `bg`) with full-height... |
+| social | `reel-cascade` | overload, endless content, "500 hours are uploaded every... | Three columns of 9:16 reel thumbnails pour downward at... |
+| social | `video-card` | a source, a famous video, "his video got 2 million views" | A long-form video card slides up: thumbnail with a title,... |
+| social | `comment-cta` | the call to action at the end; never in the first 3 seconds | An ask line with a bouncing arrow, then a keyword types into a... |
+| social | `prompt-bar` | "I asked an AI", a question people ask, a how-to | A prompt types into an assistant bar beside a turning spark, is... |
+| social | `jiggle-delete` | quitting, deleting, a detox, "I deleted the app" | A home grid of initial icons enters edit mode: icons jiggle... |
+| editorial | `magazine-cover` | someone's rise to fame, "she made the cover", how the press saw... | A made-up cover lands with a small tilt |
+| editorial | `press-front` | the moment it went public, "the next morning every paper ran it" | A front page drops in |
+| editorial | `paper-tear` | what they said against what was true, the cover story falling... | The top sheet cracks along a jagged line down the middle |
+| editorial | `screenplay-page` | a quote, a scene from a film, "the line that was never meant to... | A script page types itself in screenplay layout: scene heading,... |
+| editorial | `serif-stamp` | a verdict, "approved", "classified", "denied", "case closed" | A file with a title, a meta line, body rules and a signature |
+| editorial | `live-markup` | reading between the lines, "look at the wording", a key word in... | A printed paragraph |
+| editorial | `sketch-words` | a thought, a lesson, the moral at the end | Words write themselves by hand on a ruled scrap, one line at a... |
+| editorial | `grease-pencil-sheet` | choosing what to show, "they cropped the photo", the detail... | A photo print with a halftone picture |
+| editorial | `contact-sheet-hook` | the opening hook, "one photo changed everything", the frame... | Four film strips of 3 frames, with sprocket holes and frame... |
+| editorial | `title-card` | a chapter break, a jump in time or place | A chapter card on paper with registration corners |
+| data | `clone-row` | a share or a ratio, "1 in 4", "3 of every 10" | One unit cloned into a grid ("3 in 10") |
+| data | `day-dial` | a schedule, a shift, sleep, "he worked from 4 a.m | A 24-hour dial with 96 ticks and 00/06/12/18 outside the ring |
+| data | `orbit-ring` | a percentage, a load, a completion rate, "72% of the grid" | A gauge |
+| data | `code-body` | "one line of code", a bug, an algorithm, a formula | An editor pane |
+| data | `banknote` | inflation, purchasing power, "what 100 buys now" | A made-up note (guilloche, rosette, "SPECIMEN · NOT LEGAL... |
+| data | `running-list` | a ranking that changes over time, "who overtook whom" | A ranked list whose values run through keyframes |
+| data | `playing-grid` | a streak, a habit, daily activity, "every day for 20 weeks" | A calendar grid (default 20 x 7) of activity levels 0-4 |
+| data | `grid-collapse` | survival and failure rates, "7 of 100 are still standing" | A 10 x 10 grid |
+| data | `nle-timeline` | a life or company story told as an edit, "the arc from garage... | An edit timeline |
+| data | `keycaps` | a shortcut, a command, "one keystroke undid it" | A shortcut or a typed number as physical keys |
+| camera | `rack-focus` | the story moves from one thing to the next | Focus pulls from the subject to the lit tower window over... |
+| camera | `impact-frame` | the payoff word, once per film (hormozi-kinetic), a hard... | A 5 percent push builds to `hitAt` |
+| camera | `dolly-zoom` | dread or a realisation, "and then it clicked" | The camera pushes from `d0` to `d1` while the focal length... |
+| camera | `blade-slice` | a hard change of time or place, before and after | A blade of light runs along a diagonal cut on the whip easing,... |
+| camera | `film-look` | archive footage, the past, "always, on the last layer" in... | A print look built up over the shot one layer at a time: gate... |
+| camera | `lens-ring` | one small detail matters | A lens pops open, travels to the lit window on an arc and, on... |
+| camera | `grade-slider` | before and after, raw against finished | Before and after on one shot |
+| camera | `eyedropper-grade` | a colour or a value is sampled | A ring cursor samples three points of the shot (the sun, the... |
+| camera | `file-drop` | footage, a file or data goes in, "I fed it 600 MB of tape" | A cursor drags a file (page, folded corner, extension badge) on... |
+| camera | `icon-strike` | a rule, a thing ruled out, "no stock footage" | A line icon (`camera`, `film`, `mic`, `bell`, `play`, `heart`)... |
+| kinetic | `head-stack` | groups, opinions, surveys, "most people think" | Two to five heads (head only), each with its own hair... |
+| kinetic | `letter-dive` | a hook that jumps into its subject; a chapter cut | The word is a window cut in the card: the next scene (a `knock`... |
+| kinetic | `picture-dive` | a place needs a picture | A picture hangs on a wall with a picture light |
+| kinetic | `layer-explode` | the viewer should see the stack | On the explode spring the five planes of the shot (sky, ridge,... |
+| kinetic | `blow-away` | an old belief replaced; "forget X, do Y" | The old line is set letter by letter at measured positions |
+| kinetic | `knockout-captions` | every spoken line | The default spoken caption (hormozi-kinetic style.md section 5) |
+| kinetic | `kinetic-hook` | the hook | The first two seconds |
+| kinetic | `gravity-drop` | a claim that builds; a list that stacks | Each word is a block in the style's card look (fill, radius,... |
+| kinetic | `giant-captions` | the hook and the payoff | One word per beat at hero size, centred |
+| kinetic | `storyboard-deck` | a film of 3 to 6 scenes; "here is the plan" | Three to six storyboard cards wait in a deck below the card... |
 
 ## 3. Style-token inheritance contract
 A widget draws itself from the active `design-system.json` through the brief's palette and pairing.
@@ -91,7 +91,7 @@ Rules:
 - Text on a widget passes the same contrast floors as the frame (4.5:1 body, 3.0:1 display) against
   the widget's own background role.
 - A style that has no `border_width` or `radius` token gives the widget none; it does not guess.
-- Widgets are drawn in the style's look: a RubberStamp in `archival-grunge` is inked and rough, in
+- Widgets are drawn in the style's look: a `serif-stamp` in `archival-grunge` is inked and rough, in
   `neo-brutalist-ui` it is a hard-edged block. The id stays the same; only the tokens change.
 
 ## 4. 9:16 safe-zone rules
@@ -110,26 +110,27 @@ is covered on the phone.
 ## 5. What works vs what fails
 | Works | Fails |
 |---|---|
-| RedactBar proves "hid the news" | A decorative star with no claim |
+| `live-markup` proves "hid the news" | A decorative star with no claim |
 | A widget in at least every 2 scenes | Widgets in scene 1 and nothing for 20 seconds |
 | Entrance on the power word | The widget sits there before the claim is spoken |
 | One widget per panel | A ticker, a banner and a ring in one frame |
 | Tokens: `ink`, `surface`, `primary` | A hardcoded `#FF0000` stamp |
 | Box at x 6, w 79, y 44, h 24 | A banknote in the bottom 20% under the captions |
-| Same widget not twice in a row | ProgressRing on three panels in a row |
+| Same widget not twice in a row | `orbit-ring` on three panels in a row |
 | Only words from the script | "42%" invented to fill the ring |
 
-## 6. Worked placement sheet: Nokia, 35 s, `dark-neon-dataviz`, palette `midnight-signal`
+## 6. Worked placement sheet: Nokia, 35 s, `dark-neon-dataviz`, palette `obsidian-cyan`
 Scenes s1 to s7 match `personas/scriptwriter.md`. `at` is seconds from the panel start. Six widgets
 in seven scenes.
 ```json
 {"widgets": [
- {"scene": "s1", "panel": "s1p1", "id": "NLETimeline", "anchor": "t", "at": 1.2, "easing": "snap", "box": {"x": 6, "y": 10, "w": 79, "h": 14}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "a decade between the first smartphone and the iPhone"},
- {"scene": "s2", "panel": "s2p1", "id": "ProgressRing", "anchor": "l", "at": 0.8, "easing": "pop", "box": {"x": 6, "y": 30, "w": 36, "h": 36}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "about half of the market"},
- {"scene": "s3", "panel": "s3p1", "id": "NotificationBanner", "anchor": "t", "at": 1.5, "easing": "snap", "box": {"x": 6, "y": 8, "w": 79, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "alert"}, "proves": "the threat was inside Nokia"},
- {"scene": "s4", "panel": "s4p1", "id": "ToggleSwitch", "anchor": "l", "at": 1.6, "easing": "pop", "box": {"x": 6, "y": 40, "w": 40, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "buttons to touch, a flip that took months"},
- {"scene": "s5", "panel": "s5p1", "id": "RedactBar", "anchor": "@h", "at": 2.4, "easing": "snap", "box": {"x": 6, "y": 44, "w": 79, "h": 10}, "tokens": {"bg": "ink", "ink": "bg", "accent": "alert"}, "proves": "managers hid bad news"},
- {"scene": "s6", "panel": "s6p1", "id": "RubberStamp", "anchor": "b", "at": 3.2, "easing": "pop", "box": {"x": 20, "y": 58, "w": 50, "h": 18}, "tokens": {"bg": "bg", "ink": "alert", "accent": "alert"}, "proves": "the phones were sold to Microsoft"}
+ {"scene": "s1", "panel": "s1p1", "id": "nle-timeline", "anchor": "t", "at": 1.2, "easing": "snap", "box": {"x": 6, "y": 10, "w": 79, "h": 14}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "a decade between the first smartphone and the iPhone"},
+ {"scene": "s2", "panel": "s2p1", "id": "orbit-ring", "anchor": "l", "at": 0.8, "easing": "pop", "box": {"x": 6, "y": 30, "w": 36, "h": 36}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "about half of the market"},
+ {"scene": "s3", "panel": "s3p1", "id": "voice-note", "anchor": "t", "at": 1.5, "easing": "snap", "box": {"x": 6, "y": 8, "w": 79, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "alert"}, "proves": "the threat was inside Nokia"},
+ {"scene": "s4", "panel": "s4p1", "id": "keycaps", "anchor": "l", "at": 1.6, "easing": "pop", "box": {"x": 6, "y": 40, "w": 40, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "buttons to touch, a flip that took months"},
+ {"scene": "s5", "panel": "s5p1", "id": "live-markup", "anchor": "@h", "at": 2.4, "easing": "snap", "box": {"x": 6, "y": 44, "w": 79, "h": 10}, "tokens": {"bg": "ink", "ink": "bg", "accent": "alert"}, "proves": "managers hid bad news"},
+ {"scene": "s6", "panel": "s6p1", "id": "serif-stamp", "anchor": "b", "at": 3.2, "easing": "pop", "box": {"x": 20, "y": 58, "w": 50, "h": 18}, "tokens": {"bg": "bg", "ink": "alert", "accent": "alert"}, "proves": "the phones were sold to Microsoft"}
 ]}
 ```
-Scene s7 has no widget: s6 covers the pair. Every box ends at y 80 or less and x 85 or less.
+Each entry also carries `props`: the widget's content, named as in its `props` list in
+`library/widgets.json`, with words and numbers only from `script.json`. Scene s7 has no widget: s6 covers the pair. Every box ends at y 80 or less and x 85 or less.

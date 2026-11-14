@@ -1,0 +1,84 @@
+{
+ "widgets": [
+  {
+   "scene": "s1",
+   "panel": "s1p2",
+   "id": "sketch-words",
+   "anchor": "tr",
+   "at": 0.5,
+   "easing": "settle",
+   "box": {
+    "x": 46,
+    "y": 8,
+    "w": 38,
+    "h": 9
+   },
+   "props": {
+    "lines": [
+     "A smaller plan"
+    ],
+    "emphasis": 0
+   },
+   "tokens": {
+    "bg": "surface",
+    "ink": "ink",
+    "accent": "primary"
+   },
+   "proves": "the fix is a smaller plan"
+  },
+  {
+   "scene": "s2",
+   "panel": "s2p2",
+   "id": "title-card",
+   "anchor": "tr",
+   "at": 0.5,
+   "easing": "settle",
+   "box": {
+    "x": 46,
+    "y": 8,
+    "w": 38,
+    "h": 9
+   },
+   "props": {
+    "kicker": "Two minutes",
+    "title": [
+     "survives"
+    ],
+    "sub": "a bad day",
+    "seed": "tc-s2p2"
+   },
+   "tokens": {
+    "bg": "surface",
+    "ink": "ink",
+    "accent": "primary"
+   },
+   "proves": "a two minute habit survives"
+  },
+  {
+   "scene": "s3",
+   "panel": "s3p1",
+   "id": "sketch-words",
+   "anchor": "tr",
+   "at": 0.5,
+   "easing": "settle",
+   "box": {
+    "x": 46,
+    "y": 8,
+    "w": 38,
+    "h": 9
+   },
+   "props": {
+    "lines": [
+     "Shrink it."
+    ],
+    "emphasis": 0
+   },
+   "tokens": {
+    "bg": "surface",
+    "ink": "ink",
+    "accent": "primary"
+   },
+   "proves": "shrink until skipping is silly"
+  }
+ ]
+}

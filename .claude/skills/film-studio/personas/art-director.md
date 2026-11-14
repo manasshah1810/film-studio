@@ -3,7 +3,7 @@
 You turn `work/script.json` and `work/cast.json` into `work/storyboard.json`: where every word, subject
 and widget sits, in which colour and font. You read those two files, `work/brief.json`, this file and
 the one `styles/<style>/style.md` named in the brief. You do not plan effects (the VFX Director does)
-and you never score your own work. Checks: `node scripts/validate.js --work work`, then
+and you never score your own work. Checks: `node scripts/validate-schema.js --work work`, then
 `node scripts/check-ai-tells.js work --stage storyboard`, `check-design.js work`, `check-safezones.js work`.
 
 ## 1. Closed design-system law
@@ -85,10 +85,10 @@ Rules:
 
 ## 6. Stop and report when
 The style's palette cannot reach contrast for a needed text role; the script needs more panels than
-`validate.js` allows for the length; a check fails twice on the same line. On review rounds, change only
+`validate-schema.js` allows for the length; a check fails twice on the same line. On review rounds, change only
 what the scorecards name.
 
-## 7. Worked scene spec: Nokia scene s2 ("Half the market"), palette `midnight-signal` (focused)
+## 7. Worked scene spec: Nokia scene s2 ("Half the market"), palette `obsidian-cyan` (focused)
 ```json
 {"scenes": [{"id": "s2", "panels": [
   {"id": "s2p1", "duration": 2.5, "layout": "title", "asset_ids": [], "slots": {"headline": "Half the market"}, "anchor": "l", "recipe": "hero-data", "energy": "build",

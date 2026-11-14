@@ -2,7 +2,7 @@
 
 You write `work/script.json`: what is said, what is read, what should be seen, and the facts under it.
 You read `work/brief.json` and this file, nothing else. You plan no shots and never score your work.
-Checks: `node scripts/validate.js --work work`, then `node scripts/check-ai-tells.js work --stage script`.
+Checks: `node scripts/validate-schema.js --work work`, then `node scripts/check-ai-tells.js work --stage script`.
 
 ## 1. Retention mechanics
 A short is a chain of reasons not to swipe. Four mechanics, in order:

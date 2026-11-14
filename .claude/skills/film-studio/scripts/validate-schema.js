@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 // Usage:
-//   node validate.js <schema-name> <file>     one file (siblings in the same folder are used for cross-checks)
-//   node validate.js --work <dir>             every known file in a work folder
-//   node validate.js --examples               the example run in schema/
+//   node validate-schema.js <schema-name> <file>     one file (siblings in the same folder are used for cross-checks)
+//   node validate-schema.js --work <dir>             every known file in a work folder
+//   node validate-schema.js --examples               the example run in schemas/
 // Schema check first (ajv), then the rules a schema cannot express. Exit 1 on any FAIL. WARN never fails.
 const fs = require('fs');
 const path = require('path');
 const {SKILL, creq, readJson, loadDS, listStyles, frontmatter, args} = require('./lib');
 
-const SCHEMA_DIR = path.join(SKILL, 'schema');
+const SCHEMA_DIR = path.join(SKILL, 'schemas');
 const BUCKETS = {'15-30s': [15, 30], '30-1m': [30, 60], '1-5m': [60, 300], '5-10m': [300, 600], '10m+': [600, Infinity]};
-const NAMES = ['brief', 'budget', 'script', 'needs', 'cast', 'storyboard', 'vfx-plan', 'credits', 'state'];
+const NAMES = ['brief', 'budget', 'script', 'needs', 'cast', 'storyboard', 'vfx-plan', 'credits', 'state', 'render-manifest'];
+const TIERS = {focused: [3, 5], expanded: [8, 12]};
+const widgetLib = () => { const p = path.join(SKILL, 'library', 'widgets.json'); return fs.existsSync(p) ? new Map(readJson(p).entries.map((e) => [e.id, e])) : new Map(); };
+/** A palette of the brief's style must match the brief's tier, and its size must sit inside that tier. */
+const tierCheck = (style, paletteId, tier, size, E, where) => {
+  if (!listStyles().includes(style)) return;
+  const pal = loadDS(style).palettes.find((p) => p.id === paletteId);
+  if (!pal) return;
+  const n = Object.keys(pal.roles).length, [lo, hi] = TIERS[tier] ?? [0, 0];
+  if (pal.tier && pal.tier !== tier) E.push(`${where}: palette_tier is "${tier}" but palette "${paletteId}" is ${pal.tier}. Fix: run pick-design.js again, or set palette_tier to "${pal.tier}".`);
+  if (n < lo || n > hi) E.push(`${where}: palette "${paletteId}" has ${n} colours; the ${tier} tier needs ${lo} to ${hi}.`);
+  if (size !== undefined && size !== n) E.push(`${where}: palette_size is ${size}; palette "${paletteId}" has ${n} roles. Fix: palette_size ${n}.`);
+};
 const Ajv = creq('ajv/dist/2020');
 const ajv = new Ajv({allErrors: true, strict: false});
 const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean).length;
@@ -39,10 +51,13 @@ const semantic = {
     if (fm.status !== 'verified') W.push(`style "${d.style}" status is ${fm.status ?? 'missing'}, not verified`);
     const ds = loadDS(d.style);
     if (!ds.palettes.some((p) => p.id === d.design.palette_id)) E.push(`design.palette_id "${d.design.palette_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
+    tierCheck(d.style, d.design.palette_id, d.design.palette_tier, d.design.palette_size, E, 'brief.design');
+    if (d.subject_mode && ds.subject_mode && d.subject_mode !== ds.subject_mode) E.push(`subject_mode is "${d.subject_mode}" but ${d.style} is ${ds.subject_mode}. Fix: subject_mode "${ds.subject_mode}".`);
     if (!ds.fonts.some((p) => p.id === d.design.pairing_id)) E.push(`design.pairing_id "${d.design.pairing_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
     const [lo, hi] = BUCKETS[d.length_bucket];
     if (d.target_seconds < lo || d.target_seconds > hi) E.push(`target_seconds ${d.target_seconds} is outside bucket ${d.length_bucket}`);
-    if (/(sk-|api[_-]?key\s*[:=]|xi-api-key|Bearer\s+[A-Za-z0-9])/i.test(JSON.stringify(d))) E.push('brief looks like it contains a secret; keys live in the environment only');
+    // key shapes, not substrings: "grotesk-inter-jb" must not read as an "sk-" key
+    if (/(\bsk-[A-Za-z0-9_-]{16,}|api[_-]?key\s*[:=]|xi-api-key|Bearer\s+[A-Za-z0-9])/i.test(JSON.stringify(d))) E.push('brief looks like it contains a secret; keys live in the environment only');
   },
   script(d, ctx, E, W) {
     const brief = ctx.get('brief');
@@ -84,6 +99,9 @@ const semantic = {
       if (!a.approved) W.push(`cast ${a.id}: not approved yet; it will not render`);
     }
     if (needs) for (const n of needs.items) if (!d.assets.some((a) => (a.need_id ?? a.id) === n.id)) W.push(`need "${n.id}" has no cast asset`);
+    const brief = ctx.get('brief');
+    const roles = brief && listStyles().includes(brief.style) ? loadDS(brief.style).palettes.find((p) => p.id === brief.design?.palette_id)?.roles : null;
+    if (roles) for (const a of d.assets) for (const l of a.def.layers ?? []) for (const sh of l.shapes) for (const k of ['fill', 'stroke']) if (sh[k] && sh[k] !== 'none' && !(sh[k] in roles)) E.push(`cast ${a.id} layer "${l.name}": ${k} "${sh[k]}" is not a role of palette ${brief.design.palette_id} (has: ${Object.keys(roles).join(', ')})`);
     const chars = d.assets.filter((a) => a.def.kind === 'character');
     for (const a of chars) for (const b of chars) if (a.id < b.id && ['color', 'hair', 'build', 'accessory'].every((k) => (a.def[k] ?? '') === (b.def[k] ?? ''))) E.push(`cast ${a.id} and ${b.id} are identical; characters must differ in colour, hair, build or accessory`);
   },
@@ -104,10 +122,13 @@ const semantic = {
       if (sc.panels.filter((p) => p.energy === 'peak').length > 1) E.push(`scene ${sc.id}: more than one peak panel`);
       for (const p of sc.panels) {
         const s = p.slots, T = `panel ${p.id}:`;
+        const wl = widgetLib();
+        if (wl.size) for (const w of p.widgets ?? []) if (!wl.has(w.id)) E.push(`${T} widget "${w.id}" is not in library/widgets.json (the 50 built widgets)`);
         if (ids.has(p.id)) E.push(`${T} duplicate id`);
         ids.add(p.id);
         if (!p.id.startsWith(sc.id + 'p')) E.push(`${T} id must start with ${sc.id}p`);
-        for (const k of NEEDS[p.layout]) if (!s[k]) E.push(`${T} layout ${p.layout} needs slots.${k}`);
+        // closed-layout slots matter only to slot-drawn panels; a panel with boxes is drawn from its boxes (FilmComposition)
+        if (!(p.boxes ?? []).length) for (const k of NEEDS[p.layout]) if (!s[k]) E.push(`${T} layout ${p.layout} needs slots.${k}`);
         const used = [...(s.cast ?? []).map((c) => c.id), s.prop?.id, s.media, ...(s.sides ?? []).flatMap((x) => [x.prop, x.cast])].filter(Boolean);
         for (const id of used) if (!p.asset_ids.includes(id)) E.push(`${T} slot uses "${id}" but asset_ids does not list it`);
         if (cast) for (const id of p.asset_ids) {
@@ -180,6 +201,59 @@ const semantic = {
     for (const [id, list] of per) if (list.length > rules.limits.max_effects_per_panel) E.push(`panel ${id}: ${list.length} effects; the limit is ${rules.limits.max_effects_per_panel}`);
     W.push(`effects cost ${cost} budget units`);
   },
+  'render-manifest'(d, ctx, E, W) {
+    const st = d.design.style;
+    if (!listStyles().includes(st)) return E.push(`design.style "${st}" has no styles/${st}/design-system.json`);
+    const ds = loadDS(st), pal = ds.palettes.find((p) => p.id === d.design.palette_id);
+    if (!pal) return E.push(`design.palette_id "${d.design.palette_id}" is not in ${st}`);
+    if (!ds.fonts.some((f) => f.id === d.design.pairing_id)) E.push(`design.pairing_id "${d.design.pairing_id}" is not in ${st}`);
+    tierCheck(st, pal.id, d.design.palette_tier, d.design.palette_size, E, 'design');
+    if (ds.subject_mode && d.subject_mode !== ds.subject_mode) E.push(`subject_mode "${d.subject_mode}" but ${st} is ${ds.subject_mode}`);
+    if (d.subject_mode === 'ui-first' && d.cast.some((c) => c.role !== 'prop')) E.push('a ui-first film has a narrator or actor; only props are allowed (rule 8)');
+    const roles = pal.roles, fps = d.meta.fps, wl = widgetLib(), castIds = new Set(d.cast.map((c) => c.id));
+    const roleOk = (r, where) => { if (r && !(r in roles)) E.push(`${where}: role "${r}" is not in palette ${pal.id} (has: ${Object.keys(roles).join(', ')})`); };
+    for (const c of d.cast) for (const l of c.layers) for (const sh of l.shapes) { roleOk(sh.fill === 'none' ? null : sh.fill, `cast ${c.id} ${l.name}`); roleOk(sh.stroke === 'none' ? null : sh.stroke, `cast ${c.id} ${l.name}`); }
+    const events = [];
+    let at = 0;
+    for (const p of d.panels) {
+      const T = `panel ${p.id}`;
+      if (p.from !== at) E.push(`${T}: from ${p.from} but the previous panel ends at ${at}`);
+      at = p.from + p.frames;
+      const ev = [p.from, ...p.beats.map((b) => b.frame), ...p.motion.map((m) => m.frame), ...p.widgets.map((w) => w.from), ...p.boxes.filter((b) => typeof b.from === 'number').map((b) => b.from)].filter((f) => f >= p.from && f < at).sort((a, b) => a - b);
+      const gaps = [...ev, at].map((f, i, arr) => (i ? f - arr[i - 1] : 0));
+      const hold = Math.round((Math.max(...gaps) / fps) * 100) / 100;
+      if (Math.abs(hold - p.max_hold_seconds) > 0.05) E.push(`${T}: max_hold_seconds says ${p.max_hold_seconds}; the events give ${hold}. Rebuild with build-film.js.`);
+      if (hold > 3.5) E.push(`${T}: ${hold} s with no new visual event (max 3.5 s). Fix: add a beat, widget or motion inside the gap, or split the panel.`);
+      p.beats.forEach((b, i) => events.push({key: `beat:${p.id}#${i}`, f: b.frame}));
+      p.motion.forEach((m, i) => events.push({key: `motion:${p.id}#${i}`, f: m.frame}));
+      p.widgets.forEach((w, i) => events.push({key: `widget:${p.id}#${i}`, f: w.from}));
+      events.push({key: `cut:${p.id}`, f: p.from});
+      if (p.transition) events.push({key: `transition:${p.id}`, f: p.from + p.transition.frames});
+      const boxIds = new Set(p.boxes.map((b) => b.id));
+      for (const b of p.boxes) { roleOk(b.color, `${T} box ${b.id}`); roleOk(b.bg, `${T} box ${b.id}`); }
+      for (const w of p.widgets) {
+        if (wl.size && !wl.has(w.id)) E.push(`${T}: widget "${w.id}" is not in library/widgets.json`);
+        if (w.anchor[0] === '@' && !boxIds.has(w.anchor.slice(1))) E.push(`${T}: widget "${w.id}" anchors to "${w.anchor}" but the panel has no such box`);
+        if (w.box.x + w.box.w > 85.01 || w.box.y + w.box.h > 80.01) E.push(`${T}: widget "${w.id}" box ends at x ${w.box.x + w.box.w}, y ${w.box.y + w.box.h}; keep x + w <= 85 and y + h <= 80`);
+      }
+      for (const c of p.cast) if (!castIds.has(c.id)) E.push(`${T}: cast "${c.id}" is not in the manifest cast`);
+      for (const m of p.motion) if (m.target && m.target !== 'panel' && !boxIds.has(m.target)) E.push(`${T}: motion ${m.primitive} targets "${m.target}", which is not a box of this panel`);
+    }
+    if (at !== d.meta.frames) E.push(`meta.frames is ${d.meta.frames}; the panels end at ${at}`);
+    const evAt = new Map(events.map((e) => [e.key, e.f]));
+    for (const c of d.audio.sfx) {
+      const T = `sfx ${c.id} at ${c.frame}`;
+      if (c.frame !== c.peak_frame - c.pre_roll) E.push(`${T}: frame must be peak_frame - pre_roll = ${c.peak_frame - c.pre_roll}`);
+      const ef = evAt.get(c.sync);
+      if (ef === undefined) E.push(`${T}: sync "${c.sync}" names no event (cut:<panel>, beat:<panel>#i, motion:<panel>#i, widget:<panel>#i, transition:<panel>)`);
+      else if (Math.abs(ef - c.peak_frame) > 2) E.push(`${T}: peak_frame ${c.peak_frame} is ${Math.abs(ef - c.peak_frame)} frames from ${c.sync} (frame ${ef}); the limit is 2`);
+      if (!c.file) W.push(`${T}: no audio file yet; the cue is silent in the render`);
+    }
+    for (const c of d.captions) { if (c.to <= c.from) E.push(`caption "${c.text}": to ${c.to} is not after from ${c.from}`); if (c.to > d.meta.frames) E.push(`caption "${c.text}" ends after the film`); if (c.power && !c.text.split(/\s+/).some((x) => x.replace(/[^\w'-]/g, '') === c.power.replace(/[^\w'-]/g, ''))) E.push(`caption "${c.text}": power word "${c.power}" is not in the chunk`); }
+    const mu = d.audio.music;
+    if (mu && mu.ducked_db >= mu.open_db) E.push(`music.ducked_db ${mu.ducked_db} must be below open_db ${mu.open_db}`);
+    if (d.showSafeZones) W.push('showSafeZones is on: the dead-zone overlay will be burned into this render (review renders only)');
+  },
   scorecard(d, ctx, E) {
     const avg = sum(d.params.map((p) => p.score)) / d.params.length, min = Math.min(...d.params.map((p) => p.score));
     if (Math.abs(avg - d.average) > 0.06) E.push(`average is ${d.average}; the scores average ${avg.toFixed(2)}`);
@@ -226,12 +300,12 @@ if (a.examples) {
   const dir = path.resolve(a.work);
   for (const n of NAMES) if (fs.existsSync(path.join(dir, `${n}.json`))) failed += report(n, check(n, path.join(dir, `${n}.json`), ctxFor(dir)));
   const rv = path.join(dir, 'reviews');
-  if (fs.existsSync(rv)) for (const f of fs.readdirSync(rv).filter((f) => f.endsWith('.json'))) failed += report(`reviews/${f}`, check('scorecard', path.join(rv, f), ctxFor(dir)));
+  if (fs.existsSync(rv)) for (const f of fs.readdirSync(rv).filter((f) => /-r\d+-[a-z-]+\.json$/.test(f))) failed += report(`reviews/${f}`, check('scorecard', path.join(rv, f), ctxFor(dir)));
 } else if (a._.length === 2) {
   const file = path.resolve(a._[1]);
   failed += report(`${a._[0]}: ${a._[1]}`, check(a._[0], file, ctxFor(path.dirname(file), path.basename(file).startsWith('example.') ? 'example.' : '')));
 } else {
-  console.error('Usage: node validate.js <schema-name> <file> | --work <dir> | --examples');
+  console.error('Usage: node validate-schema.js <schema-name> <file> | --work <dir> | --examples');
   process.exit(2);
 }
 process.exit(failed ? 1 : 0);

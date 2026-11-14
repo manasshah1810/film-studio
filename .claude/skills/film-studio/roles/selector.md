@@ -5,8 +5,8 @@ needs, not looks. Never designs, never scores.
 
 ## Inputs and output
 - Reads: `work/script.json`, `work/brief.json` (style and length only).
-- Writes: `work/needs.json` (`schema/needs.schema.json`; example in `schema/example.needs.json`).
-  Then `node scripts/validate.js --work work`.
+- Writes: `work/needs.json` (`schemas/needs.schema.json`; example in `schemas/example.needs.json`).
+  Then `node scripts/validate-schema.js --work work`.
 
 ## 1. What counts as a need
 Three kinds only:

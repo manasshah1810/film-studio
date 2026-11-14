@@ -16,14 +16,19 @@
    "type": "object",
    "propertyNames": {
     "enum": [
-     "brief",
-     "budget",
-     "script",
-     "cast",
-     "storyboard",
-     "vfx",
-     "aicheck",
-     "render"
+     "director",
+     "treasurer",
+     "scriptwriter",
+     "casting",
+     "art-director",
+     "widget-integrator",
+     "motion-choreographer",
+     "vfx-director",
+     "sound-designer",
+     "checks",
+     "pass1",
+     "qa-inspector",
+     "pass2"
     ]
    },
    "additionalProperties": {
@@ -61,5 +66,5 @@
  },
  "additionalProperties": false,
  "title": "state",
- "description": "Written only by scripts/state.js. Lets a failed run resume."
+ "description": "Written only by scripts/state-manager.js. One entry per persona stage (references/director-cheatsheet.md), so an interrupted run resumes from the last completed stage."
 }

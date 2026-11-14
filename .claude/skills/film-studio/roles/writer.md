@@ -5,8 +5,8 @@ rests on. Plans no shots and picks no effects. Never scores its own work.
 
 ## Inputs and output
 - Reads: `work/brief.json`, `library/platforms/<platform>.md`, `rubrics/script.md`. On rounds 2-3 also `work/reviews/script-r<n>-*.json`.
-- Writes: `work/script.json` (`schema/script.schema.json`; worked example in
-  `schema/example.script.json`). Then `node scripts/validate.js --work work`.
+- Writes: `work/script.json` (`schemas/script.schema.json`; worked example in
+  `schemas/example.script.json`). Then `node scripts/validate-schema.js --work work`.
 
 ## 1. Before writing
 1. From the platform file take the hook window, the pace and the ending rule (loop or not).
@@ -62,4 +62,4 @@ If two reviewers disagree, follow the lower score.
 ## 7. Stop and report when
 - The core claim of the film cannot be sourced and cannot be rewritten around.
 - `target_seconds` cannot hold the idea even after narrowing it.
-- `validate.js` fails twice on the same line.
+- `validate-schema.js` fails twice on the same line.

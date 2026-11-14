@@ -129,7 +129,8 @@ const RULES = [
   {n: 16, id: 'contrast', stage: 'storyboard', needs: ['storyboard', 'ds'], title: 'WCAG AA contrast floor', run(P) { return [...checkSystem(P.ds, 'design system').filter((e) => /:1; needs/.test(e)), ...checkPlan(P).contrast]; }},
   {n: 17, id: 'safe-zone', stage: 'storyboard', needs: ['storyboard'], title: '9:16 safe zones: bottom 20%, right 15%', run(P) { return checkSafe(P); }},
   {n: 18, id: 'widgets', stage: 'storyboard', needs: ['storyboard'], title: 'At least 1 micro-widget per 2 scenes', run(P) {
-    const count = P.scenes.map((sc) => (sc.panels ?? []).reduce((n, p) => n + (p.widgets ?? []).length, 0)), E = [];
+    // counted on the merged panels, so widgets.json placements count too
+    const count = P.scenes.map((sc) => P.panels.filter((p) => p.scene === sc.id).reduce((n, p) => n + (p.widgets ?? []).length, 0)), E = [];
     if (count.length === 1 && !count[0]) E.push(`scene ${P.scenes[0].id} has no widget. Fix: add one to a panel: "widgets": [{"id": "<widget id>", "anchor": "tr", "at": 0.5, "easing": "<named>"}].`);
     for (let i = 0; i + 1 < count.length; i++) if (!count[i] && !count[i + 1]) E.push(`scenes ${P.scenes[i].id} and ${P.scenes[i + 1].id} have no micro-widget between them. Fix: add one to a panel in either scene.`);
     const lib = path.join(SKILL, 'library', 'widgets.json');

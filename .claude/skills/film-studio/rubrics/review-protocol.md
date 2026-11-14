@@ -26,7 +26,7 @@ They do not receive the author's reasoning, the other reviewer's card, or the ch
   - 7: a real weakness that a viewer might notice. Name it and where.
   - 6 or below: matches the low anchor somewhere.
 - Every score under 9 needs evidence: the scene, panel or asset id, and what is wrong there.
-  A score under 9 with no id is invalid and `scripts/validate.js` rejects the card.
+  A score under 9 with no id is invalid and `scripts/validate-schema.js` rejects the card.
 - Score what is in the files. Do not reward effort, intention or length, and do not penalise a choice
   only because you would have made another.
 - A reviewer who cannot open a file scores nothing and reports it. No guessing.
@@ -34,13 +34,13 @@ They do not receive the author's reasoning, the other reviewer's card, or the ch
 ## 4. The scorecard
 Reviewers cannot write files. Each returns one JSON scorecard as its whole final message and the
 Director saves it unchanged as `work/reviews/<stage>-r<round>-<scorer>.json`
-(`schema/scorecard.schema.json`; example in `schema/example.scorecard.json`).
+(`schemas/scorecard.schema.json`; example in `schemas/example.scorecard.json`).
 - `params`: ten entries, in rubric order, each with `name`, `score`, `evidence`.
 - `average`: mean of the ten, two decimals. `minimum`: the lowest score.
 - `passed`: true only if average is 9.0 or more AND minimum is 7 or more.
 - `feedback`: up to five instructions for the author, most important first. Each one names an id and
   says what to change, not how the reviewer feels.
-`node scripts/validate.js scorecard <file>` checks the arithmetic and the gate.
+`node scripts/validate-schema.js scorecard <file>` checks the arithmetic and the gate.
 
 ## 5. The gate
 A stage passes when BOTH scorecards have `passed: true`.
@@ -51,7 +51,7 @@ A stage passes when BOTH scorecards have `passed: true`.
 - After round 3 without a pass:
   1. Keep the version with the highest combined average.
   2. Append to `work/flags.md`: the stage, both averages, and every parameter under 9 with its evidence.
-  3. `node scripts/state.js set work <stage> flagged`, and continue.
+  3. `node scripts/state-manager.js set work <stage> flagged`, and continue.
   4. The Director lists the flags in the final report. A flagged film is delivered as flagged, never
      described as passing.
 

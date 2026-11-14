@@ -3,7 +3,7 @@
 You turn `work/needs.json` into `work/cast.json`: characters and props as data the style kit draws.
 You read `work/needs.json`, `work/brief.json` and this file. Nothing is generated or downloaded.
 You never score your own work and you never place anything in a scene; the Storyboard does that.
-Proof: `node scripts/validate.js --work work`, then `node scripts/check-ai-tells.js work --stage storyboard`
+Proof: `node scripts/validate-schema.js --work work`, then `node scripts/check-ai-tells.js work --stage storyboard`
 (rule 8 reads your layers). Run `node scripts/cast-sheet.js work` and look at it before you submit.
 
 ## 1. The three subject modes
@@ -109,13 +109,13 @@ prop or 40 shapes; `cast-sheet.js` fails (do not retry in a loop).
     "brows": {"joints": ["inner", "outer"], "states": ["neutral", "raised", "furrowed"]},
     "mouth": {"visemes": ["MBP", "AA", "OH", "EE", "FV"]},
     "arms": {"upper": "shoulder-elbow", "fore": "elbow-wrist", "hand": "open"},
-    "shadow": {"kind": "ambient", "role": "shadow", "opacity": 0.25}},
+    "shadow": {"kind": "ambient", "role": "ink", "opacity": 0.25}},
    "layers": [
-    {"name": "shadow", "depth": 0, "shapes": [{"t": "ellipse", "fill": "shadow", "cx": 50, "cy": 96, "rx": 34, "ry": 4}]},
+    {"name": "shadow", "depth": 0, "shapes": [{"t": "ellipse", "fill": "ink", "cx": 50, "cy": 96, "rx": 34, "ry": 4}]},
     {"name": "hair-back", "depth": 1, "shapes": [{"t": "poly", "fill": "ink", "pts": [[22, 40], [50, 12], [78, 40], [84, 84], [16, 84]]}]},
-    {"name": "torso", "depth": 2, "shapes": [{"t": "poly", "fill": "primary", "pts": [[20, 96], [26, 66], [50, 60], [74, 66], [80, 96]]}, {"t": "poly", "fill": "shadow", "pts": [[50, 60], [74, 66], [80, 96], [58, 96]]}]},
+    {"name": "torso", "depth": 2, "shapes": [{"t": "poly", "fill": "primary", "pts": [[20, 96], [26, 66], [50, 60], [74, 66], [80, 96]]}, {"t": "poly", "fill": "ink", "pts": [[50, 60], [74, 66], [80, 96], [58, 96]]}]},
     {"name": "arms", "depth": 3, "shapes": [{"t": "poly", "fill": "primary", "pts": [[74, 66], [88, 76], [84, 92], [76, 86]]}, {"t": "poly", "fill": "highlight", "pts": [[84, 92], [90, 96], [82, 98]]}]},
-    {"name": "head", "depth": 4, "shapes": [{"t": "ellipse", "fill": "highlight", "cx": 50, "cy": 42, "rx": 17, "ry": 20}, {"t": "poly", "fill": "shadow", "pts": [[54, 24], [66, 40], [60, 58], [50, 62]]}, {"t": "rect", "fill": "ink", "x": 36, "y": 38, "w": 28, "h": 8, "r": 3}]},
+    {"name": "head", "depth": 4, "shapes": [{"t": "ellipse", "fill": "highlight", "cx": 50, "cy": 42, "rx": 17, "ry": 20}, {"t": "poly", "fill": "ink", "pts": [[54, 24], [66, 40], [60, 58], [50, 62]]}, {"t": "rect", "fill": "ink", "x": 36, "y": 38, "w": 28, "h": 8, "r": 3}]},
     {"name": "hair-front", "depth": 5, "shapes": [{"t": "poly", "fill": "ink", "pts": [[32, 34], [46, 18], [68, 24], [64, 32], [44, 30]]}]}]}}
 ]}
 ```

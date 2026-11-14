@@ -1,0 +1,962 @@
+{
+ "version": 1,
+ "meta": {
+  "title": "Smaller plans beat discipline",
+  "platform": "instagram",
+  "ratio": "9:16",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "frames": 510,
+  "safe": {
+   "top": 250,
+   "right": 120,
+   "bottom": 350,
+   "left": 60
+  }
+ },
+ "design": {
+  "style": "minimalist-doodle",
+  "palette_id": "kraft-red",
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "pairing_id": "kalam-nunito-courierprime",
+  "seed": "smaller-plans-20261114-1"
+ },
+ "subject_mode": "layered",
+ "cast": [
+  {
+   "id": "host",
+   "name": "Host",
+   "role": "narrator",
+   "layers": [
+    {
+     "name": "shadow",
+     "depth": 0,
+     "shapes": [
+      {
+       "t": "ellipse",
+       "fill": "ink",
+       "cx": 50,
+       "cy": 97,
+       "rx": 30,
+       "ry": 3
+      }
+     ]
+    },
+    {
+     "name": "hair-back",
+     "depth": 1,
+     "shapes": [
+      {
+       "t": "poly",
+       "fill": "ink",
+       "pts": [
+        [
+         22,
+         40
+        ],
+        [
+         50,
+         12
+        ],
+        [
+         78,
+         40
+        ],
+        [
+         84,
+         84
+        ],
+        [
+         16,
+         84
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "name": "torso",
+     "depth": 2,
+     "shapes": [
+      {
+       "t": "poly",
+       "fill": "primary",
+       "pts": [
+        [
+         20,
+         96
+        ],
+        [
+         26,
+         66
+        ],
+        [
+         50,
+         60
+        ],
+        [
+         74,
+         66
+        ],
+        [
+         80,
+         96
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "name": "arms",
+     "depth": 3,
+     "shapes": [
+      {
+       "t": "poly",
+       "fill": "primary",
+       "pts": [
+        [
+         74,
+         66
+        ],
+        [
+         88,
+         76
+        ],
+        [
+         84,
+         92
+        ],
+        [
+         76,
+         86
+        ]
+       ]
+      },
+      {
+       "t": "poly",
+       "fill": "highlight",
+       "pts": [
+        [
+         84,
+         92
+        ],
+        [
+         90,
+         96
+        ],
+        [
+         82,
+         98
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "name": "head",
+     "depth": 4,
+     "shapes": [
+      {
+       "t": "ellipse",
+       "fill": "surface",
+       "cx": 50,
+       "cy": 42,
+       "rx": 17,
+       "ry": 20
+      },
+      {
+       "t": "rect",
+       "fill": "ink",
+       "x": 36,
+       "y": 38,
+       "w": 28,
+       "h": 6,
+       "r": 3
+      }
+     ]
+    },
+    {
+     "name": "hair-front",
+     "depth": 5,
+     "shapes": [
+      {
+       "t": "poly",
+       "fill": "ink",
+       "pts": [
+        [
+         32,
+         34
+        ],
+        [
+         46,
+         18
+        ],
+        [
+         68,
+         24
+        ],
+        [
+         64,
+         32
+        ],
+        [
+         44,
+         30
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "rig": {
+    "eyes": {
+     "states": [
+      "open",
+      "half",
+      "closed"
+     ],
+     "blink_every": [
+      2.5,
+      4.5
+     ]
+    },
+    "mouth": {
+     "visemes": [
+      "MBP",
+      "AA",
+      "OH",
+      "EE",
+      "FV"
+     ]
+    }
+   }
+  }
+ ],
+ "panels": [
+  {
+   "id": "s1p1",
+   "scene": "s1",
+   "from": 0,
+   "frames": 60,
+   "max_hold_seconds": 0.7,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "Not more discipline",
+     "lines": [
+      "Not more",
+      "discipline"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "motion": [
+    {
+     "primitive": "text-decode",
+     "frame": 21,
+     "frames": 20,
+     "target": "h",
+     "note": "the hook decodes"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 21,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 42,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 0,
+     "frames": 60,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s1p2",
+   "scene": "s1",
+   "from": 60,
+   "frames": 90,
+   "max_hold_seconds": 1,
+   "transition": {
+    "primitive": "whip-pan",
+    "frames": 10,
+    "easing": "snap"
+   },
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "A smaller plan",
+     "lines": [
+      "A smaller",
+      "plan"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "b",
+     "kind": "text",
+     "x": 8,
+     "y": 46,
+     "w": 70,
+     "h": 12,
+     "role": "body",
+     "text": "Big plans collapse on day three.",
+     "px": 44,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [
+    {
+     "id": "sketch-words",
+     "anchor": "tr",
+     "from": 75,
+     "frames": 75,
+     "box": {
+      "x": 46,
+      "y": 8,
+      "w": 38,
+      "h": 9
+     },
+     "props": {
+      "lines": [
+       "A smaller plan"
+      ],
+      "emphasis": 0
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 96,
+     "target": "h",
+     "note": "smaller plan lands"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 96,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 126,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 60,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2p1",
+   "scene": "s2",
+   "from": 150,
+   "frames": 90,
+   "max_hold_seconds": 1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 15,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "Missed one day",
+     "lines": [
+      "Missed",
+      "one day"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "b",
+     "kind": "text",
+     "x": 15,
+     "y": 46,
+     "w": 70,
+     "h": 12,
+     "role": "body",
+     "text": "So the first slip feels like failure.",
+     "px": 44,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 186,
+     "frames": 30,
+     "target": "h",
+     "note": "the huge goal wobbles"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 180,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 210,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 150,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2p2",
+   "scene": "s2",
+   "from": 240,
+   "frames": 90,
+   "max_hold_seconds": 0.9,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "Two minutes survives",
+     "lines": [
+      "Two minutes",
+      "survives"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "b",
+     "kind": "text",
+     "x": 8,
+     "y": 46,
+     "w": 70,
+     "h": 12,
+     "role": "body",
+     "text": "Tiny habits outlast bad days.",
+     "px": 44,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [
+    {
+     "id": "title-card",
+     "anchor": "tr",
+     "from": 255,
+     "frames": 75,
+     "box": {
+      "x": 46,
+      "y": 8,
+      "w": 38,
+      "h": 9
+     },
+     "props": {
+      "kicker": "Two minutes",
+      "title": [
+       "survives"
+      ],
+      "sub": "a bad day",
+      "seed": "tc-s2p2"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "path-draw-on",
+     "frame": 276,
+     "frames": 20,
+     "target": "h",
+     "note": "underline the turn"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 273,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 303,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 240,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3p1",
+   "scene": "s3",
+   "from": 330,
+   "frames": 90,
+   "max_hold_seconds": 1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "Shrink it",
+     "lines": [
+      "Shrink it"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "b",
+     "kind": "text",
+     "x": 8,
+     "y": 46,
+     "w": 70,
+     "h": 12,
+     "role": "body",
+     "text": "Until skipping it feels silly.",
+     "px": 44,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [
+    {
+     "id": "sketch-words",
+     "anchor": "tr",
+     "from": 345,
+     "frames": 75,
+     "box": {
+      "x": 46,
+      "y": 8,
+      "w": 38,
+      "h": 9
+     },
+     "props": {
+      "lines": [
+       "Shrink it."
+      ],
+      "emphasis": 0
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 360,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 390,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 330,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3p2",
+   "scene": "s3",
+   "from": 420,
+   "frames": 90,
+   "max_hold_seconds": 1.4,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 15,
+     "y": 18,
+     "w": 70,
+     "h": 24,
+     "role": "display",
+     "text": "Then repeat",
+     "lines": [
+      "Then",
+      "repeat"
+     ],
+     "px": 132,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 8,
+     "y": 68,
+     "w": 74,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    },
+    {
+     "id": "host",
+     "kind": "subject",
+     "x": 44,
+     "y": 42,
+     "w": 40,
+     "h": 24
+    }
+   ],
+   "cast": [
+    {
+     "id": "host",
+     "box": {
+      "x": 44,
+      "y": 42,
+      "w": 40,
+      "h": 24
+     },
+     "from": 420
+    }
+   ],
+   "widgets": [],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 450,
+     "target": "h",
+     "note": "then repeat"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 444,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "settle"
+    },
+    {
+     "frame": 468,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "snap"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 420,
+     "frames": 75,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 40,
+   "text": "You do not need"
+  },
+  {
+   "from": 40,
+   "to": 60,
+   "text": "more discipline"
+  },
+  {
+   "from": 60,
+   "to": 110,
+   "text": "You need a smaller plan"
+  },
+  {
+   "from": 110,
+   "to": 150,
+   "text": "because big plans collapse"
+  },
+  {
+   "from": 150,
+   "to": 195,
+   "text": "Most people set"
+  },
+  {
+   "from": 195,
+   "to": 240,
+   "text": "a huge goal"
+  },
+  {
+   "from": 240,
+   "to": 279,
+   "text": "But two minutes"
+  },
+  {
+   "from": 279,
+   "to": 330,
+   "text": "survives a bad day"
+  },
+  {
+   "from": 330,
+   "to": 375,
+   "text": "Shrink it until"
+  },
+  {
+   "from": 375,
+   "to": 420,
+   "text": "skipping feels silly"
+  },
+  {
+   "from": 420,
+   "to": 510,
+   "text": "Then repeat"
+  }
+ ],
+ "audio": {
+  "sfx": [
+   {
+    "id": "thud",
+    "frame": 0,
+    "peak_frame": 0,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s1p1",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 21,
+    "peak_frame": 21,
+    "pre_roll": 0,
+    "db": -14,
+    "sync": "beat:s1p1#0",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 54,
+    "peak_frame": 60,
+    "pre_roll": 6,
+    "db": -10,
+    "sync": "cut:s1p2",
+    "file": null
+   },
+   {
+    "id": "tactile-pop",
+    "frame": 96,
+    "peak_frame": 96,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s1p2#0",
+    "file": null
+   },
+   {
+    "id": "tick",
+    "frame": 150,
+    "peak_frame": 150,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s2p1",
+    "file": null
+   },
+   {
+    "id": "tick",
+    "frame": 240,
+    "peak_frame": 240,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s2p2",
+    "file": null
+   },
+   {
+    "id": "pen-scratch",
+    "frame": 276,
+    "peak_frame": 276,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "motion:s2p2#0",
+    "file": null
+   },
+   {
+    "id": "tick",
+    "frame": 330,
+    "peak_frame": 330,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s3p1",
+    "file": null
+   },
+   {
+    "id": "tick",
+    "frame": 420,
+    "peak_frame": 420,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s3p2",
+    "file": null
+   }
+  ],
+  "voiceover": null,
+  "music": null
+ },
+ "showSafeZones": false
+}

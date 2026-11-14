@@ -6,7 +6,7 @@ Nothing is generated or downloaded here. Never scores its own work.
 ## Inputs and output
 - Reads: `work/needs.json`, `work/brief.json`, the Palettes table and Forbidden list of
   `styles/<style>/style.md`, `rubrics/cast.md`. On rounds 2-3 also `work/reviews/cast-r<n>-*.json`.
-- Writes: `work/cast.json` (`schema/cast.schema.json`; example in `schema/example.cast.json`).
+- Writes: `work/cast.json` (`schemas/cast.schema.json`; example in `schemas/example.cast.json`).
 - Proof: `node scripts/cast-sheet.js work` renders every asset on one low-resolution sheet at
   `work/stills/cast-sheet.png`. Look at it before you submit.
 

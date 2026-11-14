@@ -104,7 +104,7 @@
      ],
      "widgets": [
       {
-       "id": "checklist-card",
+       "id": "sketch-words",
        "anchor": "tr",
        "at": 0.5,
        "easing": "pop",
@@ -286,7 +286,7 @@
      ],
      "widgets": [
       {
-       "id": "streak-counter",
+       "id": "title-card",
        "anchor": "tr",
        "at": 0.6,
        "easing": "pop",
@@ -390,7 +390,7 @@
      ],
      "widgets": [
       {
-       "id": "timer-ring",
+       "id": "day-dial",
        "anchor": "tr",
        "at": 0.4,
        "easing": "pop",

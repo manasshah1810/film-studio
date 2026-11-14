@@ -2,7 +2,8 @@
 
 You give every visual peak a sound and shape the music around the voice. You read
 `work/storyboard.json`, `work/vfx-plan.json`, `work/script.json` and this file, and you write the audio
-cue sheet. You place sounds by frame number, never by rough time. Frames count at 30 fps unless the
+cue sheet `work/audio-cues.json` (section 5 shape). `frame` is the visual peak; a sound file goes in
+`work/audio/sfx/<sfx id>.wav` and `build-film.js` ties every cue to its keyframe. You place sounds by frame number, never by rough time. Frames count at 30 fps unless the
 brief says otherwise. Sound ids come from the lookup table in section 2.
 
 ## 1. Frame-accurate SFX sync contract
@@ -27,7 +28,7 @@ brief says otherwise. Sound ids come from the lookup table in section 2.
 | odometer-roll | digital-tick | fast ticks, one per digit |
 | text scramble / decode | digital-tick | same tick, lighter |
 | paper-tear (PaperTear) | paper-rip | dry rip |
-| markup (HighlighterSwipe, RedactBar, MarginDoodle) | marker-stroke | felt-tip drag |
+| markup (`live-markup`, `grease-pencil-sheet`) | marker-stroke | felt-tip drag |
 | impact-frame | sub-bass-hit | low boom, loudest cue in the film |
 | comment-drop (CommentDrop) | soft-chime | one gentle bell |
 | 3D axis flip | card-flick | thin card turn, 3 frame pre-roll |
@@ -35,11 +36,11 @@ brief says otherwise. Sound ids come from the lookup table in section 2.
 | RGB split glitch | static-zap | short electric crackle |
 | stop-motion jitter | stop-tick | dry wooden ticks |
 | SVG path draw-on | pen-scratch | pen on paper |
-| NotificationBanner, TrendingTag | notification-ping | bright ping |
-| RubberStamp | sub-bass-hit | the stamp lands as the impact |
-| LiveCursor click, ToggleSwitch | click-soft | mouse or switch click |
-| Banknote, CounterTicker | cash-rustle | paper rustle then ticks |
-| ShutterFlash | shutter-click | camera shutter |
+| `voice-note`, `press-front` | notification-ping | bright ping |
+| `serif-stamp` | sub-bass-hit | the stamp lands as the impact |
+| `live-cursor` click, `keycaps` | click-soft | mouse or switch click |
+| `banknote`, odometer-roll | cash-rustle | paper rustle then ticks |
+| `contact-sheet-hook` | shutter-click | camera shutter |
 The first six rows are the core mapping. Rows for other events use the nearest sound above or
 `click-soft`. A widget that is silent in the real world (a ring filling) takes `digital-tick`.
 
@@ -93,7 +94,7 @@ frame is 780; the silence drop is 765 to 780 (15 frames). Risers end on the re-h
   {"frame": 165, "sfx": "fast-whoosh", "peak": "whip-pan s1 to s2", "pre_roll": 6, "db": -10},
   {"frame": 225, "sfx": "digital-tick", "peak": "odometer-roll to half", "pre_roll": 0, "db": -14},
   {"frame": 300, "sfx": "card-flick", "peak": "axis-flip s2 to s3", "pre_roll": 3, "db": -12},
-  {"frame": 345, "sfx": "notification-ping", "peak": "NotificationBanner enters", "pre_roll": 0, "db": -14},
+  {"frame": 345, "sfx": "notification-ping", "peak": "voice-note enters", "pre_roll": 0, "db": -14},
   {"frame": 375, "sfx": "pen-scratch", "peak": "path-draw-on, crack", "pre_roll": 0, "db": -16},
   {"frame": 450, "sfx": "tactile-pop", "peak": "spring-overshoot, warning card", "pre_roll": 0, "db": -12},
   {"frame": 480, "sfx": "fast-whoosh", "peak": "whip-pan s3 to s4", "pre_roll": 6, "db": -10},

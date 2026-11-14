@@ -38,6 +38,7 @@ function load(target, o = {}) {
   }
   const brief = opt(path.join(work, 'brief.json')), script = opt(path.join(work, 'script.json')), cast = opt(path.join(work, 'cast.json')), vfx = opt(path.join(work, 'vfx-plan.json'));
   const storyboard = film ?? sbOnly ?? opt(path.join(work, 'storyboard.json'));
+  const widgetsSheet = opt(path.join(work, 'widgets.json')), motionSheet = opt(path.join(work, 'motion.json')), audioSheet = opt(path.join(work, 'audio-cues.json'));
 
   // one design system: --ds file, else the one inside film.json, else styles/<brief.style>/
   let ds = null, dsPath = null;
@@ -80,9 +81,25 @@ function load(target, o = {}) {
   }));
   const panelAt = (frame) => panels.find((p) => frame >= p.start && frame < p.start + p.frames) ?? panels[panels.length - 1];
   for (const s of vfx?.sfx ?? film?.sfx ?? []) { const p = panelAt(s.frame); sfx.push({id: s.id, f: s.frame, scene: p?.scene, at: p?.id}); }
+  // Persona sheets (references/director-cheatsheet.md): widget-integrator -> widgets.json, motion-choreographer ->
+  // motion.json, sound-designer -> audio-cues.json. Merged here so every validator sees the film as it will render.
+  const byId = new Map(panels.map((p) => [p.id, p]));
+  for (const w of widgetsSheet?.widgets ?? []) {
+    const p = byId.get(w.panel);
+    if (!p) continue;
+    const merged = {id: w.id, anchor: w.anchor, at: w.at, easing: w.easing, ...(w.box ?? {}), props: w.props ?? {}};
+    p.widgets = [...(p.widgets ?? []).filter((x) => x.id !== w.id), merged];
+    const wf = p.start + fr(w.at);
+    events.push({f: wf, kind: 'widget', at: p.id}); motion.push([wf, wf + enter]);
+  }
+  for (const r of motionSheet?.resets ?? []) {
+    const p = byId.get(r.panel) ?? panelAt(r.frame);
+    events.push({f: r.frame, kind: r.primitive, at: p?.id}); motion.push([r.frame, r.frame + (r.frames ?? enter)]);
+  }
+  for (const c of audioSheet?.cues ?? []) { const p = panelAt(c.frame); sfx.push({id: c.sfx, f: c.frame, scene: p?.scene, at: p?.id}); } // frame = the peak; the file starts pre_roll earlier
   events.sort((a, b) => a.f - b.f);
 
-  return {work, brief, script, cast, vfx, storyboard, film, ds, dsPath, roles, pairing, fps, ratio, W, H, scenes, panels, events, motion, sfx, totalFrames: f};
+  return {work, brief, script, cast, vfx, storyboard, film, widgetsSheet, motionSheet, audioSheet, ds, dsPath, roles, pairing, fps, ratio, W, H, scenes, panels, events, motion, sfx, totalFrames: f};
 }
 
 /** Boxes of a panel. A widget that carries x/y/w/h counts as a box of kind "widget". */

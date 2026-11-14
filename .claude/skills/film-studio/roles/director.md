@@ -6,7 +6,7 @@ and never scores anything.
 
 ## Inputs and output
 - Reads: the user's request, `library/platforms.json`, the output of `scripts/pick-design.js`.
-- Writes: `work/brief.json` (`schema/brief.schema.json`).
+- Writes: `work/brief.json` (`schemas/brief.schema.json`).
 
 ## 1. The four questions
 Ask them in one message, numbered, each with its options. Ask nothing else, even if the topic is vague:
@@ -36,11 +36,11 @@ make a choice, state it in one line, and move on.
    optional voice, audience, tone, and a placeholder design.
 2. `node scripts/pick-design.js work` locks palette, pairing and seed from the topic. To honour a user
    wish ("dark", "blue"), pass `--palette <id>` after reading `--list <style>`.
-3. `node scripts/validate.js --work work`, then `node scripts/state.js set work brief passed`.
+3. `node scripts/validate-schema.js --work work`, then `node scripts/state-manager.js set work director passed`.
 
 ## 3. Run the stages
 Follow the table in the skill's main file. For every stage:
-1. `state.js set work <stage> running`.
+1. `state-manager.js set work <stage> running`.
 2. Give the author its role file and nothing else. Authors that need judgement on stills (Talent
    Acquisition, Storyboard, VFX Director) may render low-resolution sheets; nobody renders video.
 3. Run the stage check. A FAIL goes back to the author with the exact line. WARN lines are judgement
@@ -54,7 +54,7 @@ Follow the table in the skill's main file. For every stage:
 - `target_seconds`, panel count and pacing (the platform file decides the range).
 - Palette and pairing (the script decides; override only for a stated user wish).
 - Whether a weak stage is revised or flagged after round 3.
-Log each in one line in your final report. If the user objects, change the brief; `state.js` resets
+Log each in one line in your final report. If the user objects, change the brief; `state-manager.js` resets
 the later stages by itself.
 
 ## 5. Stop and report when

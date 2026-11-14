@@ -22,7 +22,7 @@ Protocol and gate: `rubrics/review-protocol.md`.
   brief asks for a high-energy edit.
 - For each effect, open its library entry and read `when_not_to_use`. If the panel matches, score the
   relevant parameter 7 or lower and quote the line.
-- Parameter 4: `node scripts/validate.js vfx-plan work/vfx-plan.json` reports banned tags and window
+- Parameter 4: `node scripts/validate-schema.js vfx-plan work/vfx-plan.json` reports banned tags and window
   errors. A plan that fails validation cannot score above 6 on parameter 4.
 - Parameter 8: check each effect's panel in the storyboard for `sub`, `items`, `points`, a long
   `quote` or a caption.

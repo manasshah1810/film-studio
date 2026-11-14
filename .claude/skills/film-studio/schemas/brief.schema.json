@@ -81,11 +81,20 @@
   "design": {
    "type": "object",
    "required": [
+    "palette_tier",
     "palette_id",
     "pairing_id",
-    "seed"
+    "seed",
+    "palette_size"
    ],
    "properties": {
+    "palette_tier": {
+     "enum": [
+      "focused",
+      "expanded"
+     ],
+     "description": "focused = a palette of 3 to 5 colours, expanded = 8 to 12. Decided before the palette (personas/director.md section 4)."
+    },
     "palette_id": {
      "type": "string",
      "pattern": "^[a-z0-9][a-z0-9-]*$"
@@ -98,16 +107,80 @@
      "type": "string",
      "minLength": 1,
      "maxLength": 80
+    },
+    "palette_size": {
+     "type": "integer",
+     "minimum": 3,
+     "maximum": 12,
+     "description": "Number of colour roles in the chosen palette. Written by pick-design.js. focused: 3 to 5, expanded: 8 to 12."
     }
    },
    "additionalProperties": false,
-   "description": "Written by scripts/pick-design.js. Ids from the style design-system.json; never a hex or a font name."
+   "description": "Written by scripts/pick-design.js. Ids from the style design-system.json; never a hex or a font name.",
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "palette_tier": {
+        "const": "focused"
+       }
+      }
+     },
+     "then": {
+      "properties": {
+       "palette_size": {
+        "minimum": 3,
+        "maximum": 5
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "palette_tier": {
+        "const": "expanded"
+       }
+      }
+     },
+     "then": {
+      "properties": {
+       "palette_size": {
+        "minimum": 8,
+        "maximum": 12
+       }
+      }
+     }
+    }
+   ]
   },
   "audience": {
    "type": "string"
   },
   "tone": {
    "type": "string"
+  },
+  "ratio": {
+   "enum": [
+    "9:16",
+    "16:9",
+    "1:1",
+    "4:5"
+   ],
+   "description": "From the platform preset in library/platforms.json."
+  },
+  "subject_mode": {
+   "enum": [
+    "ui-first",
+    "layered"
+   ],
+   "description": "Copied from the style's design-system.json subject_mode. layered = Narrator (presenter) or Actor characters; ui-first = no human figures."
+  },
+  "angle": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 300,
+   "description": "The belief the hook flips. Unsourced claims carry [VERIFY: ...]."
   }
  },
  "additionalProperties": false,

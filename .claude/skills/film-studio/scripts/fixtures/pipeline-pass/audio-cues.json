@@ -1,0 +1,46 @@
+{
+ "fps": 30,
+ "frames": 510,
+ "music": {
+  "bed": "soft-loop",
+  "open_db": -8,
+  "ducked_db": -18,
+  "cuts": []
+ },
+ "duck": {
+  "attack_frames": 6,
+  "release_frames": 12,
+  "merge_gaps_under": 15,
+  "voiceover": []
+ },
+ "cues": [
+  {
+   "frame": 21,
+   "sfx": "digital-tick",
+   "peak": "text-decode on the hook",
+   "pre_roll": 0,
+   "db": -14
+  },
+  {
+   "frame": 60,
+   "sfx": "fast-whoosh",
+   "peak": "whip-pan s1p1 to s1p2",
+   "pre_roll": 6,
+   "db": -10
+  },
+  {
+   "frame": 96,
+   "sfx": "tactile-pop",
+   "peak": "spring-overshoot, smaller plan",
+   "pre_roll": 0,
+   "db": -12
+  },
+  {
+   "frame": 276,
+   "sfx": "pen-scratch",
+   "peak": "path-draw-on underline",
+   "pre_roll": 0,
+   "db": -16
+  }
+ ]
+}

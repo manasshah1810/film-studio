@@ -21,8 +21,9 @@ The brief protects these: it fixes the angle (the belief the hook flips), the pl
 style and the palette before anyone writes a word.
 
 ## 2. The four-question interview
-Send all four in ONE message, numbered, each with its options and your default in brackets. Ask nothing
+Ask them ONE AT A TIME, in this order, each with its options and your default in brackets. Ask nothing
 else, even if the topic is vague. If the user skips a question, take the default and say so in one line.
+If the user says "auto" or "you decide", ask nothing: take every default below and proceed.
 
 **Q1. Platform** (this fixes the frame; store it as `ratio`):
 | Answer | Preset in `library/platforms.json` | Ratio |
@@ -85,21 +86,12 @@ Rules:
    transition set also follow it.
 
 ## 6. Dispatch matrix: one manual, at most two inputs
-| Stage | Persona | Manual (the one file it reads) | Inputs from `work/` | Writes | Never loads |
-|---|---|---|---|---|---|
-| 1 | Director | this file, plus `references/style-cheatsheet.md` at Q3 | none | brief.json | style folders |
-| 2 | Treasurer | `roles/treasurer.md` | brief.json | budget.json | script, styles |
-| 3 | Writer | `personas/scriptwriter.md` | brief.json | script.json | styles, cast |
-| 4a | Selector | `roles/selector.md` | script.json | needs.json | styles |
-| 4b | Casting and Rig Designer | `personas/casting-rig-designer.md` | needs.json, brief.json | cast.json | script |
-| 5 | Art Director | `personas/art-director.md` + `styles/<style>/style.md` | script.json, cast.json | storyboard.json | other styles |
-| 6 | VFX Director | `roles/vfx-director.md` | storyboard.json, brief.json | vfx-plan.json | script |
-| 8 | Renderer | `roles/renderer.md` | storyboard.json, vfx-plan.json | film.json, out/ | manuals |
-Stage 7 of the pipeline (aicheck) is scripts only and loads nothing. The dispatch line you send is
-always this shape, with paths, never pasted content:
+The full matrix (13 persona stages, the one file each opens, inputs, output, gate) is
+`references/director-cheatsheet.md` section 1, and `node scripts/state-manager.js next work` prints
+the row to run now. The dispatch line you send is always this shape, with paths, never pasted content:
 `Read <manual>. Inputs: <paths>. Seed: <seed>. Write <path>. Run <checks> until PASS. Open nothing else.`
 After each stage: run its checks from the skill's stage table, then the reviewers, then
-`node scripts/state.js set work <stage> passed`. Drop the finished manual from your context.
+`node scripts/state-manager.js set work <stage> passed`. Drop the finished manual from your context.
 
 ## 7. What works vs what fails
 | Works | Fails |
@@ -116,7 +108,7 @@ After each stage: run its checks from the skill's stage table, then the reviewer
 ## 8. Worked brief: "Why did Nokia fail in the 2000s even after having a solid position"
 Offered at Q3: `dark-neon-dataviz` (market share falling as a glowing line), `neo-brutalist-ui` (the
 Symbian home screen against a touch app grid), `2-5d-parallax-depth` (the Espoo boardroom as a layered
-case study). User answers: instagram, 30-1m, dark-neon-dataviz, local voice.
+case study). User answers: instagram, 30-1m (35 s), dark-neon-dataviz, local voice.
 Two colour-coded entities (Nokia, the touchscreen rivals), business topic: focused.
 ```json
 {
@@ -124,7 +116,7 @@ Two colour-coded entities (Nokia, the touchscreen rivals), business topic: focus
  "platform": "instagram",
  "ratio": "9:16",
  "length_bucket": "30-1m",
- "target_seconds": 45,
+ "target_seconds": 35,
  "style": "dark-neon-dataviz",
  "subject_mode": "ui-first",
  "angle": "Nokia did not miss the smartphone; it sold one in 1996 [VERIFY: Nokia 9000 Communicator launch year] and lost on software, not hardware",
@@ -132,14 +124,14 @@ Two colour-coded entities (Nokia, the touchscreen rivals), business topic: focus
  "voice": {"provider": "piper", "voice_id": "en_US-ryan-medium"},
  "design": {
   "palette_tier": "focused",
-  "palette_id": "midnight-signal",
-  "pairing_id": "grotesk-mono",
+  "palette_size": 5,
+  "palette_id": "obsidian-cyan",
+  "pairing_id": "grotesk-inter-jb",
   "seed": "nokia-fall-20261114-1"
  },
  "audience": "tech and business viewers, 18 to 35",
  "tone": "sharp, investigative, no gloating"
 }
 ```
-`palette_id` and `pairing_id` are filled by `node scripts/pick-design.js work`; the values above stand
-in until the style is built. Then: `node scripts/validate.js --work work`, and stage 2 goes to the
-Treasurer.
+`palette_size`, `palette_id` and `pairing_id` are filled by `node scripts/pick-design.js work` from the
+focused tier. Then: `node scripts/validate-schema.js --work work`, and stage 2 goes to the Treasurer.

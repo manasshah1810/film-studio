@@ -15,7 +15,7 @@ All numbers there are starting values [CHECK]; re-tune them from real ledgers.
    platform) and whether it fits.
 3. Wait for a yes. Nothing is built, downloaded or rendered before it.
 4. On yes: `node scripts/ledger.js init work --approved`.
-   Then `node scripts/state.js set work budget passed`.
+   Then `node scripts/state-manager.js set work treasurer passed`.
 
 ## 2. If the dry run is over budget
 `ledger.js estimate` prints the cut order from `costs.json`. Apply cuts from the top and stop at the
