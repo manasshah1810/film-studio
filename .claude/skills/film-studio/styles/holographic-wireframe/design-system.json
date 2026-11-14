@@ -1,0 +1,712 @@
+{
+  "style": "holographic-wireframe",
+  "version": 1,
+  "subject_mode": "ui-first",
+  "subject_note": "Mode C, UI and data first. The one subject is a hardware object drawn as a glowing wireframe hologram in @remotion/three. No people, no actors, no photographs, no video, no loaded 3D models.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink",
+      "primary"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "holo": {
+    "note": "Two passes per part, both additive and both without depth writes: a translucent fresnel face pass, then a glowing edge pass from EdgesGeometry. The scene background is bg so additive light adds onto the real sky colour.",
+    "camera": {
+      "type": "perspective",
+      "fov": 30,
+      "position": [
+        0,
+        2.6,
+        11
+      ],
+      "look_at": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.1,
+      "far": 60
+    },
+    "faces": {
+      "base": 0.05,
+      "rim": 0.32,
+      "fresnel_power": 2,
+      "blending": "additive",
+      "depth_write": false,
+      "note": "Alpha rises toward the silhouette: base + rim * (1 - |n . v|) ^ 2. The middle of a face stays almost clear."
+    },
+    "edges": {
+      "threshold_deg": 15,
+      "core_px": 2.2,
+      "halo_px": 9,
+      "halo_opacity": 0.16,
+      "scan_px": 3.6,
+      "note": "Two line passes: a thin bright core and a wide faint halo. LineSegments2 with LineMaterial, because WebGL ignores linewidth on plain lines."
+    },
+    "scan": {
+      "band": 0.07,
+      "trail": 0.35,
+      "period_frames": 36,
+      "sweeps": [
+        12,
+        70,
+        128
+      ],
+      "reveal_first": true,
+      "frame": {
+        "half": 1.6,
+        "mark": 0.35,
+        "opacity": 0.8
+      },
+      "band_boost": 0.3,
+      "note": "A horizontal band in highlight sweeps down the object in world y. Edges inside the band are redrawn thick in highlight; faces brighten in the band and fade behind it. Four corner marks, not a full square, show the scan plane. The first sweep reveals the object."
+    },
+    "grid": {
+      "y": -1.25,
+      "extent": 8,
+      "step": 0.5,
+      "fade_radius": 7,
+      "px": 1.4,
+      "note": "A perspective floor grid in grid colour, fading to nothing by radius 7, drawn in by frame 20."
+    },
+    "object": {
+      "scale_assembled": 0.88,
+      "scale_exploded": 0.58,
+      "centre_y": 0.45,
+      "shift_x_exploded": 0.6,
+      "note": "Assembled, the object is big and centred. Exploded, it shrinks and moves right so the tags have a clear column on the left."
+    },
+    "turntable": {
+      "radius": 1.9,
+      "ticks": 48,
+      "note": "A ring with ticks on the floor under the object. It turns with the object yaw and follows its x shift."
+    },
+    "explode": {
+      "gap": 0.5,
+      "note": "LayerExplode: each layer moves gap * its index along y. The motor drops one gap, the horn rises four."
+    },
+    "glitch": {
+      "frames": 4,
+      "offset_px": 10,
+      "max_per_10s": 2,
+      "note": "RGB chromatic glitch: an SVG filter splits the red and blue channels sideways for 4 frames. Pure channel maths, no palette colour."
+    }
+  },
+  "camera": {
+    "note": "The camera never moves. The object turns on its y axis and tilts on x; leaders follow its anchors through the same projection."
+  },
+  "palettes": [
+    {
+      "id": "cyan-schematic",
+      "tier": "focused",
+      "name": "Cyan schematic",
+      "mood": "cold cyan edges on near black, one yellow scan",
+      "best_for": [
+        "hardware teardowns",
+        "chips",
+        "robotics"
+      ],
+      "roles": {
+        "bg": "#03080F",
+        "ink": "#E8F7FF",
+        "primary": "#38E1FF",
+        "highlight": "#FFD23F",
+        "surface": "#0B1724"
+      }
+    },
+    {
+      "id": "amber-cad",
+      "tier": "focused",
+      "name": "Amber CAD",
+      "mood": "warm amber wire on a burnt black, a red scan",
+      "best_for": [
+        "engines",
+        "industrial",
+        "retro tech"
+      ],
+      "roles": {
+        "bg": "#0C0703",
+        "ink": "#FFF3E0",
+        "primary": "#FFB020",
+        "highlight": "#FF5E3A",
+        "surface": "#1C130A"
+      }
+    },
+    {
+      "id": "acid-green",
+      "tier": "focused",
+      "name": "Acid green",
+      "mood": "phosphor green wire, a lemon scan",
+      "best_for": [
+        "hacking",
+        "biotech",
+        "engineering mysteries"
+      ],
+      "roles": {
+        "bg": "#030A05",
+        "ink": "#EAFFF0",
+        "primary": "#3DFF8A",
+        "highlight": "#F4FF5C",
+        "surface": "#0B1A10"
+      }
+    },
+    {
+      "id": "magenta-holo",
+      "tier": "focused",
+      "name": "Magenta holo",
+      "mood": "hot magenta wire, an ice cyan scan",
+      "best_for": [
+        "consumer tech",
+        "gaming hardware",
+        "launches"
+      ],
+      "roles": {
+        "bg": "#0B0410",
+        "ink": "#FCEBFF",
+        "primary": "#FF4FD8",
+        "highlight": "#4FF0FF",
+        "surface": "#1A0D22"
+      }
+    },
+    {
+      "id": "ice-white",
+      "tier": "focused",
+      "name": "Ice white",
+      "mood": "pale ice wire on blue black, a coral scan",
+      "best_for": [
+        "aerospace",
+        "medical devices",
+        "precision tools"
+      ],
+      "roles": {
+        "bg": "#060A10",
+        "ink": "#F4F8FF",
+        "primary": "#BFD9FF",
+        "highlight": "#FF6B5E",
+        "surface": "#111A26"
+      }
+    },
+    {
+      "id": "deep-lab",
+      "tier": "expanded",
+      "name": "Deep lab",
+      "mood": "a full lab: cyan wire, mint second part, yellow scan, red and green states",
+      "best_for": [
+        "teardowns",
+        "how it works",
+        "AI hardware"
+      ],
+      "roles": {
+        "bg": "#02060D",
+        "ink": "#EAF6FF",
+        "primary": "#3CD7FF",
+        "highlight": "#FFE45C",
+        "surface": "#0A1626",
+        "secondary": "#7CFFCB",
+        "dim": "#8FB3C9",
+        "grid": "#12405A",
+        "alert": "#FF4D6A",
+        "ok": "#4DFF9A"
+      }
+    },
+    {
+      "id": "reactor-orange",
+      "tier": "expanded",
+      "name": "Reactor orange",
+      "mood": "orange wire, pink second part, a pale gold scan",
+      "best_for": [
+        "energy",
+        "engines",
+        "disasters"
+      ],
+      "roles": {
+        "bg": "#0A0503",
+        "ink": "#FFF1E6",
+        "primary": "#FF8A2A",
+        "highlight": "#FFE08A",
+        "surface": "#1B0F08",
+        "secondary": "#FF4F6D",
+        "dim": "#C9A58E",
+        "grid": "#4A2412",
+        "alert": "#FF3B3B",
+        "ok": "#9BFF6B"
+      }
+    },
+    {
+      "id": "stealth-teal",
+      "tier": "expanded",
+      "name": "Stealth teal",
+      "mood": "teal wire, sky blue second part, an amber scan",
+      "best_for": [
+        "defence tech",
+        "drones",
+        "submarines"
+      ],
+      "roles": {
+        "bg": "#020A0A",
+        "ink": "#E6FFFB",
+        "primary": "#2EF2D0",
+        "highlight": "#FFC145",
+        "surface": "#0A1A1A",
+        "secondary": "#6BA8FF",
+        "dim": "#8FBDB5",
+        "grid": "#0E4440",
+        "alert": "#FF5470",
+        "ok": "#B6FF5C"
+      }
+    },
+    {
+      "id": "violet-forge",
+      "tier": "expanded",
+      "name": "Violet forge",
+      "mood": "violet wire, pink second part, a cyan scan",
+      "best_for": [
+        "chips",
+        "quantum",
+        "futuristic explainers"
+      ],
+      "roles": {
+        "bg": "#07040F",
+        "ink": "#F3EDFF",
+        "primary": "#B58CFF",
+        "highlight": "#5CF2FF",
+        "surface": "#140D24",
+        "secondary": "#FF7AD9",
+        "dim": "#A99BC9",
+        "grid": "#2E1F55",
+        "alert": "#FF5A5A",
+        "ok": "#6BFFB0"
+      }
+    },
+    {
+      "id": "arctic-red",
+      "tier": "expanded",
+      "name": "Arctic red",
+      "mood": "white wire, a sky blue second part, a red scan",
+      "best_for": [
+        "aerospace",
+        "cars",
+        "precision engineering"
+      ],
+      "roles": {
+        "bg": "#04070B",
+        "ink": "#F2F7FF",
+        "primary": "#E8F1FF",
+        "highlight": "#FF3355",
+        "surface": "#0F1620",
+        "secondary": "#7FD4FF",
+        "dim": "#9AA8BA",
+        "grid": "#1C2A3C",
+        "alert": "#FF8A3D",
+        "ok": "#57E39A"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "unbounded-plexsans-plexmono",
+      "mood": "wide engineering display, CAD body",
+      "scale": 1,
+      "display": {
+        "family": "Unbounded",
+        "weight": 700,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "IBM Plex Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "IBM Plex Sans Condensed",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "oxanium-saira-sharetech",
+      "mood": "squared sci-fi, condensed accents",
+      "scale": 1,
+      "display": {
+        "family": "Oxanium",
+        "weight": 700,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Saira",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Saira Condensed",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Share Tech Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "syne-spacegrotesk-spacemono",
+      "mood": "editorial future, quirky display",
+      "scale": 1,
+      "display": {
+        "family": "Syne",
+        "weight": 800,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Space Grotesk",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Space Grotesk",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "chakra-barlow-jetbrains",
+      "mood": "military spec sheet",
+      "scale": 1,
+      "display": {
+        "family": "Chakra Petch",
+        "weight": 700,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Barlow",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Barlow Condensed",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 600,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "orbitron-exo-kodemono",
+      "mood": "classic hologram console",
+      "scale": 1,
+      "display": {
+        "family": "Orbitron",
+        "weight": 800,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Exo 2",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Exo 2",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Kode Mono",
+        "weight": 600,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "jura-instrument-martian",
+      "mood": "thin instrument display, calm body",
+      "scale": 1,
+      "display": {
+        "family": "Jura",
+        "weight": 700,
+        "size": 100,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Instrument Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.15,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Instrument Sans",
+        "weight": 600,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Martian Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.08,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    }
+  ],
+  "numerals": {
+    "variant": "tabular-nums",
+    "note": "Every live value is a fixed-length string in tabular numerals, so a tag never reflows."
+  },
+  "type_scale": {
+    "hero": 120,
+    "display": 100,
+    "h1": 76,
+    "h2": 52,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "tag": {
+      "radius": 6,
+      "pad": 20,
+      "border": {
+        "width": 3,
+        "role": "primary",
+        "alpha": 1
+      },
+      "note": "A callout tag: opaque surface fill, a thin primary border, number and name in primary mono, the value in ink."
+    },
+    "leader": {
+      "width": 3,
+      "role": "primary",
+      "elbow": 40,
+      "ring": 12,
+      "draw_frames": 10,
+      "note": "The tag scales in first, then the leader draws from its edge: 40 px straight, then a diagonal to the projected anchor, ending in a ring."
+    },
+    "bracket": {
+      "inset": 36,
+      "arm": 96,
+      "stroke": 4,
+      "role": "primary"
+    },
+    "scanlines": {
+      "gap": 4,
+      "line": 2,
+      "alpha": 0.18
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 12,
+    "stagger_frames": 3,
+    "min_hold_frames": 6,
+    "camera": "fixed perspective; the object turns and tilts",
+    "easings": {
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "sweep": [
+        0.45,
+        0,
+        0.55,
+        1
+      ],
+      "draw": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "explode": {
+        "damping": 14,
+        "stiffness": 70,
+        "mass": 1
+      },
+      "tilt": {
+        "damping": 12,
+        "stiffness": 60,
+        "mass": 1
+      },
+      "tag": {
+        "damping": 14,
+        "stiffness": 180,
+        "mass": 0.7
+      }
+    },
+    "rotation": {
+      "yaw_start_deg": -40,
+      "yaw_deg_per_frame": 0.45,
+      "tilt_from_deg": 6,
+      "tilt_to_deg": 16,
+      "tilt_start": 62,
+      "note": "3D axis rotation: a slow steady yaw, and one spring tilt on x when the layers explode."
+    },
+    "explode_start": 62,
+    "gears": {
+      "deg_per_frame": 3,
+      "note": "Gears turn at speeds set by their tooth counts, so they look meshed."
+    },
+    "pacing": {
+      "note": "Grid in by 20, first sweep reveals the object 12 to 46, explode and tilt at 62, sweeps at 70 and 128, tags at 96, 108 and 120, glitch at 58 and 150, hold the last frame at least 30 frames."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "kicker",
+      "title",
+      "object",
+      "tags",
+      "readouts"
+    ],
+    "safe": {
+      "x": [
+        9,
+        85
+      ],
+      "y": [
+        6,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "axis-rotation",
+      "recipe": "The object yaws 0.45 degrees a frame (-40 to +41 over 6 s, never edge-on at the end) and tilts on x from 6 to 16 degrees on a spring 12/60/1 as it explodes."
+    },
+    {
+      "name": "scanline-sweep",
+      "recipe": "A highlight band 0.07 units wide sweeps down the object in 36 frames on the sweep easing; edges in the band redraw thick, faces glow and fade behind it."
+    },
+    {
+      "name": "rgb-chromatic-glitch",
+      "recipe": "For 4 frames an SVG filter shifts the red channel left and the blue channel right by 10 px, sign flipping each frame."
+    },
+    {
+      "name": "scan-reveal",
+      "recipe": "The first sweep is a clipping plane: only what is above the band exists yet, so the object prints top down."
+    },
+    {
+      "name": "layer-explode",
+      "recipe": "Each layer slides along y by 0.5 units times its index on a spring 14/70/1."
+    },
+    {
+      "name": "leader-draw",
+      "recipe": "A tag scales in on 14/180/0.7, then its leader draws from the tag to the anchor in 10 frames."
+    }
+  ],
+  "widgets": [
+    "OrbitRing",
+    "LensRing",
+    "CodeBody",
+    "RackFocus",
+    "LayerExplode"
+  ],
+  "forbidden": [
+    "a light bg (additive light needs a dark sky)",
+    "solid lit shading or shadows",
+    "plain 1 px lines for the main edges",
+    "depth writes on faces or edges",
+    "a loaded 3D model or a texture image",
+    "3D text in the canvas",
+    "text on the hologram with no tag",
+    "a glitch longer than 4 frames or more than 2 per 10 s",
+    "more than 3 tags on screen",
+    "a hex colour in a component",
+    "a person or an actor"
+  ]
+}
