@@ -13,26 +13,31 @@
       "chart": {
        "type": "line",
        "x": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Start",
+        "End"
        ],
        "unit": "$",
        "series": [
         {
-         "name": "OneCoin worth",
+         "name": "Bitcoin",
+         "role": "primary",
+         "values": [
+          20,
+          80
+         ]
+        },
+        {
+         "name": "OneCoin",
          "role": "highlight",
          "values": [
-          0,
-          0,
           0,
           0
          ]
         }
        ],
        "annot": {
-        "at": 3,
+        "at": 1,
+        "series": 1,
         "text": "Worthless"
        }
       }
@@ -90,8 +95,22 @@
        "x": 6,
        "y": 30,
        "w": 79,
-       "h": 34,
+       "h": 30,
        "anchor": "b"
+      },
+      {
+       "id": "il",
+       "kind": "text",
+       "role": "body",
+       "text": "Illustrative data",
+       "x": 6,
+       "y": 62,
+       "w": 79,
+       "h": 5,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
       },
       {
        "id": "cap",
@@ -117,7 +136,7 @@
      ],
      "slots": {
       "stat": {
-       "value": "0",
+       "value": "$0",
        "label": "Worthless, per DOJ"
       },
       "prop": {
@@ -160,13 +179,13 @@
        "x": 6,
        "y": 24,
        "w": 38,
-       "h": 28
+       "h": 40
       },
       {
        "id": "n",
        "kind": "text",
        "role": "display",
-       "text": "0",
+       "text": "$0",
        "x": 48,
        "y": 24,
        "w": 37,
@@ -195,15 +214,6 @@
        ]
       },
       {
-       "id": "w",
-       "kind": "widget",
-       "x": 6,
-       "y": 55,
-       "w": 79,
-       "h": 13,
-       "anchor": "b"
-      },
-      {
        "id": "cap",
        "kind": "caption",
        "role": "caption",
@@ -216,14 +226,6 @@
        "bg": "bg",
        "font": "Inter"
       }
-     ],
-     "widgets": [
-      {
-       "id": "banknote",
-       "anchor": "b",
-       "at": 0.6,
-       "easing": "pop"
-      }
      ]
     }
    ]
@@ -233,7 +235,7 @@
    "panels": [
     {
      "id": "s2p1",
-     "duration": 3.0,
+     "duration": 2.8,
      "layout": "object",
      "asset_ids": [
       "coin"
@@ -260,7 +262,7 @@
        "easing": "pop"
       },
       {
-       "at": 1.45,
+       "at": 1.35,
        "duration": 0.4,
        "kind": "move",
        "easing": "drift"
@@ -334,7 +336,7 @@
     },
     {
      "id": "s2p2",
-     "duration": 3.0,
+     "duration": 3.2,
      "layout": "list",
      "asset_ids": [],
      "slots": {
@@ -346,7 +348,7 @@
      },
      "anchor": "c",
      "recipe": "card-stack",
-     "energy": "build",
+     "energy": "peak",
      "accent": "primary",
      "captions": [
       "which made every buyer",
@@ -360,13 +362,13 @@
        "easing": "roll"
       },
       {
-       "at": 1.07,
+       "at": 1.13,
        "duration": 0.4,
        "kind": "reveal",
        "easing": "roll"
       },
       {
-       "at": 1.83,
+       "at": 1.97,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "pop"
@@ -577,10 +579,15 @@
      "id": "s3p2",
      "duration": 3.5,
      "layout": "title",
-     "asset_ids": [],
+     "asset_ids": [
+      "coin"
+     ],
      "slots": {
       "headline": "Recruiting never stops",
-      "sub": "or the payouts stop"
+      "sub": "or the payouts stop",
+      "prop": {
+       "id": "coin"
+      }
      },
      "anchor": "t",
      "recipe": "top-bottom",
@@ -644,6 +651,14 @@
        "font": "Inter"
       },
       {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 40,
+       "w": 79,
+       "h": 26
+      },
+      {
        "id": "cap",
        "kind": "caption",
        "role": "caption",
@@ -671,6 +686,7 @@
       "coin"
      ],
      "slots": {
+      "headline": "Never the product",
       "prop": {
        "id": "coin",
        "state": "broken"
@@ -717,7 +733,7 @@
        "id": "h",
        "kind": "text",
        "role": "display",
-       "text": "The real product",
+       "text": "Never the product",
        "x": 46,
        "y": 24,
        "w": 39,
@@ -727,7 +743,7 @@
        "bg": "bg",
        "font": "Space Grotesk",
        "lines": [
-        "The real",
+        "Never the",
         "product"
        ]
       },
@@ -750,9 +766,15 @@
      "id": "s4p2",
      "duration": 3.5,
      "layout": "title",
-     "asset_ids": [],
+     "asset_ids": [
+      "coin"
+     ],
      "slots": {
-      "headline": "Belief was the product"
+      "headline": "Belief was the product",
+      "prop": {
+       "id": "coin",
+       "state": "glow"
+      }
      },
      "anchor": "tl",
      "recipe": "diagonal-divide",
@@ -803,26 +825,118 @@
        ]
       },
       {
-       "id": "p",
-       "kind": "text",
-       "role": "body",
-       "text": "Sold on, recruit to recruit",
-       "x": 30,
-       "y": 52,
-       "w": 55,
-       "h": 12,
-       "px": 44,
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 36,
+       "w": 79,
+       "h": 28
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 70,
+       "w": 79,
+       "h": 8,
+       "px": 56,
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
+      }
+     ]
+    },
+    {
+     "id": "s4p3",
+     "duration": 3.5,
+     "layout": "timeline",
+     "asset_ids": [],
+     "slots": {
+      "points": [
+       {
+        "when": "Sold",
+        "what": "The belief"
+       },
+       {
+        "when": "Then",
+        "what": "Sold it on",
+        "hot": true
+       }
+      ]
+     },
+     "anchor": "c",
+     "recipe": "split-comparison",
+     "energy": "release",
+     "accent": "primary",
+     "captions": [
+      "and every recruit had",
+      "to sell it on."
+     ],
+     "beats": [
+      {
+       "at": 0.3,
+       "duration": 0.4,
+       "kind": "reveal",
+       "easing": "roll"
+      },
+      {
+       "at": 1.7,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "pop"
+      }
+     ],
+     "sfx": [
+      {
+       "id": "soft-chime",
+       "at": 0.3
+      }
+     ],
+     "boxes": [
+      {
+       "id": "l",
+       "kind": "text",
+       "role": "body",
+       "text": "Sold: the belief",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 16,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter",
+       "lines": [
+        "Sold:",
+        "the belief"
+       ]
+      },
+      {
+       "id": "r",
+       "kind": "text",
+       "role": "body",
+       "text": "Then: sold it on",
+       "x": 47,
+       "y": 24,
+       "w": 38,
+       "h": 16,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter",
+       "lines": [
+        "Then:",
+        "sold it on"
+       ]
       },
       {
        "id": "w",
        "kind": "widget",
        "x": 6,
-       "y": 34,
+       "y": 46,
        "w": 79,
-       "h": 14,
+       "h": 18,
        "anchor": "b"
       },
       {
@@ -847,116 +961,6 @@
        "easing": "pop"
       }
      ]
-    },
-    {
-     "id": "s4p3",
-     "duration": 3.5,
-     "layout": "timeline",
-     "asset_ids": [],
-     "slots": {
-      "points": [
-       {
-        "when": "Sold",
-        "what": "The belief"
-       },
-       {
-        "when": "Then",
-        "what": "Sold it on",
-        "hot": true
-       }
-      ]
-     },
-     "anchor": "c",
-     "recipe": "card-stack",
-     "energy": "release",
-     "accent": "primary",
-     "captions": [
-      "and every recruit had",
-      "to sell it on."
-     ],
-     "beats": [
-      {
-       "at": 0.3,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "roll"
-      },
-      {
-       "at": 1.23,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "roll"
-      },
-      {
-       "at": 2.17,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "pop"
-      }
-     ],
-     "sfx": [
-      {
-       "id": "soft-chime",
-       "at": 0.3
-      }
-     ],
-     "boxes": [
-      {
-       "id": "a",
-       "kind": "text",
-       "role": "body",
-       "text": "Sold: the belief",
-       "x": 6,
-       "y": 20,
-       "w": 60,
-       "h": 10,
-       "px": 44,
-       "color": "ink",
-       "bg": "bg",
-       "font": "Inter"
-      },
-      {
-       "id": "b",
-       "kind": "text",
-       "role": "body",
-       "text": "Then: sold it on",
-       "x": 12,
-       "y": 34,
-       "w": 60,
-       "h": 10,
-       "px": 44,
-       "color": "ink",
-       "bg": "bg",
-       "font": "Inter"
-      },
-      {
-       "id": "c",
-       "kind": "text",
-       "role": "body",
-       "text": "Repeat",
-       "x": 18,
-       "y": 48,
-       "w": 60,
-       "h": 10,
-       "px": 44,
-       "color": "ink",
-       "bg": "bg",
-       "font": "Inter"
-      },
-      {
-       "id": "cap",
-       "kind": "caption",
-       "role": "caption",
-       "x": 6,
-       "y": 70,
-       "w": 79,
-       "h": 8,
-       "px": 56,
-       "color": "ink",
-       "bg": "bg",
-       "font": "Inter"
-      }
-     ]
     }
    ]
   },
@@ -967,11 +971,16 @@
      "id": "s5p1",
      "duration": 2.5,
      "layout": "stat",
-     "asset_ids": [],
+     "asset_ids": [
+      "cash"
+     ],
      "slots": {
       "stat": {
        "value": "2017",
        "label": "Founder charged"
+      },
+      "prop": {
+       "id": "cash"
       }
      },
      "anchor": "t",
@@ -1030,6 +1039,14 @@
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
+      },
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 44,
+       "w": 79,
+       "h": 22
       },
       {
        "id": "cap",
@@ -1111,14 +1128,28 @@
        ]
       },
       {
+       "id": "a",
+       "kind": "text",
+       "role": "body",
+       "text": "2017: charged in the US",
+       "x": 30,
+       "y": 40,
+       "w": 55,
+       "h": 8,
+       "px": 44,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Inter"
+      },
+      {
        "id": "p",
        "kind": "text",
        "role": "body",
-       "text": "Per US prosecutors",
+       "text": "Now: still at large",
        "x": 30,
-       "y": 60,
+       "y": 52,
        "w": 55,
-       "h": 6,
+       "h": 8,
        "px": 44,
        "color": "ink",
        "bg": "bg",
@@ -1143,16 +1174,11 @@
      "id": "s5p3",
      "duration": 3.5,
      "layout": "stat",
-     "asset_ids": [
-      "cash"
-     ],
+     "asset_ids": [],
      "slots": {
       "stat": {
        "value": "$4B+",
        "label": "Invested worldwide, per DOJ"
-      },
-      "prop": {
-       "id": "cash"
       }
      },
      "anchor": "t",
@@ -1213,19 +1239,11 @@
        "font": "Inter"
       },
       {
-       "id": "hero",
-       "kind": "subject",
-       "x": 6,
-       "y": 44,
-       "w": 38,
-       "h": 22
-      },
-      {
        "id": "w",
        "kind": "widget",
-       "x": 48,
+       "x": 6,
        "y": 44,
-       "w": 37,
+       "w": 79,
        "h": 22,
        "anchor": "b"
       },
@@ -1245,7 +1263,7 @@
      ],
      "widgets": [
       {
-       "id": "grid-collapse",
+       "id": "banknote",
        "anchor": "b",
        "at": 0.6,
        "easing": "pop"
@@ -1260,13 +1278,18 @@
     {
      "id": "s6p1",
      "duration": 2.5,
-     "layout": "title",
-     "asset_ids": [],
+     "layout": "object",
+     "asset_ids": [
+      "coin"
+     ],
      "slots": {
-      "headline": "Not a better coin"
+      "headline": "Not a better coin",
+      "prop": {
+       "id": "coin"
+      }
      },
-     "anchor": "tl",
-     "recipe": "diagonal-divide",
+     "anchor": "l",
+     "recipe": "hero-data",
      "energy": "build",
      "accent": "highlight",
      "captions": [
@@ -1295,14 +1318,22 @@
      ],
      "boxes": [
       {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 24,
+       "w": 38,
+       "h": 40
+      },
+      {
        "id": "h",
        "kind": "text",
        "role": "display",
        "text": "Not a better coin",
-       "x": 6,
-       "y": 10,
-       "w": 52,
-       "h": 22,
+       "x": 48,
+       "y": 24,
+       "w": 37,
+       "h": 24,
        "px": 108,
        "color": "ink",
        "bg": "bg",
@@ -1331,12 +1362,12 @@
     {
      "id": "s6p2",
      "duration": 3.0,
-     "layout": "object",
+     "layout": "title",
      "asset_ids": [
       "coin"
      ],
      "slots": {
-      "headline": "Belief was the price",
+      "headline": "They lost to a story",
       "prop": {
        "id": "coin",
        "state": "glow"
@@ -1344,7 +1375,7 @@
      },
      "anchor": "t",
      "recipe": "top-bottom",
-     "energy": "release",
+     "energy": "build",
      "accent": "highlight",
      "captions": [
       "They lost to a story",
@@ -1375,7 +1406,7 @@
        "id": "h",
        "kind": "text",
        "role": "display",
-       "text": "Belief was the price",
+       "text": "They lost to a story",
        "x": 6,
        "y": 8,
        "w": 79,
@@ -1385,8 +1416,8 @@
        "bg": "bg",
        "font": "Space Grotesk",
        "lines": [
-        "Belief was",
-        "the price"
+        "They lost",
+        "to a story"
        ]
       },
       {
@@ -1415,33 +1446,47 @@
     {
      "id": "s6p3",
      "duration": 3.0,
-     "layout": "stat",
-     "asset_ids": [
-      "coin"
-     ],
+     "layout": "chart",
+     "asset_ids": [],
      "slots": {
-      "stat": {
-       "value": "0",
-       "label": "Worthless, per DOJ"
-      },
-      "prop": {
-       "id": "coin",
-       "state": "small"
+      "headline": "Belief was the price",
+      "chart": {
+       "type": "line",
+       "x": [
+        "Start",
+        "End"
+       ],
+       "unit": "$",
+       "series": [
+        {
+         "name": "OneCoin",
+         "role": "highlight",
+         "values": [
+          0,
+          0
+         ]
+        }
+       ],
+       "annot": {
+        "at": 1,
+        "text": "Worthless"
+       }
       }
      },
-     "anchor": "l",
-     "recipe": "hero-data",
+     "anchor": "tl",
+     "recipe": "diagonal-divide",
      "energy": "peak",
      "accent": "highlight",
      "captions": [
-      "enough people kept believing it."
+      "enough people",
+      "kept believing it."
      ],
      "beats": [
       {
        "at": 0.3,
        "duration": 0.4,
-       "kind": "count",
-       "easing": "roll"
+       "kind": "reveal",
+       "easing": "draw"
       },
       {
        "at": 1.45,
@@ -1458,52 +1503,31 @@
      ],
      "boxes": [
       {
-       "id": "hero",
-       "kind": "subject",
-       "x": 6,
-       "y": 24,
-       "w": 38,
-       "h": 28
-      },
-      {
-       "id": "n",
+       "id": "h",
        "kind": "text",
        "role": "display",
-       "text": "0",
-       "x": 48,
-       "y": 24,
-       "w": 37,
-       "h": 18,
-       "px": 200,
+       "text": "Belief was the price",
+       "x": 6,
+       "y": 10,
+       "w": 52,
+       "h": 22,
+       "px": 108,
        "color": "ink",
        "bg": "bg",
-       "font": "Space Grotesk"
-      },
-      {
-       "id": "d",
-       "kind": "text",
-       "role": "body",
-       "text": "Worthless, per DOJ",
-       "x": 48,
-       "y": 46,
-       "w": 37,
-       "h": 8,
-       "px": 44,
-       "color": "ink",
-       "bg": "bg",
-       "font": "Inter",
+       "font": "Space Grotesk",
        "lines": [
-        "Worthless,",
-        "per DOJ"
+        "Belief",
+        "was the",
+        "price"
        ]
       },
       {
-       "id": "w",
-       "kind": "widget",
-       "x": 6,
-       "y": 55,
-       "w": 79,
-       "h": 13,
+       "id": "chart",
+       "kind": "card",
+       "x": 40,
+       "y": 46,
+       "w": 45,
+       "h": 20,
        "anchor": "b"
       },
       {
@@ -1518,14 +1542,6 @@
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
-      }
-     ],
-     "widgets": [
-      {
-       "id": "reel-cascade",
-       "anchor": "b",
-       "at": 0.6,
-       "easing": "pop"
       }
      ]
     }
