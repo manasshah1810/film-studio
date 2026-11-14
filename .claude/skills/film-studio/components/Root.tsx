@@ -17,6 +17,7 @@ import {Preview as PlexPreview, PreviewSheet as PlexSheet, PREVIEW_FRAMES as PLE
 import {Preview as VoxPreview, PreviewSheet as VoxSheet, PREVIEW_FRAMES as VOX_FRAMES, SHEET_SIZE as VOX_SHEET} from './styles/voxel-art/Preview';
 import {Preview as DoodlePreview, PreviewSheet as DoodleSheet, PREVIEW_FRAMES as DOODLE_FRAMES, SHEET_SIZE as DOODLE_SHEET} from './styles/minimalist-doodle/Preview';
 import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_FRAMES, SHEET_SIZE as NEO_SHEET} from './styles/neo-brutalist-ui/Preview';
+import {SocialSheet, SocialReel, SOCIAL_SHEET_SIZE, SOCIAL_REEL_FRAMES} from './widgets/social/Sheet';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
 
@@ -79,5 +80,7 @@ export const Root: React.FC = () => (
 		<Composition id="Baseline-nokia"component={NokiaBaseline} durationInFrames={1350} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-cats" component={CatsBaseline} durationInFrames={900} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />
+		<Composition id="SocialSheet" component={SocialSheet} durationInFrames={1} fps={30} width={SOCIAL_SHEET_SIZE.width} height={SOCIAL_SHEET_SIZE.height} defaultProps={{style: 'neo-brutalist-ui', palette: 'butter-ink', pairing: 'bricolage-dmsans'}} />
+		<Composition id="SocialReel" component={SocialReel} durationInFrames={SOCIAL_REEL_FRAMES} fps={30} width={1080} height={1920} defaultProps={{style: 'neo-brutalist-ui', palette: 'butter-ink', pairing: 'bricolage-dmsans'}} />
 	</>
 );
