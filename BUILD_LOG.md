@@ -3,6 +3,11 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 10: QA inspector manual only.** Added `personas/qa-inspector.md`: Stage 1
+  four-script hard-fail gate, Stage 2 10-parameter rubric (9.0 average, none under 7), 2-pass visual
+  critique with rework handoff line, 8-row works/fails table, worked Nokia audit report. Nothing else
+  changed. Note: the prompt names `validate-schema.js`; no such script exists, the schema check in the
+  repo is `scripts/validate.js`, and the manual says so.
 - **2026-11-14 prompt 09: sound designer manual only.** Added `personas/sound-designer.md` (109 lines):
   +/-2 frame sync contract, motion and widget to SFX table, pacing rules (riser, 12-18 frame silence
   drop, -18 dB duck), 8-row works/fails table, worked Nokia cue sheet (19 cues). Nothing else changed.
@@ -99,6 +104,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 10 done (QA inspector manual).
 - 2026-11-14: prompt 09 done (sound designer manual).
 - 2026-11-14: prompt 08 done (motion choreographer manual).
 - 2026-11-14: prompt 07 done (widget integrator manual).
