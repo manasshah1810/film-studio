@@ -69,17 +69,16 @@ map territories. The count decides; the topic family is the tie-breaker.
 | Multi-character epics, mythology, wars with many sides, ensembles, games, kids | expanded | 8 to 12 |
 | A chart with 5+ series, a map with 5+ regions | expanded | 8 to 12 |
 Rules:
-1. Write the tier into `design.palette_tier` BEFORE running `node scripts/pick-design.js work`; the
-   script then chooses only among palettes of that tier.
-2. If the style has no palette of that tier, the script fails. Keep the style, switch tier, and record
-   the reason in `style_note`.
+1. Decide the tier BEFORE choosing the palette, and store it in the brief's `design` block.
+2. Choose only among palettes of that tier in the style's design system (`node scripts/pick-design.js
+   --list <style>`). If the style has none, keep the style, switch tier, and record the reason in `style_note`.
 3. Focused means one accent does all the emphasis. Expanded still has one `ink` and one `bg`; the extra
    colours are for entities and states, never decoration.
 
 ## 5. Seeded variation (two similar films never look the same)
 1. `design.seed` is `<topic-slug>-<yyyymmdd>-<n>`, n starting at 1. Never reuse a seed from another film.
-2. `pick-design.js` hashes the seed to choose the palette among the best-matching three and the font
-   pairing. Do not hand-pick ids unless the user asked for a colour or mood; then pass `--palette`.
+2. `node scripts/pick-design.js work` hashes the seed to choose the palette and the font pairing. Do not
+   hand-pick ids unless the user asked for a colour or mood; then pass `--palette`.
 3. If an earlier brief in this project used the same style and the result has the same `palette_id`
    AND `pairing_id`, add 1 to n and run the script again (three tries at most).
 4. Pass the seed in the dispatch line to Storyboard and VFX so layout order, the hook widget and the

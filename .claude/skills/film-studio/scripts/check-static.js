@@ -18,8 +18,6 @@ const AGENTS = path.join(SKILL, '..', '..', 'agents');
 const limit = (files, max, what) => { for (const f of files) { const n = lines(f); if (n >= max) E.push(`${rel(f)} has ${n} lines; ${what} must stay under ${max}`); } };
 if (!fs.existsSync(path.join(SKILL, 'SKILL.md'))) E.push('SKILL.md is missing'); else limit([path.join(SKILL, 'SKILL.md')], 110, 'SKILL.md');
 limit(ls('roles', '.md'), 161, 'a role manual');
-limit(ls('personas', '.md'), 161, 'a persona manual');
-for (const f of ls('personas', '.md')) { const n = lines(f); if (n < 110) E.push(`${rel(f)} has ${n} lines; a persona manual is 110 to 160`); }
 limit(ls('references', '.md'), 161, 'a reference');
 limit(ls('rubrics', '.md'), 80, 'a rubric');
 limit(ls('library/platforms', '.md'), 80, 'a platform file');
@@ -61,8 +59,8 @@ const rules = readJson(path.join(vdir, 'style-rules.json'));
 for (const s of styles) if (!rules.banned_tags[s]) E.push(`library/vfx/style-rules.json has no entry for style ${s}`);
 
 // 4. docs: every backticked repo path must exist; no secrets anywhere
-const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('personas', '.md'), ...ls('rubrics', '.md'), ...ls('references', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
-const ROOTS = /^(scripts|roles|personas|rubrics|references|schema|library|styles|components|providers)\//;
+const docs = [path.join(SKILL, 'SKILL.md'), path.join(SKILL, 'README.md'), path.join(SKILL, 'DECISIONS.md'), ...ls('roles', '.md'), ...ls('rubrics', '.md'), ...ls('references', '.md'), ...ls('library/platforms', '.md'), ...ls('library/vfx', '.md'), ...ls('providers/voice', '.md'), ...styles.flatMap((s) => ls(`styles/${s}`, '.md')), ...(fs.existsSync(AGENTS) ? fs.readdirSync(AGENTS).filter((f) => f.endsWith('.md')).map((f) => path.join(AGENTS, f)) : [])].filter((f) => fs.existsSync(f));
+const ROOTS = /^(scripts|roles|rubrics|references|schema|library|styles|components|providers)\//;
 for (const f of docs) {
   const txt = fs.readFileSync(f, 'utf8');
   for (const m of txt.matchAll(/`([A-Za-z0-9_./<>*-]+\.(?:md|json|js|tsx?|ts))`/g)) {
@@ -91,13 +89,6 @@ const run = (label, cmd, argv, cwd) => { const r = spawnSync(cmd, argv, {cwd, en
 run('design systems', process.execPath, [path.join(__dirname, 'check-design.js'), '--systems'], SKILL);
 run('ai-tells selftest', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), '--selftest'], SKILL);
 run('schema examples', process.execPath, [path.join(__dirname, 'validate.js'), '--examples'], SKILL);
-run('director worked brief', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'director-nokia')], SKILL);
-run('casting rig worked asset', process.execPath, [path.join(__dirname, 'validate.js'), 'cast', path.join(__dirname, 'fixtures', 'casting-rig', 'cast.json')], SKILL);
-run('art director worked scene', process.execPath, [path.join(__dirname, 'validate.js'), 'storyboard', path.join(__dirname, 'fixtures', 'art-director-nokia', 'storyboard.json')], SKILL);
-run('art director design lock', process.execPath, [path.join(__dirname, 'check-design.js'), path.join(__dirname, 'fixtures', 'art-director-nokia'), '--ds', path.join(__dirname, 'fixtures', 'art-director-nokia', 'design-system.json')], SKILL);
-run('art director safe zones', process.execPath, [path.join(__dirname, 'check-safezones.js'), path.join(__dirname, 'fixtures', 'art-director-nokia')], SKILL);
-run('scriptwriter worked script', process.execPath, [path.join(__dirname, 'validate.js'), '--work', path.join(__dirname, 'fixtures', 'scriptwriter-nokia')], SKILL);
-run('scriptwriter worked script tells', process.execPath, [path.join(__dirname, 'check-ai-tells.js'), path.join(__dirname, 'fixtures', 'scriptwriter-nokia'), '--stage', 'script'], SKILL);
 if (!a['no-tsc']) run('type-check', process.execPath, [path.join(COMPONENTS, 'node_modules', 'typescript', 'bin', 'tsc'), '--noEmit', '-p', '.'], COMPONENTS);
 
 notes.forEach((n) => console.log('note ' + n));

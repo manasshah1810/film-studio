@@ -3,54 +3,18 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
-- **2026-11-14 prompt 06: Art Director persona.** `personas/art-director.md` (112 lines) replaces
-  `roles/storyboard.md` (moved, rewritten) as the Storyboard author: closed design-system law,
-  65/25/10 focused vs expanded (hero, rival, environment, highlight) allocation, mobile typography and
-  contrast, 6 composition templates, 8-row works/fails table, worked Nokia scene spec
-  (`scripts/fixtures/art-director-nokia/`: storyboard, design system, brief; static check runs
-  `validate.js storyboard`, `check-design.js`, `check-safezones.js` on it).
-  Stage 5 now reads TWO files: the Art Director manual and the brief's `style.md` (SKILL.md and the
-  Director matrix updated); `style.md` is now only the style's recipes, widgets and motion, not the
-  storyboard manual. Storyboard schema gains panel `composition` (6 ids); `validate.js` fails the same
-  composition on neighbouring panels (across scenes) and warns above 40% share; `check-design.js`
-  requires hero/rival/environment/highlight roles in an expanded palette.
-  NOT machine-checked: the 65/25/10 area split and the "one accent per panel" rule (taste review only).
-  Fixture ds is named `fixture-nokia`; no real style is built yet.
-- **2026-11-14 prompt 05: Casting and Rig Designer persona.** `personas/casting-rig-designer.md`
-  (123 lines) replaces `roles/talent-acquisition.md` (moved, then rewritten): Mode A presenter bust,
-  Mode B story actor, Mode C ui-first (no characters; the 6 ui-first styles), anatomy and appeal
-  bans, seeded asset ledger, 8-row works/fails table, worked presenter asset
-  (`scripts/fixtures/casting-rig/cast.json`, validated by the static check).
-  Cast schema gains character `mode` (presenter|actor), `seed`, `variant_of`, `rig`. `validate.js`
-  cast check now fails: duplicate or missing seed, bad `variant_of`, no shadow or head layer, raw
-  `line` in a limb layer, head with under 3 shapes, and for presenters: hair-back/hair-front,
-  3 eye states and blink range, 2 brow joints and 3 states, 5 visemes, arm joints, shadow opacity.
-  Note: the cheatsheet lists hormozi-kinetic and neo-brutalist-ui as ui-first, so they are Mode C
-  (no host) even though the prompt named only 4 styles for Mode C. Change the cheatsheet if a host is wanted there.
-  Props and media rules moved into the same file. Engine still draws old figures; it does not read
-  `layers`, `rig` or `seed` yet.
-- **2026-11-14 prompt 04: Scriptwriter persona.** `personas/scriptwriter.md` (144 lines) replaces
-  `roles/writer.md` (moved, then rewritten): retention mechanics, 3 hook formulas with bad/good
-  rewrites, But/Therefore chaining, caption and cadence rules, [VERIFY] rules, 10-row works/fails
-  table, worked 35 s Nokia script (`scripts/fixtures/scriptwriter-nokia/`, checked by the static
-  check with `validate.js` and `check-ai-tells.js --stage script`).
-  Script schema gains optional `fps`, `hook {formula, belief, gap}`, scene `rehook`, scene `captions`
-  as `[from_frame, to_frame, text, power_word]`. `validate.js` now FAILS a script with no hook or
-  re-hook start for over 10 s before the payoff, a re-hook that does not open on a turn word, or
-  captions that are over 5 words, out of order, outside the scene, not equal to the narration, or
-  without a power word; missing `hook` or `captions` is a WARN for now. Rule 1 opener regex also bans
-  "In this video", "Today we", "Welcome", "Hey guys", "Let's talk", "Have you ever", "Did you know"
-  (`references/ai-tells.md` rule 1 text not yet updated to list them).
-  Persona line cap is now 110-160. Storyboard and engine do not read script `captions` yet.
-- **2026-11-14 prompt 03: Director persona.** `personas/director.md` (146 lines) replaces
-  `roles/director.md` (moved, then rewritten): short-form philosophy, the 4-question interview with
-  platform-to-ratio table, focused/expanded palette tier rule (entity count decides), seeded variation,
-  the 8-persona dispatch matrix (one manual, at most two inputs), 8-row works/fails table, and the
-  worked Nokia brief (`scripts/fixtures/director-nokia/brief.json`, validated by the static check).
-  Brief schema gains optional `ratio`, `subject_mode`, `angle`, `design.palette_tier`;
-  `pick-design.js` chooses only within the tier; `validate.js` checks tier and subject mode against
-  the design system. Static check caps `personas/*.md` at 110-150 lines. The other 7 personas still
-  live in `roles/` as old versions.
+- **2026-11-14 prompts 03-06: four persona manuals only.** Added `personas/director.md` (146 lines),
+  `personas/scriptwriter.md` (144), `personas/casting-rig-designer.md` (123) and
+  `personas/art-director.md` (112), each with the worked JSON its prompt asked for. Nothing else was
+  changed: an earlier pass that also edited schemas, validators, fixtures, SKILL.md and moved `roles/`
+  files was reverted at the user's request, and `roles/*.md`, SKILL.md and the scripts are back to the
+  prompt 02 state.
+  Known mismatches the next prompts must settle: SKILL.md still routes to `roles/*.md`, not to the
+  four persona files; the worked JSON uses fields the schemas do not accept yet (brief `ratio`,
+  `subject_mode`, `angle`, `design.palette_tier`; script `hook`, `rehook`, `captions` as arrays; cast
+  `mode`, `seed`, `variant_of`, `rig`), so `validate.js` rejects them; the manuals' pre-existing roles
+  (`roles/writer.md`, `roles/talent-acquisition.md`, `roles/storyboard.md`, `roles/director.md`) still exist.
+
 - **2026-11-14 prompt 02: legacy purged, validators in.** The skill has **0 built styles** and cannot
   render a film until styles are rebuilt. What exists now:
   - `SKILL.md` (router, under 110 lines): 4 questions, one file to read per stage, scripts per stage.
@@ -63,8 +27,8 @@ Read this first when resuming. Newest state at the top of each section.
   - `node scripts/check-static.js` PASS (runs the selftest too).
   OWED next:
   - Build the 12 styles: `styles/<id>/design-system.json` (shape = the tells-pass fixture),
-    `styles/<id>/style.md` (100-160 lines; recipes, widgets, motion; SKILL.md stage 5 reads it after
-    personas/art-director.md), `components/styles/<id>/kit.tsx`, registered in `components/styles/index.ts`.
+    `styles/<id>/style.md` (100-160 lines; it is ALSO the storyboard manual, SKILL.md stage 5 reads
+    only that file), `components/styles/<id>/kit.tsx`, registered in `components/styles/index.ts`.
   - Engine does not yet draw `boxes`, `beats`, `widgets`, `sfx`, `transition` (new optional storyboard
     fields; the validators read them, `build-film.js` and `Film.tsx` ignore them). The 9 closed
     layouts and the stick rig `components/engine/figure.ts` are still in the engine.
@@ -118,10 +82,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
-- 2026-11-14: prompt 06 done. Art Director persona, composition field and checks.
-- 2026-11-14: prompt 05 done. Casting and rig designer persona, rig schema and checks.
-- 2026-11-14: prompt 04 done. Scriptwriter persona, script schema fields, re-hook and caption checks.
-- 2026-11-14: prompt 03 done. Director persona, brief schema fields, tier-aware pick-design.
+- 2026-11-14: prompts 03-06 done as four manuals; extras reverted on request.
 - 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview
   (`library/preview.json`, `scripts/preview.js`), `rubrics/ai-tells.md` (28 tells) and the `ai-checker`
   agent. Added router SKILL.md, two references, three validators, fixtures. Schemas extended

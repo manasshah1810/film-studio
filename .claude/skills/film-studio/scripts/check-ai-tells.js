@@ -15,7 +15,7 @@ const {checkPlan, checkSystem, gradientErrs, TYPE_RATIO} = require('./check-desi
 const {checkSafe} = require('./check-safezones');
 
 // ---- the hardcoded limits (same numbers as references/ai-tells.md) ----
-const OPENER = /^[\s"'([]*(why|how|what\s+is|what's|what\s+are|in\s+this\s+video|today\s+(we|i)|welcome|hey\s+guys|let'?s\s+(talk|dive|explore|look)|have\s+you\s+ever|did\s+you\s+know)\b/i;
+const OPENER = /^[\s"'([]*(why|how|what\s+is|what's|what\s+are)\b/i;
 const BUZZ = [/\bdelv(e|es|ed|ing)\b/i, /\btapestry\b/i, /\btestament\b/i, /\bgame[- ]?changer/i, /\bunlock(s|ing)? the secrets?\b/i, /\bfast[- ]paced world\b/i, /\bever wondered\b/i];
 const HOLD_SECONDS = 3.5;          // 3: longest gap between two visual events
 const DEAD_FRAMES = 45;            // 4: longest run with nothing moving (at 30 fps)

@@ -1,6 +1,6 @@
 ---
 name: film-studio
-description: Turn a topic into an art-directed 9:16 short video (Remotion, code-drawn, no paid generation APIs). Use when the user asks to make a video, reel, short, explainer or animation about a topic. Runs a crew (Director, Treasurer, Writer, Selector, Casting and Rig Designer, Storyboard, VFX Director, Renderer) with zero-token validator scripts and independent reviewers.
+description: Turn a topic into an art-directed 9:16 short video (Remotion, code-drawn, no paid generation APIs). Use when the user asks to make a video, reel, short, explainer or animation about a topic. Runs a crew (Director, Treasurer, Writer, Selector, Talent Acquisition, Storyboard, VFX Director, Renderer) with zero-token validator scripts and independent reviewers.
 ---
 # film-studio
 
@@ -10,7 +10,7 @@ Paths are relative to this skill folder. Scripts run as `node scripts/<name>.js`
 First run only: `cd components && npm install`.
 
 ## The one-file rule
-- Open only the manual in the "Read" column below (stage 5 lists two). Nothing else.
+- Open exactly one manual per stage: the file in the "Read" column below. Nothing else.
 - Do not pre-read the next stage. Do not re-read a finished one. Never open two style folders.
 - Scripts are run, never read. A FAIL line names the file, the value, the limit and the fix: do what
   it says and run the script again. Do not open a reference to argue with a script.
@@ -31,16 +31,16 @@ Ask nothing else. Decide the rest yourself and say what you decided in one line.
 ## 3. Stages: what to read, what to write, what to run
 | # | Stage | Read (one file) | Writes | Run until PASS (0 tokens) |
 |---|---|---|---|---|
-| 1 | brief | `personas/director.md` | `work/brief.json` | `validate.js --work work` |
+| 1 | brief | `roles/director.md` | `work/brief.json` | `validate.js --work work` |
 | 2 | budget | `roles/treasurer.md` | `work/budget.json` | `ledger.js estimate work`, then the user says yes |
-| 3 | script | `personas/scriptwriter.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
-| 4 | cast | `roles/selector.md`, and when it is done `personas/casting-rig-designer.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
-| 5 | storyboard | `personas/art-director.md`, plus the brief's `styles/<style>/style.md` | `work/storyboard.json` | `validate.js --work work`; `check-ai-tells.js work --stage storyboard` |
+| 3 | script | `roles/writer.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
+| 4 | cast | `roles/selector.md`, and when it is done `roles/talent-acquisition.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
+| 5 | storyboard | `styles/<style>/style.md` | `work/storyboard.json` | `validate.js --work work`; `check-ai-tells.js work --stage storyboard` |
 | 6 | vfx | `roles/vfx-director.md` | `work/vfx-plan.json` | `validate.js --work work`; `check-ai-tells.js work` |
 | 7 | aicheck | nothing | `work/reviews/aicheck.json` (the script writes it) | `check-ai-tells.js work --out work/reviews/aicheck.json`; `check-design.js work`; `check-safezones.js work` |
 | 8 | render | `roles/renderer.md` | `work/film.json`, `work/out/` | `check-render.js` then user approval |
 
-Stage 5 is the one stage with two files: the Art Director manual plus the one style manual (its recipes and widgets).
+Stage 5 reads the style manual, not a role file: the style owns its layouts, widgets and motion.
 If the storyboard author needs the box and beat fields, they are at the end of `references/ai-tells.md`.
 For each stage: `state.js set work <stage> running`, hand the one file to the author, run the checks,
 fix every FAIL, then `state.js set work <stage> passed`.

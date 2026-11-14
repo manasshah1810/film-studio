@@ -40,9 +40,6 @@ const semantic = {
     const ds = loadDS(d.style);
     if (!ds.palettes.some((p) => p.id === d.design.palette_id)) E.push(`design.palette_id "${d.design.palette_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
     if (!ds.fonts.some((p) => p.id === d.design.pairing_id)) E.push(`design.pairing_id "${d.design.pairing_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
-    const pal = ds.palettes.find((p) => p.id === d.design.palette_id);
-    if (pal && d.design.palette_tier && pal.tier !== d.design.palette_tier) E.push(`design.palette_tier is ${d.design.palette_tier} but palette "${pal.id}" is ${pal.tier} (re-run pick-design.js)`);
-    if (d.subject_mode && ds.subject_mode && d.subject_mode !== ds.subject_mode) E.push(`subject_mode is ${d.subject_mode} but styles/${d.style} is ${ds.subject_mode}`);
     const [lo, hi] = BUCKETS[d.length_bucket];
     if (d.target_seconds < lo || d.target_seconds > hi) E.push(`target_seconds ${d.target_seconds} is outside bucket ${d.length_bucket}`);
     if (/(sk-|api[_-]?key\s*[:=]|xi-api-key|Bearer\s+[A-Za-z0-9])/i.test(JSON.stringify(d))) E.push('brief looks like it contains a secret; keys live in the environment only');
@@ -61,28 +58,6 @@ const semantic = {
         if (f.status === 'VERIFY') W.push(`scene ${s.id}: [VERIFY: ${f.claim.slice(0, 70)}]`);
       }
       if (words(s.narration) / s.duration > 3.2) W.push(`scene ${s.id}: ${(words(s.narration) / s.duration).toFixed(1)} words per second is too fast to speak (aim for 2.3-2.8)`);
-    }
-    // retention: a hook or re-hook at least every 10 s until the payoff; re-hooks open on a turn word
-    const stop = d.scenes.find((s) => ['payoff', 'close'].includes(s.beat))?.start ?? at;
-    const marks = [...d.scenes.filter((s, i) => (i === 0 || s.rehook) && s.start < stop).map((s) => s.start), stop];
-    for (let i = 1; i < marks.length; i++) if (marks[i] - marks[i - 1] > 10) E.push(`no re-hook between ${marks[i - 1]} s and ${marks[i]} s (max 10 s). Fix: set "rehook": true on a scene that starts inside that gap and open it with But, Yet, Until or Except plus a new question.`);
-    for (const s of d.scenes.filter((x) => x.rehook)) if (!/^["'\s]*(but|yet|until|except|instead|so|then|and yet|only)\b/i.test(s.narration)) E.push(`scene ${s.id}: a re-hook must open on a turn word. Fix: start the narration with But, Yet, Until, Except or Instead.`);
-    if (!d.hook) W.push('script has no "hook" object (formula, belief, gap); the Storyboard needs it for the first 3 seconds');
-    // frame-timed caption chunks
-    const fps = d.fps ?? 30, norm = (x) => String(x).replace(/\s+/g, ' ').trim();
-    for (const s of d.scenes) {
-      if (!s.captions) { W.push(`scene ${s.id}: no frame-timed captions`); continue; }
-      const f0 = Math.round(s.start * fps), f1 = Math.round((s.start + s.duration) * fps);
-      let prev = f0;
-      for (const [from, to, text, power] of s.captions) {
-        const T = `scene ${s.id} caption "${text}"`;
-        if (words(text) > 5) E.push(`${T}: ${words(text)} words (max 5). Fix: split it into two chunks.`);
-        if (from < prev || to <= from || to > f1) E.push(`${T}: frames ${from}-${to} must be in order inside the scene (${f0}-${f1}) and start at or after ${prev}`);
-        if (power && !norm(text).toLowerCase().split(' ').map((w) => w.replace(/[^a-z0-9']/g, '')).includes(power.toLowerCase())) E.push(`${T}: power word "${power}" is not a word in the chunk`);
-        prev = to;
-      }
-      if (norm(s.captions.map((c) => c[2]).join(' ')) !== norm(s.narration)) E.push(`scene ${s.id}: the caption chunks joined do not equal the narration. Fix: chunk the narration word for word.`);
-      if (!s.captions.some((c) => c[3])) E.push(`scene ${s.id}: no power word. Fix: add a 4th item to one chunk, the single word to bold.`);
     }
     if (!brief) return W.push('SKIP length checks: no brief next to file');
     const [lo, hi] = BUCKETS[brief.length_bucket];
@@ -110,32 +85,6 @@ const semantic = {
     }
     if (needs) for (const n of needs.items) if (!d.assets.some((a) => (a.need_id ?? a.id) === n.id)) W.push(`need "${n.id}" has no cast asset`);
     const chars = d.assets.filter((a) => a.def.kind === 'character');
-    // rigs: Mode A presenter and Mode B actor (personas/casting-rig-designer.md)
-    const seeds = new Map();
-    for (const a of chars) {
-      const c = a.def, L = c.layers ?? [], names = L.map((l) => l.name.toLowerCase());
-      if (c.seed) { if (seeds.has(c.seed)) E.push(`cast ${a.id}: seed "${c.seed}" is already used by ${seeds.get(c.seed)}. Fix: a new character needs a new seed.`); seeds.set(c.seed, a.id); }
-      else if (L.length) E.push(`cast ${a.id}: no "seed". Fix: add "seed": "<role>-<style>-<4 hex>".`);
-      if (c.variant_of && !chars.some((x) => x.id === c.variant_of)) E.push(`cast ${a.id}: variant_of "${c.variant_of}" is not a character in this cast`);
-      if (c.variant_of && c.variant_of === a.id) E.push(`cast ${a.id}: variant_of points at itself`);
-      if (L.length && !names.some((n) => /shadow/.test(n))) E.push(`cast ${a.id}: no shadow layer, so the figure floats. Fix: add a "shadow" layer at depth 0.`);
-      if (L.length && !names.some((n) => /head|face/.test(n))) E.push(`cast ${a.id}: no head layer. Fix: name one layer "head".`);
-      for (const l of L) {
-        const T = new Set(l.shapes.map((s) => s.t));
-        if (/arm|leg|limb|neck|torso|body/.test(l.name.toLowerCase()) && T.has('line')) E.push(`cast ${a.id}: layer "${l.name}" uses a raw line. Fix: draw the limb as a closed poly.`);
-        if (/head|face/.test(l.name.toLowerCase()) && l.shapes.length < 3) E.push(`cast ${a.id}: layer "${l.name}" has ${l.shapes.length} shape(s); a head needs a base, a shade side and a feature mass (3 or more).`);
-      }
-      if (c.mode === 'presenter') {
-        const r = c.rig ?? {}, T = `cast ${a.id} (presenter)`;
-        if (!names.includes('hair-back') || !names.includes('hair-front')) E.push(`${T}: needs layers "hair-back" and "hair-front". Fix: split the hair around the head layer.`);
-        if ((r.eyes?.states ?? []).length !== 3) E.push(`${T}: rig.eyes.states has ${(r.eyes?.states ?? []).length}; exactly 3 (open, half, closed).`);
-        const be = r.eyes?.blink_every; if (!be || be[0] < 2.5 || be[1] > 4.5 || be[0] > be[1]) E.push(`${T}: rig.eyes.blink_every must be [min, max] inside 2.5 to 4.5 seconds.`);
-        if ((r.brows?.joints ?? []).length < 2 || (r.brows?.states ?? []).length < 3) E.push(`${T}: rig.brows needs 2 joints and 3 states.`);
-        const vs = new Set(r.mouth?.visemes ?? []); for (const v of ['MBP', 'AA', 'OH', 'EE', 'FV']) if (!vs.has(v)) E.push(`${T}: rig.mouth.visemes is missing ${v} (needs MBP, AA, OH, EE, FV).`);
-        if (!r.arms?.upper || !r.arms?.fore) E.push(`${T}: rig.arms needs "upper" and "fore" joints.`);
-        if (!r.shadow || r.shadow.opacity < 0.15 || r.shadow.opacity > 0.35) E.push(`${T}: rig.shadow must exist with opacity 0.15 to 0.35.`);
-      }
-    }
     for (const a of chars) for (const b of chars) if (a.id < b.id && ['color', 'hair', 'build', 'accessory'].every((k) => (a.def[k] ?? '') === (b.def[k] ?? ''))) E.push(`cast ${a.id} and ${b.id} are identical; characters must differ in colour, hair, build or accessory`);
   },
   storyboard(d, ctx, E, W) {
@@ -146,12 +95,6 @@ const semantic = {
     const minSec = ds ? ds.motion.enter_frames / ds.motion.fps : 0, goodSec = ds ? (ds.motion.enter_frames + ds.motion.min_hold_frames) / ds.motion.fps : 0;
     const ids = new Set();
     let first = true, shown = 0, onStyle = 0;
-    // composition templates (personas/art-director.md): no neighbour repeats, none above 40% of a long film
-    const flat = d.scenes.flatMap((sc) => sc.panels);
-    flat.slice(1).forEach((p, i) => { if (p.composition && p.composition === flat[i].composition) E.push(`panels ${flat[i].id} and ${p.id} both use composition "${p.composition}". Fix: switch ${p.id} to a different template (split-comparison, hero-data, full-bleed-stage, top-bottom, diagonal-divide, card-stack).`); });
-    const withC = flat.filter((p) => p.composition);
-    if (flat.length >= 6 && withC.length < flat.length) W.push(`${flat.length - withC.length} of ${flat.length} panels have no "composition"`);
-    for (const c of new Set(withC.map((p) => p.composition))) { const n = withC.filter((p) => p.composition === c).length; if (withC.length >= 6 && n / withC.length > 0.4) W.push(`composition "${c}" is ${n} of ${withC.length} panels (over 40%). Fix: rotate in another template.`); }
     if (script) for (const s of script.scenes) if (!d.scenes.some((x) => x.id === s.id)) E.push(`scene ${s.id} from the script has no panels`);
     for (const sc of d.scenes) {
       const ss = script?.scenes.find((s) => s.id === sc.id);

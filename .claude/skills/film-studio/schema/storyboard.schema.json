@@ -725,17 +725,6 @@
           },
           "additionalProperties": false
          }
-        },
-        "composition": {
-         "enum": [
-          "split-comparison",
-          "hero-data",
-          "full-bleed-stage",
-          "top-bottom",
-          "diagonal-divide",
-          "card-stack"
-         ],
-         "description": "One of the 6 composition templates in personas/art-director.md. The same value never appears on two neighbouring panels."
         }
        },
        "additionalProperties": false

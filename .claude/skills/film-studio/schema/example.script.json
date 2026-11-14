@@ -1,5 +1,5 @@
 {
- "title": "Small habits beat big goals",
+ "title": "Why small habits win",
  "scenes": [
   {
    "id": "s1",
@@ -17,7 +17,7 @@
    "start": 5,
    "duration": 7,
    "beat": "turn",
-   "narration": "But pick one cue you already see every day, and attach one tiny action to it.",
+   "narration": "Pick one cue you already see every day, and attach one tiny action to it.",
    "on_screen_text": "One cue, one tiny action",
    "visual_intent": "A light bulb on a desk as the cue.",
    "emotion": "clarity",
@@ -27,8 +27,7 @@
      "status": "VERIFY",
      "source": ""
     }
-   ],
-   "rehook": true
+   ]
   },
   {
    "id": "s3",

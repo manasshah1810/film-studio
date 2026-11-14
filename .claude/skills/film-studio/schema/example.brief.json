@@ -1,18 +1,14 @@
 {
- "topic": "Small habits beat big goals",
+ "topic": "Why small habits win",
  "platform": "instagram",
- "ratio": "9:16",
  "length_bucket": "15-30s",
  "target_seconds": 18,
- "style": "minimalist-doodle",
- "subject_mode": "layered",
- "angle": "Motivation is not what keeps a habit alive; the cue does",
+ "style": "sketchbook",
  "voiceover": false,
  "design": {
-  "palette_tier": "focused",
-  "palette_id": "paper-accent",
-  "pairing_id": "hand-sans",
-  "seed": "small-habits-20261114-1"
+  "palette_id": "composition-book",
+  "pairing_id": "class-notes",
+  "seed": "small-habits"
  },
  "audience": "students",
  "tone": "warm, practical"

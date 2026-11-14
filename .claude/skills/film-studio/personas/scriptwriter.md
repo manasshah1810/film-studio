@@ -12,8 +12,8 @@ A short is a chain of reasons not to swipe. Four mechanics, in order:
 2. **Open loop.** The hook raises one question and withholds the answer. Write it in `hook.gap`. Every
    scene before the payoff either tightens that question or opens a smaller one.
 3. **Micro re-hook every 8 to 10 s.** A scene with `"rehook": true` starts on But, Yet, Until, Except
-   or Instead and overturns what the last scene settled. The validator fails any 10 s stretch before
-   the payoff that has none.
+   or Instead and overturns what the last scene settled.  Check it yourself: no 10 s stretch before
+   the payoff may lack one.
 4. **Payoff loop.** The payoff answers `hook.gap` in one line. The close restates it so that the first
    line of the film can follow the last line: the replay starts before the viewer decides to leave.
 
@@ -26,8 +26,8 @@ Start from `brief.angle`. Write `hook.belief` (what they assume), then the line.
 | `binary-question` | "[Subject]: [A] or [B]? Everyone says [A]. Everyone misses [the hidden part]." | "What is the story of Ravan?" | "Did Ravan go to Heaven or Hell? Everyone assumes Hell, and everyone misses the final chapter." |
 Rules for the first line:
 - A statement or an either/or question with stakes. Under 12 words. It names the subject.
-- Banned openers (regex, rule 1): Why, How, What is, What are, In this video, Today we, Welcome,
-  Hey guys, Let's talk, Have you ever, Did you know.
+- Banned openers: "Why X", "How X", "What is X", "In this video". A greeting or topic announcement is
+  banned too.
 - It could not open any other video. If it could, it is a title: rewrite it.
 
 ## 3. Causal architecture: But / Therefore

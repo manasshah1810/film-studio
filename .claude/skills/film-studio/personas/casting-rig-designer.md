@@ -17,9 +17,7 @@ Rules:
 1. Read `subject_mode` in the brief. `ui-first` is Mode C: write NO character assets, only props (a
    phone, a coin), and tell the Director the cast is props only. A character there fails rule 8.
 2. `layered` is A or B. Choose A when one voice carries the film, B when the script has a cast.
-3. A film has one mode. A host may appear inside a story film only as a bust in a corner widget, and
-   then it is built to Mode A.
-4. Cast the fewest people: under 30 s, 1 or 2; to 60 s, up to 3; longer, up to 4. A company or an idea
+3. Cast the fewest people: under 30 s, 1 or 2; to 60 s, up to 3; longer, up to 4. A company or an idea
    becomes one person or one object that stands for it. Never a real face, a real logo or an
    existing character.
 
@@ -42,7 +40,7 @@ Required:
 
 ## 3. Mode A: the presenter bust
 Half body, shoulders to hair, facing camera, 35 to 45% of frame height, clear of the bottom 20%.
-The `rig` block is mandatory and checked by `validate.js`:
+The `rig` block is mandatory for a presenter:
 | Part | Requirement |
 |---|---|
 | Hair | Two layers: `hair-back` behind the head and `hair-front` over it, so the silhouette has depth |
