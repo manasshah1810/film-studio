@@ -26,9 +26,9 @@ const {COMPONENTS, creq, readJson, args, fail} = require('./lib');
     for (const p of man.panels) if (!want || want.has(p.id)) jobs.push({frame: p.from + Math.min(p.frames - 1, Math.round(p.frames * at)), name: `${a.prefix ?? ''}${p.id}.png`});
     if (want && jobs.length !== want.size) fail(`some panel ids not found: ${[...want].join(',')}`);
   } else for (const fr of String(a.frames ?? '0').split(',')) jobs.push({frame: Number(fr), name: `${a.prefix ?? id + '-'}${fr}.png`});
-  const composition = await selectComposition({serveUrl, id, inputProps});
+  const composition = await selectComposition({serveUrl, id, inputProps, browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null});
   for (const j of jobs) {
-    await renderStill({composition, serveUrl, output: path.join(out, j.name), frame: j.frame, inputProps, scale, chromiumOptions: {gl: a.gl ?? 'angle'}});
+    await renderStill({composition, serveUrl, output: path.join(out, j.name), frame: j.frame, inputProps, scale, browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null, chromiumOptions: {gl: a.gl ?? 'angle'}});
     console.log(`still ${path.join(out, j.name)} (frame ${j.frame})`);
   }
   console.log(`PASS ${jobs.length} still(s) at scale ${scale}`);
