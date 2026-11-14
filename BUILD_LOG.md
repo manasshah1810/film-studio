@@ -3,6 +3,11 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 HALT + ARCHITECTURE LOCK (prompt 01).** The preview/template build is stopped. Read
+  `.claude/skills/film-studio/POST_MORTEM.md` before any other work: 6 failure modes, 7 laws, and the
+  3-layer progressive-disclosure contract. Do not run `scripts/preview.js`, do not render more sheets,
+  do not extend the 12 old styles. Nothing deleted yet. The Step 3/4 lines below describe the
+  superseded build and are kept as history only.
 - Step 1 Audit: DONE (AUDIT.md pass 1). Second pass owed at the end.
 - Step 2 Baseline: scripts, storyboards and TSX written (`baseline/`, `components/baseline/`); stills NOT rendered yet (deferred by the user until the skill is complete).
 - Step 3 Styles: 12 kits + 12 design systems built, registered, type-check clean, `check-design.js --systems` PASS.
@@ -27,7 +32,9 @@ All `requires: none` (code-drawn, no generation API).
 - Type-check: `cd components && ./node_modules/.bin/tsc --noEmit -p .` (npx tsc from the skill root fails)
 - Sheet: `node scripts/preview.js <style> [--palette id]` (about 40 s)
 - Design systems are generated from scratch scripts; edit the JSON directly from now on.
-- Not a git repo
+- Git repo; remote `origin` = github.com/manasshah1810/film-studio. Work on local branch `clean-main`,
+  which tracks `origin/main`. Local `main` is a stale, diverged branch (old history with the large
+  binary): do not push it.
 
 ## Engine facts worth knowing
 - One `Film` composition driven by film.json; `Sheet` composition for contact sheets.
@@ -43,6 +50,9 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 01 done. Preview loop confirmed not running; skill folder inventoried (no
+  deletions); POST_MORTEM.md written (6 failures, 7 laws, 3-layer contract). NEXT: rebuild under the
+  laws, starting with SKILL.md as the under-110-line router and the validators.
 - 2026-11-13 (late): watercolor, noir, blueprint, riso kits and design systems added; 12/12 pass.
 - 2026-11-13: comic, sketchbook, pixel, cutout added; font alias fix.
 - 2026-11-13: engine, whiteboard, cartoon, infographic, kinetic built; specimen sheet replaces topic fixtures.
