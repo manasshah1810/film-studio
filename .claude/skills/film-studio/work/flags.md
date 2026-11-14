@@ -17,3 +17,8 @@ Round 1 only: producer avg 8.3 (min 7, Timing), director-review avg 8.1 (min 7).
 No audio files exist (work/audio/sfx, work/audio/music): all 35 cues are silent in the render, no music bed. Cue sheet itself passes build-film.js.
 ## cast
 Coin and cash are custom 5-shape/4-shape props (2 units).
+
+## qa-inspector (2 passes, best version kept)
+Pass 1: rejected, avg 7.1 (min 3, SFX Sync: no audio). Fixes: per-panel camera drift (left-edge clipping), chart cards and invented Bitcoin data removed, banknote widget dropped, hook decode at frame 0, 14 synthesized SFX plus a music bed.
+Pass 2: rejected, avg 7.9 (min 7), no blockers. Open majors: D5 s2p2 (tiny list, empty frame), D6 s3p1 (60% empty, no widget), D10 coin prop repeated in 7 of 15 panels. Open minors: D12 s6p3 rack-focus card overlap/truncation, D13 caption fragments in s2p2/s6p2, partial left-edge bleed (x < 6) in s1p1, s2p1, s2p2, s4p2, s4p3.
+SFX sync could not be verified by ear.

@@ -23,7 +23,7 @@
   },
   "render": {
    "allowance": 25,
-   "spent": 4.5
+   "spent": 15.8
   }
  },
  "log": [
@@ -44,6 +44,12 @@
    "units": 4.5,
    "note": "pass 1",
    "at": "2026-11-14T20:51:30.171Z"
+  },
+  {
+   "stage": "render",
+   "units": 11.3,
+   "note": "pass 2",
+   "at": "2026-11-14T21:09:49.232Z"
   }
  ]
 }

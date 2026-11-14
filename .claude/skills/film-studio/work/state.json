@@ -55,7 +55,17 @@
    "status": "passed",
    "round": 0,
    "output_path": "work/out/pass1.mp4"
+  },
+  "qa-inspector": {
+   "status": "flagged",
+   "round": 0,
+   "output_path": "work/reviews/qa-audit.json"
+  },
+  "pass2": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "work/out/final.mp4"
   }
  },
- "updated": "2026-11-14T20:51:30.204Z"
+ "updated": "2026-11-14T21:09:49.274Z"
 }
