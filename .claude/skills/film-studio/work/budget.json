@@ -23,7 +23,7 @@
   },
   "render": {
    "allowance": 25,
-   "spent": 0
+   "spent": 4.5
   }
  },
  "log": [
@@ -38,6 +38,12 @@
    "units": 2,
    "note": "2 custom props",
    "at": "2026-11-14T20:31:39.229Z"
+  },
+  {
+   "stage": "render",
+   "units": 4.5,
+   "note": "pass 1",
+   "at": "2026-11-14T20:51:30.171Z"
   }
  ]
 }

@@ -412,7 +412,11 @@
       "w": 30,
       "h": 28
      },
-     "props": {}
+     "props": {
+      "label": "Every buyer recruits",
+      "near": "Buyer",
+      "far": "Salesperson"
+     }
     }
    ],
    "motion": [],
@@ -982,7 +986,12 @@
       "w": 79,
       "h": 18
      },
-     "props": {}
+     "props": {
+      "name": "Recruit",
+      "handle": "Buyer",
+      "label": "Sold it",
+      "labelAfter": "Sold it on"
+     }
     }
    ],
    "motion": [
@@ -1266,7 +1275,19 @@
       "w": 79,
       "h": 22
      },
-     "props": {}
+     "props": {
+      "from": 0,
+      "to": 4,
+      "symbol": "$",
+      "dec": 0,
+      "label": "billion invested",
+      "years": [
+       "Start",
+       "Now"
+      ],
+      "caption": "Invested worldwide, per DOJ",
+      "seed": "onecoin-banknote"
+     }
     }
    ],
    "motion": [

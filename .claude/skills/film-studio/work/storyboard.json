@@ -331,6 +331,11 @@
        "anchor": "b",
        "at": 0.6,
        "easing": "pop",
+       "props": {
+        "label": "Every buyer recruits",
+        "near": "Buyer",
+        "far": "Salesperson"
+       },
        "x": 6,
        "y": 36,
        "w": 30,
@@ -946,6 +951,12 @@
        "anchor": "b",
        "at": 0.6,
        "easing": "pop",
+       "props": {
+        "name": "Recruit",
+        "handle": "Buyer",
+        "label": "Sold it",
+        "labelAfter": "Sold it on"
+       },
        "x": 6,
        "y": 46,
        "w": 79,
@@ -1258,6 +1269,19 @@
        "anchor": "b",
        "at": 0.6,
        "easing": "pop",
+       "props": {
+        "from": 0,
+        "to": 4,
+        "symbol": "$",
+        "dec": 0,
+        "label": "billion invested",
+        "years": [
+         "Start",
+         "Now"
+        ],
+        "caption": "Invested worldwide, per DOJ",
+        "seed": "onecoin-banknote"
+       },
        "x": 6,
        "y": 44,
        "w": 79,

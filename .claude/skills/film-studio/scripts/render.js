@@ -19,13 +19,14 @@ const {COMPONENTS, creq, readJson, args, fail} = require('./lib');
   if (fs.existsSync(budget) && !readJson(budget).approved) fail('budget is not approved; nothing may be rendered yet');
   const {bundle} = creq('@remotion/bundler');
   const {renderMedia, selectComposition} = creq('@remotion/renderer');
+  const browserExecutable = process.env.REMOTION_BROWSER_EXECUTABLE || null; // optional: use a local Chromium instead of downloading Remotion's
   const serveUrl = await bundle({entryPoint: path.join(COMPONENTS, 'entry.ts'), publicDir: path.resolve(work)});
-  const composition = await selectComposition({serveUrl, id: 'FilmComposition', inputProps: manifest});
+  const composition = await selectComposition({serveUrl, id: 'FilmComposition', inputProps: manifest, browserExecutable});
   const fps = manifest.meta.fps, total = composition.durationInFrames;
   const from = a.from !== undefined ? Math.round(Number(a.from) * fps) : 0;
   const to = a.seconds !== undefined ? Math.min(total - 1, from + Math.round(Number(a.seconds) * fps) - 1) : total - 1;
   const out = path.join(work, 'out', pass === 1 ? 'pass1.mp4' : 'final.mp4');
   fs.mkdirSync(path.dirname(out), {recursive: true});
-  await renderMedia({composition, serveUrl, codec: 'h264', outputLocation: out, inputProps: manifest, frameRange: [from, to], scale: pass === 1 ? 0.5 : 1, chromiumOptions: {gl: a.gl ?? 'angle'}});
+  await renderMedia({composition, serveUrl, codec: 'h264', outputLocation: out, inputProps: manifest, browserExecutable, frameRange: [from, to], scale: pass === 1 ? 0.5 : 1, chromiumOptions: {gl: a.gl ?? 'angle'}});
   console.log(`PASS ${out}: frames ${from}-${to} of ${total}, pass ${pass}${pass === 1 ? ' (half size, safe zones shown)' : ''}. Next: node scripts/check-render.js ${work} --pass ${pass}`);
 })().catch((e) => { console.error('FAIL render: ' + (e && e.message ? e.message : e)); console.error('Stop and report this to the user. Do not retry in a loop.'); process.exit(1); });
