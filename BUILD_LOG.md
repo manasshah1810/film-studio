@@ -3,6 +3,13 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 07: widget integrator manual only.** Added `personas/widget-integrator.md`
+  (135 lines): proof principles, 50-widget lookup table (10 per category), token contract, 9:16 safe-zone
+  rules, 8-row works/fails table, worked Nokia placement sheet. Nothing else changed.
+  Notes: `components/widgets/` does not exist yet, so the 50 widget names are defined by this manual
+  (5 from the prompt, 45 chosen to fill the categories); the token contract names `border_width` and
+  `radius`, which the current design-system shape does not have; the placement sheet is not a storyboard
+  schema shape (it carries `scene`, `panel`, `box`, `tokens`, `proves`).
 - **2026-11-14 prompts 03-06: four persona manuals only.** Added `personas/director.md` (146 lines),
   `personas/scriptwriter.md` (144), `personas/casting-rig-designer.md` (123) and
   `personas/art-director.md` (112), each with the worked JSON its prompt asked for. Nothing else was
@@ -82,6 +89,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 07 done (widget integrator manual).
 - 2026-11-14: prompts 03-06 done as four manuals; extras reverted on request.
 - 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview
   (`library/preview.json`, `scripts/preview.js`), `rubrics/ai-tells.md` (28 tells) and the `ai-checker`
