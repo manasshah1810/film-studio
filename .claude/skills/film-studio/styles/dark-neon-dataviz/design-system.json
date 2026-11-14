@@ -1,0 +1,709 @@
+{
+  "style": "dark-neon-dataviz",
+  "version": 1,
+  "subject_mode": "ui-first",
+  "subject_note": "Mode C, data first. The chart is the subject. Strictly zero people: no stick figures, no silhouettes, no avatars, no Narrator bust.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "luminance_tiers": [
+    {
+      "tier": 0,
+      "name": "ground",
+      "role": "bg",
+      "hex": "#070B14",
+      "use": "the whole frame"
+    },
+    {
+      "tier": 1,
+      "name": "card",
+      "role": "surface",
+      "hex": "#0F172A",
+      "use": "chart cards, label plates, stat cards"
+    },
+    {
+      "tier": 2,
+      "name": "grid",
+      "role": "ink",
+      "alpha": 0.12,
+      "use": "grid lines, axis lines, ground stripes; never text"
+    },
+    {
+      "tier": 3,
+      "name": "label",
+      "role": "muted",
+      "use": "axis labels and captions on a card; 4.5:1 or better on surface"
+    },
+    {
+      "tier": 4,
+      "name": "text",
+      "role": "ink",
+      "use": "titles, numerals, callout text"
+    },
+    {
+      "tier": 5,
+      "name": "neon",
+      "role": "primary, highlight, alert",
+      "use": "one data line, one callout colour; 4.5:1 or better on bg and surface"
+    }
+  ],
+  "palettes": [
+    {
+      "id": "obsidian-cyan",
+      "tier": "focused",
+      "name": "Obsidian cyan",
+      "mood": "cold, precise, market terminal",
+      "best_for": [
+        "market share",
+        "finance",
+        "saas metrics",
+        "analytics"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#E6EDF7",
+        "primary": "#22D3EE",
+        "highlight": "#FF4D6D",
+        "surface": "#0F172A"
+      }
+    },
+    {
+      "id": "ember-drop",
+      "tier": "focused",
+      "name": "Ember drop",
+      "mood": "hot, urgent, a fall in progress",
+      "best_for": [
+        "business downfall",
+        "layoffs",
+        "bankruptcy",
+        "revenue loss"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#F1F5F9",
+        "primary": "#FF6B5A",
+        "highlight": "#FFD166",
+        "surface": "#0F172A"
+      }
+    },
+    {
+      "id": "gold-ledger",
+      "tier": "focused",
+      "name": "Gold ledger",
+      "mood": "rich, serious, balance sheet",
+      "best_for": [
+        "banking",
+        "wealth",
+        "inflation",
+        "price history"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#F5F1E6",
+        "primary": "#FBBF24",
+        "highlight": "#FB7185",
+        "surface": "#0F172A"
+      }
+    },
+    {
+      "id": "mint-ticker",
+      "tier": "focused",
+      "name": "Mint ticker",
+      "mood": "fresh, growth first, green screen",
+      "best_for": [
+        "growth",
+        "startups",
+        "crypto",
+        "returns"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#E8F5EF",
+        "primary": "#34D399",
+        "highlight": "#F472B6",
+        "surface": "#0F172A"
+      }
+    },
+    {
+      "id": "violet-signal",
+      "tier": "focused",
+      "name": "Violet signal",
+      "mood": "night, strategic, ai and tech",
+      "best_for": [
+        "ai",
+        "big tech",
+        "research",
+        "forecast"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#ECE8FF",
+        "primary": "#A78BFA",
+        "highlight": "#FF6B8A",
+        "surface": "#0F172A"
+      }
+    },
+    {
+      "id": "market-open",
+      "tier": "expanded",
+      "name": "Market open",
+      "mood": "full terminal, many series",
+      "best_for": [
+        "market comparisons",
+        "sector view",
+        "earnings",
+        "multi series"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#E6EDF7",
+        "primary": "#22D3EE",
+        "highlight": "#FF4D6D",
+        "surface": "#0F172A",
+        "secondary": "#818CF8",
+        "tertiary": "#FBBF24",
+        "alert": "#FF5470",
+        "positive": "#34D399",
+        "muted": "#94A3B8"
+      }
+    },
+    {
+      "id": "bear-market",
+      "tier": "expanded",
+      "name": "Bear market",
+      "mood": "red-led, downturn, stress",
+      "best_for": [
+        "crash",
+        "recession",
+        "collapse",
+        "debt"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#F1F5F9",
+        "primary": "#FF6B5A",
+        "highlight": "#FFD166",
+        "surface": "#0F172A",
+        "secondary": "#FB923C",
+        "tertiary": "#F472B6",
+        "alert": "#FF4D4D",
+        "positive": "#4ADE80",
+        "muted": "#A3A9B8"
+      }
+    },
+    {
+      "id": "fintech-aurora",
+      "tier": "expanded",
+      "name": "Fintech aurora",
+      "mood": "teal and violet, modern bank",
+      "best_for": [
+        "fintech",
+        "payments",
+        "banking",
+        "product data"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#E8FBF8",
+        "primary": "#2DD4BF",
+        "highlight": "#C084FC",
+        "surface": "#0F172A",
+        "secondary": "#60A5FA",
+        "tertiary": "#F0ABFC",
+        "alert": "#FB7185",
+        "positive": "#86EFAC",
+        "muted": "#94A3B8"
+      }
+    },
+    {
+      "id": "crypto-sunset",
+      "tier": "expanded",
+      "name": "Crypto sunset",
+      "mood": "amber and rose, volatile",
+      "best_for": [
+        "crypto",
+        "commodities",
+        "volatility",
+        "boom and bust"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#FFF6E5",
+        "primary": "#FBBF24",
+        "highlight": "#FB7185",
+        "surface": "#0F172A",
+        "secondary": "#F97316",
+        "tertiary": "#A78BFA",
+        "alert": "#FF5C7A",
+        "positive": "#5EEAD4",
+        "muted": "#A8A29E"
+      }
+    },
+    {
+      "id": "boardroom-ice",
+      "tier": "expanded",
+      "name": "Boardroom ice",
+      "mood": "pale blue, calm authority",
+      "best_for": [
+        "corporate",
+        "strategy",
+        "quarterly results",
+        "comparisons"
+      ],
+      "roles": {
+        "bg": "#070B14",
+        "ink": "#EAF4FF",
+        "primary": "#7DD3FC",
+        "highlight": "#FDE047",
+        "surface": "#0F172A",
+        "secondary": "#A5B4FC",
+        "tertiary": "#67E8F9",
+        "alert": "#FF7A90",
+        "positive": "#6EE7B7",
+        "muted": "#94A3B8"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "grotesk-inter-jb",
+      "mood": "clean terminal, the default",
+      "scale": 1,
+      "display": {
+        "family": "Space Grotesk",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Space Grotesk",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "plex-ledger",
+      "mood": "bank ledger, serious",
+      "scale": 1,
+      "display": {
+        "family": "IBM Plex Sans",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "IBM Plex Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "IBM Plex Mono",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "sora-manrope-dm",
+      "mood": "soft and modern fintech",
+      "scale": 0.95,
+      "display": {
+        "family": "Sora",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Manrope",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Sora",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "oxanium-barlow-martian",
+      "mood": "sci-fi terminal, wide numerals",
+      "scale": 0.95,
+      "display": {
+        "family": "Oxanium",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Barlow",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Oxanium",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Martian Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "rajdhani-saira-roboto",
+      "mood": "condensed, dense data",
+      "scale": 1.05,
+      "display": {
+        "family": "Rajdhani",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Saira",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Rajdhani",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Roboto Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    },
+    {
+      "id": "chakra-inter-redhat",
+      "mood": "angular tech, strong numbers",
+      "scale": 1,
+      "display": {
+        "family": "Chakra Petch",
+        "weight": 700,
+        "size": 108,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "none"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Chakra Petch",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.01,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0,
+        "lineHeight": 1.25,
+        "case": "none"
+      }
+    }
+  ],
+  "numerals": {
+    "tabular": true,
+    "css": "font-variant-numeric: tabular-nums",
+    "rule": "Every number is set tabular. A counting number sits in fixed width digit columns so it never shifts sideways."
+  },
+  "type_scale": {
+    "hero": 132,
+    "display": 108,
+    "h1": 84,
+    "h2": 64,
+    "body": 44,
+    "label": 34,
+    "numeral": 200
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 28,
+      "border": {
+        "width": 2,
+        "role": "ink",
+        "alpha": 0.16
+      },
+      "padding": 48
+    },
+    "plate": {
+      "radius": 18,
+      "fill": "surface",
+      "border": {
+        "width": 3,
+        "role": "node"
+      },
+      "note": "Every callout label sits on an opaque plate. Text never sits on stripes or on a glow."
+    },
+    "ground": {
+      "stripe": {
+        "angle": -18,
+        "pitch": 36,
+        "width": 2,
+        "role": "ink",
+        "alpha": 0.04
+      },
+      "grid": {
+        "role": "ink",
+        "alpha": 0.12,
+        "width": 2
+      }
+    },
+    "line": {
+      "width": 9,
+      "cap": "round",
+      "join": "round",
+      "role": "primary"
+    },
+    "node": {
+      "radius": 15,
+      "ring_radius": 34,
+      "ring_width": 4,
+      "role": "alert"
+    },
+    "glow": {
+      "chain": [
+        "feGaussianBlur stdDeviation 5 (inner)",
+        "feGaussianBlur stdDeviation 14 (outer)",
+        "feComponentTransfer slope 0.7 on the outer",
+        "feMerge outer, inner, SourceGraphic"
+      ],
+      "inner": 5,
+      "outer": 14,
+      "outer_alpha": 0.7,
+      "max_radius": 28,
+      "region": "userSpaceOnUse, the plot rectangle only, so the glow can never bleed into a label or off the card",
+      "never_on": [
+        "text",
+        "label plates",
+        "grid lines",
+        "axis labels"
+      ]
+    },
+    "area": {
+      "from_alpha": 0.38,
+      "to_alpha": 0,
+      "role": "primary",
+      "note": "One vertical gradient under the line, revealed by the same clip that draws the line."
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 12,
+    "enter_frames": 10,
+    "stagger_frames": 6,
+    "min_hold_frames": 6,
+    "camera": "continuous drift: scale 1.00 to 1.03 and a 14 px pan across the whole film, never a cut, never stops",
+    "easings": {
+      "draw": [
+        0.45,
+        0,
+        0.2,
+        1
+      ],
+      "roll": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "pop": [
+        0.34,
+        1.56,
+        0.64,
+        1
+      ],
+      "drift": [
+        0.37,
+        0,
+        0.63,
+        1
+      ],
+      "focus": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "pop": {
+        "damping": 11,
+        "stiffness": 190,
+        "mass": 0.8
+      },
+      "pulse": {
+        "damping": 14,
+        "stiffness": 120,
+        "mass": 1
+      }
+    }
+  },
+  "composition": {
+    "margin": 8,
+    "align": "left",
+    "anchors": [
+      "title-top",
+      "numeral-left",
+      "chart-card-centre",
+      "stat-cards-lower"
+    ],
+    "safe": {
+      "x": [
+        8,
+        85
+      ],
+      "y": [
+        8,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "path-draw-on",
+      "recipe": "The data line draws with pathLength 1 and strokeDashoffset 1 to 0 over 70 frames on the draw bezier. The area clip and the odometer follow the same progress value."
+    },
+    {
+      "name": "odometer-roll",
+      "recipe": "Each digit is a column of 0 to 9 that rolls on the roll bezier. Fixed width columns, tabular numerals, a leading zero fades instead of shifting the layout."
+    },
+    {
+      "name": "continuous-drift",
+      "recipe": "The whole scene scales 1.00 to 1.03 and pans 14 px over the film on the drift bezier. It never stops, so the frame is never dead."
+    },
+    {
+      "name": "glow-node",
+      "recipe": "A callout node pops with the pop spring, a ring pulses once, a leader line draws to an opaque label plate. The glow is the feGaussianBlur chain, clipped to the plot."
+    },
+    {
+      "name": "area-gradient-reveal",
+      "recipe": "A primary gradient fades from 38 percent to 0 under the line and is clipped to the line head so it grows with the curve."
+    },
+    {
+      "name": "rack-focus",
+      "recipe": "Everything but the active callout dims to 55 percent and the active plate lifts to full, then the focus moves to the next node."
+    }
+  ],
+  "widgets": [
+    "CloneRow",
+    "OrbitRing",
+    "Banknote",
+    "GridCollapse",
+    "RackFocus"
+  ],
+  "forbidden": [
+    "any human figure, stick figure, silhouette or avatar",
+    "text on a stripe or on a glow",
+    "a label under 4.5:1",
+    "a neon colour under 4.5:1 on its card",
+    "proportional digits in a counter",
+    "glow on text",
+    "glow larger than 28 px",
+    "more than 2 neon colours in one chart",
+    "dark red or muted purple labels",
+    "pure black ground",
+    "default CSS ease or linear",
+    "invented data presented as real"
+  ]
+}

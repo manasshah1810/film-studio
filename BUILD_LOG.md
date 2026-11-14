@@ -3,6 +3,28 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 13: dark-neon-dataviz style, status: verified.** Added `styles/dark-neon-dataviz/`
+  (`style.md` 121 lines, `design-system.json` 5 focused + 5 expanded palettes, 6 tabular-numeral pairings,
+  luminance tiers, glow tokens, `recipes.md` with the feGaussianBlur chain and animated area gradient,
+  `failures.md`) and `components/styles/dark-neon-dataviz/Preview.tsx` (market-share collapse: line draws on,
+  area gradient grows, 3 glowing callout nodes with plates, odometers 49 to 3, 2 stat cards, continuous drift,
+  zero people). Registered in `components/Root.tsx` as `Preview-dark-neon-dataviz` and
+  `PreviewSheet-dark-neon-dataviz` (needed to render it). Visual loop: Pass 1 rendered `obsidian-cyan` and
+  `bear-market` (3-beat sheet + frame 128, stills only, `previews/dark-neon-dataviz/` at repo root).
+  Critique: rack focus dimmed the plate text so red values turned muddy (the failure this style exists to stop),
+  zero-length leaders left stray dots, "ILLUSTRATIVE DATA" wrapped, the minus sign crowded the digits.
+  Pass 2: dim lines, nodes and borders only, leaders render only when drawn, label box widened, minus column
+  widened. `check-design.js` and `check-safezones.js` PASS on both palettes, `--systems` PASS, `tsc` clean.
+  All 10 palettes: every role is 4.5:1 or better on both `bg` and `surface` (lowest: obsidian-cyan highlight
+  5.6, bear-market alert 5.5; muted labels 7.0 or better). Accent-coloured numerals are checked by that table,
+  not by `check-design.js`, which only knows `ink` text roles.
+  Choices where the prompt gave no number: palette ids and colours, the 6 pairings, glow 5 and 14 at 0.7 alpha
+  (max 28 px), line 9 px, node radius 15, area gradient 38 to 0 percent, spring 11/190/0.8, drift 1.03 and
+  14 px, stripe 4 percent, `muted` and ink values. The chart data (49 to 3 percent) and "Rival", "Price war",
+  "Exit" are illustrative and the film says so on screen.
+  Widgets CloneRow, OrbitRing, Banknote, GridCollapse, RackFocus are documented, not built as components
+  (RackFocus is shown in the specimen). `check-static.js` not run; expected to fail like hormozi-kinetic and
+  neo-brutalist-ui (no `kit.tsx`, not in `components/styles/index.ts`, no `style-rules.json` entry).
 - **2026-11-14 prompt 12: neo-brutalist-ui style, status: verified.** Added `styles/neo-brutalist-ui/`
   (`style.md` 111 lines, `design-system.json` 5 focused + 5 expanded palettes, 6 font pairings, border,
   offset-shadow and backdrop-blur tokens, `recipes.md`, `failures.md`) and
@@ -140,6 +162,7 @@ All `requires: none` (code-drawn, no generation API).
 
 ## Log
 - 2026-11-14: prompt 12 done (neo-brutalist-ui style, verified).
+- 2026-11-14: prompt 13 done (dark-neon-dataviz style, verified).
 - 2026-11-14: prompt 11 done (hormozi-kinetic style, verified).
 - 2026-11-14: prompt 10 done (QA inspector manual).
 - 2026-11-14: prompt 09 done (sound designer manual).
