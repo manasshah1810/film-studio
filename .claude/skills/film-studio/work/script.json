@@ -1,0 +1,297 @@
+{
+ "title": "OneCoin never had a coin",
+ "fps": 30,
+ "hook": {
+  "formula": "assumption-flip",
+  "belief": "OneCoin was a real cryptocurrency that failed.",
+  "gap": "If the coin was worthless, what were people actually buying?"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0,
+   "duration": 5.5,
+   "beat": "hook",
+   "narration": "OneCoin did not crash like a coin. Prosecutors called every coin worthless.",
+   "on_screen_text": "Coin worth: zero",
+   "emotion": "disbelief",
+   "visual_intent": "A price chart where the OneCoin line is flat at zero while a Bitcoin line climbs beside it.",
+   "facts": [
+    {
+     "claim": "The US Department of Justice described OneCoin coins as worthless.",
+     "status": "verified",
+     "source": "https://www.theblock.co/post/15090/u-s-prosecutors-charges-leaders-behind-onecoin-a-multibillion-dollar-crypto-pyramid-scheme"
+    }
+   ],
+   "captions": [
+    [
+     0,
+     55,
+     "OneCoin did not crash",
+     "crash"
+    ],
+    [
+     55,
+     96,
+     "like a coin."
+    ],
+    [
+     96,
+     151,
+     "Prosecutors called every coin",
+     "worthless"
+    ],
+    [
+     151,
+     165,
+     "worthless.",
+     "worthless"
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "start": 5.5,
+   "duration": 7.5,
+   "beat": "setup",
+   "narration": "So what did buyers get? Commissions for bringing in new members, which turned every buyer into a salesperson.",
+   "on_screen_text": "Buyers became sellers",
+   "emotion": "greed",
+   "visual_intent": "A network tree grows node by node, each new node sending a coin icon up to its parent.",
+   "facts": [
+    {
+     "claim": "OneCoin operated as a pyramid-style scheme where members earned commissions for recruiting new members.",
+     "status": "verified",
+     "source": "https://www.theblock.co/post/15090/u-s-prosecutors-charges-leaders-behind-onecoin-a-multibillion-dollar-crypto-pyramid-scheme"
+    }
+   ],
+   "captions": [
+    [
+     165,
+     227,
+     "So what did buyers get?",
+     "get"
+    ],
+    [
+     227,
+     265,
+     "Commissions for bringing",
+     "Commissions"
+    ],
+    [
+     265,
+     303,
+     "in new members,"
+    ],
+    [
+     303,
+     353,
+     "which turned every buyer",
+     "buyer"
+    ],
+    [
+     353,
+     390,
+     "into a salesperson.",
+     "salesperson"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 13.0,
+   "duration": 6.5,
+   "beat": "setup",
+   "narration": "Yet commissions came from newer members' money, so recruiting could never stop.",
+   "on_screen_text": "Money from newcomers",
+   "emotion": "unease",
+   "visual_intent": "Inflow and outflow bars, the inflow bar must stay taller than the outflow bar or the structure falls.",
+   "facts": [
+    {
+     "claim": "In a pyramid-style scheme, payouts to earlier members depend on money from newer members.",
+     "status": "verified",
+     "source": "https://www.theblock.co/post/15090/u-s-prosecutors-charges-leaders-behind-onecoin-a-multibillion-dollar-crypto-pyramid-scheme"
+    }
+   ],
+   "captions": [
+    [
+     390,
+     439,
+     "Yet commissions came",
+     "Yet"
+    ],
+    [
+     439,
+     504,
+     "from newer members' money,",
+     "newer"
+    ],
+    [
+     504,
+     536,
+     "so recruiting",
+     "recruiting"
+    ],
+    [
+     536,
+     585,
+     "could never stop.",
+     "never"
+    ]
+   ],
+   "rehook": true
+  },
+  {
+   "id": "s4",
+   "start": 19.5,
+   "duration": 9,
+   "beat": "turn",
+   "narration": "But the coin was never the product. Belief was. Every recruit bought a share of it, and every share needed another believer.",
+   "on_screen_text": "They sold belief",
+   "emotion": "dread",
+   "visual_intent": "A glowing coin dissolves into a speech bubble that is passed from person to person along the tree.",
+   "facts": [],
+   "captions": [
+    [
+     585,
+     634,
+     "But the coin was",
+     "But"
+    ],
+    [
+     634,
+     671,
+     "never the product.",
+     "never"
+    ],
+    [
+     671,
+     695,
+     "Belief was.",
+     "Belief"
+    ],
+    [
+     695,
+     757,
+     "Every recruit bought a share",
+     "share"
+    ],
+    [
+     757,
+     818,
+     "of it, and every share",
+     "every"
+    ],
+    [
+     818,
+     855,
+     "needed another believer.",
+     "believer"
+    ]
+   ],
+   "rehook": true
+  },
+  {
+   "id": "s5",
+   "start": 28.5,
+   "duration": 9,
+   "beat": "payoff",
+   "narration": "In 2017 prosecutors charged founder Ruja Ignatova. She is still at large. Investors worldwide put in over four billion dollars.",
+   "on_screen_text": "Over four billion in",
+   "emotion": "shock",
+   "visual_intent": "A bar counter rolls up to four billion while a wanted-poster frame holds the founder's name.",
+   "facts": [
+    {
+     "claim": "The DOJ charged Ruja Ignatova in the US in October 2017.",
+     "status": "verified",
+     "source": "https://www.theblock.co/post/15090/u-s-prosecutors-charges-leaders-behind-onecoin-a-multibillion-dollar-crypto-pyramid-scheme"
+    },
+    {
+     "claim": "Ruja Ignatova remains at large; the State Department offered a $5 million reward.",
+     "status": "verified",
+     "source": "https://blockworks.co/news/state-department-bounty-for-onecoin-crypto-queen"
+    },
+    {
+     "claim": "Victims invested over $4 billion worldwide into OneCoin, according to the Justice Department.",
+     "status": "verified",
+     "source": "https://www.theblock.co/amp/post/397319/us-justice-opens-claims-onecoin-fraud"
+    }
+   ],
+   "captions": [
+    [
+     855,
+     909,
+     "In 2017 prosecutors charged",
+     "2017"
+    ],
+    [
+     909,
+     949,
+     "founder Ruja Ignatova.",
+     "Ignatova"
+    ],
+    [
+     949,
+     1017,
+     "She is still at large.",
+     "large"
+    ],
+    [
+     1017,
+     1071,
+     "Investors worldwide put in",
+     "Investors"
+    ],
+    [
+     1071,
+     1125,
+     "over four billion dollars.",
+     "billion"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "start": 37.5,
+   "duration": 8.5,
+   "beat": "close",
+   "narration": "Nobody lost to a better coin. They lost to a story that only worked while enough people kept believing it.",
+   "on_screen_text": "Belief was the price",
+   "emotion": "resolve",
+   "visual_intent": "The flat zero line from the opening returns, and the first caption flashes again beside it.",
+   "facts": [],
+   "captions": [
+    [
+     1125,
+     1163,
+     "Nobody lost to",
+     "lost"
+    ],
+    [
+     1163,
+     1201,
+     "a better coin.",
+     "coin"
+    ],
+    [
+     1201,
+     1265,
+     "They lost to a story",
+     "story"
+    ],
+    [
+     1265,
+     1316,
+     "that only worked while",
+     "only"
+    ],
+    [
+     1316,
+     1380,
+     "enough people kept believing it.",
+     "believing"
+    ]
+   ]
+  }
+ ]
+}

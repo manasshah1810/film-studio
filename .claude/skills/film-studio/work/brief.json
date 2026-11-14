@@ -1,0 +1,20 @@
+{
+ "topic": "OneCoin presented itself as the next Bitcoin and drew billions from investors, yet the coin was never real",
+ "platform": "instagram",
+ "ratio": "9:16",
+ "length_bucket": "30-1m",
+ "target_seconds": 48,
+ "style": "dark-neon-dataviz",
+ "subject_mode": "ui-first",
+ "angle": "OneCoin was not a failed cryptocurrency; it had no real blockchain at all [VERIFY: no public blockchain existed], and people bought belief, not a coin",
+ "voiceover": false,
+ "design": {
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "palette_id": "obsidian-cyan",
+  "pairing_id": "grotesk-inter-jb",
+  "seed": "onecoin-scam-20261114-1"
+ },
+ "audience": "general finance-curious viewers, 18 to 40",
+ "tone": "sharp, investigative, calm"
+}

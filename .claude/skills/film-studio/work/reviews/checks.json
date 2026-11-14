@@ -1,0 +1,9 @@
+{
+ "pass": true,
+ "stage": "script",
+ "ran": [
+  "validate-schema",
+  "check-ai-tells"
+ ],
+ "items": []
+}
