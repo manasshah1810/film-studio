@@ -53,7 +53,8 @@ Working files go in `work/` in your project. A run that stops can be resumed: th
 ## Layout
 ```
 SKILL.md                 the Director: questions, stages, gate, rules
-roles/                   one file per crew role
+personas/                rebuilt persona manuals (110-150 lines; director.md so far)
+roles/                   one file per crew role (old versions, pending rebuild)
 rubrics/                 what reviewers score; the review protocol
 references/              style-cheatsheet.md (pick a style), ai-tells.md (the 25 rules)
 styles/<id>/             style.md (the style manual), design-system.json

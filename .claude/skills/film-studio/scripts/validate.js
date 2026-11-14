@@ -40,6 +40,9 @@ const semantic = {
     const ds = loadDS(d.style);
     if (!ds.palettes.some((p) => p.id === d.design.palette_id)) E.push(`design.palette_id "${d.design.palette_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
     if (!ds.fonts.some((p) => p.id === d.design.pairing_id)) E.push(`design.pairing_id "${d.design.pairing_id}" is not in styles/${d.style}/design-system.json (run pick-design.js)`);
+    const pal = ds.palettes.find((p) => p.id === d.design.palette_id);
+    if (pal && d.design.palette_tier && pal.tier !== d.design.palette_tier) E.push(`design.palette_tier is ${d.design.palette_tier} but palette "${pal.id}" is ${pal.tier} (re-run pick-design.js)`);
+    if (d.subject_mode && ds.subject_mode && d.subject_mode !== ds.subject_mode) E.push(`subject_mode is ${d.subject_mode} but styles/${d.style} is ${ds.subject_mode}`);
     const [lo, hi] = BUCKETS[d.length_bucket];
     if (d.target_seconds < lo || d.target_seconds > hi) E.push(`target_seconds ${d.target_seconds} is outside bucket ${d.length_bucket}`);
     if (/(sk-|api[_-]?key\s*[:=]|xi-api-key|Bearer\s+[A-Za-z0-9])/i.test(JSON.stringify(d))) E.push('brief looks like it contains a secret; keys live in the environment only');

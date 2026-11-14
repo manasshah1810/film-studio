@@ -3,6 +3,15 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 03: Director persona.** `personas/director.md` (146 lines) replaces
+  `roles/director.md` (moved, then rewritten): short-form philosophy, the 4-question interview with
+  platform-to-ratio table, focused/expanded palette tier rule (entity count decides), seeded variation,
+  the 8-persona dispatch matrix (one manual, at most two inputs), 8-row works/fails table, and the
+  worked Nokia brief (`scripts/fixtures/director-nokia/brief.json`, validated by the static check).
+  Brief schema gains optional `ratio`, `subject_mode`, `angle`, `design.palette_tier`;
+  `pick-design.js` chooses only within the tier; `validate.js` checks tier and subject mode against
+  the design system. Static check caps `personas/*.md` at 110-150 lines. The other 7 personas still
+  live in `roles/` as old versions.
 - **2026-11-14 prompt 02: legacy purged, validators in.** The skill has **0 built styles** and cannot
   render a film until styles are rebuilt. What exists now:
   - `SKILL.md` (router, under 110 lines): 4 questions, one file to read per stage, scripts per stage.
@@ -70,6 +79,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 03 done. Director persona, brief schema fields, tier-aware pick-design.
 - 2026-11-14: prompt 02 done. Deleted 12 legacy `styles/` folders, 12 kits, shared preview
   (`library/preview.json`, `scripts/preview.js`), `rubrics/ai-tells.md` (28 tells) and the `ai-checker`
   agent. Added router SKILL.md, two references, three validators, fixtures. Schemas extended

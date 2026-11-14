@@ -31,7 +31,7 @@ Ask nothing else. Decide the rest yourself and say what you decided in one line.
 ## 3. Stages: what to read, what to write, what to run
 | # | Stage | Read (one file) | Writes | Run until PASS (0 tokens) |
 |---|---|---|---|---|
-| 1 | brief | `roles/director.md` | `work/brief.json` | `validate.js --work work` |
+| 1 | brief | `personas/director.md` | `work/brief.json` | `validate.js --work work` |
 | 2 | budget | `roles/treasurer.md` | `work/budget.json` | `ledger.js estimate work`, then the user says yes |
 | 3 | script | `roles/writer.md` | `work/script.json` | `validate.js --work work`; `check-ai-tells.js work --stage script` |
 | 4 | cast | `roles/selector.md`, and when it is done `roles/talent-acquisition.md` | `work/needs.json`, then `work/cast.json` | `validate.js --work work` |
