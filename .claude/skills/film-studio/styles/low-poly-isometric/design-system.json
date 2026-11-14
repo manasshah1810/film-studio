@@ -1,0 +1,718 @@
+{
+  "style": "low-poly-isometric",
+  "version": 1,
+  "subject_mode": "layered",
+  "subject_note": "Mode B, faceted 3D Story Actors. A floating diorama built from flat-shaded primitives in @remotion/three. Actors are 4 to 6 faceted parts, no faces. No photographs, no video, no generated 3D models.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "iso": {
+    "note": "True isometric: an OrthographicCamera on the (1, 1, 1) diagonal. Pitch 35.264 degrees (atan(1 / sqrt 2)), yaw 45 degrees. All text is DOM on top of the canvas, never 3D text.",
+    "camera": {
+      "type": "orthographic",
+      "pitch_deg": 35.264,
+      "yaw_deg": 45,
+      "position": [
+        20,
+        20,
+        20
+      ],
+      "zoom_px_per_unit": 100,
+      "near": 0.1,
+      "far": 100
+    },
+    "grid": {
+      "tiles": 6,
+      "tile_unit": 1,
+      "slab": 0.3,
+      "earth": 0.35,
+      "rock_depth": 4,
+      "note": "A 6 x 6 tile island. Each tile is 1 unit. Tall things sit on the back rows so they do not hide short ones."
+    },
+    "centre_px": {
+      "x": 540,
+      "y": 900,
+      "note": "Where the world origin lands on the 1080 x 1920 frame."
+    },
+    "lights": {
+      "key": {
+        "direction": [
+          0.25,
+          1,
+          0.55
+        ],
+        "intensity": 2.2,
+        "tint": "#FFF4E0",
+        "casts_shadow": true
+      },
+      "rim": {
+        "direction": [
+          -0.7,
+          0.45,
+          -0.6
+        ],
+        "intensity": 1.1,
+        "tint": "#CFE0FF",
+        "casts_shadow": false
+      },
+      "ambient": {
+        "intensity": 0.9
+      },
+      "note": "Key from the upper left front: top faces brightest, left faces mid, right faces darkest. Rim from behind for a cool edge. Top : left : right is about 1 : 0.6 : 0.42."
+    },
+    "shadow": {
+      "map": 2048,
+      "bounds": 9,
+      "bias": -0.0004,
+      "normal_bias": 0.03,
+      "blob_alpha": 0.22,
+      "note": "One shadow-casting light. A soft blob under the island shows it floats. On a dark bg the earth and rock are lifted so the island side is 1.6:1 or more against the sky."
+    },
+    "material": {
+      "type": "meshLambertMaterial",
+      "flat_shading": true,
+      "tone_mapping": "none",
+      "note": "flatShading on every material. No tone mapping, so a lit top face shows the palette colour."
+    },
+    "facets": {
+      "cone_segments": 6,
+      "cylinder_segments": 6,
+      "sphere": "icosahedron detail 0",
+      "note": "Low segment counts make the facets. No smooth spheres."
+    },
+    "pin": {
+      "stem": 0.9,
+      "stem_radius": 0.03,
+      "head_radius": 0.3,
+      "collar_radius": 0.36,
+      "head": "octahedron",
+      "spin_deg_per_frame": 2.4,
+      "note": "A 3D callout pin: a thin stem and a faceted head in primary. A surface-coloured collar under the head keeps it apart from red roofs. Its number badge sits above the head, joined by a short ink leader."
+    }
+  },
+  "camera": {
+    "note": "The camera never moves. The world group turns (turntable drift) and scales (pull-back zoom)."
+  },
+  "palettes": [
+    {
+      "id": "clay-coral",
+      "tier": "focused",
+      "name": "Clay coral",
+      "mood": "a cream clay model with coral roofs and pins",
+      "best_for": [
+        "economics",
+        "explainers",
+        "business models"
+      ],
+      "roles": {
+        "bg": "#F3E9DC",
+        "ink": "#2B2320",
+        "primary": "#E4572E",
+        "surface": "#FFFFFF",
+        "ground": "#C9B79C"
+      }
+    },
+    {
+      "id": "mint-model",
+      "tier": "focused",
+      "name": "Mint model",
+      "mood": "a mint architect model with amber roofs",
+      "best_for": [
+        "urban planning",
+        "sustainability",
+        "housing"
+      ],
+      "roles": {
+        "bg": "#DDF0E6",
+        "ink": "#16302B",
+        "primary": "#F2A413",
+        "surface": "#FFFFFF",
+        "ground": "#7FC8A9"
+      }
+    },
+    {
+      "id": "night-shift",
+      "tier": "focused",
+      "name": "Night shift",
+      "mood": "a navy night model with warm amber roofs",
+      "best_for": [
+        "logistics",
+        "energy",
+        "night economy"
+      ],
+      "roles": {
+        "bg": "#141A2E",
+        "ink": "#F1F3FA",
+        "primary": "#FFB347",
+        "surface": "#222A45",
+        "ground": "#3D4A78"
+      }
+    },
+    {
+      "id": "blueprint-sky",
+      "tier": "focused",
+      "name": "Blueprint sky",
+      "mood": "a pale blue study model with red pins",
+      "best_for": [
+        "infrastructure",
+        "transport",
+        "engineering"
+      ],
+      "roles": {
+        "bg": "#CFE4F7",
+        "ink": "#12263F",
+        "primary": "#F25F5C",
+        "surface": "#F7FBFF",
+        "ground": "#8FB8DE"
+      }
+    },
+    {
+      "id": "terracotta",
+      "tier": "focused",
+      "name": "Terracotta",
+      "mood": "a dark fired-clay model with orange roofs",
+      "best_for": [
+        "ancient history",
+        "trade routes",
+        "mythology"
+      ],
+      "roles": {
+        "bg": "#2A1A14",
+        "ink": "#FBEBDD",
+        "primary": "#F28C38",
+        "surface": "#3B251C",
+        "ground": "#A65A3A"
+      }
+    },
+    {
+      "id": "harbour-town",
+      "tier": "expanded",
+      "name": "Harbour town",
+      "mood": "green tiles, cream walls, red roofs, blue water under a pale sky",
+      "best_for": [
+        "supply chain",
+        "trade",
+        "ports"
+      ],
+      "roles": {
+        "bg": "#BFE3F0",
+        "ink": "#13293D",
+        "primary": "#E94F37",
+        "surface": "#FFFFFF",
+        "ground": "#9BCB6B",
+        "earth": "#8A5A3C",
+        "wall": "#F4E9D8",
+        "roof": "#C8553D",
+        "foliage": "#3E8E5A",
+        "water": "#3FA7D6"
+      }
+    },
+    {
+      "id": "desert-bazaar",
+      "tier": "expanded",
+      "name": "Desert bazaar",
+      "mood": "sand tiles, adobe walls, teal roofs",
+      "best_for": [
+        "silk road",
+        "markets",
+        "urban history"
+      ],
+      "roles": {
+        "bg": "#F6DFB8",
+        "ink": "#3A2212",
+        "primary": "#C8372D",
+        "surface": "#FFF8EA",
+        "ground": "#E3B66B",
+        "earth": "#A66A3A",
+        "wall": "#F2D9B0",
+        "roof": "#2A9D8F",
+        "foliage": "#6A994E",
+        "water": "#48A9A6"
+      }
+    },
+    {
+      "id": "midnight-metro",
+      "tier": "expanded",
+      "name": "Midnight metro",
+      "mood": "a navy city at night with gold roofs and a pink accent",
+      "best_for": [
+        "tech",
+        "cities",
+        "finance"
+      ],
+      "roles": {
+        "bg": "#101426",
+        "ink": "#EEF1FF",
+        "primary": "#FF5D73",
+        "surface": "#1C2340",
+        "ground": "#2E3A63",
+        "earth": "#46548C",
+        "wall": "#56659C",
+        "roof": "#FFC857",
+        "foliage": "#2FBF9B",
+        "water": "#3A86FF"
+      }
+    },
+    {
+      "id": "olympus-myth",
+      "tier": "expanded",
+      "name": "Olympus myth",
+      "mood": "marble walls and gold roofs over a lilac dawn",
+      "best_for": [
+        "mythology",
+        "ancient worlds",
+        "legends"
+      ],
+      "roles": {
+        "bg": "#EADFF2",
+        "ink": "#2A1B3D",
+        "primary": "#C99A2E",
+        "surface": "#FFFDF7",
+        "ground": "#B9D8A8",
+        "earth": "#8C7A9B",
+        "wall": "#FBF6EC",
+        "roof": "#D9A441",
+        "foliage": "#5C9D6F",
+        "water": "#6EC5E9"
+      }
+    },
+    {
+      "id": "autumn-mill",
+      "tier": "expanded",
+      "name": "Autumn mill",
+      "mood": "wheat tiles, orange trees, brick roofs",
+      "best_for": [
+        "industrial history",
+        "agriculture",
+        "economics"
+      ],
+      "roles": {
+        "bg": "#F4E4D0",
+        "ink": "#2D1E17",
+        "primary": "#D7263D",
+        "surface": "#FFFAF3",
+        "ground": "#D9A441",
+        "earth": "#7A4B2A",
+        "wall": "#EFD9C3",
+        "roof": "#8C2F1B",
+        "foliage": "#E07A1F",
+        "water": "#4D9DB5"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "fredoka-nunito-dmmono",
+      "mood": "round and friendly, like a toy model box",
+      "scale": 1,
+      "display": {
+        "family": "Fredoka",
+        "weight": 700,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Nunito",
+        "weight": 700,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Fredoka",
+        "weight": 600,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "outfit-dmsans-spacemono",
+      "mood": "clean geometric, modern explainer",
+      "scale": 1,
+      "display": {
+        "family": "Outfit",
+        "weight": 800,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "DM Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Outfit",
+        "weight": 600,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "sora-manrope-jetbrains",
+      "mood": "technical and crisp, for infrastructure",
+      "scale": 1,
+      "display": {
+        "family": "Sora",
+        "weight": 800,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Manrope",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Sora",
+        "weight": 600,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "lilita-quicksand-redhatmono",
+      "mood": "chunky game title, soft body",
+      "scale": 1,
+      "display": {
+        "family": "Lilita One",
+        "weight": 400,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Quicksand",
+        "weight": 700,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Quicksand",
+        "weight": 700,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Red Hat Mono",
+        "weight": 600,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "rubik-worksans-ibmplexmono",
+      "mood": "sturdy rounded squares, newsroom body",
+      "scale": 1,
+      "display": {
+        "family": "Rubik",
+        "weight": 800,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Work Sans",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Rubik",
+        "weight": 600,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 600,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "poppins-figtree-robotomono",
+      "mood": "bold geometric, neutral body",
+      "scale": 1,
+      "display": {
+        "family": "Poppins",
+        "weight": 800,
+        "size": 104,
+        "tracking": -0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Figtree",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Poppins",
+        "weight": 600,
+        "size": 60,
+        "tracking": 0,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Roboto Mono",
+        "weight": 600,
+        "size": 34,
+        "tracking": 0.06,
+        "lineHeight": 1.2,
+        "case": "upper"
+      }
+    }
+  ],
+  "type_scale": {
+    "hero": 128,
+    "display": 104,
+    "h1": 80,
+    "h2": 60,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 18,
+      "pad": 22,
+      "border": {
+        "width": 4,
+        "role": "ink",
+        "alpha": 1
+      },
+      "drop": {
+        "y": 8,
+        "role": "ink",
+        "alpha": 0.18
+      },
+      "note": "A label plate: surface fill, 4 px ink border, a flat 8 px drop."
+    },
+    "leader": {
+      "width": 4,
+      "role": "ink",
+      "dot": 9,
+      "note": "A straight leader from the plate to the pin head, drawn on in 10 frames."
+    },
+    "title_bar": {
+      "w": 150,
+      "h": 12,
+      "role": "primary"
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 14,
+    "stagger_frames": 2,
+    "min_hold_frames": 6,
+    "camera": "fixed isometric; the world turns and scales",
+    "easings": {
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "drift": [
+        0.45,
+        0,
+        0.55,
+        1
+      ],
+      "fade": [
+        0.65,
+        0,
+        0.35,
+        1
+      ]
+    },
+    "springs": {
+      "tile": {
+        "damping": 11,
+        "stiffness": 170,
+        "mass": 0.7
+      },
+      "build": {
+        "damping": 9,
+        "stiffness": 150,
+        "mass": 0.8
+      },
+      "pull_back": {
+        "damping": 9,
+        "stiffness": 60,
+        "mass": 1
+      },
+      "pin": {
+        "damping": 8,
+        "stiffness": 160,
+        "mass": 0.8
+      },
+      "plate": {
+        "damping": 13,
+        "stiffness": 180,
+        "mass": 0.8
+      }
+    },
+    "turntable": {
+      "deg": 5,
+      "note": "The world turns from -5 to +5 degrees of yaw over the scene on a sine. Never a full spin."
+    },
+    "pull_back": {
+      "from": 1.55,
+      "to": 1,
+      "start": 62,
+      "note": "An elastic pull-back: the world scale springs from 1.55 to 1 and overshoots once."
+    },
+    "bob": {
+      "px": 7,
+      "period_frames": 90,
+      "note": "The island floats up and down 7 px."
+    },
+    "pacing": {
+      "note": "Rock in by frame 10, tiles pop from the back corner 2 frames apart, buildings pop from frame 30, pull-back at 62, pins at 96, 116 and 136, hold the last frame at least 30 frames."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "kicker",
+      "title",
+      "diorama",
+      "pins",
+      "plates"
+    ],
+    "safe": {
+      "x": [
+        9,
+        85
+      ],
+      "y": [
+        7,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "slow-turntable-drift",
+      "recipe": "The world group yaw goes from -5 to +5 degrees on a sine over the scene. Labels stay put; leaders follow the pins."
+    },
+    {
+      "name": "spring-tile-pop-up",
+      "recipe": "Each tile rises from 1.2 units below and scales from 0 on a spring 11/170/0.7, 2 frames apart, from the back corner to the front."
+    },
+    {
+      "name": "elastic-pull-back-zoom",
+      "recipe": "The world scale springs from 1.55 to 1 on 9/60/1, so it overshoots once and settles."
+    },
+    {
+      "name": "pin-drop",
+      "recipe": "A callout pin falls 3 units onto its target on a spring 8/160/0.8, then its head spins slowly."
+    },
+    {
+      "name": "building-pop",
+      "recipe": "A building scales from 0 at its base on a spring 9/150/0.8, with a small overshoot."
+    },
+    {
+      "name": "island-bob",
+      "recipe": "The island floats 7 px up and down over 90 frames; the blob shadow shrinks as it rises."
+    }
+  ],
+  "widgets": [
+    "LayerExplode",
+    "DayDial",
+    "Banknote",
+    "PlayingGrid",
+    "DollyZoom"
+  ],
+  "forbidden": [
+    "a perspective camera",
+    "smooth shading or a smooth sphere",
+    "a loaded 3D model or a texture image",
+    "3D text in the canvas",
+    "text on the diorama with no plate",
+    "tone mapping that greys the palette",
+    "two shadow-casting lights",
+    "a full 360 degree spin",
+    "a tall building on the front rows",
+    "a hex colour in a component",
+    "default CSS ease or linear for a pop",
+    "more than 3 pins on screen"
+  ]
+}

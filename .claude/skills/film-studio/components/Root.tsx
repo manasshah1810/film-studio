@@ -11,6 +11,7 @@ import {Preview as TvPreview, PreviewSheet as TvSheet, PREVIEW_FRAMES as TV_FRAM
 import {Preview as ArcPreview, PreviewSheet as ArcSheet, PREVIEW_FRAMES as ARC_FRAMES, SHEET_SIZE as ARC_SHEET} from './styles/archival-grunge/Preview';
 import {Preview as HudPreview, PreviewSheet as HudSheet, PREVIEW_FRAMES as HUD_FRAMES, SHEET_SIZE as HUD_SHEET} from './styles/scifi-hud/Preview';
 import {Preview as PdPreview, PreviewSheet as PdSheet, PREVIEW_FRAMES as PD_FRAMES, SHEET_SIZE as PD_SHEET} from './styles/2-5d-parallax-depth/Preview';
+import {Preview as IsoPreview, PreviewSheet as IsoSheet, PREVIEW_FRAMES as ISO_FRAMES, SHEET_SIZE as ISO_SHEET} from './styles/low-poly-isometric/Preview';
 import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_FRAMES, SHEET_SIZE as NEO_SHEET} from './styles/neo-brutalist-ui/Preview';
 
 const empty = {meta: {title: '', platform: 'instagram', ratio: '9:16', fps: 30, width: 1080, height: 1920, safe: {top: 0, right: 0, bottom: 0, left: 0}}, design: {}, cast: {}, scenes: []} as unknown as FilmDef;
@@ -61,6 +62,8 @@ export const Root: React.FC = () => (
 		<Composition id="PreviewSheet-scifi-hud" component={HudSheet} durationInFrames={HUD_FRAMES} fps={30} width={HUD_SHEET.width} height={HUD_SHEET.height} defaultProps={{palette: 'cyan-ops', pairing: 'orbitron-chakra-sharetech'}} />
 		<Composition id="Preview-archival-grunge" component={ArcPreview} durationInFrames={ARC_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'newsprint', pairing: 'playfair-specialelite-reenie'}} />
 		<Composition id="PreviewSheet-archival-grunge" component={ArcSheet} durationInFrames={ARC_FRAMES} fps={30} width={ARC_SHEET.width} height={ARC_SHEET.height} defaultProps={{palette: 'newsprint', pairing: 'playfair-specialelite-reenie'}} />
+		<Composition id="Preview-low-poly-isometric" component={IsoPreview} durationInFrames={ISO_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'harbour-town', pairing: 'fredoka-nunito-dmmono'}} />
+		<Composition id="PreviewSheet-low-poly-isometric" component={IsoSheet} durationInFrames={ISO_FRAMES} fps={30} width={ISO_SHEET.width} height={ISO_SHEET.height} defaultProps={{palette: 'harbour-town', pairing: 'fredoka-nunito-dmmono'}} />
 		<Composition id="Baseline-nokia"component={NokiaBaseline} durationInFrames={1350} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-cats" component={CatsBaseline} durationInFrames={900} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />
