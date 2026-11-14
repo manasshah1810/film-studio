@@ -1,0 +1,674 @@
+{
+  "style": "archival-grunge",
+  "version": 1,
+  "subject_mode": "layered",
+  "subject_note": "Layered paper. A dark desk, one torn paper clipping on it, then ink, marker and red pen drawn over the paper. The film look sits on top of everything. No person, no photo: the subject is the document.",
+  "surface_roles": [
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink",
+      "primary"
+    ],
+    "display": [
+      "ink",
+      "primary"
+    ]
+  },
+  "paper": {
+    "note": "Surface is the paper, bg is the desk. All text sits on the paper. Red pen is role primary, the marker is role highlight and is drawn with multiply so the ink stays dark.",
+    "clip": {
+      "x": 54,
+      "y": 77,
+      "w": 972,
+      "h": 1498,
+      "rotate_deg": -1,
+      "note": "The clipping in px on the 1080 x 1920 frame. Text boxes sit at least 40 px inside it."
+    },
+    "tear": {
+      "amp_px": 14,
+      "step_px": 18,
+      "fibre_px": 6,
+      "note": "Jagged edge: a point every 18 px, moved up to 14 px. A second, lighter polygon 6 px outside the paper shows the torn fibre."
+    },
+    "grain": {
+      "freq": 0.9,
+      "octaves": 2,
+      "opacity": 0.26,
+      "blotch_freq": 0.008,
+      "blotch_opacity": 0.4,
+      "note": "SVG feTurbulence. Fine grain in ink, big blotches in stain. Draw them under the text."
+    },
+    "marker": {
+      "edge_jitter_px": 7,
+      "height_pct": 82,
+      "blend": "multiply",
+      "note": "A highlighter sweep is a clip-path polygon that grows left to right with a ragged end, over the text, blended with multiply."
+    },
+    "pen": {
+      "stroke": 5,
+      "cap": "round",
+      "note": "Red pen lines are paths drawn on with stroke-dashoffset and pathLength 1. Circles overshoot and spiral by 12 percent."
+    },
+    "jitter": {
+      "fps": 12,
+      "px": 1.6,
+      "deg": 0.5,
+      "note": "High frequency stop-motion jitter: headline lines, notes and the stamp move to a new random pose 12 times a second."
+    },
+    "flicker": {
+      "fps": 12,
+      "brightness": 0.07,
+      "weave_px": 1,
+      "specks": 14,
+      "scratch_alpha": 0.18,
+      "note": "Film gate flicker: a black overlay at up to 7 percent, a 1 px weave, dust specks and a scratch, all re-rolled 12 times a second."
+    }
+  },
+  "camera": {
+    "note": "A locked camera. The paper never slides around; only the film gate weave moves the whole frame by 1 px."
+  },
+  "palettes": [
+    {
+      "id": "newsprint",
+      "tier": "focused",
+      "name": "Newsprint",
+      "mood": "warm grey-cream paper on a dark walnut desk, brick red pen",
+      "best_for": [
+        "biography",
+        "scandal",
+        "general documentary"
+      ],
+      "roles": {
+        "bg": "#1B1712",
+        "ink": "#1C1710",
+        "primary": "#B0231B",
+        "highlight": "#F6D743",
+        "surface": "#E7DAB9"
+      }
+    },
+    {
+      "id": "cold-war",
+      "tier": "focused",
+      "name": "Cold war",
+      "mood": "green-grey dispatch paper, deep red pen",
+      "best_for": [
+        "espionage",
+        "politics",
+        "wartime"
+      ],
+      "roles": {
+        "bg": "#0E1317",
+        "ink": "#14181B",
+        "primary": "#A3202A",
+        "highlight": "#F0D447",
+        "surface": "#D7D5C6"
+      }
+    },
+    {
+      "id": "true-crime",
+      "tier": "focused",
+      "name": "True crime",
+      "mood": "tobacco-stained case file, blood red pen",
+      "best_for": [
+        "murder",
+        "cold case",
+        "mystery"
+      ],
+      "roles": {
+        "bg": "#140F0F",
+        "ink": "#1B1311",
+        "primary": "#9E1B1E",
+        "highlight": "#F5C531",
+        "surface": "#DACDB1"
+      }
+    },
+    {
+      "id": "xerox",
+      "tier": "focused",
+      "name": "Xerox",
+      "mood": "cool photocopy white, bright red pen",
+      "best_for": [
+        "leaked memos",
+        "corporate downfall",
+        "tech"
+      ],
+      "roles": {
+        "bg": "#10161E",
+        "ink": "#12171C",
+        "primary": "#B8232B",
+        "highlight": "#FFE35A",
+        "surface": "#E1E5E3"
+      }
+    },
+    {
+      "id": "sepia-album",
+      "tier": "focused",
+      "name": "Sepia album",
+      "mood": "honey sepia scrapbook, rust red pen",
+      "best_for": [
+        "family history",
+        "memoir",
+        "nostalgia"
+      ],
+      "roles": {
+        "bg": "#2A1D12",
+        "ink": "#2B1C0F",
+        "primary": "#A6291B",
+        "highlight": "#F4D03F",
+        "surface": "#EDD9AE"
+      }
+    },
+    {
+      "id": "front-page-1970s",
+      "tier": "expanded",
+      "name": "Front page 1970s",
+      "mood": "newsprint with coffee stains and masking tape",
+      "best_for": [
+        "politics",
+        "scandal",
+        "broadcast history"
+      ],
+      "roles": {
+        "bg": "#17130F",
+        "ink": "#1E1810",
+        "primary": "#A82217",
+        "highlight": "#F7D945",
+        "surface": "#E4D6B3",
+        "dim": "#5B4D38",
+        "stain": "#CBB78B",
+        "rule": "#8C7A5A",
+        "shadow": "#0A0806",
+        "tape": "#D8C79A"
+      }
+    },
+    {
+      "id": "wall-street-80s",
+      "tier": "expanded",
+      "name": "Wall Street 80s",
+      "mood": "salmon financial daily, crimson pen",
+      "best_for": [
+        "finance",
+        "fraud",
+        "corporate collapse"
+      ],
+      "roles": {
+        "bg": "#1A1210",
+        "ink": "#2A1A15",
+        "primary": "#A61C2B",
+        "highlight": "#F6DE4A",
+        "surface": "#EFD3BF",
+        "dim": "#6B4A3E",
+        "stain": "#D9B7A1",
+        "rule": "#A07F6E",
+        "shadow": "#0B0605",
+        "tape": "#E3C3AE"
+      }
+    },
+    {
+      "id": "war-time-dispatch",
+      "tier": "expanded",
+      "name": "War time dispatch",
+      "mood": "olive-grey wire copy, faded red",
+      "best_for": [
+        "war",
+        "espionage",
+        "history"
+      ],
+      "roles": {
+        "bg": "#12150F",
+        "ink": "#1A1D14",
+        "primary": "#9F1D1D",
+        "highlight": "#EBD54A",
+        "surface": "#D6D2B8",
+        "dim": "#4F5240",
+        "stain": "#B9B597",
+        "rule": "#7E8066",
+        "shadow": "#070806",
+        "tape": "#C9C5A6"
+      }
+    },
+    {
+      "id": "boardroom-2011",
+      "tier": "expanded",
+      "name": "Boardroom 2011",
+      "mood": "cool office printout, bright red pen",
+      "best_for": [
+        "tech",
+        "leaks",
+        "startups",
+        "product failures"
+      ],
+      "roles": {
+        "bg": "#10161C",
+        "ink": "#15191D",
+        "primary": "#C2272D",
+        "highlight": "#FFE14D",
+        "surface": "#E6E8E4",
+        "dim": "#4A545C",
+        "stain": "#C9CDC8",
+        "rule": "#8A949B",
+        "shadow": "#05080A",
+        "tape": "#D5D9D6"
+      }
+    },
+    {
+      "id": "tabloid-90s",
+      "tier": "expanded",
+      "name": "Tabloid 90s",
+      "mood": "cream tabloid stock, hot red pen, neon marker",
+      "best_for": [
+        "celebrity",
+        "true crime",
+        "media"
+      ],
+      "roles": {
+        "bg": "#1A0F14",
+        "ink": "#1A1316",
+        "primary": "#B8142F",
+        "highlight": "#FFEE33",
+        "surface": "#E9E1C8",
+        "dim": "#5E4A52",
+        "stain": "#D0C6A6",
+        "rule": "#8E7F84",
+        "shadow": "#0A0508",
+        "tape": "#F0E6A0"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "playfair-specialelite-reenie",
+      "mood": "heavy didone headline, worn typewriter, thin red pen",
+      "scale": 1,
+      "display": {
+        "family": "Playfair Display",
+        "weight": 900,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Special Elite",
+        "weight": 400,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Reenie Beanie",
+        "weight": 400,
+        "size": 68,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "abril-courier-caveat",
+      "mood": "fat poster serif, clean courier, round marker hand",
+      "scale": 1,
+      "display": {
+        "family": "Abril Fatface",
+        "weight": 400,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Courier Prime",
+        "weight": 400,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Caveat",
+        "weight": 700,
+        "size": 54,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Cutive Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "oldstandard-crimson-marker",
+      "mood": "old newspaper serif, book body, felt tip",
+      "scale": 1,
+      "display": {
+        "family": "Old Standard TT",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Crimson Text",
+        "weight": 600,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Permanent Marker",
+        "weight": 400,
+        "size": 52,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Special Elite",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "bodoni-lora-kalam",
+      "mood": "high contrast headline, warm body, ballpoint hand",
+      "scale": 1,
+      "display": {
+        "family": "Bodoni Moda",
+        "weight": 800,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Lora",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Kalam",
+        "weight": 700,
+        "size": 54,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "dmserif-specialelite-reenie",
+      "mood": "soft display serif, typewriter, thin red pen",
+      "scale": 1,
+      "display": {
+        "family": "DM Serif Display",
+        "weight": 400,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Special Elite",
+        "weight": 400,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Reenie Beanie",
+        "weight": 400,
+        "size": 68,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Cutive Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "baskerville-spectral-caveat",
+      "mood": "classic book headline, editorial body, quick hand",
+      "scale": 1,
+      "display": {
+        "family": "Libre Baskerville",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.01,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Spectral",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0,
+        "lineHeight": 1.22,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Caveat",
+        "weight": 700,
+        "size": 54,
+        "tracking": 0.02,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.04,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    }
+  ],
+  "type_scale": {
+    "hero": 132,
+    "display": 108,
+    "h1": 84,
+    "h2": 64,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 0,
+      "border": {
+        "width": 0,
+        "role": "rule",
+        "alpha": 0
+      }
+    },
+    "rule": {
+      "thick": 5,
+      "thin": 2,
+      "role": "ink",
+      "note": "A 5 px rule over a 2 px rule under the masthead."
+    },
+    "shadow": {
+      "role": "shadow",
+      "blur": 24,
+      "y": 18,
+      "alpha": 0.55,
+      "note": "One soft drop shadow under the whole clipping."
+    },
+    "tape": {
+      "role": "tape",
+      "w": 190,
+      "h": 60,
+      "alpha": 0.78,
+      "rotate_deg": 35,
+      "note": "Two pieces of masking tape on the top corners."
+    },
+    "halftone": {
+      "pitch": 12,
+      "small_r": 2.2,
+      "big_r": 4.6,
+      "note": "Pictures are halftone dots in ink, with one spot of red in primary."
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 18,
+    "stagger_frames": 6,
+    "min_hold_frames": 6,
+    "camera": "locked; film gate weave 1 px at 12 fps",
+    "easings": {
+      "draw": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "tear": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "fade": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ]
+    },
+    "springs": {
+      "stamp": {
+        "damping": 12,
+        "stiffness": 220,
+        "mass": 0.9
+      },
+      "tape": {
+        "damping": 14,
+        "stiffness": 180,
+        "mass": 1
+      }
+    },
+    "pacing": {
+      "note": "Paper tears in over 18 frames, headline lines 6 frames apart, body types over 30 frames, marker sweep 24 frames, red pen notes 20 frames each, stamp at about frame 146, hold the last frame at least 30 frames."
+    }
+  },
+  "composition": {
+    "margin": 9,
+    "align": "left",
+    "anchors": [
+      "masthead",
+      "headline",
+      "column",
+      "figure",
+      "margin-notes",
+      "stamp"
+    ],
+    "safe": {
+      "x": [
+        8,
+        85
+      ],
+      "y": [
+        8,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "paper-tear-reveal",
+      "recipe": "A jagged horizontal edge sweeps down the clipping over 18 frames, with a lighter fibre edge on the tear. Ease in out."
+    },
+    {
+      "name": "marker-draw-on",
+      "recipe": "A yellow highlighter grows over a line of type from left to right in 24 frames, ragged at the end, blended with multiply."
+    },
+    {
+      "name": "stop-motion-jitter",
+      "recipe": "Headline lines, notes and the stamp take a new random offset of 1.6 px and 0.5 degrees 12 times a second. Body text stays still."
+    },
+    {
+      "name": "film-gate-flicker",
+      "recipe": "A black overlay at up to 7 percent, a 1 px weave, dust specks and a scratch, re-rolled at 12 fps."
+    },
+    {
+      "name": "red-pen-circle",
+      "recipe": "A circle around a word, drawn with stroke-dashoffset, overshooting the start and spiralling out by 12 percent."
+    },
+    {
+      "name": "serif-stamp",
+      "recipe": "A boxed word in primary lands on a spring from 1.7x, rotated -9 degrees, with ink dropouts from feTurbulence."
+    }
+  ],
+  "widgets": [
+    "MagazineCover",
+    "PressFront",
+    "PaperTear",
+    "LiveMarkup",
+    "SerifStamp",
+    "FilmLook",
+    "ScreenplayPage"
+  ],
+  "forbidden": [
+    "a photograph or a video",
+    "text on the dark desk",
+    "a flat colour block for the paper",
+    "tape or stamp that hides text",
+    "a perfectly straight torn edge",
+    "marker without multiply",
+    "jitter on the body text",
+    "flicker above 8 percent",
+    "a hex colour in a component",
+    "a handwriting font under 48 px",
+    "default CSS ease or linear for the tear",
+    "more than one stamp per 10 s"
+  ]
+}
