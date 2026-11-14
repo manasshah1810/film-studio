@@ -3,6 +3,11 @@
 Read this first when resuming. Newest state at the top of each section.
 
 ## State
+- **2026-11-14 prompt 09: sound designer manual only.** Added `personas/sound-designer.md` (109 lines):
+  +/-2 frame sync contract, motion and widget to SFX table, pacing rules (riser, 12-18 frame silence
+  drop, -18 dB duck), 8-row works/fails table, worked Nokia cue sheet (19 cues). Nothing else changed.
+  The prompt gave 6 sound mappings; the other table rows, duck attack/release times, riser lead and
+  level numbers are choices made in the manual. No validator or engine reads the cue sheet shape.
 - **2026-11-14 prompt 08: motion choreographer manual only.** Added `personas/motion-choreographer.md`
   (111 lines): 105-frame state-change law, Zero Dead Velocity, 4-phase energy curve, 9-primitive pairing
   guide with per-film limits, 8-row works/fails table, worked Nokia timeline (18 resets, largest gap 75
@@ -94,6 +99,7 @@ All `requires: none` (code-drawn, no generation API).
 - Platform safe-zone numbers (third-party)
 
 ## Log
+- 2026-11-14: prompt 09 done (sound designer manual).
 - 2026-11-14: prompt 08 done (motion choreographer manual).
 - 2026-11-14: prompt 07 done (widget integrator manual).
 - 2026-11-14: prompts 03-06 done as four manuals; extras reverted on request.
