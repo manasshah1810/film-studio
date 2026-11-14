@@ -1,0 +1,728 @@
+{
+  "style": "scifi-hud",
+  "version": 1,
+  "subject_mode": "ui-first",
+  "subject_note": "Mode C, UI and data first. The frame is an instrument: rings, brackets, waveforms and readouts. No person, no photo, no video, no network images. The one subject is the thing being tracked, drawn as a wire shape.",
+  "surface_roles": [
+    "bg",
+    "surface"
+  ],
+  "text_roles": {
+    "body": [
+      "ink"
+    ],
+    "display": [
+      "ink"
+    ]
+  },
+  "hud": {
+    "rings": [
+      {
+        "id": "ticks",
+        "r": 330,
+        "kind": "tick ring",
+        "count": 120,
+        "stroke": 12,
+        "spin": "ccw slow",
+        "note": "minor ticks; a second ring of 24 major ticks sits on the same radius, stroke 24"
+      },
+      {
+        "id": "outer-arcs",
+        "r": 296,
+        "kind": "segmented arcs",
+        "count": 6,
+        "gap": 0.22,
+        "stroke": 6,
+        "spin": "cw 0.5 deg per frame",
+        "note": "6 arcs with a 22 percent gap"
+      },
+      {
+        "id": "gauge",
+        "r": 262,
+        "kind": "gauge arc",
+        "stroke": 14,
+        "spin": "none",
+        "note": "a partial arc that fills with the signal value; the orbit dot rides this radius"
+      },
+      {
+        "id": "fine",
+        "r": 228,
+        "kind": "fine dashes",
+        "count": 36,
+        "gap": 0.5,
+        "stroke": 3,
+        "spin": "ccw 0.9 deg per frame",
+        "note": "36 short dashes"
+      },
+      {
+        "id": "inner-arcs",
+        "r": 190,
+        "kind": "segmented arcs",
+        "count": 4,
+        "gap": 0.3,
+        "stroke": 2,
+        "spin": "cw 1.6 deg per frame",
+        "note": "4 arcs, the fastest ring"
+      },
+      {
+        "id": "lens",
+        "r": 150,
+        "kind": "lens ring",
+        "stroke": 2,
+        "spin": "none",
+        "note": "a filled disc with a soft radial gradient and a thin rim"
+      }
+    ],
+    "brackets": {
+      "inset": 36,
+      "arm": 110,
+      "stroke": 5,
+      "note": "Four corner registration brackets, drawn on in 12 frames, plus a plus mark at each edge middle."
+    },
+    "scanlines": {
+      "pitch": 4,
+      "line": 2,
+      "alpha": 0.16,
+      "band_h": 220,
+      "band_alpha": 0.06,
+      "note": "Drawn above the rings and under every plate. Never over text."
+    },
+    "waveform": {
+      "bars": 28,
+      "gap": 6,
+      "note": "Live signal bars on a plate, height from two summed sines, the peak bar takes the highlight."
+    },
+    "readout": {
+      "plate": "surface",
+      "label_px": 34,
+      "value_px": 44,
+      "scramble": {
+        "frames": 18,
+        "stagger": 8,
+        "charset": "0123456789ABCDEF#%/<>"
+      },
+      "note": "Value is a monospace string that scrambles, then locks character by character from the left."
+    }
+  },
+  "camera": {
+    "note": "A locked camera. Motion lives in the rings and the readouts; the frame itself only has a short RGB glitch."
+  },
+  "palettes": [
+    {
+      "id": "cyan-ops",
+      "tier": "focused",
+      "name": "Cyan ops",
+      "mood": "cold cyan on near black, one yellow warning",
+      "best_for": [
+        "AI",
+        "robotics",
+        "cyber",
+        "dev tools"
+      ],
+      "roles": {
+        "bg": "#050B12",
+        "ink": "#E6F7FF",
+        "primary": "#22D3EE",
+        "highlight": "#FACC15",
+        "surface": "#0D1B28"
+      }
+    },
+    {
+      "id": "amber-terminal",
+      "tier": "focused",
+      "name": "Amber terminal",
+      "mood": "old CRT amber, orange lock",
+      "best_for": [
+        "retro tech",
+        "mainframes",
+        "history of computing",
+        "hacking"
+      ],
+      "roles": {
+        "bg": "#0D0A04",
+        "ink": "#FFF3D6",
+        "primary": "#FFB000",
+        "highlight": "#FF6A3D",
+        "surface": "#1F1708"
+      }
+    },
+    {
+      "id": "phosphor-green",
+      "tier": "focused",
+      "name": "Phosphor green",
+      "mood": "radar green, yellow cue",
+      "best_for": [
+        "security",
+        "networks",
+        "sonar",
+        "systems"
+      ],
+      "roles": {
+        "bg": "#040C07",
+        "ink": "#E8FFEF",
+        "primary": "#39FF88",
+        "highlight": "#FDE047",
+        "surface": "#0B1C12"
+      }
+    },
+    {
+      "id": "red-alert",
+      "tier": "focused",
+      "name": "Red alert",
+      "mood": "threat red, gold highlight",
+      "best_for": [
+        "breaches",
+        "threats",
+        "warnings",
+        "defence"
+      ],
+      "roles": {
+        "bg": "#0E0507",
+        "ink": "#FFEDEE",
+        "primary": "#FF4D5E",
+        "highlight": "#FFC857",
+        "surface": "#220D12"
+      }
+    },
+    {
+      "id": "ice-blue",
+      "tier": "focused",
+      "name": "Ice blue",
+      "mood": "steel blue, teal cue",
+      "best_for": [
+        "space",
+        "aerospace",
+        "science",
+        "cloud"
+      ],
+      "roles": {
+        "bg": "#070A14",
+        "ink": "#EEF3FF",
+        "primary": "#7AA2FF",
+        "highlight": "#5EEAD4",
+        "surface": "#121A30"
+      }
+    },
+    {
+      "id": "deep-space",
+      "tier": "expanded",
+      "name": "Deep space",
+      "mood": "indigo void, blue targeting, violet cue",
+      "best_for": [
+        "orbital",
+        "AI models",
+        "astronomy",
+        "launch"
+      ],
+      "roles": {
+        "bg": "#04060E",
+        "ink": "#EAF0FF",
+        "primary": "#60A5FA",
+        "highlight": "#A78BFA",
+        "surface": "#0C1124",
+        "dim": "#94A3C8",
+        "grid": "#1B2547",
+        "alert": "#FB7185",
+        "ok": "#4ADE80",
+        "glow": "#3B82F6"
+      }
+    },
+    {
+      "id": "cyber-noir",
+      "tier": "expanded",
+      "name": "Cyber noir",
+      "mood": "purple night, magenta reticle, cyan cue",
+      "best_for": [
+        "cyber thriller",
+        "crypto",
+        "surveillance",
+        "identity"
+      ],
+      "roles": {
+        "bg": "#08050F",
+        "ink": "#F5EEFF",
+        "primary": "#E879F9",
+        "highlight": "#22D3EE",
+        "surface": "#170E26",
+        "dim": "#B09AD0",
+        "grid": "#2A1A45",
+        "alert": "#FF5A6E",
+        "ok": "#5EEAD4",
+        "glow": "#A21CAF"
+      }
+    },
+    {
+      "id": "aerospace-amber",
+      "tier": "expanded",
+      "name": "Aerospace amber",
+      "mood": "graphite panel, amber lock, sky cue",
+      "best_for": [
+        "flight",
+        "avionics",
+        "drones",
+        "engineering"
+      ],
+      "roles": {
+        "bg": "#0A0A08",
+        "ink": "#F7F3E6",
+        "primary": "#F59E0B",
+        "highlight": "#38BDF8",
+        "surface": "#1B1A14",
+        "dim": "#B5AD93",
+        "grid": "#2A281E",
+        "alert": "#F87171",
+        "ok": "#86EFAC",
+        "glow": "#B45309"
+      }
+    },
+    {
+      "id": "mil-green",
+      "tier": "expanded",
+      "name": "Mil green",
+      "mood": "olive night vision, lime lock, yellow cue",
+      "best_for": [
+        "defence",
+        "robots",
+        "field ops",
+        "logistics"
+      ],
+      "roles": {
+        "bg": "#060A06",
+        "ink": "#EBF5E6",
+        "primary": "#84CC16",
+        "highlight": "#FACC15",
+        "surface": "#101A10",
+        "dim": "#9DB394",
+        "grid": "#1C2C1A",
+        "alert": "#FB923C",
+        "ok": "#4ADE80",
+        "glow": "#3F6212"
+      }
+    },
+    {
+      "id": "fusion-orange",
+      "tier": "expanded",
+      "name": "Fusion orange",
+      "mood": "reactor orange, teal cue, hot pink alert",
+      "best_for": [
+        "energy",
+        "hardware",
+        "chips",
+        "labs"
+      ],
+      "roles": {
+        "bg": "#0B0707",
+        "ink": "#FFF1EA",
+        "primary": "#FB923C",
+        "highlight": "#2DD4BF",
+        "surface": "#1D1210",
+        "dim": "#C4A69A",
+        "grid": "#301B16",
+        "alert": "#F43F5E",
+        "ok": "#A3E635",
+        "glow": "#C2410C"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "id": "orbitron-chakra-sharetech",
+      "mood": "wide sci-fi display, squared body, thin mono",
+      "scale": 0.9,
+      "display": {
+        "family": "Orbitron",
+        "weight": 800,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Chakra Petch",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Rajdhani",
+        "weight": 700,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Share Tech Mono",
+        "weight": 400,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "oxanium-grotesk-jetbrains",
+      "mood": "angular display, clean grotesk, code mono",
+      "scale": 1,
+      "display": {
+        "family": "Oxanium",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Space Grotesk",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Oxanium",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "rajdhani-exo-plex",
+      "mood": "tall squared display, soft body, plex mono",
+      "scale": 1.1,
+      "display": {
+        "family": "Rajdhani",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Exo 2",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Saira",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "saira-inter-dmmono",
+      "mood": "neutral machine display, ui body",
+      "scale": 1.05,
+      "display": {
+        "family": "Saira",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Inter",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Barlow Condensed",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "chakra-sora-martian",
+      "mood": "chiselled display, round geometric body, wide mono",
+      "scale": 0.95,
+      "display": {
+        "family": "Chakra Petch",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Sora",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Chakra Petch",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Martian Mono",
+        "weight": 500,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    },
+    {
+      "id": "kode-barlow-spacemono",
+      "mood": "pixel code display, condensed body, retro mono",
+      "scale": 1,
+      "display": {
+        "family": "Kode Mono",
+        "weight": 700,
+        "size": 108,
+        "tracking": 0.02,
+        "lineHeight": 1,
+        "case": "upper"
+      },
+      "body": {
+        "family": "Barlow Semi Condensed",
+        "weight": 500,
+        "size": 44,
+        "tracking": 0.01,
+        "lineHeight": 1.2,
+        "case": "none"
+      },
+      "accent": {
+        "family": "Barlow Condensed",
+        "weight": 600,
+        "size": 56,
+        "tracking": 0.06,
+        "lineHeight": 1.05,
+        "case": "upper"
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weight": 700,
+        "size": 34,
+        "tracking": 0.02,
+        "lineHeight": 1.25,
+        "case": "upper"
+      }
+    }
+  ],
+  "numerals": {
+    "tabular": true,
+    "css": "font-variant-numeric: tabular-nums",
+    "rule": "Every number is tabular and set in the mono. Fixed width keeps a scrambling value from jumping."
+  },
+  "type_scale": {
+    "hero": 132,
+    "display": 108,
+    "h1": 84,
+    "h2": 64,
+    "body": 44,
+    "label": 34
+  },
+  "tokens": {
+    "frame": {
+      "w": 1080,
+      "h": 1920,
+      "note": "Tokens are pixels on the 1080 x 1920 frame."
+    },
+    "card": {
+      "radius": 10,
+      "border": {
+        "width": 2,
+        "role": "primary",
+        "alpha": 0.55
+      }
+    },
+    "plate": {
+      "radius": 8,
+      "fill": "surface",
+      "note": "Every readout sits on an opaque plate with a thin primary border. Text is never put on the rings, the grid or the scanlines."
+    },
+    "stroke": {
+      "hair": 2,
+      "line": 4,
+      "heavy": 6,
+      "note": "Three line weights only. Rings use 2 to 6, glows use none."
+    },
+    "grid": {
+      "pitch": 60,
+      "role": "grid",
+      "alpha": 0.5,
+      "note": "A faint square grid under the reticle. Focused palettes blend primary 14 percent into bg."
+    },
+    "glow": {
+      "role": "primary",
+      "blur": 14,
+      "alpha": 0.22,
+      "note": "One soft glow behind the reticle. No glow on text."
+    },
+    "glitch": {
+      "frames": 8,
+      "offset_px": 12,
+      "bands": 3,
+      "note": "RGB chromatic glitch: two ghost copies in primary and alert, offset in x, with horizontal slice bands."
+    },
+    "lock": {
+      "frames": 30,
+      "note": "The lock box shrinks from the outer ring to the target on a spring, then the status flips to LOCKED."
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "hold": 10,
+    "enter_frames": 12,
+    "stagger_frames": 8,
+    "min_hold_frames": 6,
+    "camera": "locked; the rings spin, the readouts decode, a 8 frame RGB glitch marks the lock",
+    "easings": {
+      "draw": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "lock": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "fade": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "settle": [
+        0.22,
+        1,
+        0.36,
+        1
+      ]
+    },
+    "springs": {
+      "lock": {
+        "damping": 13,
+        "stiffness": 150,
+        "mass": 1
+      },
+      "pop": {
+        "damping": 11,
+        "stiffness": 190,
+        "mass": 0.8
+      }
+    },
+    "pacing": {
+      "note": "Brackets 12 frames, rings draw on staggered 6 frames apart, readouts decode 18 frames each staggered 8, lock at about frame 95, glitch 8 frames, hold the locked frame at least 30 frames."
+    }
+  },
+  "composition": {
+    "margin": 8,
+    "align": "left",
+    "anchors": [
+      "title-top",
+      "status-row",
+      "reticle-center",
+      "waveform",
+      "readout-grid"
+    ],
+    "safe": {
+      "x": [
+        8,
+        85
+      ],
+      "y": [
+        8,
+        80
+      ]
+    }
+  },
+  "signature_moves": [
+    {
+      "name": "text-scramble-decode",
+      "recipe": "A readout shows random glyphs from a fixed charset, then locks one character at a time from the left over 18 frames. Monospace only, so the width never changes."
+    },
+    {
+      "name": "counter-rotating-reticle-drift",
+      "recipe": "Adjacent rings turn in opposite directions at different speeds (0.5, 0.9, 1.6 degrees per frame), so the reticle always looks alive and never repeats in sync."
+    },
+    {
+      "name": "rgb-chromatic-glitch",
+      "recipe": "For 8 frames two ghost copies of the reticle in primary and alert sit 12 px left and right, and three horizontal slices shift. Use once, on the lock."
+    },
+    {
+      "name": "lock-on",
+      "recipe": "The lock box shrinks from the outer ring to the target on a spring, the status flips from TRACK to LOCKED and the gauge fills."
+    },
+    {
+      "name": "bracket-draw",
+      "recipe": "Corner brackets draw from the corner outward over 12 frames using stroke-dashoffset."
+    },
+    {
+      "name": "signal-bars",
+      "recipe": "A row of bars moves with two summed sines; the tallest bar takes the highlight colour."
+    }
+  ],
+  "widgets": [
+    "OrbitRing",
+    "CodeBody",
+    "LensRing",
+    "EyedropperGrade",
+    "GridCollapse"
+  ],
+  "forbidden": [
+    "text on the rings, grid or scanlines",
+    "a proportional font for a number",
+    "scanlines drawn over text",
+    "a glow on text",
+    "rings that all spin the same way at the same speed",
+    "a label under 34 px",
+    "a label under 4.5:1",
+    "a hex colour in a component",
+    "a photograph or a video",
+    "default CSS ease or linear for the lock",
+    "glitch more than once in 10 s"
+  ]
+}

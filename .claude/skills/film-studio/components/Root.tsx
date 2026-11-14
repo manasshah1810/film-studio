@@ -8,6 +8,7 @@ import {CrisisBaseline} from './baseline/CrisisBaseline';
 import {Preview as HormoziPreview, PreviewSheet as HormoziSheet, PREVIEW_FRAMES as HORMOZI_FRAMES, SHEET_SIZE as HORMOZI_SHEET} from './styles/hormozi-kinetic/Preview';
 import {Preview as DnPreview, PreviewSheet as DnSheet, PREVIEW_FRAMES as DN_FRAMES, SHEET_SIZE as DN_SHEET} from './styles/dark-neon-dataviz/Preview';
 import {Preview as TvPreview, PreviewSheet as TvSheet, PREVIEW_FRAMES as TV_FRAMES, SHEET_SIZE as TV_SHEET} from './styles/tactical-vector-maps/Preview';
+import {Preview as HudPreview, PreviewSheet as HudSheet, PREVIEW_FRAMES as HUD_FRAMES, SHEET_SIZE as HUD_SHEET} from './styles/scifi-hud/Preview';
 import {Preview as PdPreview, PreviewSheet as PdSheet, PREVIEW_FRAMES as PD_FRAMES, SHEET_SIZE as PD_SHEET} from './styles/2-5d-parallax-depth/Preview';
 import {Preview as NeoPreview, PreviewSheet as NeoSheet, PREVIEW_FRAMES as NEO_FRAMES, SHEET_SIZE as NEO_SHEET} from './styles/neo-brutalist-ui/Preview';
 
@@ -55,6 +56,8 @@ export const Root: React.FC = () => (
 		<Composition id="PreviewSheet-tactical-vector-maps" component={TvSheet} durationInFrames={TV_FRAMES} fps={30} width={TV_SHEET.width} height={TV_SHEET.height} defaultProps={{palette: 'night-atlas', pairing: 'oswald-inter-playfair'}} />
 		<Composition id="Preview-2-5d-parallax-depth" component={PdPreview} durationInFrames={PD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'dusk-harbour', pairing: 'anton-dmsans-dmserif'}} />
 		<Composition id="PreviewSheet-2-5d-parallax-depth" component={PdSheet} durationInFrames={PD_FRAMES} fps={30} width={PD_SHEET.width} height={PD_SHEET.height} defaultProps={{palette: 'dusk-harbour', pairing: 'anton-dmsans-dmserif'}} />
+		<Composition id="Preview-scifi-hud" component={HudPreview} durationInFrames={HUD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{palette: 'cyan-ops', pairing: 'orbitron-chakra-sharetech'}} />
+		<Composition id="PreviewSheet-scifi-hud" component={HudSheet} durationInFrames={HUD_FRAMES} fps={30} width={HUD_SHEET.width} height={HUD_SHEET.height} defaultProps={{palette: 'cyan-ops', pairing: 'orbitron-chakra-sharetech'}} />
 		<Composition id="Baseline-nokia"component={NokiaBaseline} durationInFrames={1350} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-cats" component={CatsBaseline} durationInFrames={900} fps={30} width={1080} height={1920} />
 		<Composition id="Baseline-crisis" component={CrisisBaseline} durationInFrames={1800} fps={30} width={1920} height={1080} />
