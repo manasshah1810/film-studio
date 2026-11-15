@@ -54,7 +54,7 @@
    "phase": "setup",
    "panel": "s2p1",
    "target": "panel",
-   "frames": 111,
+   "frames": 141,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
@@ -67,16 +67,16 @@
    "note": "s2 headline"
   },
   {
-   "frame": 319,
+   "frame": 349,
    "primitive": "film-gate",
    "phase": "setup",
    "panel": "s2p2",
    "target": "panel",
-   "frames": 102,
+   "frames": 72,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
-   "frame": 325,
+   "frame": 384,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s2p2",
@@ -144,7 +144,7 @@
    "phase": "setup",
    "panel": "s4p1",
    "target": "panel",
-   "frames": 128,
+   "frames": 76,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
@@ -157,16 +157,16 @@
    "note": "s4 headline"
   },
   {
-   "frame": 894,
+   "frame": 842,
    "primitive": "film-gate",
    "phase": "setup",
    "panel": "s4p2",
    "target": "panel",
-   "frames": 110,
+   "frames": 98,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
-   "frame": 900,
+   "frame": 894,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s4p2",
@@ -175,16 +175,16 @@
    "note": "s4 headline"
   },
   {
-   "frame": 1004,
+   "frame": 940,
    "primitive": "film-gate",
    "phase": "setup",
    "panel": "s4p3",
    "target": "panel",
-   "frames": 148,
+   "frames": 212,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
-   "frame": 1079,
+   "frame": 979,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s4p3",
@@ -198,7 +198,7 @@
    "phase": "turn",
    "panel": "s5p1",
    "target": "panel",
-   "frames": 122,
+   "frames": 79,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
@@ -211,16 +211,16 @@
    "note": "s5 headline"
   },
   {
-   "frame": 1274,
+   "frame": 1231,
    "primitive": "film-gate",
    "phase": "turn",
    "panel": "s5p2",
    "target": "panel",
-   "frames": 114,
+   "frames": 157,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
-   "frame": 1280,
+   "frame": 1274,
    "primitive": "stop-motion-jitter",
    "phase": "turn",
    "panel": "s5p2",
@@ -252,7 +252,7 @@
    "phase": "payoff",
    "panel": "s6p1",
    "target": "panel",
-   "frames": 83,
+   "frames": 124,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
@@ -265,12 +265,12 @@
    "note": "s6 headline"
   },
   {
-   "frame": 1610,
+   "frame": 1651,
    "primitive": "film-gate",
    "phase": "payoff",
    "panel": "s6p2",
    "target": "panel",
-   "frames": 132,
+   "frames": 91,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
@@ -306,25 +306,16 @@
    "phase": "close",
    "panel": "s7p1",
    "target": "panel",
-   "frames": 96,
+   "frames": 59,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {
-   "frame": 1908,
-   "primitive": "spring-overshoot",
-   "phase": "close",
-   "panel": "s7p1",
-   "target": "h",
-   "frames": 18,
-   "note": "s7 headline"
-  },
-  {
-   "frame": 1929,
+   "frame": 1892,
    "primitive": "film-gate",
    "phase": "close",
    "panel": "s7p2",
    "target": "panel",
-   "frames": 116,
+   "frames": 153,
    "note": "archival film gate: flicker, dust, scratch"
   },
   {

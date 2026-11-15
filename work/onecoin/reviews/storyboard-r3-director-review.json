@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 3,
+ "scorer": "director-review",
+ "rubric": "rubrics/storyboard.md",
+ "average": 8.1,
+ "minimum": 7,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 8.5,
+   "evidence": "The frame-0 cover stops a scroll; the 52 px label reads after the number."
+  },
+  {
+   "name": "One focal point",
+   "score": 8,
+   "evidence": "Pen notes sit next to their subject; s3p2/s3p3 and s6p1/s6p2 still read as the same frame."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8.5,
+   "evidence": "Panels follow visual_intent; s3p3's existed-nowhere coins are not visible at the freeze."
+  },
+  {
+   "name": "Layout choice",
+   "score": 7.5,
+   "evidence": "Tags mostly match and peak panels break the grid; s5p3 and s3p2 versus lack a second side."
+  },
+  {
+   "name": "Readability",
+   "score": 8,
+   "evidence": "Captions, headlines and notes read; the cover label and in-picture labels are too small."
+  },
+  {
+   "name": "Platform fit",
+   "score": 7,
+   "evidence": "s4p3 7.07 s, s5p2 5.23 s and s7p2 5.1 s exceed 5 s; average about 3.8 s."
+  },
+  {
+   "name": "Rhythm",
+   "score": 8,
+   "evidence": "Energy shapes vary; the peak lands on the last panel in every scene."
+  },
+  {
+   "name": "Cast used well",
+   "score": 7.5,
+   "evidence": "s6p3 acts its line; s6p1/s6p2 and s4p1/s4p2 props sit still."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 9,
+   "evidence": "Every figure traces to a verified fact; ?,??? is honestly unspecified."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 9,
+   "evidence": "ONE PRIVATE NUMBER over the padlocked page loops cleanly to the $4 BILLION cover."
+  }
+ ],
+ "feedback": [
+  "Visible changes inside panels over 5 s",
+  "Make each pair's change readable at the freeze",
+  "versus tags need two readable sides",
+  "Peak placement should follow the power word",
+  "Enlarge and reorder the cover label"
+ ]
+}

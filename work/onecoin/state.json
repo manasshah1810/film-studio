@@ -33,14 +33,16 @@
    "output_path": "../../../work/onecoin/cast.json"
   },
   "art-director": {
-   "status": "passed",
-   "round": 0,
-   "output_path": "../../../work/onecoin/storyboard.json"
+   "status": "flagged",
+   "round": 3,
+   "output_path": "../../../work/onecoin/storyboard.json",
+   "note": "review gate not met after round 3; see flags.md"
   },
   "widget-integrator": {
-   "status": "passed",
-   "round": 0,
-   "output_path": "../../../work/onecoin/widgets.json"
+   "status": "flagged",
+   "round": 3,
+   "output_path": "../../../work/onecoin/widgets.json",
+   "note": "review gate not met after round 3; see flags.md"
   },
   "motion-choreographer": {
    "status": "passed",
@@ -61,7 +63,17 @@
    "status": "passed",
    "round": 0,
    "output_path": "../../../work/onecoin/reviews/checks.json"
+  },
+  "pass1": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/out/pass1.mp4"
+  },
+  "pass2": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/out/final.mp4"
   }
  },
- "updated": "2026-11-15T08:15:52.860Z"
+ "updated": "2026-11-15T08:41:36.420Z"
 }

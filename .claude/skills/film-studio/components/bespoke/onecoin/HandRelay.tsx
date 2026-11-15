@@ -30,7 +30,7 @@ export const HandRelay: BespokeScene = ({kit}) => {
 					<g transform={`translate(${W * 0.4} ${H * 0.5}) scale(${(0.85 + 0.15 * lock).toFixed(3)})`}>
 						<rect x={-W * 0.3} y={-H * 0.38} width={W * 0.6} height={H * 0.76} rx={10 * k} fill={role('surface')} stroke={role('ink')} strokeWidth={6 * k} />
 						<line x1={0} y1={-H * 0.38} x2={0} y2={H * 0.38} stroke={role('ink')} strokeWidth={4 * k} />
-						{[-1, 1].map((s) => <line key={s} x1={-W * 0.36} y1={s * H * 0.42} x2={W * 0.36} y2={-s * H * 0.42} stroke={role('primary')} strokeWidth={14 * k} strokeDasharray={`${22 * k} ${9 * k}`} strokeLinecap="round" opacity={lock} />)}
+						{[-1, 1].map((s) => Array.from({length: 11}).map((_, j) => { const u = j / 10, x = -W * 0.36 + u * W * 0.72, y = s * H * 0.42 - u * s * H * 0.84, ang = Math.atan2(-s * H * 0.84, W * 0.72) * 180 / Math.PI; return <ellipse key={`${s}${j}`} cx={x} cy={y} rx={W * 0.04} ry={W * 0.02} fill="none" stroke={role('primary')} strokeWidth={7 * k} transform={`rotate(${ang + (j % 2 ? 90 : 0) * 0} ${x} ${y})`} opacity={lock * (j / 10 <= lock ? 1 : 0)} />; }))}
 						<rect x={-W * 0.07} y={-H * 0.08} width={W * 0.14} height={H * 0.16} rx={6 * k} fill={role('primary')} stroke={role('ink')} strokeWidth={3 * k} />
 					</g>
 					{Array.from({length: pile + 1}).map((_, i) => (
@@ -46,7 +46,7 @@ export const HandRelay: BespokeScene = ({kit}) => {
 	return (
 		<div style={{position: 'absolute', ...box}}>
 			<svg width={W} height={H} style={{overflow: 'visible'}}>
-				{xs.map((x, i) => <Hand key={i} x={x} y={y} s={1.05 * k} ink={role('ink')} paper={role('surface')} k={k} flip={false} />)}
+				{xs.map((x, i) => { const give = i0 === i ? u : i0 + 1 === i ? 1 - u : 0; return <g key={i} transform={`rotate(${(-12 * give).toFixed(2)} ${x} ${y})`}><Hand x={x} y={y - give * H * 0.04} s={1.05 * k} ink={role('ink')} paper={role('surface')} k={k} flip={false} /></g>; })}
 				{xs.slice(0, n - 1).map((x, i) => {
 					const s = Math.min(1.1, pop(6 + (i + 1) * step - 4));
 					return (

@@ -22,7 +22,7 @@ export const CoinCutout: BespokeScene = ({kit}) => {
 				<g transform={`translate(${cx} ${cy}) scale(${(sx * enter).toFixed(4)} ${enter.toFixed(4)})`}>
 					<circle r={R} fill={role('highlight')} stroke={role('ink')} strokeWidth={10 * k} />
 					<circle r={R * 0.78} fill="none" stroke={role('ink')} strokeWidth={5 * k} opacity={0.55} />
-					<path d={`M ${-R * 0.25} ${-R * 0.45} L ${R * 0.25} ${-R * 0.45} L ${R * 0.05} 0 L ${R * 0.28} ${R * 0.45} L ${-R * 0.28} ${R * 0.45} L ${-R * 0.05} 0 Z`} fill={role('ink')} opacity={0.75 * (1 - flat)} />
+					<text x={0} y={R * 0.36} textAnchor="middle" style={{...kit.font('display', R / k * 1.05), fill: role('ink')}} opacity={0.85 * (1 - flat)}>1</text>
 				</g>
 				{flat > 0 ? (
 					<g opacity={flat}>

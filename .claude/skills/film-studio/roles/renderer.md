@@ -53,6 +53,10 @@ If `build-film.js`, `stills.js`, `render.js` or `check-render.js` exits non-zero
 1. Copy the FAIL lines to the Director exactly.
 2. `node scripts/state-manager.js set work pass1 failed --note "<the first FAIL line>"` (or `pass2`).
 3. Stop. Do not change files to make the error go away and do not run it again.
+Behind an HTTPS proxy (a cloud sandbox), Google Fonts fail with "Failed to fetch": Remotion launches Chrome
+with `--no-proxy-server`. Point `FS_BROWSER` at a small wrapper that drops `--no-proxy-server`,
+`--proxy-server=*` and `--proxy-bypass-list=*` and adds `--proxy-server=$HTTPS_PROXY` plus
+`--proxy-bypass-list=localhost;127.0.0.1;<local>`. Never disable TLS checks for this. [CHECK]
 The usual causes: an unapproved cast id in a panel, a widget id missing from `library/widgets.json`, a
 font family missing from `components/engine/fonts.generated.ts` (run `node scripts/gen-fonts.js`), or
 `npm install` not run in `components/`.

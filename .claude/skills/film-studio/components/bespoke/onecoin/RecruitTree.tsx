@@ -35,7 +35,7 @@ export const RecruitTree: BespokeScene = ({kit}) => {
 							<circle r={r * 0.45} fill={product ? 'none' : role('highlight')} stroke={product ? role('ink') : role('ink')} strokeWidth={2 * k} strokeDasharray={product ? `${4 * k} ${4 * k}` : undefined} opacity={product ? 1 - 0.6 * strike : 1} />
 							{/* the turn: every recruit gets a red price tag; the recruit was the product */}
 							{product && t > 0 ? (
-								<g opacity={tag} transform={`translate(${r * 0.75} ${-r * 0.95}) rotate(${-18 + i * 7}) scale(${(0.6 + 0.4 * tag).toFixed(3)})`}>
+								<g opacity={tag} transform={`translate(${r * 0.55} ${-r * 1.25}) rotate(${-18 + i * 7}) scale(${((0.6 + 0.4 * tag) * (t === 3 ? 1.5 : 1.9)).toFixed(3)})`}>
 									<path d={`M 0 0 L ${r * 1.1} 0 L ${r * 1.4} ${r * 0.35} L ${r * 1.1} ${r * 0.7} L 0 ${r * 0.7} Z`} fill={role('primary')} stroke={role('ink')} strokeWidth={2 * k} />
 									<circle cx={r * 1.12} cy={r * 0.35} r={r * 0.1} fill={role('surface')} />
 								</g>

@@ -317,12 +317,14 @@ const PanelView: React.FC<{p: PanelDefM; r: R; castById: Map<string, CastEntry>;
 		<AbsoluteFill style={{transform: [push, pm.transform, g?.weaveTransform].filter(Boolean).join(' '), filter: pm.filter, transformOrigin: '50% 45%'}}>
 			{boxes.filter((b) => b.kind === 'card').map((b, i) => <CardBox key={b.id} r={r} b={b} f={f} p={p} i={i} />)}
 			{p.cast.map((c) => { const e = castById.get(c.id); return e ? <CastFigure key={c.id} r={r} c={e} at={c} f={f} talking={e.role === 'narrator' && talking(f)} /> : null; })}
-			{boxes.filter((b) => b.kind === 'text').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
+			{boxes.filter((b) => b.kind === 'text' && b.role !== 'label').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
 			{(p.bespoke ?? []).map((b, i) => (
 				<Sequence key={`bespoke-${b.id}-${i}`} from={b.from - p.from} durationInFrames={b.frames} layout="none">
 					<BespokeMount id={b.id} r={r} box={b.box} props={b.props} frames={b.frames} cover={b.from === 0} />
 				</Sequence>
 			))}
+			{/* labels (margin notes, tags) annotate the picture, so they sit above the bespoke scene */}
+			{boxes.filter((b) => b.kind === 'text' && b.role === 'label').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
 			{p.widgets.map((w, i) => (
 				<Sequence key={`${w.id}-${i}`} from={w.from - p.from} durationInFrames={w.frames} layout="none">
 					<WidgetMount id={w.id} tk={tokens(WIDGETS[w.id]?.family ?? 'social')} box={w.box} props={w.props} frames={w.frames} />
@@ -366,7 +368,7 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const per = (c.to - c.from) / words.length;
 	const ms = (fr: number) => (fr / m.meta.fps) * 1000;
 	const hl = activeWordHighlight(f, {fps: m.meta.fps, words: words.map((w, i) => ({text: w, startMs: ms(c.from + i * per), endMs: ms(c.from + (i + 1) * per)})), power: c.power ? words.map((w, i) => (w.replace(/[^\w'-]/g, '') === c.power!.replace(/[^\w'-]/g, '') ? i : -1)).filter((i) => i >= 0) : []});
-	const pop = springPopIn(f, {start: c.from, spring: 'snappy', from: 0.92, rise: 10 * r.k});
+	const pop = springPopIn(f, {start: c.from === 0 ? -30 : c.from, spring: 'snappy', from: 0.92, rise: 10 * r.k}); // the first caption is already landed on the cover frame
 	const bg = cb?.bg ?? 'bg';
 	const ink = r.role(cb?.color ?? 'ink');
 	const accent = contrast(r.role('primary'), r.role(bg)) >= 4.5 ? r.role('primary') : ink;
@@ -378,10 +380,10 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
 			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', textShadow: shadow}}>
-				{hl.words.map((w) => {
+				{hl.words.map((w, wi) => {
 					const on = w.state === 'active' ? w.t : 0;
 					return (
-						<span key={w.index} style={{color: w.power ? accent : ink, margin: '0 0.22em', transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+						<span key={w.index} style={{color: w.power ? accent : ink, marginRight: wi < hl.words.length - 1 ? '0.34em' : 0, transformOrigin: '50% 80%', transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.07 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
 							{w.text}
 						</span>
 					);

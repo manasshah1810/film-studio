@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 3,
+ "scorer": "producer",
+ "rubric": "rubrics/storyboard.md",
+ "average": 8.25,
+ "minimum": 7.5,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 8.5,
+   "evidence": "The cover now has a large $4 BILLION, a coin marked 1 and the caption on frame 0; the ONECOIN TOOK label is tiny."
+  },
+  {
+   "name": "One focal point",
+   "score": 8,
+   "evidence": "Each panel still offers four reads: headline, pen note, picture and caption."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8.5,
+   "evidence": "s5p3 tags, s6p3 chain and s7 tear match visual_intent; s3p3 rising coins are not visible at 80%."
+  },
+  {
+   "name": "Layout choice",
+   "score": 7.5,
+   "evidence": "Tags mostly honest; the s7p3 stat slot disagrees with the picture; non-peak panels share one template."
+  },
+  {
+   "name": "Readability",
+   "score": 8,
+   "evidence": "Caption spacing even and pen notes legible; the cover label is the smallest text."
+  },
+  {
+   "name": "Platform fit",
+   "score": 8,
+   "evidence": "Safe zones respected; panels average about 3.8 s and s5p2 and s7p2 exceed 5 s."
+  },
+  {
+   "name": "Rhythm",
+   "score": 8.5,
+   "evidence": "Energy shapes vary and cut SFX rotate; the s4p3 peak holds 7.07 s."
+  },
+  {
+   "name": "Cast used well",
+   "score": 8,
+   "evidence": "The faceless podium works; the relay hands still read as a static row."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 9,
+   "evidence": "Every on-screen figure is sourced and labelled."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 8.5,
+   "evidence": "ONE PRIVATE NUMBER loops number to number; the closing book repeats s3's."
+  }
+ ],
+ "feedback": [
+  "Match the s7p3 tag and slot to the picture",
+  "Shorten panels over 5 s",
+  "Make ONECOIN TOOK readable and first",
+  "Make rising coins and tilting hands visible in the held frame",
+  "Vary non-peak compositions"
+ ]
+}

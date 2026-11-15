@@ -1,0 +1,88 @@
+{
+ "film": "How OneCoin sold a coin that never existed (blind run)",
+ "inspector": "authoring session (not independent)",
+ "verdict": "not independently approved: this is a defect log written by the session that authored the film; the independent judgements are the producer and director-review scorecards in reviews/",
+ "passes": 2,
+ "stage1": {
+  "pass1": {
+   "run-all-checks.js": "PASS",
+   "render": "out/pass1.mp4 540x960 30 fps 72.38 s with audio"
+  }
+ },
+ "visual_critique": {
+  "pass1": {
+   "sheet": "stills/pass1-sheet.png",
+   "defects": [
+    {
+     "id": "V1",
+     "panel": "all",
+     "problem": "caption words ran together",
+     "fix": "per-word right margin"
+    },
+    {
+     "id": "V2",
+     "panel": "all",
+     "problem": "captions in the Courier body face",
+     "fix": "display face at 84 px"
+    },
+    {
+     "id": "V3",
+     "panel": "s3p1",
+     "problem": "forgery shown before the narration reached it; stamp tiny",
+     "fix": "public-hold phase; boxed 92 px stamp"
+    },
+    {
+     "id": "V4",
+     "panel": "s7p1",
+     "problem": "panel emptied after the flight line faded",
+     "fix": "line keeps 35% opacity; larger pass and label"
+    }
+   ]
+  },
+  "pass2": {
+   "sheet": "stills/pass2-sheet.png, stills/fix2-sheet.png, stills/pass3-sheet.png",
+   "defects": [
+    {
+     "id": "V5",
+     "panel": "s7p2",
+     "problem": "book picture before 'and vanished'",
+     "fix": "flight, flight, book order for late-pause scenes"
+    },
+    {
+     "id": "V6",
+     "panel": "s1p1 frame 0",
+     "problem": "cover had no clipping",
+     "fix": "first panel's clipping landed on frame 0"
+    },
+    {
+     "id": "V7",
+     "panel": "s7",
+     "problem": "ATHENS label and flight path in paper colours on paper",
+     "fix": "ink and red pen roles"
+    },
+    {
+     "id": "V8",
+     "panel": "all",
+     "problem": "pen notes drawn under the clipping",
+     "fix": "labels render above bespoke scenes"
+    },
+    {
+     "id": "V9",
+     "panel": "s1p1",
+     "problem": "$4 BILLION wrapped into its label",
+     "fix": "wider one-line box"
+    }
+   ]
+  }
+ },
+ "audio_checks": {
+  "pause_windows": "-91 dB inside each [PAUSE] window",
+  "hits": "95->55 Hz on frame 0 and on the first word after each pause",
+  "integrated_loudness": "about -14.5 LUFS",
+  "voice": "7 clips, transcript recall 92-100%; three Gemini TTS models (quota fallbacks), one voice (Charon)"
+ },
+ "open_items": [
+  "storyboard taste gate: see storyboard-r*-*.json and flags.md",
+  "script taste gate flagged after round 3"
+ ]
+}

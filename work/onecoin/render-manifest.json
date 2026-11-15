@@ -31,21 +31,21 @@
    "scene": "s1",
    "from": 0,
    "frames": 105,
-   "max_hold_seconds": 1.63,
+   "max_hold_seconds": 1.73,
    "boxes": [
     {
      "id": "h",
      "kind": "text",
      "x": 8,
      "y": 13,
-     "w": 70,
-     "h": 14,
+     "w": 77,
+     "h": 9,
      "role": "display",
      "text": "$4 BILLION",
      "lines": [
       "$4 BILLION"
      ],
-     "px": 100,
+     "px": 128,
      "color": "ink",
      "bg": "surface",
      "font": "display"
@@ -64,19 +64,18 @@
      "font": "display"
     },
     {
-     "id": "pen",
+     "id": "sub",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
-     "h": 4.5,
-     "role": "label",
-     "text": "billion",
-     "px": 56,
+     "x": 8,
+     "y": 23.5,
+     "w": 50,
+     "h": 4,
+     "role": "body",
+     "text": "ONECOIN TOOK",
+     "px": 52,
      "color": "primary",
      "bg": "surface",
-     "font": "accent",
-     "from": 15
+     "font": "body"
     }
    ],
    "cast": [],
@@ -88,10 +87,10 @@
      "from": 0,
      "frames": 105,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "revealAt": 70
@@ -186,13 +185,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "onecoin",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -264,7 +263,7 @@
    "id": "s2p1",
    "scene": "s2",
    "from": 208,
-   "frames": 111,
+   "frames": 141,
    "max_hold_seconds": 2.77,
    "transition": {
     "primitive": "whip-pan",
@@ -306,13 +305,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 12,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "public",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -326,7 +325,7 @@
      "id": "onecoin/ledger-wall",
      "anchor": "@h",
      "from": 208,
-     "frames": 111,
+     "frames": 141,
      "box": {
       "x": 10,
       "y": 34,
@@ -342,7 +341,7 @@
     {
      "primitive": "film-gate",
      "frame": 208,
-     "frames": 111,
+     "frames": 141,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -361,13 +360,20 @@
      "kind": "emphasis",
      "target": "h",
      "easing": "settle"
+    },
+    {
+     "frame": 319,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "draw"
     }
    ],
    "fx": [
     {
      "id": "paper-grain",
      "from": 208,
-     "frames": 111,
+     "frames": 141,
      "params": {}
     }
    ]
@@ -375,14 +381,14 @@
   {
    "id": "s2p2",
    "scene": "s2",
-   "from": 319,
-   "frames": 102,
-   "max_hold_seconds": 1.67,
+   "from": 349,
+   "frames": 72,
+   "max_hold_seconds": 1.23,
    "boxes": [
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -409,21 +415,6 @@
      "color": "ink",
      "bg": "surface",
      "font": "display"
-    },
-    {
-     "id": "pen",
-     "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
-     "h": 4.5,
-     "role": "label",
-     "text": "same",
-     "px": 56,
-     "color": "primary",
-     "bg": "surface",
-     "font": "accent",
-     "from": 334
     }
    ],
    "cast": [],
@@ -432,13 +423,13 @@
     {
      "id": "onecoin/ledger-wall",
      "anchor": "@h",
-     "from": 319,
-     "frames": 102,
+     "from": 349,
+     "frames": 72,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "forgeAt": 6
@@ -448,14 +439,14 @@
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 319,
-     "frames": 102,
+     "frame": 349,
+     "frames": 72,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
     {
      "primitive": "stop-motion-jitter",
-     "frame": 325,
+     "frame": 384,
      "frames": 18,
      "target": "h",
      "note": "s2 headline"
@@ -463,25 +454,18 @@
    ],
    "beats": [
     {
-     "frame": 325,
+     "frame": 384,
      "frames": 12,
      "kind": "emphasis",
      "target": "h",
      "easing": "settle"
-    },
-    {
-     "frame": 384,
-     "frames": 12,
-     "kind": "scale",
-     "target": "h",
-     "easing": "draw"
     }
    ],
    "fx": [
     {
      "id": "paper-grain",
-     "from": 319,
-     "frames": 102,
+     "from": 349,
+     "frames": 72,
      "params": {}
     }
    ]
@@ -587,7 +571,7 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -618,13 +602,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "true",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -640,10 +624,10 @@
      "from": 541,
      "frames": 98,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "phase": "dark"
@@ -725,13 +709,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "nowhere",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -754,6 +738,7 @@
      },
      "props": {
       "phase": "dark",
+      "ghost": true,
       "offset": 98
      }
     }
@@ -796,8 +781,8 @@
    "id": "s4p1",
    "scene": "s4",
    "from": 766,
-   "frames": 128,
-   "max_hold_seconds": 2.2,
+   "frames": 76,
+   "max_hold_seconds": 2.03,
    "boxes": [
     {
      "id": "h",
@@ -833,13 +818,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 12,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "who",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -853,7 +838,7 @@
      "id": "onecoin/arena-podium",
      "anchor": "@h",
      "from": 766,
-     "frames": 128,
+     "frames": 76,
      "box": {
       "x": 10,
       "y": 34,
@@ -867,7 +852,7 @@
     {
      "primitive": "film-gate",
      "frame": 766,
-     "frames": 128,
+     "frames": 76,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -886,19 +871,13 @@
      "kind": "emphasis",
      "target": "h",
      "easing": "settle"
-    },
-    {
-     "frame": 847,
-     "frames": 12,
-     "kind": "camera",
-     "easing": "draw"
     }
    ],
    "fx": [
     {
      "id": "paper-grain",
      "from": 766,
-     "frames": 128,
+     "frames": 76,
      "params": {}
     }
    ]
@@ -906,9 +885,9 @@
   {
    "id": "s4p2",
    "scene": "s4",
-   "from": 894,
-   "frames": 110,
-   "max_hold_seconds": 2.33,
+   "from": 842,
+   "frames": 98,
+   "max_hold_seconds": 1.73,
    "transition": {
     "primitive": "whip-pan",
     "frames": 10,
@@ -945,21 +924,6 @@
      "color": "ink",
      "bg": "surface",
      "font": "display"
-    },
-    {
-     "id": "pen",
-     "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
-     "h": 4.5,
-     "role": "label",
-     "text": "cryptoqueen",
-     "px": 56,
-     "color": "primary",
-     "bg": "surface",
-     "font": "accent",
-     "from": 909
     }
    ],
    "cast": [],
@@ -968,8 +932,8 @@
     {
      "id": "onecoin/arena-podium",
      "anchor": "@h",
-     "from": 894,
-     "frames": 110,
+     "from": 842,
+     "frames": 98,
      "box": {
       "x": 10,
       "y": 34,
@@ -977,21 +941,21 @@
       "h": 27
      },
      "props": {
-      "offset": 128
+      "offset": 76
      }
     }
    ],
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 894,
-     "frames": 110,
+     "frame": 842,
+     "frames": 98,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
     {
      "primitive": "stop-motion-jitter",
-     "frame": 900,
+     "frame": 894,
      "frames": 18,
      "target": "h",
      "note": "s4 headline"
@@ -999,25 +963,18 @@
    ],
    "beats": [
     {
-     "frame": 900,
+     "frame": 894,
      "frames": 12,
      "kind": "emphasis",
      "target": "h",
      "easing": "settle"
-    },
-    {
-     "frame": 979,
-     "frames": 12,
-     "kind": "scale",
-     "target": "h",
-     "easing": "draw"
     }
    ],
    "fx": [
     {
      "id": "paper-grain",
-     "from": 894,
-     "frames": 110,
+     "from": 842,
+     "frames": 98,
      "params": {}
     }
    ]
@@ -1025,14 +982,14 @@
   {
    "id": "s4p3",
    "scene": "s4",
-   "from": 1004,
-   "frames": 148,
-   "max_hold_seconds": 2,
+   "from": 940,
+   "frames": 212,
+   "max_hold_seconds": 2.5,
    "boxes": [
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -1063,17 +1020,17 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 12,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
-     "text": "killer",
-     "px": 56,
+     "text": "stage",
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
-     "from": 1019
+     "from": 955
     }
    ],
    "cast": [],
@@ -1082,13 +1039,13 @@
     {
      "id": "onecoin/arena-podium",
      "anchor": "@h",
-     "from": 1004,
-     "frames": 148,
+     "from": 940,
+     "frames": 212,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "roar": true
@@ -1098,14 +1055,14 @@
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 1004,
-     "frames": 148,
+     "frame": 940,
+     "frames": 212,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
     {
      "primitive": "stop-motion-jitter",
-     "frame": 1079,
+     "frame": 979,
      "frames": 18,
      "target": "h",
      "note": "s4 headline"
@@ -1113,24 +1070,30 @@
    ],
    "beats": [
     {
-     "frame": 1079,
+     "frame": 979,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1054,
      "frames": 12,
      "kind": "camera",
-     "easing": "settle"
+     "easing": "draw"
     },
     {
      "frame": 1095,
      "frames": 12,
-     "kind": "scale",
-     "target": "h",
-     "easing": "draw"
+     "kind": "camera",
+     "easing": "fade"
     }
    ],
    "fx": [
     {
      "id": "paper-grain",
-     "from": 1004,
-     "frames": 148,
+     "from": 940,
+     "frames": 212,
      "params": {}
     }
    ]
@@ -1139,8 +1102,8 @@
    "id": "s5p1",
    "scene": "s5",
    "from": 1152,
-   "frames": 122,
-   "max_hold_seconds": 2.4,
+   "frames": 79,
+   "max_hold_seconds": 1.17,
    "boxes": [
     {
      "id": "h",
@@ -1177,12 +1140,12 @@
      "id": "pen",
      "kind": "text",
      "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "one",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -1196,7 +1159,7 @@
      "id": "onecoin/recruit-tree",
      "anchor": "@h",
      "from": 1152,
-     "frames": 122,
+     "frames": 79,
      "box": {
       "x": 10,
       "y": 34,
@@ -1210,7 +1173,7 @@
     {
      "primitive": "film-gate",
      "frame": 1152,
-     "frames": 122,
+     "frames": 79,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -1235,7 +1198,7 @@
     {
      "id": "paper-grain",
      "from": 1152,
-     "frames": 122,
+     "frames": 79,
      "params": {}
     }
    ]
@@ -1243,9 +1206,9 @@
   {
    "id": "s5p2",
    "scene": "s5",
-   "from": 1274,
-   "frames": 114,
-   "max_hold_seconds": 2.2,
+   "from": 1231,
+   "frames": 157,
+   "max_hold_seconds": 2.5,
    "boxes": [
     {
      "id": "h",
@@ -1282,16 +1245,16 @@
      "id": "pen",
      "kind": "text",
      "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "recruit",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
-     "from": 1289
+     "from": 1246
     }
    ],
    "cast": [],
@@ -1300,8 +1263,8 @@
     {
      "id": "onecoin/recruit-tree",
      "anchor": "@h",
-     "from": 1274,
-     "frames": 114,
+     "from": 1231,
+     "frames": 157,
      "box": {
       "x": 10,
       "y": 34,
@@ -1309,21 +1272,21 @@
       "h": 27
      },
      "props": {
-      "offset": 122
+      "offset": 79
      }
     }
    ],
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 1274,
-     "frames": 114,
+     "frame": 1231,
+     "frames": 157,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
     {
      "primitive": "stop-motion-jitter",
-     "frame": 1280,
+     "frame": 1274,
      "frames": 18,
      "target": "h",
      "note": "s5 headline"
@@ -1331,14 +1294,14 @@
    ],
    "beats": [
     {
-     "frame": 1280,
+     "frame": 1274,
      "frames": 12,
      "kind": "emphasis",
      "target": "h",
      "easing": "settle"
     },
     {
-     "frame": 1355,
+     "frame": 1349,
      "frames": 12,
      "kind": "camera",
      "easing": "draw"
@@ -1347,8 +1310,8 @@
    "fx": [
     {
      "id": "paper-grain",
-     "from": 1274,
-     "frames": 114,
+     "from": 1231,
+     "frames": 157,
      "params": {}
     }
    ]
@@ -1363,7 +1326,7 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -1395,12 +1358,12 @@
      "id": "pen",
      "kind": "text",
      "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "excuse",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -1416,10 +1379,10 @@
      "from": 1388,
      "frames": 139,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "phase": "product"
@@ -1471,8 +1434,8 @@
    "id": "s6p1",
    "scene": "s6",
    "from": 1527,
-   "frames": 83,
-   "max_hold_seconds": 1.43,
+   "frames": 124,
+   "max_hold_seconds": 2.8,
    "boxes": [
     {
      "id": "h",
@@ -1508,13 +1471,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "catch",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -1528,7 +1491,7 @@
      "id": "onecoin/hand-relay",
      "anchor": "@h",
      "from": 1527,
-     "frames": 83,
+     "frames": 124,
      "box": {
       "x": 10,
       "y": 34,
@@ -1542,7 +1505,7 @@
     {
      "primitive": "film-gate",
      "frame": 1527,
-     "frames": 83,
+     "frames": 124,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -1574,7 +1537,7 @@
     {
      "id": "paper-grain",
      "from": 1527,
-     "frames": 83,
+     "frames": 124,
      "params": {}
     }
    ]
@@ -1582,9 +1545,9 @@
   {
    "id": "s6p2",
    "scene": "s6",
-   "from": 1610,
-   "frames": 132,
-   "max_hold_seconds": 2.2,
+   "from": 1651,
+   "frames": 91,
+   "max_hold_seconds": 1.7,
    "transition": {
     "primitive": "whip-pan",
     "frames": 10,
@@ -1625,17 +1588,17 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "friend",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
-     "from": 1625
+     "from": 1666
     }
    ],
    "cast": [],
@@ -1644,8 +1607,8 @@
     {
      "id": "onecoin/hand-relay",
      "anchor": "@h",
-     "from": 1610,
-     "frames": 132,
+     "from": 1651,
+     "frames": 91,
      "box": {
       "x": 10,
       "y": 34,
@@ -1653,15 +1616,15 @@
       "h": 27
      },
      "props": {
-      "offset": 83
+      "offset": 124
      }
     }
    ],
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 1610,
-     "frames": 132,
+     "frame": 1651,
+     "frames": 91,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -1685,8 +1648,8 @@
    "fx": [
     {
      "id": "paper-grain",
-     "from": 1610,
-     "frames": 132,
+     "from": 1651,
+     "frames": 91,
      "params": {}
     }
    ]
@@ -1701,7 +1664,7 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -1732,13 +1695,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 56,
+     "y": 57,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "paid",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -1754,10 +1717,10 @@
      "from": 1742,
      "frames": 91,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "phase": "ledger"
@@ -1802,8 +1765,8 @@
    "id": "s7p1",
    "scene": "s7",
    "from": 1833,
-   "frames": 96,
-   "max_hold_seconds": 2.5,
+   "frames": 59,
+   "max_hold_seconds": 1.97,
    "boxes": [
     {
      "id": "h",
@@ -1844,7 +1807,7 @@
      "id": "onecoin/flight-fade",
      "anchor": "@h",
      "from": 1833,
-     "frames": 96,
+     "frames": 59,
      "box": {
       "x": 10,
       "y": 34,
@@ -1858,31 +1821,17 @@
     {
      "primitive": "film-gate",
      "frame": 1833,
-     "frames": 96,
+     "frames": 59,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
-    },
-    {
-     "primitive": "spring-overshoot",
-     "frame": 1908,
-     "frames": 18,
-     "target": "h",
-     "note": "s7 headline"
     }
    ],
-   "beats": [
-    {
-     "frame": 1908,
-     "frames": 12,
-     "kind": "camera",
-     "easing": "settle"
-    }
-   ],
+   "beats": [],
    "fx": [
     {
      "id": "paper-grain",
      "from": 1833,
-     "frames": 96,
+     "frames": 59,
      "params": {}
     }
    ]
@@ -1890,9 +1839,9 @@
   {
    "id": "s7p2",
    "scene": "s7",
-   "from": 1929,
-   "frames": 116,
-   "max_hold_seconds": 2.23,
+   "from": 1892,
+   "frames": 153,
+   "max_hold_seconds": 2.37,
    "boxes": [
     {
      "id": "h",
@@ -1928,17 +1877,17 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 52,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "vanished",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
-     "from": 1944
+     "from": 1907
     }
    ],
    "cast": [],
@@ -1947,8 +1896,8 @@
     {
      "id": "onecoin/flight-fade",
      "anchor": "@h",
-     "from": 1929,
-     "frames": 116,
+     "from": 1892,
+     "frames": 153,
      "box": {
       "x": 10,
       "y": 34,
@@ -1956,15 +1905,15 @@
       "h": 27
      },
      "props": {
-      "offset": 96
+      "offset": 59
      }
     }
    ],
    "motion": [
     {
      "primitive": "film-gate",
-     "frame": 1929,
-     "frames": 116,
+     "frame": 1892,
+     "frames": 153,
      "target": "panel",
      "note": "archival film gate: flicker, dust, scratch"
     },
@@ -1988,8 +1937,8 @@
    "fx": [
     {
      "id": "paper-grain",
-     "from": 1929,
-     "frames": 116,
+     "from": 1892,
+     "frames": 153,
      "params": {}
     }
    ]
@@ -2004,7 +1953,7 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 8,
+     "x": 15,
      "y": 13,
      "w": 70,
      "h": 14,
@@ -2035,13 +1984,13 @@
     {
      "id": "pen",
      "kind": "text",
-     "x": 58,
-     "y": 28.5,
-     "w": 26,
+     "x": 52,
+     "y": 36,
+     "w": 27,
      "h": 4.5,
      "role": "label",
      "text": "number",
-     "px": 56,
+     "px": 64,
      "color": "primary",
      "bg": "surface",
      "font": "accent",
@@ -2057,10 +2006,10 @@
      "from": 2045,
      "frames": 126,
      "box": {
-      "x": 10,
-      "y": 34,
-      "w": 71,
-      "h": 27
+      "x": 8,
+      "y": 33,
+      "w": 75,
+      "h": 29
      },
      "props": {
       "phase": "book"
@@ -2429,30 +2378,30 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 202,
+    "id": "paper-rip",
+    "frame": 208,
     "peak_frame": 208,
-    "pre_roll": 6,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s2p1",
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 313,
+    "id": "digital-tick",
+    "frame": 319,
     "peak_frame": 319,
-    "pre_roll": 6,
-    "db": -12,
-    "sync": "cut:s2p2",
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s2p1#1",
     "file": null
    },
    {
-    "id": "digital-tick",
-    "frame": 384,
-    "peak_frame": 384,
+    "id": "tactile-pop",
+    "frame": 349,
+    "peak_frame": 349,
     "pre_roll": 0,
-    "db": -16,
-    "sync": "beat:s2p2#1",
+    "db": -12,
+    "sync": "cut:s2p2",
     "file": null
    },
    {
@@ -2474,10 +2423,10 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 633,
+    "id": "tactile-pop",
+    "frame": 639,
     "peak_frame": 639,
-    "pre_roll": 6,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s3p3",
     "file": null
@@ -2492,39 +2441,21 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 888,
-    "peak_frame": 894,
-    "pre_roll": 6,
+    "id": "paper-rip",
+    "frame": 842,
+    "peak_frame": 842,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s4p2",
     "file": null
    },
    {
-    "id": "digital-tick",
-    "frame": 979,
-    "peak_frame": 979,
+    "id": "tactile-pop",
+    "frame": 940,
+    "peak_frame": 940,
     "pre_roll": 0,
-    "db": -16,
-    "sync": "beat:s4p2#1",
-    "file": null
-   },
-   {
-    "id": "fast-whoosh",
-    "frame": 998,
-    "peak_frame": 1004,
-    "pre_roll": 6,
     "db": -12,
     "sync": "cut:s4p3",
-    "file": null
-   },
-   {
-    "id": "digital-tick",
-    "frame": 1095,
-    "peak_frame": 1095,
-    "pre_roll": 0,
-    "db": -16,
-    "sync": "beat:s4p3#1",
     "file": null
    },
    {
@@ -2537,10 +2468,10 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 1268,
-    "peak_frame": 1274,
-    "pre_roll": 6,
+    "id": "paper-rip",
+    "frame": 1231,
+    "peak_frame": 1231,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s5p2",
     "file": null
@@ -2582,19 +2513,19 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 1604,
-    "peak_frame": 1610,
-    "pre_roll": 6,
+    "id": "paper-rip",
+    "frame": 1651,
+    "peak_frame": 1651,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s6p2",
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 1736,
+    "id": "tactile-pop",
+    "frame": 1742,
     "peak_frame": 1742,
-    "pre_roll": 6,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s6p3",
     "file": null
@@ -2609,10 +2540,10 @@
     "file": null
    },
    {
-    "id": "fast-whoosh",
-    "frame": 1923,
-    "peak_frame": 1929,
-    "pre_roll": 6,
+    "id": "paper-rip",
+    "frame": 1892,
+    "peak_frame": 1892,
+    "pre_roll": 0,
     "db": -12,
     "sync": "cut:s7p2",
     "file": null
@@ -2706,7 +2637,7 @@
     "narration",
     "pulse bed -21 dB (silent in 3 pause window(s))",
     "4 sub-bass hit(s) 95->55 Hz",
-    "23 transition sfx (sidechain-ducked)"
+    "21 transition sfx (sidechain-ducked)"
    ]
   }
  },

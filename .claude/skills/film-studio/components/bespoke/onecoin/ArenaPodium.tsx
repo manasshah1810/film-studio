@@ -11,7 +11,7 @@ export const ArenaPodium: BespokeScene = ({kit}) => {
 	const W = box.width, H = box.height, px = W / 2, py = H * 0.42;
 	const roar = !!kit.props.roar;
 	const lock = roar ? 1 : ease('settle', 6, 30), lights = roar ? 1 : ease('draw', 24, Math.max(20, frames - 40));
-	const flare = roar ? 1 - ease('fade', 0, 24) : 0;
+	const flare = roar ? 0.45 + 0.55 * (1 - ease('fade', 0, 24)) : 0;
 	const sweep = (side: number) => side * (1 - lock) * 0.55 + side * 0.04 * Math.sin(f * 0.05);
 	const beam = (side: number) => {
 		const ox = side < 0 ? 0 : W, tx = px + W * sweep(side);

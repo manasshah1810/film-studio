@@ -50,6 +50,7 @@ export const LedgerWall: BespokeScene = ({kit}) => {
 							<rect x={-6 * k} y={-H * 0.12} width={12 * k} height={H * 0.12} fill={role('highlight')} stroke={role('ink')} strokeWidth={2 * k} />
 						</g>
 						<text x={-W * 0.12} y={H * 0.25} textAnchor="middle" style={{...font('mono', 30), fill: role('primary')}}>PRIVATE</text>
+						{kit.props.ghost ? [0, 1, 2, 3, 4].map((i) => { const g = ease('settle', 4 + i * 6, 20); return <circle key={i} cx={W * (0.08 + i * 0.05)} cy={-H * 0.1 - g * H * (0.18 + (i % 2) * 0.06)} r={W * 0.035} fill="none" stroke={role('highlight')} strokeWidth={5 * k} strokeDasharray={`${8 * k} ${6 * k}`} opacity={g * (1 - ease('fade', 30 + i * 6, 20))} />; }) : null}
 					</g>
 				) : null}
 			</svg>

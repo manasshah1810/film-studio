@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 2,
+ "scorer": "producer",
+ "rubric": "rubrics/storyboard.md",
+ "average": 7.6,
+ "minimum": 6,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 8,
+   "evidence": "The cover now shows the full gold coin under $4 BILLION, but the headline is small and the glyph reads like a timer."
+  },
+  {
+   "name": "One focal point",
+   "score": 7.5,
+   "evidence": "Red-pen tags repeat caption words and compete; s2p1 three-line caption crowds."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8,
+   "evidence": "s5p3 price tags unreadable at sheet size; s6p3 chain reads as a red X."
+  },
+  {
+   "name": "Layout choice",
+   "score": 6.5,
+   "evidence": "quote and title tags do not match the panels; all 19 panels share one composition."
+  },
+  {
+   "name": "Readability",
+   "score": 6,
+   "evidence": "Pen tags tiny and CRYPTOQUEEN clipped; double gaps around highlighted caption words."
+  },
+  {
+   "name": "Platform fit",
+   "score": 8,
+   "evidence": "Headlines now clear the top zone; panels average about 3.8 s."
+  },
+  {
+   "name": "Rhythm",
+   "score": 8,
+   "evidence": "Beats on power words with one peak per scene; the build-release-peak shape repeats."
+  },
+  {
+   "name": "Cast used well",
+   "score": 7.5,
+   "evidence": "s4p3 roar looks like s4p1; s6 hands do not act the hand-off."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 8,
+   "evidence": "Every figure is sourced, but the cover figure has no label on screen."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 8.5,
+   "evidence": "ONE PRIVATE NUMBER lands the idea; the last image resembles s3's padlocked book."
+  }
+ ],
+ "feedback": [
+  "Pen tags full size on the clipping, none clipped",
+  "Remove caption double spaces",
+  "Label the cover figure; bigger coin and number",
+  "Honest layout tags; peak panels get their own composition",
+  "Readable price tags and chain"
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 2,
+ "scorer": "director-review",
+ "rubric": "rubrics/storyboard.md",
+ "average": 7.6,
+ "minimum": 6,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 8,
+   "evidence": "The frame-0 cover works, but the single-line headline is small and the clipping has empty paper."
+  },
+  {
+   "name": "One focal point",
+   "score": 7.5,
+   "evidence": "Panel cuts freeze caption fragments; the pen tag sits in a fixed spot away from what it names."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8,
+   "evidence": "s5p3 and s6p3 fixed; the boarding pass never visibly tears and s3p2/s3p3 are identical."
+  },
+  {
+   "name": "Layout choice",
+   "score": 6,
+   "evidence": "Signature moves now visible, but layout tags still misdescribe panels and one composition repeats."
+  },
+  {
+   "name": "Readability",
+   "score": 7,
+   "evidence": "Captions and headlines read; double gaps remain and the CRYPTOQUEEN tag is clipped."
+  },
+  {
+   "name": "Platform fit",
+   "score": 7.5,
+   "evidence": "Top zone fixed; panels average about 3.8 s with some static compositions."
+  },
+  {
+   "name": "Rhythm",
+   "score": 7.5,
+   "evidence": "Beats on power words; every scene repeats build, release, peak; whoosh on most cuts."
+  },
+  {
+   "name": "Cast used well",
+   "score": 7,
+   "evidence": "Relay hands repeat one pose and do not hand anything over until s6p3."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 8.5,
+   "evidence": "Every figure traces to a fact; the cover figure is unlabelled."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 9,
+   "evidence": "ONE PRIVATE NUMBER over the padlocked page loops cleanly back to the $4 BILLION cover."
+  }
+ ],
+ "feedback": [
+  "Layout tags match content; composition changes with content",
+  "Panels end on complete thoughts",
+  "Pen tags beside what they name; fix clipped tag",
+  "Remove caption double spaces",
+  "Each paired panel changes visibly; vary the energy shape"
+ ]
+}

@@ -59,8 +59,10 @@ export const FlightFade: BespokeScene = ({kit}) => {
 			<svg width={W} height={H} style={{overflow: 'visible'}}>
 				{[0, 1, 2, 3].map((i) => <path key={`sea${i}`} d={`M 0 ${H * (0.62 + i * 0.09)} q ${W * 0.06} ${-H * 0.025} ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0 t ${W * 0.12} 0`} fill="none" stroke={role('ink')} strokeOpacity={0.22} strokeWidth={3 * k} transform={`translate(${-((f * 0.8 + i * 30) % (W * 0.24))} 0)`} />)}
 				{[0, 1].map((half) => (
-					<g key={half} transform={`translate(${W * 0.06 + half * W * 0.24 + (half ? 1 : -1) * tear * W * 0.05} ${H * 0.02}) rotate(${(half ? 1 : -1) * tear * 7})`} opacity={1 - fade * 0.6}>
+					<g key={half} transform={`translate(${W * 0.06 + half * W * 0.24 + (half ? 1 : -1) * tear * W * 0.09} ${H * 0.02 + tear * H * 0.05 * half}) rotate(${(half ? 1 : -1) * tear * 14})`} opacity={1 - fade * 0.5}>
 						<rect width={W * 0.24} height={H * 0.24} fill={role('surface')} stroke={role('ink')} strokeWidth={3 * k} />
+						<path d={half ? `M 0 0 L ${W * 0.012} ${H * 0.04} L 0 ${H * 0.08} L ${W * 0.012} ${H * 0.12} L 0 ${H * 0.16} L ${W * 0.012} ${H * 0.2} L 0 ${H * 0.24}` : `M ${W * 0.24} 0 L ${W * 0.228} ${H * 0.04} L ${W * 0.24} ${H * 0.08} L ${W * 0.228} ${H * 0.12} L ${W * 0.24} ${H * 0.16} L ${W * 0.228} ${H * 0.2} L ${W * 0.24} ${H * 0.24}`} fill="none" stroke={role('primary')} strokeWidth={4 * k} opacity={tear} />
+						<rect x={W * 0.03} y={H * 0.16} width={W * 0.18} height={H * 0.03} fill={role('primary')} opacity={half ? 0 : 0.8} />
 						{[0, 1, 2].map((i) => <rect key={i} x={W * 0.03} y={H * (0.05 + i * 0.045)} width={W * (half ? 0.12 : 0.17)} height={H * 0.018} fill={role('ink')} opacity={0.6} />)}
 					</g>
 				))}

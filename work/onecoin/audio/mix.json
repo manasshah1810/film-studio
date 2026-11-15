@@ -6,7 +6,7 @@
   "narration",
   "pulse bed -21 dB (silent in 3 pause window(s))",
   "4 sub-bass hit(s) 95->55 Hz",
-  "23 transition sfx (sidechain-ducked)"
+  "21 transition sfx (sidechain-ducked)"
  ],
  "bed_db": -21,
  "pause_windows": [
@@ -58,19 +58,19 @@
    "why": "s1p2 headline scale on the power word"
   },
   {
-   "kit": "whoosh",
+   "kit": "stamp",
    "t": 6.933,
    "why": "cut to s2p1"
   },
   {
-   "kit": "whoosh",
+   "kit": "tick",
    "t": 10.633,
-   "why": "cut to s2p2"
+   "why": "s2p1 headline scale on the power word"
   },
   {
    "kit": "tick",
-   "t": 12.8,
-   "why": "s2p2 headline scale on the power word"
+   "t": 11.633,
+   "why": "cut to s2p2"
   },
   {
    "kit": "whoosh",
@@ -78,7 +78,7 @@
    "why": "cut to s3p1"
   },
   {
-   "kit": "whoosh",
+   "kit": "tick",
    "t": 21.3,
    "why": "cut to s3p3"
   },
@@ -88,24 +88,14 @@
    "why": "cut to s4p1"
   },
   {
-   "kit": "whoosh",
-   "t": 29.8,
+   "kit": "stamp",
+   "t": 28.067,
    "why": "cut to s4p2"
   },
   {
    "kit": "tick",
-   "t": 32.633,
-   "why": "s4p2 headline scale on the power word"
-  },
-  {
-   "kit": "whoosh",
-   "t": 33.467,
+   "t": 31.333,
    "why": "cut to s4p3"
-  },
-  {
-   "kit": "tick",
-   "t": 36.5,
-   "why": "s4p3 headline scale on the power word"
   },
   {
    "kit": "whoosh",
@@ -113,8 +103,8 @@
    "why": "cut to s5p1"
   },
   {
-   "kit": "whoosh",
-   "t": 42.467,
+   "kit": "stamp",
+   "t": 41.033,
    "why": "cut to s5p2"
   },
   {
@@ -133,12 +123,12 @@
    "why": "s6p1 headline scale on the power word"
   },
   {
-   "kit": "whoosh",
-   "t": 53.667,
+   "kit": "stamp",
+   "t": 55.033,
    "why": "cut to s6p2"
   },
   {
-   "kit": "whoosh",
+   "kit": "tick",
    "t": 58.067,
    "why": "cut to s6p3"
   },
@@ -148,8 +138,8 @@
    "why": "cut to s7p1"
   },
   {
-   "kit": "whoosh",
-   "t": 64.3,
+   "kit": "stamp",
+   "t": 63.067,
    "why": "cut to s7p2"
   },
   {

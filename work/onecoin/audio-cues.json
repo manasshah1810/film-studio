@@ -24,24 +24,24 @@
   },
   {
    "frame": 208,
-   "sfx": "fast-whoosh",
+   "sfx": "paper-rip",
    "peak": "cut to s2p1",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
    "frame": 319,
-   "sfx": "fast-whoosh",
-   "peak": "cut to s2p2",
-   "pre_roll": 6,
-   "db": -12
-  },
-  {
-   "frame": 384,
    "sfx": "digital-tick",
-   "peak": "s2p2 headline scale on the power word",
+   "peak": "s2p1 headline scale on the power word",
    "pre_roll": 0,
    "db": -16
+  },
+  {
+   "frame": 349,
+   "sfx": "tactile-pop",
+   "peak": "cut to s2p2",
+   "pre_roll": 0,
+   "db": -12
   },
   {
    "frame": 421,
@@ -59,9 +59,9 @@
   },
   {
    "frame": 639,
-   "sfx": "fast-whoosh",
+   "sfx": "tactile-pop",
    "peak": "cut to s3p3",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
@@ -72,32 +72,18 @@
    "db": -12
   },
   {
-   "frame": 894,
-   "sfx": "fast-whoosh",
+   "frame": 842,
+   "sfx": "paper-rip",
    "peak": "cut to s4p2",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
-   "frame": 979,
-   "sfx": "digital-tick",
-   "peak": "s4p2 headline scale on the power word",
-   "pre_roll": 0,
-   "db": -16
-  },
-  {
-   "frame": 1004,
-   "sfx": "fast-whoosh",
+   "frame": 940,
+   "sfx": "tactile-pop",
    "peak": "cut to s4p3",
-   "pre_roll": 6,
-   "db": -12
-  },
-  {
-   "frame": 1095,
-   "sfx": "digital-tick",
-   "peak": "s4p3 headline scale on the power word",
    "pre_roll": 0,
-   "db": -16
+   "db": -12
   },
   {
    "frame": 1152,
@@ -107,10 +93,10 @@
    "db": -12
   },
   {
-   "frame": 1274,
-   "sfx": "fast-whoosh",
+   "frame": 1231,
+   "sfx": "paper-rip",
    "peak": "cut to s5p2",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
@@ -142,17 +128,17 @@
    "db": -16
   },
   {
-   "frame": 1610,
-   "sfx": "fast-whoosh",
+   "frame": 1651,
+   "sfx": "paper-rip",
    "peak": "cut to s6p2",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
    "frame": 1742,
-   "sfx": "fast-whoosh",
+   "sfx": "tactile-pop",
    "peak": "cut to s6p3",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {
@@ -163,10 +149,10 @@
    "db": -12
   },
   {
-   "frame": 1929,
-   "sfx": "fast-whoosh",
+   "frame": 1892,
+   "sfx": "paper-rip",
    "peak": "cut to s7p2",
-   "pre_roll": 6,
+   "pre_roll": 0,
    "db": -12
   },
   {

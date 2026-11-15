@@ -61,6 +61,9 @@ pauses. Never sound flat or robotic."* Models fall back in order; a long 429 quo
 model at once. One narrator voice (`Charon`) for the whole film: a WARN that it changed means re-run.
 - **Per-beat clips.** A narration is cut at its `[PAUSE 0.6s]` / `[PAUSE 0.9s]` markers. Each beat is spoken
   on its own, trimmed, loudness-matched (-16 LUFS) and joined with exactly that much silence (600 to 900 ms).
+- **Loop guard.** Some models loop or drag under the long direction (a 16-word line came back as 23 s). A beat
+  longer than 0.5 s per word + 1.5 s is regenerated once with a compact inline delivery tag; a second overlong
+  read stops the run.
 - **Proof.** Each scene clip is transcribed back and compared to the narration (one regeneration, then stop).
 - **Clock.** `--retime` makes the voice the clock: scene = clip + 150 ms; captions sit inside the spoken beat
   their first word belongs to and hold through the pause; panels, cues and music cuts follow.
