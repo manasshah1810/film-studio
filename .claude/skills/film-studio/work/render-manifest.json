@@ -210,9 +210,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 16,
      "role": "display",
      "text": "Charged, not crashed",
@@ -410,9 +410,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 10,
-     "w": 52,
+     "w": 50,
      "h": 22,
      "role": "display",
      "text": "Every buyer recruits",
@@ -437,9 +437,9 @@
     {
      "id": "w",
      "kind": "widget",
-     "x": 6,
+     "x": 8,
      "y": 36,
-     "w": 30,
+     "w": 60,
      "h": 28
     },
     {
@@ -475,13 +475,13 @@
      "from": 183,
      "frames": 66,
      "box": {
-      "x": 6,
+      "x": 8,
       "y": 36,
-      "w": 30,
+      "w": 60,
       "h": 28
      },
      "props": {
-      "label": "Every buyer recruits",
+      "label": "Recruit",
       "near": "Buyer",
       "far": "Salesperson"
      }
@@ -529,10 +529,34 @@
      "font": "display"
     },
     {
+     "id": "ka",
+     "kind": "card",
+     "x": 8,
+     "y": 32,
+     "w": 77,
+     "h": 11
+    },
+    {
+     "id": "kb",
+     "kind": "card",
+     "x": 8,
+     "y": 45,
+     "w": 77,
+     "h": 11
+    },
+    {
+     "id": "kc",
+     "kind": "card",
+     "x": 8,
+     "y": 58,
+     "w": 77,
+     "h": 11
+    },
+    {
      "id": "a",
      "kind": "text",
-     "x": 8,
-     "y": 34,
+     "x": 12,
+     "y": 33,
      "w": 70,
      "h": 9,
      "role": "body",
@@ -559,9 +583,9 @@
     {
      "id": "c",
      "kind": "text",
-     "x": 16,
-     "y": 58,
-     "w": 69,
+     "x": 12,
+     "y": 59,
+     "w": 70,
      "h": 9,
      "role": "body",
      "text": "3. Earn commission",
@@ -629,9 +653,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 20,
      "role": "display",
      "text": "Pay in to pay out",
@@ -645,12 +669,28 @@
      "font": "display"
     },
     {
+     "id": "kl",
+     "kind": "card",
+     "x": 8,
+     "y": 30,
+     "w": 36,
+     "h": 16
+    },
+    {
+     "id": "kr",
+     "kind": "card",
+     "x": 47,
+     "y": 30,
+     "w": 38,
+     "h": 16
+    },
+    {
      "id": "l",
      "kind": "text",
-     "x": 6,
+     "x": 10,
      "y": 32,
-     "w": 38,
-     "h": 10,
+     "w": 33,
+     "h": 12,
      "role": "body",
      "text": "Early members: paid",
      "lines": [
@@ -665,10 +705,10 @@
     {
      "id": "r",
      "kind": "text",
-     "x": 47,
+     "x": 49,
      "y": 32,
-     "w": 38,
-     "h": 10,
+     "w": 34,
+     "h": 12,
      "role": "body",
      "text": "New members: pay in",
      "lines": [
@@ -683,10 +723,10 @@
     {
      "id": "hero",
      "kind": "subject",
-     "x": 6,
-     "y": 46,
-     "w": 79,
-     "h": 22
+     "x": 30,
+     "y": 50,
+     "w": 30,
+     "h": 18
     },
     {
      "id": "cap",
@@ -706,10 +746,10 @@
     {
      "id": "cash",
      "box": {
-      "x": 6,
-      "y": 46,
-      "w": 79,
-      "h": 22
+      "x": 30,
+      "y": 50,
+      "w": 30,
+      "h": 18
      },
      "from": 345
     }
@@ -741,9 +781,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 16,
      "role": "display",
      "text": "Recruiting never stops",
@@ -759,9 +799,9 @@
     {
      "id": "d",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 27,
-     "w": 79,
+     "w": 77,
      "h": 6,
      "role": "body",
      "text": "or the payouts stop",
@@ -924,9 +964,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 10,
-     "w": 52,
+     "w": 50,
      "h": 22,
      "role": "display",
      "text": "Belief was the product",
@@ -1024,9 +1064,9 @@
     {
      "id": "l",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 24,
-     "w": 38,
+     "w": 36,
      "h": 16,
      "role": "body",
      "text": "Sold: the belief",
@@ -1139,9 +1179,9 @@
     {
      "id": "n",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 22,
      "role": "display",
      "text": "2017",
@@ -1153,9 +1193,9 @@
     {
      "id": "d",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 33,
-     "w": 79,
+     "w": 77,
      "h": 6,
      "role": "body",
      "text": "Founder charged: Ruja Ignatova",
@@ -1236,7 +1276,7 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 10,
      "w": 52,
      "h": 22,
@@ -1252,11 +1292,27 @@
      "font": "display"
     },
     {
+     "id": "k1",
+     "kind": "card",
+     "x": 8,
+     "y": 38,
+     "w": 77,
+     "h": 10
+    },
+    {
+     "id": "k2",
+     "kind": "card",
+     "x": 8,
+     "y": 52,
+     "w": 77,
+     "h": 10
+    },
+    {
      "id": "a",
      "kind": "text",
-     "x": 30,
-     "y": 40,
-     "w": 55,
+     "x": 12,
+     "y": 39,
+     "w": 70,
      "h": 8,
      "role": "body",
      "text": "2017: charged in the US",
@@ -1268,9 +1324,9 @@
     {
      "id": "p",
      "kind": "text",
-     "x": 30,
-     "y": 52,
-     "w": 55,
+     "x": 12,
+     "y": 53,
+     "w": 70,
      "h": 8,
      "role": "body",
      "text": "Now: still at large",
@@ -1321,9 +1377,9 @@
     {
      "id": "n",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 22,
      "role": "display",
      "text": "$4B+",
@@ -1335,9 +1391,9 @@
     {
      "id": "d",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 33,
-     "w": 79,
+     "w": 77,
      "h": 6,
      "role": "body",
      "text": "Invested worldwide, per DOJ",
@@ -1501,9 +1557,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 8,
-     "w": 79,
+     "w": 77,
      "h": 16,
      "role": "display",
      "text": "They lost to a story",
@@ -1584,9 +1640,9 @@
     {
      "id": "h",
      "kind": "text",
-     "x": 6,
+     "x": 8,
      "y": 10,
-     "w": 52,
+     "w": 50,
      "h": 22,
      "role": "display",
      "text": "Belief was the price",
@@ -1603,17 +1659,17 @@
     {
      "id": "hero",
      "kind": "subject",
-     "x": 40,
+     "x": 56,
      "y": 46,
-     "w": 45,
+     "w": 29,
      "h": 22
     },
     {
      "id": "w",
      "kind": "widget",
-     "x": 6,
+     "x": 8,
      "y": 40,
-     "w": 30,
+     "w": 45,
      "h": 26
     },
     {
@@ -1634,9 +1690,9 @@
     {
      "id": "bubble",
      "box": {
-      "x": 40,
+      "x": 56,
       "y": 46,
-      "w": 45,
+      "w": 29,
       "h": 22
      },
      "from": 1260
@@ -1649,13 +1705,13 @@
      "from": 1278,
      "frames": 72,
      "box": {
-      "x": 6,
+      "x": 8,
       "y": 40,
-      "w": 30,
+      "w": 45,
       "h": 26
      },
      "props": {
-      "label": "Belief was the price",
+      "label": "Belief",
       "near": "Coin",
       "far": "Belief"
      }
