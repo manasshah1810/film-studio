@@ -1,0 +1,13 @@
+{"stage": "script", "round": 1, "scorer": "director-review", "rubric": "rubrics/script.md", "average": 7.2, "minimum": 5, "passed": false,
+ "params": [
+  {"name": "Hook", "score": 8, "evidence": "Tension is real; 'Would you...' is a stock opener and 'Millions did' rests on a VERIFY fact."},
+  {"name": "One idea", "score": 6, "evidence": "s6 (flight to Athens) competes with the paid-recruitment idea."},
+  {"name": "Structure and turn", "score": 7, "evidence": "s6 sits between turn s5 and payoff s7; three competing reveals (s3, s5, s6)."},
+  {"name": "Fact discipline", "score": 5, "evidence": "'millions' unsourced but on screen (s1, s4, s5); 'filled Wembley', 'Dr', 'Every buyer', 'ZERO BLOCKCHAIN', undated 'never found' overstate sources."},
+  {"name": "Written for the ear", "score": 8, "evidence": "s4 is a 19-word written-style sentence; s2 colon/appositive reads as print."},
+  {"name": "On-screen text", "score": 7, "evidence": "s7 'BELIEF WAS THE PRODUCT' contradicts s5 'the next recruit'; 'ENTER THE CRYPTOQUEEN' stock pattern."},
+  {"name": "Visual intent", "score": 8, "evidence": "Concrete and distinct; s7 scales stock; s4 'credibility does the selling' abstract."},
+  {"name": "Voice", "score": 7, "evidence": "But/Yet/But/Until/So scene openers show the template."},
+  {"name": "Length and pacing", "score": 8, "evidence": "Payoff s7 shortest; captions ignore pauses before voice retime."},
+  {"name": "Ending", "score": 8, "evidence": "Unique loop but lands the fugitive thread, not the recruitment idea."}],
+ "feedback": ["Take unverified 'millions' off screen", "Fold s6 into the close so s7 follows s5", "One consistent product claim", "Bring wording down to sources", "Break the pivot-word template; close lands recruitment idea"]}
