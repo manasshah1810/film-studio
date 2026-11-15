@@ -22,3 +22,7 @@ Coin and cash are custom 5-shape/4-shape props (2 units).
 Pass 1: rejected, avg 7.1 (min 3, SFX Sync: no audio). Fixes: per-panel camera drift (left-edge clipping), chart cards and invented Bitcoin data removed, banknote widget dropped, hook decode at frame 0, 14 synthesized SFX plus a music bed.
 Pass 2: rejected, avg 7.9 (min 7), no blockers. Open majors: D5 s2p2 (tiny list, empty frame), D6 s3p1 (60% empty, no widget), D10 coin prop repeated in 7 of 15 panels. Open minors: D12 s6p3 rack-focus card overlap/truncation, D13 caption fragments in s2p2/s6p2, partial left-edge bleed (x < 6) in s1p1, s2p1, s2p2, s4p2, s4p3.
 SFX sync could not be verified by ear.
+
+## qa-inspector round 3 (user-requested re-run after fixes)
+Rejected, avg 7.9 (min 7), no blockers. D5 s2p2, D6 s3p1, D10 prop repetition all improved but still rated partial/major. Open: D12 s6p3 stat overlaps rack-focus row, D14 rack-focus header truncated (s2p1, s6p3), D13 caption fragments, text 4-14px left of x6 in several panels. Parameters at 7: Widget Integration, Designer-Made Authenticity.
+Note: work/out/final.mp4 was rendered BEFORE these fixes; it does not include them (a third render needs a yes).
