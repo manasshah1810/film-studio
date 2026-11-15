@@ -21,7 +21,7 @@ number; this file says how to use them. `recipes.md` has the code, `failures.md`
 - Clean product demos, finance dashboards, kids content (use `neo-brutalist-ui` or `dark-neon-dataviz`).
 - Long reading. The page holds one headline, four lines of body and two notes at most.
 - Real people's faces or real newspaper mastheads. The paper in a film is a made-up one.
-- Films over about 40 s. The flicker and jitter need a still beat to rest on.
+- Unbroken flicker and jitter. Past 40 s, give each re-hook (every 12 to 15 s) a still paper beat to rest on; length itself is no limit.
 
 ## 3. Tactile paper layering
 Draw bottom to top. Each layer has one job, and text only ever sits on the paper.

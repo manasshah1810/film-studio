@@ -1,0 +1,32 @@
+{
+ "topic": "How did OneCoin convince millions to invest in a cryptocurrency that was not real?",
+ "platform": "instagram",
+ "ratio": "9:16",
+ "length_bucket": "1-5m",
+ "target_seconds": 72,
+ "runtime_tier": "60-90",
+ "genre": "scandal-fraud",
+ "style": "archival-grunge",
+ "style_reason": "Routed from the scandal/fraud genre: the hook asks how people were convinced, so the twist is carried by documents, a stage pitch and a wanted file (tie-breaker 1: a document, a person, a wanted poster -> archival). Freshness: the last OneCoin film used dark-neon-dataviz.",
+ "subject_mode": "layered",
+ "domains": [
+  "finance",
+  "history"
+ ],
+ "angle": "Everyone assumes millions of investors must have been sold real technology; OneCoin sold belief, a stage and commissions, with no real blockchain under it.",
+ "voiceover": true,
+ "voice": {
+  "provider": "gemini",
+  "voice_id": "Charon",
+  "env_key": "GEMINI_API_KEY"
+ },
+ "design": {
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "palette_id": "true-crime",
+  "pairing_id": "abril-courier-caveat",
+  "seed": "onecoin-blind-20261115-1"
+ },
+ "audience": "general Reels viewers curious about crypto, scams and money",
+ "tone": "investigative, tense, high-energy documentary"
+}

@@ -1,0 +1,26 @@
+{
+ "brief_hash": "12b443d244b1",
+ "stages": {
+  "director": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/brief.json"
+  },
+  "treasurer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/budget.json"
+  },
+  "angles": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/angles.json"
+  },
+  "iterations": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/script-iterations.md"
+  }
+ },
+ "updated": "2026-11-15T08:04:42.980Z"
+}

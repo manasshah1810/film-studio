@@ -25,7 +25,7 @@ code, `failures.md` the traps.
 - Data that is a number over time with no place (use `dark-neon-dataviz`).
 - Real borders you cannot source. A made-up border looks like a claim. Draw fictional geography
   and say so on screen (the specimen prints "FICTIONAL MAP"), or cite the source.
-- Films longer than about 45 s. A dark map with a moving camera tires the eye.
+- A map that pans the whole film. Past 45 s, hold on a pinned close-up at each re-hook (every 12 to 15 s); length itself is no limit.
 
 ## 3. Mode C rules: UI and data first
 - The subject is the map, the route, the beacons, the dial and the plates.

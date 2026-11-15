@@ -21,7 +21,7 @@ math and code, `failures.md` the traps.
 ## 2. When to avoid
 - Data, charts, dense text or a list of facts (use `dark-neon-dataviz` or `neo-brutalist-ui`).
 - Photoreal scenes. The look is flat vector cut-outs with light and haze, never a photograph.
-- Films over about 45 s. A moving camera with blur tires the eye.
+- Long films with the camera always moving. Past 45 s, rest the dolly on a held plane at each re-hook (every 12 to 15 s); length itself is no limit.
 - A story with many actors on screen at once. One Story Actor per scene.
 
 ## 3. The four planes

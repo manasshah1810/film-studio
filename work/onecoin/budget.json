@@ -1,0 +1,43 @@
+{
+ "total_units": 100,
+ "reserve": 10,
+ "bucket": "standard",
+ "cost_class": "medium",
+ "approved": true,
+ "stages": {
+  "script": {
+   "allowance": 10,
+   "spent": 0
+  },
+  "cast": {
+   "allowance": 25,
+   "spent": 0
+  },
+  "storyboard": {
+   "allowance": 15,
+   "spent": 0
+  },
+  "vfx": {
+   "allowance": 15,
+   "spent": 0
+  },
+  "render": {
+   "allowance": 25,
+   "spent": 0
+  }
+ },
+ "log": [
+  {
+   "stage": "script",
+   "units": 0,
+   "note": "dry-run approved",
+   "at": "2026-11-15T08:03:56.679Z"
+  },
+  {
+   "stage": "script",
+   "units": 0,
+   "note": "dry run approved under the standing user instruction: 100% autonomous, no confirmations",
+   "at": "2026-11-15T08:04:13.221Z"
+  }
+ ]
+}

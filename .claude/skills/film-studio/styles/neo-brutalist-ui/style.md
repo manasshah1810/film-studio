@@ -23,7 +23,7 @@ says how to use them. `recipes.md` has the code, `failures.md` the traps.
 - Luxury, minimal or editorial looks that need thin lines and air (hard shadows read cheap there).
 - Data-heavy stories where a chart is the proof (use `dark-neon-dataviz`).
 - Films about people or places with no screen in them. There is nothing to press.
-- Anything longer than about 45 s. The chunky look tires; split it.
+- The same chunky window for a long stretch. Past 45 s, swap the window layout at each re-hook (every 12 to 15 s); length itself is no limit.
 
 ## 3. Palettes
 10 palettes in `design-system.json`, two tiers. Pick by topic, then check it reads on a phone.

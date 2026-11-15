@@ -220,6 +220,8 @@ const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, 
 // ------------------------------------------------------------------ 1. atmosphere layer (never an empty frame)
 const Atmosphere: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const {W, H, k} = r, dark = isDark(r.roles.bg), ink = r.roles.ink, pri = r.roles.primary, hi = roleOr(r, 'highlight', 'secondary', 'primary');
+	// the grid line takes whichever of ink / surface stands off the desk (paper styles have dark ink on a dark desk)
+	const line = isDark(r.roles.bg) === isDark(ink) ? roleOr(r, 'surface', 'highlight', 'primary') : ink;
 	const surf = roleOr(r, 'surface', 'shadow', 'bg'), cell = 90 * k, off = (f * 0.35 * k) % cell, T = (p: number, ph = 0) => Math.sin((2 * Math.PI * f) / p + ph);
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
@@ -229,7 +231,7 @@ const Atmosphere: React.FC<{r: R; f: number}> = ({r, f}) => {
 			<svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
 				<defs>
 					<pattern id="fs-grid" width={cell} height={cell} patternUnits="userSpaceOnUse" patternTransform={`translate(${off.toFixed(2)} ${off.toFixed(2)})`}>
-						<path d={`M ${cell} 0 L 0 0 0 ${cell}`} fill="none" stroke={alpha(ink, dark ? 0.07 : 0.06)} strokeWidth={1.5 * k} />
+						<path d={`M ${cell} 0 L 0 0 0 ${cell}`} fill="none" stroke={alpha(line, dark ? 0.08 : 0.06)} strokeWidth={1.5 * k} />
 					</pattern>
 					<filter id="fs-grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={2} seed={Math.floor(f / 2) % 97} /><feColorMatrix type="saturate" values="0" /></filter>
 				</defs>
@@ -335,8 +337,10 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const ink = r.role(cb?.color ?? 'ink');
 	const accent = contrast(r.role('primary'), r.role(bg)) >= 4.5 ? r.role('primary') : ink;
 	const font = fontCss(r.pairing[cb?.font ?? 'display'], Math.max(CAPTION_MIN_PX, cb?.px ?? r.ds.type_scale?.caption ?? CAPTION_MIN_PX) * r.k);
-	const plate = bg !== 'bg' ? r.role(bg) : alpha(r.roles.bg, 0.62);
-	const shadow = `0 ${4 * r.k}px ${18 * r.k}px ${alpha(isDark(r.roles.bg) ? '#000000' : r.roles.bg, 0.85)}`;
+	const plateHex = bg !== 'bg' ? r.role(bg) : r.roles.bg;
+	const plate = bg !== 'bg' ? plateHex : alpha(plateHex, 0.62);
+	// the glow behind the words is the plate colour, so it lifts dark ink on paper and light ink on a dark plate alike
+	const shadow = `0 ${2 * r.k}px ${12 * r.k}px ${alpha(plateHex, 0.9)}`;
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
 			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.32 * (font.fontSize as number)}px`, textShadow: shadow}}>

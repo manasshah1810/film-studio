@@ -21,7 +21,7 @@ geometry and code, `failures.md` the traps.
 ## 2. When to avoid
 - Warm human stories, memoir, food, wellness (use `2-5d-parallax-depth` or `hormozi-kinetic`).
 - Long reading. Monospace in caps tires the eye; keep each plate to a label and a value.
-- Films over about 40 s. Constant motion in the rings needs a rest.
+- Rings that never stop. Past 40 s, park the rings for a beat at each re-hook (every 12 to 15 s); length itself is no limit.
 - Real maps and routes (use `tactical-vector-maps`).
 
 ## 3. Segmented HUD geometry

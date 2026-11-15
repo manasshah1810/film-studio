@@ -22,7 +22,7 @@ how to use them. `recipes.md` has the code, `failures.md` the traps.
 - Warm, human or emotional stories that need faces or places (use a photo or illustration style).
 - Playful or product-demo films (use `neo-brutalist-ui`).
 - Data with no real numbers. A neon chart of invented data looks like proof; it is not.
-- Long explainers over about 45 s. A dark glowing screen tires the eye.
+- A long run of glow with no relief. Past 45 s, lift the atmosphere layer and change the hero card at each re-hook (every 12 to 15 s); length itself is no limit.
 
 ## 3. Mode C rules: UI and data first
 - The subject is the chart, the counter and the cards. Strictly zero human stick figures:
