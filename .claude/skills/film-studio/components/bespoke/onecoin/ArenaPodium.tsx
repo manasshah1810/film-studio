@@ -9,7 +9,9 @@ import {rnd} from '../kit';
 export const ArenaPodium: BespokeScene = ({kit}) => {
 	const {frame: f, frames, box, role, ease, k} = kit;
 	const W = box.width, H = box.height, px = W / 2, py = H * 0.42;
-	const lock = ease('settle', 6, 30), lights = ease('draw', 24, Math.max(20, frames - 40));
+	const roar = !!kit.props.roar;
+	const lock = roar ? 1 : ease('settle', 6, 30), lights = roar ? 1 : ease('draw', 24, Math.max(20, frames - 40));
+	const flare = roar ? 1 - ease('fade', 0, 24) : 0;
 	const sweep = (side: number) => side * (1 - lock) * 0.55 + side * 0.04 * Math.sin(f * 0.05);
 	const beam = (side: number) => {
 		const ox = side < 0 ? 0 : W, tx = px + W * sweep(side);
@@ -19,7 +21,8 @@ export const ArenaPodium: BespokeScene = ({kit}) => {
 	return (
 		<div style={{position: 'absolute', ...box}}>
 			<svg width={W} height={H} style={{overflow: 'visible'}}>
-				{[-1, 1].map((s) => <path key={s} d={beam(s)} fill={role('highlight')} opacity={0.22 + 0.1 * lock} />)}
+				{[-1, 1].map((s) => <path key={s} d={beam(s)} fill={role('highlight')} opacity={0.22 + 0.1 * lock + 0.35 * flare} />)}
+				{roar ? <circle cx={px} cy={py} r={W * (0.12 + 0.5 * (1 - flare))} fill="none" stroke={role('highlight')} strokeWidth={6 * k} opacity={flare} /> : null}
 				<ellipse cx={px} cy={py + H * 0.12} rx={W * 0.14} ry={H * 0.025} fill={role('highlight')} opacity={0.5 * lock} />
 				<path d={`M ${px - W * 0.08} ${py + H * 0.12} L ${px - W * 0.055} ${py - H * 0.04} L ${px + W * 0.055} ${py - H * 0.04} L ${px + W * 0.08} ${py + H * 0.12} Z`} fill={role('surface')} stroke={role('ink')} strokeWidth={4 * k} />
 				<rect x={px - W * 0.07} y={py - H * 0.06} width={W * 0.14} height={H * 0.025} fill={role('primary')} />

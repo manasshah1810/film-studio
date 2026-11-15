@@ -13,7 +13,16 @@
  ],
  "resets": [
   {
-   "frame": 14,
+   "frame": 0,
+   "primitive": "film-gate",
+   "phase": "hook",
+   "panel": "s1p1",
+   "target": "panel",
+   "frames": 105,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 6,
    "primitive": "spring-overshoot",
    "phase": "hook",
    "panel": "s1p1",
@@ -22,7 +31,16 @@
    "note": "s1 headline"
   },
   {
-   "frame": 122,
+   "frame": 105,
+   "primitive": "film-gate",
+   "phase": "hook",
+   "panel": "s1p2",
+   "target": "panel",
+   "frames": 103,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 111,
    "primitive": "stop-motion-jitter",
    "phase": "hook",
    "panel": "s1p2",
@@ -31,7 +49,16 @@
    "note": "s1 headline"
   },
   {
-   "frame": 226,
+   "frame": 208,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s2p1",
+   "target": "panel",
+   "frames": 111,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 236,
    "primitive": "spring-overshoot",
    "phase": "setup",
    "panel": "s2p1",
@@ -40,7 +67,16 @@
    "note": "s2 headline"
   },
   {
-   "frame": 332,
+   "frame": 319,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s2p2",
+   "target": "panel",
+   "frames": 102,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 325,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s2p2",
@@ -49,7 +85,16 @@
    "note": "s2 headline"
   },
   {
-   "frame": 439,
+   "frame": 421,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s3p1",
+   "target": "panel",
+   "frames": 120,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 496,
    "primitive": "spring-overshoot",
    "phase": "setup",
    "panel": "s3p1",
@@ -58,7 +103,16 @@
    "note": "s3 headline"
   },
   {
-   "frame": 559,
+   "frame": 541,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s3p2",
+   "target": "panel",
+   "frames": 98,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 598,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s3p2",
@@ -67,7 +121,34 @@
    "note": "s3 headline"
   },
   {
-   "frame": 784,
+   "frame": 639,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s3p3",
+   "target": "panel",
+   "frames": 127,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 709,
+   "primitive": "stop-motion-jitter",
+   "phase": "setup",
+   "panel": "s3p3",
+   "target": "h",
+   "frames": 18,
+   "note": "s3 headline"
+  },
+  {
+   "frame": 766,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s4p1",
+   "target": "panel",
+   "frames": 128,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 772,
    "primitive": "spring-overshoot",
    "phase": "setup",
    "panel": "s4p1",
@@ -76,7 +157,16 @@
    "note": "s4 headline"
   },
   {
-   "frame": 977,
+   "frame": 894,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s4p2",
+   "target": "panel",
+   "frames": 110,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 900,
    "primitive": "stop-motion-jitter",
    "phase": "setup",
    "panel": "s4p2",
@@ -85,7 +175,34 @@
    "note": "s4 headline"
   },
   {
-   "frame": 1170,
+   "frame": 1004,
+   "primitive": "film-gate",
+   "phase": "setup",
+   "panel": "s4p3",
+   "target": "panel",
+   "frames": 148,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1079,
+   "primitive": "stop-motion-jitter",
+   "phase": "setup",
+   "panel": "s4p3",
+   "target": "h",
+   "frames": 18,
+   "note": "s4 headline"
+  },
+  {
+   "frame": 1152,
+   "primitive": "film-gate",
+   "phase": "turn",
+   "panel": "s5p1",
+   "target": "panel",
+   "frames": 122,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1202,
    "primitive": "spring-overshoot",
    "phase": "turn",
    "panel": "s5p1",
@@ -94,7 +211,16 @@
    "note": "s5 headline"
   },
   {
-   "frame": 1406,
+   "frame": 1274,
+   "primitive": "film-gate",
+   "phase": "turn",
+   "panel": "s5p2",
+   "target": "panel",
+   "frames": 114,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1280,
    "primitive": "stop-motion-jitter",
    "phase": "turn",
    "panel": "s5p2",
@@ -103,7 +229,34 @@
    "note": "s5 headline"
   },
   {
-   "frame": 1545,
+   "frame": 1388,
+   "primitive": "film-gate",
+   "phase": "turn",
+   "panel": "s5p3",
+   "target": "panel",
+   "frames": 139,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1418,
+   "primitive": "stop-motion-jitter",
+   "phase": "turn",
+   "panel": "s5p3",
+   "target": "h",
+   "frames": 18,
+   "note": "s5 headline"
+  },
+  {
+   "frame": 1527,
+   "primitive": "film-gate",
+   "phase": "payoff",
+   "panel": "s6p1",
+   "target": "panel",
+   "frames": 83,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1533,
    "primitive": "spring-overshoot",
    "phase": "payoff",
    "panel": "s6p1",
@@ -112,7 +265,16 @@
    "note": "s6 headline"
   },
   {
-   "frame": 1698,
+   "frame": 1610,
+   "primitive": "film-gate",
+   "phase": "payoff",
+   "panel": "s6p2",
+   "target": "panel",
+   "frames": 132,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1691,
    "primitive": "stop-motion-jitter",
    "phase": "payoff",
    "panel": "s6p2",
@@ -121,7 +283,34 @@
    "note": "s6 headline"
   },
   {
-   "frame": 1851,
+   "frame": 1742,
+   "primitive": "film-gate",
+   "phase": "payoff",
+   "panel": "s6p3",
+   "target": "panel",
+   "frames": 91,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1777,
+   "primitive": "stop-motion-jitter",
+   "phase": "payoff",
+   "panel": "s6p3",
+   "target": "h",
+   "frames": 18,
+   "note": "s6 headline"
+  },
+  {
+   "frame": 1833,
+   "primitive": "film-gate",
+   "phase": "close",
+   "panel": "s7p1",
+   "target": "panel",
+   "frames": 96,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1908,
    "primitive": "spring-overshoot",
    "phase": "close",
    "panel": "s7p1",
@@ -130,10 +319,37 @@
    "note": "s7 headline"
   },
   {
-   "frame": 2063,
+   "frame": 1929,
+   "primitive": "film-gate",
+   "phase": "close",
+   "panel": "s7p2",
+   "target": "panel",
+   "frames": 116,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 1978,
    "primitive": "stop-motion-jitter",
    "phase": "close",
    "panel": "s7p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s7 headline"
+  },
+  {
+   "frame": 2045,
+   "primitive": "film-gate",
+   "phase": "close",
+   "panel": "s7p3",
+   "target": "panel",
+   "frames": 126,
+   "note": "archival film gate: flicker, dust, scratch"
+  },
+  {
+   "frame": 2094,
+   "primitive": "stop-motion-jitter",
+   "phase": "close",
+   "panel": "s7p3",
    "target": "h",
    "frames": 18,
    "note": "s7 headline"

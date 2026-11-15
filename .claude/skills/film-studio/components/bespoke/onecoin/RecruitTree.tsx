@@ -3,8 +3,8 @@ import {type BespokeScene} from '../kit';
 
 /**
  * s5 turn: a recruitment tree grows DOWNWARD from one crown (1, 2, 4, 8). Money climbs every branch to the
- * top. props.phase "product": each coin at a node is struck out with the red pen (the coin was the excuse)
- * and every recruit node is circled and tagged (the recruit was the product).
+ * top. props.phase "product": each coin turns hollow (the coin was the excuse) and every recruit node is
+ * circled and wears a red price tag (the recruit was the product).
  */
 export const RecruitTree: BespokeScene = ({kit}) => {
 	const {frame: f, box, role, ease, pop, k} = kit;
@@ -12,7 +12,7 @@ export const RecruitTree: BespokeScene = ({kit}) => {
 	const tiers = [1, 2, 4, 8];
 	const pos = tiers.map((n, t) => Array.from({length: n}).map((_, i) => ({x: W * (0.5 + ((i + 0.5) / n - 0.5) * (0.3 + t * 0.23)), y: H * (0.1 + t * 0.26)})));
 	const born = (t: number, i: number) => (product ? -60 : 2 + t * 14 + i * 2);
-	const strike = product ? ease('draw', 4, 12) : 0, tag = product ? ease('settle', 20, 14) : 0;
+	const strike = product ? ease('draw', 4, 12) : 0, tag = product ? ease('settle', 8, 16) : 0;
 	return (
 		<div style={{position: 'absolute', ...box}}>
 			<svg width={W} height={H} style={{overflow: 'visible'}}>
@@ -31,9 +31,16 @@ export const RecruitTree: BespokeScene = ({kit}) => {
 						<g key={`n${t}${i}`} transform={`translate(${p.x} ${p.y}) scale(${s.toFixed(3)})`}>
 							{t === 0 ? <path d={`M ${-r} ${-r * 0.9} L ${-r * 0.5} ${-r * 1.5} L 0 ${-r * 1.0} L ${r * 0.5} ${-r * 1.5} L ${r} ${-r * 0.9} Z`} fill={role('highlight')} stroke={role('ink')} strokeWidth={3 * k} /> : null}
 							<circle r={r} fill={role('surface')} stroke={t === 0 ? role('primary') : role('ink')} strokeWidth={(t === 0 ? 7 : 4) * k} />
-							<circle r={r * 0.45} fill={role('highlight')} stroke={role('ink')} strokeWidth={2 * k} />
-							{product ? <g opacity={strike}><line x1={-r * 0.6} y1={-r * 0.6} x2={r * 0.6} y2={r * 0.6} stroke={role('primary')} strokeWidth={6 * k} strokeLinecap="round" /><line x1={r * 0.6} y1={-r * 0.6} x2={-r * 0.6} y2={r * 0.6} stroke={role('primary')} strokeWidth={6 * k} strokeLinecap="round" /></g> : null}
-							{product && t > 0 ? <circle r={r * 1.35} fill="none" stroke={role('primary')} strokeWidth={4 * k} strokeDasharray={`${r * 8.5}`} strokeDashoffset={r * 8.5 * (1 - tag)} /> : null}
+							{/* the coin at each node: solid while it grows, hollow (never existed) once the turn lands */}
+							<circle r={r * 0.45} fill={product ? 'none' : role('highlight')} stroke={product ? role('ink') : role('ink')} strokeWidth={2 * k} strokeDasharray={product ? `${4 * k} ${4 * k}` : undefined} opacity={product ? 1 - 0.6 * strike : 1} />
+							{/* the turn: every recruit gets a red price tag; the recruit was the product */}
+							{product && t > 0 ? (
+								<g opacity={tag} transform={`translate(${r * 0.75} ${-r * 0.95}) rotate(${-18 + i * 7}) scale(${(0.6 + 0.4 * tag).toFixed(3)})`}>
+									<path d={`M 0 0 L ${r * 1.1} 0 L ${r * 1.4} ${r * 0.35} L ${r * 1.1} ${r * 0.7} L 0 ${r * 0.7} Z`} fill={role('primary')} stroke={role('ink')} strokeWidth={2 * k} />
+									<circle cx={r * 1.12} cy={r * 0.35} r={r * 0.1} fill={role('surface')} />
+								</g>
+							) : null}
+							{product && t > 0 ? <circle r={r * 1.3} fill="none" stroke={role('primary')} strokeWidth={4 * k} strokeDasharray={`${r * 8.2}`} strokeDashoffset={r * 8.2 * (1 - tag)} /> : null}
 						</g>
 					);
 				}))}

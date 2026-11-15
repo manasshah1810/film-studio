@@ -58,6 +58,7 @@ const alpha = (hex: string, a: number) => (/^#[0-9a-f]{6}$/i.test(hex) ? hex + M
 const isDark = (hex: string) => { const n = parseInt(hex.slice(1, 7), 16); return ((n >> 16) & 255) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114 < 128; };
 /** A role, or the first fallback role the palette has (focused palettes lack some roles). */
 const roleOr = (r: R, ...names: string[]) => { for (const n of names) if (r.roles[n]) return r.roles[n]; return r.roles.ink; };
+const rnd01 = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 const smooth = (x: number) => { const t = clamp01(x); return t * t * (3 - 2 * t); };
 const pctPx = (b: Pct, W: number, H: number) => ({left: (b.x / 100) * W, top: (b.y / 100) * H, width: (b.w / 100) * W, height: (b.h / 100) * H});
 const bump = (f: number, at: number, frames: number) => (f < at || f > at + frames ? 0 : Math.sin(Math.PI * clamp01((f - at) / Math.max(1, frames))));
@@ -125,6 +126,9 @@ const TextBox: React.FC<{r: R; b: BoxDef; i: number; f: number; p: PanelDefM}> =
 			<div style={{position: 'relative', display: 'inline-block', maxWidth: box.width, padding: plate ? `${10 * r.k}px ${18 * r.k}px` : 0, background: plate ? r.role(b.bg as string) : undefined, borderRadius: plate ? radius * r.k : 0}}>
 				{glitch ? body(r.role(b.color ?? 'ink'), {position: 'absolute', inset: plate ? `${10 * r.k}px ${18 * r.k}px` : 0, transform: glitch.redTransform, filter: 'url(#fs-ch-r)', mixBlendMode: 'screen'}) : null}
 				{glitch ? body(r.role(b.color ?? 'ink'), {position: 'absolute', inset: plate ? `${10 * r.k}px ${18 * r.k}px` : 0, transform: glitch.blueTransform, filter: 'url(#fs-ch-b)', mixBlendMode: 'screen'}) : null}
+				{b.role === 'display' && (r.ds.tokens as Record<string, unknown> | undefined)?.halftone && r.roles.highlight ? (
+					<div style={{position: 'absolute', left: plate ? 12 * r.k : -6 * r.k, bottom: plate ? 12 * r.k : 0, height: pxFor(r, b) * 0.42, width: `${(100 * smooth((f - enterAt - 10) / 14)).toFixed(1)}%`, maxWidth: `calc(100% - ${plate ? 24 * r.k : 0}px)`, background: alpha(r.roles.highlight, 0.85), mixBlendMode: 'multiply'}} />
+				) : null}
 				{body(r.role(b.color ?? 'ink'), {position: 'relative'})}
 				{draw ? (
 					<svg width={box.width} height={24 * r.k} style={{position: 'absolute', left: 0, bottom: -26 * r.k, overflow: 'visible'}}>
@@ -198,7 +202,7 @@ const WidgetMount: React.FC<{id: string; tk: unknown; box: Pct; props: Record<st
 };
 
 // ------------------------------------------------------------------ bespoke topic scenes (colours, fonts and easings still come from the one design system)
-const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, unknown>; frames: number}> = ({id, r, box, props, frames}) => {
+const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, unknown>; frames: number; cover?: boolean}> = ({id, r, box, props, frames, cover}) => {
 	const local = useCurrentFrame();
 	const C = BESPOKE[id];
 	if (!C) throw new Error(`film-studio: bespoke scene "${id}" is not in components/bespoke/registry.ts`);
@@ -209,9 +213,39 @@ const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, 
 	// every bespoke scene sits on its own hero card (gradient, border, shadow) so the diagram never floats on a void
 	const px = pctPx(box, r.W, r.H), pad = 18 * r.k, dark = isDark(r.roles.bg);
 	const surf = roleOr(r, 'surface', 'shadow', 'bg');
+	const tape = (r.ds.tokens as Record<string, unknown> | undefined)?.tape as {w?: number; h?: number; alpha?: number; rotate_deg?: number} | undefined;
+	if (tape) {
+		// paper styles: a torn, grained clipping with masking tape on the top corners (the style's own signature)
+		const L = px.left - pad, T = px.top - pad, Wd = px.width + 2 * pad, Hd = px.height + 2 * pad, seed = id.length * 7 + Math.round(box.x);
+		const edge = (n: number, i: number) => 0.6 + 1.4 * rnd01(seed + i * 13 + n);
+		const pts: string[] = [];
+		const N = 22;
+		for (let i = 0; i <= N; i++) pts.push(`${((i / N) * 100).toFixed(2)}% ${edge(1, i).toFixed(2)}%`);
+		for (let i = 0; i <= N; i++) pts.push(`${(100 - edge(2, i)).toFixed(2)}% ${((i / N) * 100).toFixed(2)}%`);
+		for (let i = N; i >= 0; i--) pts.push(`${((i / N) * 100).toFixed(2)}% ${(100 - edge(3, i)).toFixed(2)}%`);
+		for (let i = N; i >= 0; i--) pts.push(`${edge(4, i).toFixed(2)}% ${((i / N) * 100).toFixed(2)}%`);
+		const tw = (tape.w ?? 190) * r.k * 0.7, th = (tape.h ?? 60) * r.k * 0.7, tc = alpha(r.roles.tape ?? r.roles.highlight ?? surf, tape.alpha ?? 0.78);
+		const fade = cover ? 1 : clamp01(local / 8); // the film's first panel is already landed on the cover frame
+		return (
+			<>
+				<div style={{position: 'absolute', left: L + 10 * r.k, top: T + 18 * r.k, width: Wd, height: Hd, background: alpha('#000000', 0.5), filter: `blur(${14 * r.k}px)`, opacity: fade}} />
+				<div style={{position: 'absolute', left: L, top: T, width: Wd, height: Hd, clipPath: `polygon(${pts.join(',')})`, background: `linear-gradient(170deg, ${surf} 0%, ${surf} 70%, ${alpha(r.roles.ink, 0.12)} 100%)`, opacity: fade}}>
+					<svg width={Wd} height={Hd} style={{position: 'absolute', inset: 0}}>
+						<filter id={`fs-paper-${id.replace(/\W/g, '')}`}><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={3} seed={seed} /><feColorMatrix type="saturate" values="0" /></filter>
+						<rect width={Wd} height={Hd} filter={`url(#fs-paper-${id.replace(/\W/g, '')})`} opacity={0.16} style={{mixBlendMode: 'multiply'}} />
+						<line x1={Wd * 0.62} y1={0} x2={Wd * 0.58} y2={Hd} stroke={alpha(r.roles.ink, 0.07)} strokeWidth={3 * r.k} />
+					</svg>
+				</div>
+				<C kit={kit} />
+				{[-1, 1].map((sd) => (
+					<div key={sd} style={{position: 'absolute', left: (sd < 0 ? L - tw * 0.3 : L + Wd - tw * 0.7), top: T - th * 0.45, width: tw, height: th, background: tc, transform: `rotate(${sd * -(tape.rotate_deg ?? 35)}deg)`, opacity: fade, boxShadow: `0 ${2 * r.k}px ${4 * r.k}px ${alpha('#000000', 0.25)}`}} />
+				))}
+			</>
+		);
+	}
 	return (
 		<>
-			<div style={{position: 'absolute', left: px.left - pad, top: px.top - pad, width: px.width + 2 * pad, height: px.height + 2 * pad, borderRadius: 28 * r.k, background: `linear-gradient(165deg, ${alpha(surf, dark ? 0.82 : 0.9)} 0%, ${alpha(r.roles.bg, 0.72)} 100%)`, border: `${2 * r.k}px solid ${alpha(r.roles.primary, 0.32)}`, boxShadow: `0 ${30 * r.k}px ${80 * r.k}px ${alpha('#000000', dark ? 0.6 : 0.2)}, inset 0 ${2 * r.k}px 0 ${alpha(r.roles.ink, 0.08)}`, opacity: clamp01(local / 8)}} />
+			<div style={{position: 'absolute', left: px.left - pad, top: px.top - pad, width: px.width + 2 * pad, height: px.height + 2 * pad, borderRadius: 28 * r.k, background: `linear-gradient(165deg, ${alpha(surf, dark ? 0.82 : 0.9)} 0%, ${alpha(r.roles.bg, 0.72)} 100%)`, border: `${2 * r.k}px solid ${alpha(r.roles.primary, 0.32)}`, boxShadow: `0 ${30 * r.k}px ${80 * r.k}px ${alpha('#000000', dark ? 0.6 : 0.2)}, inset 0 ${2 * r.k}px 0 ${alpha(r.roles.ink, 0.08)}`, opacity: cover ? 1 : clamp01(local / 8)}} />
 			<C kit={kit} />
 		</>
 	);
@@ -286,7 +320,7 @@ const PanelView: React.FC<{p: PanelDefM; r: R; castById: Map<string, CastEntry>;
 			{boxes.filter((b) => b.kind === 'text').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
 			{(p.bespoke ?? []).map((b, i) => (
 				<Sequence key={`bespoke-${b.id}-${i}`} from={b.from - p.from} durationInFrames={b.frames} layout="none">
-					<BespokeMount id={b.id} r={r} box={b.box} props={b.props} frames={b.frames} />
+					<BespokeMount id={b.id} r={r} box={b.box} props={b.props} frames={b.frames} cover={b.from === 0} />
 				</Sequence>
 			))}
 			{p.widgets.map((w, i) => (
@@ -343,11 +377,11 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const shadow = `0 ${2 * r.k}px ${12 * r.k}px ${alpha(plateHex, 0.9)}`;
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
-			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', columnGap: '0.3em', textShadow: shadow}}>
+			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', textShadow: shadow}}>
 				{hl.words.map((w) => {
 					const on = w.state === 'active' ? w.t : 0;
 					return (
-						<span key={w.index} style={{color: w.power ? accent : ink, marginRight: '0.12em', transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+						<span key={w.index} style={{color: w.power ? accent : ink, margin: '0 0.22em', transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
 							{w.text}
 						</span>
 					);

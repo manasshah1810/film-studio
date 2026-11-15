@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 1,
+ "scorer": "producer",
+ "rubric": "rubrics/storyboard.md",
+ "average": 6.9,
+ "minimum": 5,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 6.5,
+   "evidence": "The s1p1 cover is a headline over a hairline coin sliver; the $4 billion figure is only a caption."
+  },
+  {
+   "name": "One focal point",
+   "score": 7,
+   "evidence": "Twelve identical ledger copies have no focal point; s6 elements compete; s7p2 headline and picture disagree."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8,
+   "evidence": "Most panels show their visual_intent; s6 ledger reads as an envelope and s5p2 change is modest."
+  },
+  {
+   "name": "Layout choice",
+   "score": 5,
+   "evidence": "Layout tags do not match content and all 14 panels share one headline-card-caption template."
+  },
+  {
+   "name": "Readability",
+   "score": 7,
+   "evidence": "Pass 1 captions ran words together; fix1 readable but spacing uneven and only 6 panels re-proofed."
+  },
+  {
+   "name": "Platform fit",
+   "score": 5.5,
+   "evidence": "Headline at y 8% sits in the top interface zone; panels average about 5.2 s."
+  },
+  {
+   "name": "Rhythm",
+   "score": 6,
+   "evidence": "Equal halves and a copied beat grid; s2, s4, s6, s7 have no peak panel."
+  },
+  {
+   "name": "Cast used well",
+   "score": 7.5,
+   "evidence": "The faceless podium is rights-safe; the relay hands do not pass anything."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 9,
+   "evidence": "Every on-screen figure matches a verified fact."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 7.5,
+   "evidence": "s7p2 lands the idea but the headline LAST SEEN: ATHENS works against the picture."
+  }
+ ],
+ "feedback": [
+  "Move headlines below the top 250 px",
+  "Matching layout tags and varied compositions",
+  "A cover frame that stops the scroll",
+  "Shorter panels, beats on key words, one peak per scene",
+  "Fix caption spacing and re-proof all panels"
+ ]
+}

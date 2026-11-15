@@ -18,7 +18,7 @@ export const LedgerWall: BespokeScene = ({kit}) => {
 	const {frame: f, frames, box, role, ease, font, k} = kit;
 	const W = box.width, H = box.height, dark = kit.props.phase === 'dark', hold = kit.props.phase === 'public-hold';
 	const cols = 4, rows = 3, gw = W / cols, gh = H * 0.6 / rows, pw = gw * 0.72, ph = gh * 0.78;
-	const forgeAt = Math.round(frames * 0.55);
+	const forgeAt = typeof kit.props.forgeAt === 'number' ? (kit.props.forgeAt as number) : Math.round(frames * 0.55);
 	const flash = dark || hold ? 0 : ease('draw', forgeAt, 8) * (0.55 + 0.45 * Math.abs(Math.sin((f - forgeAt) * 0.35)));
 	const out = dark ? ease('fade', 0, 18) : 0;
 	const book = dark ? ease('settle', 10, 16) : 0;

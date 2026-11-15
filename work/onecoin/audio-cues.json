@@ -2,11 +2,25 @@
  "fps": 30,
  "cues": [
   {
-   "frame": 104,
+   "frame": 12,
+   "sfx": "digital-tick",
+   "peak": "s1p1 headline scale on the power word",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 105,
    "sfx": "fast-whoosh",
    "peak": "cut to s1p2",
    "pre_roll": 6,
    "db": -12
+  },
+  {
+   "frame": 152,
+   "sfx": "digital-tick",
+   "peak": "s1p2 headline scale on the power word",
+   "pre_roll": 0,
+   "db": -16
   },
   {
    "frame": 208,
@@ -16,11 +30,18 @@
    "db": -12
   },
   {
-   "frame": 314,
+   "frame": 319,
    "sfx": "fast-whoosh",
    "peak": "cut to s2p2",
    "pre_roll": 6,
    "db": -12
+  },
+  {
+   "frame": 384,
+   "sfx": "digital-tick",
+   "peak": "s2p2 headline scale on the power word",
+   "pre_roll": 0,
+   "db": -16
   },
   {
    "frame": 421,
@@ -37,11 +58,11 @@
    "db": -6
   },
   {
-   "frame": 655,
-   "sfx": "digital-tick",
-   "peak": "s3p2 headline scale beat",
-   "pre_roll": 0,
-   "db": -16
+   "frame": 639,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s3p3",
+   "pre_roll": 6,
+   "db": -12
   },
   {
    "frame": 766,
@@ -51,23 +72,30 @@
    "db": -12
   },
   {
-   "frame": 880,
-   "sfx": "digital-tick",
-   "peak": "s4p1 headline scale beat",
-   "pre_roll": 0,
-   "db": -16
-  },
-  {
-   "frame": 959,
+   "frame": 894,
    "sfx": "fast-whoosh",
    "peak": "cut to s4p2",
    "pre_roll": 6,
    "db": -12
   },
   {
-   "frame": 1073,
+   "frame": 979,
    "sfx": "digital-tick",
-   "peak": "s4p2 headline scale beat",
+   "peak": "s4p2 headline scale on the power word",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1004,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s4p3",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1095,
+   "sfx": "digital-tick",
+   "peak": "s4p3 headline scale on the power word",
    "pre_roll": 0,
    "db": -16
   },
@@ -79,23 +107,23 @@
    "db": -12
   },
   {
-   "frame": 1266,
-   "sfx": "digital-tick",
-   "peak": "s5p1 headline scale beat",
-   "pre_roll": 0,
-   "db": -16
+   "frame": 1274,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s5p2",
+   "pre_roll": 6,
+   "db": -12
   },
   {
    "frame": 1388,
    "sfx": "sub-bass-hit",
-   "peak": "cut to s5p2",
+   "peak": "cut to s5p3",
    "pre_roll": 0,
    "db": -6
   },
   {
-   "frame": 1502,
+   "frame": 1479,
    "sfx": "digital-tick",
-   "peak": "s5p2 headline scale beat",
+   "peak": "s5p3 headline scale on the power word",
    "pre_roll": 0,
    "db": -16
   },
@@ -107,25 +135,25 @@
    "db": -12
   },
   {
-   "frame": 1641,
+   "frame": 1567,
    "sfx": "digital-tick",
-   "peak": "s6p1 headline scale beat",
+   "peak": "s6p1 headline scale on the power word",
    "pre_roll": 0,
    "db": -16
   },
   {
-   "frame": 1680,
+   "frame": 1610,
    "sfx": "fast-whoosh",
    "peak": "cut to s6p2",
    "pre_roll": 6,
    "db": -12
   },
   {
-   "frame": 1794,
-   "sfx": "digital-tick",
-   "peak": "s6p2 headline scale beat",
-   "pre_roll": 0,
-   "db": -16
+   "frame": 1742,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s6p3",
+   "pre_roll": 6,
+   "db": -12
   },
   {
    "frame": 1833,
@@ -135,23 +163,23 @@
    "db": -12
   },
   {
-   "frame": 1947,
-   "sfx": "digital-tick",
-   "peak": "s7p1 headline scale beat",
-   "pre_roll": 0,
-   "db": -16
-  },
-  {
-   "frame": 2045,
+   "frame": 1929,
    "sfx": "fast-whoosh",
    "peak": "cut to s7p2",
    "pre_roll": 6,
    "db": -12
   },
   {
-   "frame": 2159,
+   "frame": 2045,
+   "sfx": "sub-bass-hit",
+   "peak": "cut to s7p3",
+   "pre_roll": 0,
+   "db": -6
+  },
+  {
+   "frame": 2123,
    "sfx": "digital-tick",
-   "peak": "s7p2 headline scale beat",
+   "peak": "s7p3 headline scale on the power word",
    "pre_roll": 0,
    "db": -16
   }

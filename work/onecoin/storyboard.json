@@ -5,31 +5,43 @@
    "panels": [
     {
      "id": "s1p1",
-     "duration": 3.4667,
+     "duration": 3.5,
      "layout": "stat",
      "asset_ids": [],
-     "slots": {},
+     "slots": {
+      "stat": {
+       "value": "$4B",
+       "label": "taken"
+      }
+     },
      "anchor": "tl",
      "energy": "peak",
-     "captions": [
-      "Four billion dollars",
-      "for a coin",
-      "that never existed?"
-     ],
      "beats": [
       {
-       "at": 0.45,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.05,
+       "at": 0.4,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "draw",
+       "target": "h"
+      },
+      {
+       "at": 2.1333,
        "duration": 0.4,
        "kind": "camera",
-       "easing": "draw"
+       "easing": "fade"
       }
+     ],
+     "captions": [
+      "Four billion dollars",
+      "for a coin",
+      "that never existed?"
      ],
      "sfx": [
       {
@@ -43,10 +55,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "a gold coin is revealed as a paper-thin cutout: the coin never existed",
        "kind": "metaphor",
        "props": {
@@ -59,16 +71,15 @@
        "id": "h",
        "kind": "text",
        "role": "display",
-       "text": "THE COIN THAT WASN'T",
+       "text": "$4 BILLION",
        "lines": [
-        "THE COIN",
-        "THAT WASN'T"
+        "$4 BILLION"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -77,42 +88,58 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "billion",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ]
     },
     {
      "id": "s1p2",
-     "duration": 3.4667,
+     "duration": 3.4333,
      "layout": "figure",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
-     "energy": "build",
-     "captions": [
-      "OneCoin took that much",
-      "from victims worldwide."
-     ],
+     "energy": "release",
      "beats": [
       {
-       "at": 0.6,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
+       "at": 1.5667,
        "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
+       "kind": "scale",
+       "easing": "draw",
+       "target": "h"
       }
+     ],
+     "captions": [
+      "OneCoin took that much",
+      "from victims worldwide."
      ],
      "sfx": [
       {
@@ -126,15 +153,15 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "a gold coin is revealed as a paper-thin cutout: the coin never existed",
        "kind": "metaphor",
        "props": {
-        "offset": 104,
-        "revealAt": 70
+        "revealAt": 70,
+        "offset": 105
        }
       }
      ],
@@ -149,10 +176,10 @@
         "THAT WASN'T"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -161,13 +188,28 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "onecoin",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
@@ -182,32 +224,26 @@
    "panels": [
     {
      "id": "s2p1",
-     "duration": 3.5333,
+     "duration": 3.7,
      "layout": "object",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "build",
+     "beats": [
+      {
+       "at": 0.9333,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      }
+     ],
      "captions": [
       "Bitcoin runs",
       "on a public ledger.",
       "Many computers hold"
      ],
-     "beats": [
-      {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      }
-     ],
      "sfx": [
       {
        "id": "fast-whoosh",
@@ -220,100 +256,14 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
-       "proves": "a public ledger is copied everywhere, so a forged row is rejected by every copy",
-       "kind": "svg-diagram",
-       "props": {}
-      }
-     ],
-     "boxes": [
-      {
-       "id": "h",
-       "kind": "text",
-       "role": "display",
-       "text": "NOBODY OWNS THE BOOK",
-       "lines": [
-        "NOBODY OWNS",
-        "THE BOOK"
-       ],
-       "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
-       "color": "ink",
-       "bg": "surface"
-      },
-      {
-       "id": "cap",
-       "kind": "caption",
-       "role": "caption",
-       "x": 6,
-       "y": 63,
-       "w": 79,
-       "h": 15,
-       "px": 84,
-       "color": "ink",
-       "bg": "surface",
-       "font": "Abril Fatface"
-      }
-     ],
-     "transition": {
-      "id": "whip-pan-in",
-      "easing": "tear"
-     }
-    },
-    {
-     "id": "s2p2",
-     "duration": 3.5667,
-     "layout": "chart",
-     "asset_ids": [],
-     "slots": {},
-     "anchor": "tl",
-     "energy": "build",
-     "captions": [
-      "the same copy,",
-      "so a fake balance",
-      "gets rejected."
-     ],
-     "beats": [
-      {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      }
-     ],
-     "sfx": [
-      {
-       "id": "fast-whoosh",
-       "at": 0
-      }
-     ],
-     "bespoke": [
-      {
-       "id": "onecoin/ledger-wall",
-       "anchor": "@h",
-       "at": 0,
-       "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "a public ledger is copied everywhere, so a forged row is rejected by every copy",
        "kind": "svg-diagram",
        "props": {
-        "offset": 106
+        "phase": "public-hold"
        }
       }
      ],
@@ -328,10 +278,10 @@
         "THE BOOK"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -340,13 +290,132 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "public",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "whip-pan-in",
+      "easing": "tear"
+     }
+    },
+    {
+     "id": "s2p2",
+     "duration": 3.4,
+     "layout": "list",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "peak",
+     "beats": [
+      {
+       "at": 0.2,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      },
+      {
+       "at": 2.1667,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "draw",
+       "target": "h"
+      }
+     ],
+     "captions": [
+      "the same copy,",
+      "so a fake balance",
+      "gets rejected."
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/ledger-wall",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "a public ledger is copied everywhere, so a forged row is rejected by every copy",
+       "kind": "svg-diagram",
+       "props": {
+        "forgeAt": 6
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "NOBODY OWNS THE BOOK",
+       "lines": [
+        "NOBODY OWNS",
+        "THE BOOK"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "same",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
@@ -362,29 +431,22 @@
     {
      "id": "s3p1",
      "duration": 4.0,
-     "layout": "quote",
+     "layout": "object",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "build",
+     "beats": [
+      {
+       "at": 2.5,
+       "duration": 0.4,
+       "kind": "camera",
+       "easing": "settle"
+      }
+     ],
      "captions": [
       "OneCoin kept",
       "its ledger private."
-     ],
-     "beats": [
-      {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      }
      ],
      "sfx": [
       {
@@ -398,10 +460,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "the public copies go dark and only a padlocked private book is left",
        "kind": "svg-diagram",
        "props": {
@@ -420,10 +482,10 @@
         "BOOKS"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -432,9 +494,9 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
@@ -448,54 +510,25 @@
     },
     {
      "id": "s3p2",
-     "duration": 7.5,
-     "layout": "timeline",
+     "duration": 3.2667,
+     "layout": "figure",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "peak",
-     "captions": [
-      "Prosecutors say",
-      "it had no",
-      "true blockchain,",
-      "and its bosses",
-      "handed out coins",
-      "that existed nowhere."
-     ],
      "beats": [
       {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
-       "duration": 0.4,
-       "kind": "scale",
-       "easing": "fade",
-       "target": "h"
-      },
-      {
-       "at": 5.4,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "tear"
-      },
-      {
-       "at": 7.0,
+       "at": 1.9,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       }
+     ],
+     "captions": [
+      "Prosecutors say",
+      "it had no",
+      "true blockchain,"
      ],
      "sfx": [
       {
@@ -509,10 +542,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "the public copies go dark and only a padlocked private book is left",
        "kind": "svg-diagram",
        "props": {
@@ -531,10 +564,10 @@
         "BOOKS"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -543,18 +576,131 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "true",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
       "id": "dip-to-black",
       "easing": "fade"
+     }
+    },
+    {
+     "id": "s3p3",
+     "duration": 4.2333,
+     "layout": "quote",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "release",
+     "beats": [
+      {
+       "at": 2.3333,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      }
+     ],
+     "captions": [
+      "and its bosses",
+      "handed out coins",
+      "that existed nowhere."
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/ledger-wall",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "the public copies go dark and only a padlocked private book is left",
+       "kind": "svg-diagram",
+       "props": {
+        "phase": "dark",
+        "offset": 98
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "CLOSED BOOKS",
+       "lines": [
+        "CLOSED",
+        "BOOKS"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "nowhere",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "slide-in-up",
+      "easing": "tear"
      }
     }
    ]
@@ -564,46 +710,31 @@
    "panels": [
     {
      "id": "s4p1",
-     "duration": 6.4333,
-     "layout": "versus",
+     "duration": 4.2667,
+     "layout": "figure",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "build",
-     "captions": [
-      "So who sold it?",
-      "Ruja Ignatova.",
-      "The press called her",
-      "the Cryptoqueen.",
-      "In 2016 she took"
-     ],
      "beats": [
       {
-       "at": 0.6,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
+       "at": 2.7,
        "duration": 0.4,
        "kind": "camera",
        "easing": "draw"
-      },
-      {
-       "at": 3.8,
-       "duration": 0.4,
-       "kind": "scale",
-       "easing": "fade",
-       "target": "h"
-      },
-      {
-       "at": 5.4,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "tear"
       }
+     ],
+     "captions": [
+      "So who sold it?",
+      "Ruja Ignatova.",
+      "The press called her"
      ],
      "sfx": [
       {
@@ -617,10 +748,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "an arena lights up for an empty podium: the pitch, not the founder, did the selling",
        "kind": "metaphor",
        "props": {}
@@ -637,10 +768,10 @@
         "A STAR"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -649,61 +780,63 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "who",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "slide-in-up",
-      "easing": "tear"
+      "id": "flash-cut",
+      "easing": "fade"
      }
     },
     {
      "id": "s4p2",
-     "duration": 6.4333,
-     "layout": "title",
+     "duration": 3.6667,
+     "layout": "object",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
-     "energy": "build",
-     "captions": [
-      "the stage",
-      "at Wembley Arena",
-      "and called OneCoin",
-      "the bitcoin killer."
-     ],
+     "energy": "release",
      "beats": [
       {
-       "at": 0.6,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
+       "at": 2.8333,
        "duration": 0.4,
        "kind": "scale",
-       "easing": "fade",
+       "easing": "draw",
        "target": "h"
-      },
-      {
-       "at": 5.4,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "tear"
       }
+     ],
+     "captions": [
+      "the Cryptoqueen.",
+      "In 2016 she took",
+      "the stage"
      ],
      "sfx": [
       {
@@ -717,14 +850,14 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "an arena lights up for an empty podium: the pitch, not the founder, did the selling",
        "kind": "metaphor",
        "props": {
-        "offset": 193
+        "offset": 128
        }
       }
      ],
@@ -739,10 +872,10 @@
         "A STAR"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -751,17 +884,135 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "cryptoqueen",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "flash-cut",
+      "id": "whip-pan-in",
+      "easing": "tear"
+     }
+    },
+    {
+     "id": "s4p3",
+     "duration": 4.9333,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "peak",
+     "beats": [
+      {
+       "at": 2.5,
+       "duration": 0.4,
+       "kind": "camera",
+       "easing": "settle"
+      },
+      {
+       "at": 3.0333,
+       "duration": 0.4,
+       "kind": "scale",
+       "easing": "draw",
+       "target": "h"
+      }
+     ],
+     "captions": [
+      "at Wembley Arena",
+      "and called OneCoin",
+      "the bitcoin killer."
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/arena-podium",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "an arena lights up for an empty podium: the pitch, not the founder, did the selling",
+       "kind": "metaphor",
+       "props": {
+        "roar": true
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "SOLD BY A STAR",
+       "lines": [
+        "SOLD BY",
+        "A STAR"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "killer",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "glitch-cut",
       "easing": "fade"
      }
     }
@@ -772,53 +1023,25 @@
    "panels": [
     {
      "id": "s5p1",
-     "duration": 7.8667,
-     "layout": "list",
+     "duration": 4.0667,
+     "layout": "figure",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "build",
-     "captions": [
-      "A stage only sells",
-      "one crowd,",
-      "so OneCoin paid",
-      "its members to recruit",
-      "new buyers."
-     ],
      "beats": [
       {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
-       "duration": 0.4,
-       "kind": "scale",
-       "easing": "fade",
-       "target": "h"
-      },
-      {
-       "at": 5.4,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "tear"
-      },
-      {
-       "at": 7.0,
+       "at": 1.6667,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       }
+     ],
+     "captions": [
+      "A stage only sells",
+      "one crowd,",
+      "so OneCoin paid"
      ],
      "sfx": [
       {
@@ -832,11 +1055,11 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
-       "proves": "money climbs a recruitment tree; then the coins are struck out and the recruits circled",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "money climbs a recruitment tree; then each coin turns hollow and every recruit wears a price tag",
        "kind": "svg-diagram",
        "props": {}
       }
@@ -852,10 +1075,10 @@
         "NOT COINS"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -864,55 +1087,166 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "one",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "whip-pan-in",
+      "id": "wipe-down",
       "easing": "tear"
      }
     },
     {
      "id": "s5p2",
-     "duration": 4.6333,
-     "layout": "stat",
+     "duration": 3.8,
+     "layout": "object",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
-     "energy": "peak",
-     "captions": [
-      "The coin was",
-      "the excuse.",
-      "The recruit",
-      "was the product."
-     ],
+     "energy": "release",
      "beats": [
       {
-       "at": 0.6,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
+       "at": 2.7,
        "duration": 0.4,
        "kind": "camera",
        "easing": "draw"
+      }
+     ],
+     "captions": [
+      "its members to recruit",
+      "new buyers."
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/recruit-tree",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "money climbs a recruitment tree; then each coin turns hollow and every recruit wears a price tag",
+       "kind": "svg-diagram",
+       "props": {
+        "offset": 122
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "A PYRAMID, NOT COINS",
+       "lines": [
+        "A PYRAMID,",
+        "NOT COINS"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
       },
       {
-       "at": 3.8,
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "recruit",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "dip-to-black",
+      "easing": "fade"
+     }
+    },
+    {
+     "id": "s5p3",
+     "duration": 4.6333,
+     "layout": "title",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "peak",
+     "beats": [
+      {
+       "at": 1.0,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      },
+      {
+       "at": 3.0333,
        "duration": 0.4,
        "kind": "scale",
-       "easing": "fade",
+       "easing": "draw",
        "target": "h"
       }
+     ],
+     "captions": [
+      "The coin was",
+      "the excuse.",
+      "The recruit",
+      "was the product."
      ],
      "sfx": [
       {
@@ -926,11 +1260,11 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
-       "proves": "money climbs a recruitment tree; then the coins are struck out and the recruits circled",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "money climbs a recruitment tree; then each coin turns hollow and every recruit wears a price tag",
        "kind": "svg-diagram",
        "props": {
         "phase": "product"
@@ -948,10 +1282,10 @@
         "NOT COINS"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -960,18 +1294,33 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "excuse",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "glitch-cut",
-      "easing": "fade"
+      "id": "slide-in-up",
+      "easing": "tear"
      }
     }
    ]
@@ -981,39 +1330,31 @@
    "panels": [
     {
      "id": "s6p1",
-     "duration": 5.1,
+     "duration": 2.7667,
      "layout": "figure",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
      "energy": "build",
-     "captions": [
-      "Here's the catch.",
-      "Nobody could check",
-      "OneCoin's books.",
-      "So buyers trusted"
-     ],
      "beats": [
       {
-       "at": 0.6,
+       "at": 0.2,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
+       "at": 1.3333,
        "duration": 0.4,
        "kind": "scale",
-       "easing": "fade",
+       "easing": "draw",
        "target": "h"
       }
+     ],
+     "captions": [
+      "Here's the catch.",
+      "Nobody could check"
      ],
      "sfx": [
       {
@@ -1027,10 +1368,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "buyers trust the paid friend, never the chained-shut ledger",
        "kind": "metaphor",
        "props": {}
@@ -1047,10 +1388,10 @@
         "COMMISSION"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -1059,9 +1400,300 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "catch",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "flash-cut",
+      "easing": "fade"
+     }
+    },
+    {
+     "id": "s6p2",
+     "duration": 4.4,
+     "layout": "object",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "release",
+     "beats": [
+      {
+       "at": 2.7,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      }
+     ],
+     "captions": [
+      "OneCoin's books.",
+      "So buyers trusted",
+      "the friend who sold it,"
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/hand-relay",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "buyers trust the paid friend, never the chained-shut ledger",
+       "kind": "metaphor",
+       "props": {
+        "offset": 83
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "TRUST ON COMMISSION",
+       "lines": [
+        "TRUST ON",
+        "COMMISSION"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "friend",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "whip-pan-in",
+      "easing": "tear"
+     }
+    },
+    {
+     "id": "s6p3",
+     "duration": 3.0333,
+     "layout": "quote",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "peak",
+     "beats": [
+      {
+       "at": 1.1667,
+       "duration": 0.4,
+       "kind": "emphasis",
+       "easing": "settle",
+       "target": "h"
+      }
+     ],
+     "captions": [
+      "and that friend",
+      "was paid to be trusted."
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/hand-relay",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "buyers trust the paid friend, never the chained-shut ledger",
+       "kind": "metaphor",
+       "props": {
+        "phase": "ledger"
+       }
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "TRUST ON COMMISSION",
+       "lines": [
+        "TRUST ON",
+        "COMMISSION"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
+       "px": 84,
+       "color": "ink",
+       "bg": "surface",
+       "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "paid",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
+      }
+     ],
+     "transition": {
+      "id": "glitch-cut",
+      "easing": "fade"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "panels": [
+    {
+     "id": "s7p1",
+     "duration": 3.2,
+     "layout": "figure",
+     "asset_ids": [],
+     "slots": {},
+     "anchor": "tl",
+     "energy": "build",
+     "beats": [
+      {
+       "at": 2.5,
+       "duration": 0.4,
+       "kind": "camera",
+       "easing": "settle"
+      }
+     ],
+     "captions": [
+      "Then in October 2017,",
+      "Ruja boarded"
+     ],
+     "sfx": [
+      {
+       "id": "fast-whoosh",
+       "at": 0
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "onecoin/flight-fade",
+       "anchor": "@h",
+       "at": 0,
+       "easing": "settle",
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
+       "proves": "a boarding pass tears and the flight fades; then all the buyers held was one number in a private book",
+       "kind": "metaphor",
+       "props": {}
+      }
+     ],
+     "boxes": [
+      {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "LAST SEEN: ATHENS",
+       "lines": [
+        "LAST SEEN:",
+        "ATHENS"
+       ],
+       "x": 8,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
+       "color": "ink",
+       "bg": "surface"
+      },
+      {
+       "id": "cap",
+       "kind": "caption",
+       "role": "caption",
+       "x": 6,
+       "y": 64,
+       "w": 79,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
@@ -1074,146 +1706,25 @@
      }
     },
     {
-     "id": "s6p2",
-     "duration": 5.1,
+     "id": "s7p2",
+     "duration": 3.8667,
      "layout": "object",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
-     "energy": "build",
-     "captions": [
-      "the friend who sold it,",
-      "and that friend",
-      "was paid to be trusted."
-     ],
+     "energy": "release",
      "beats": [
       {
-       "at": 0.6,
+       "at": 1.6333,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
-       "duration": 0.4,
-       "kind": "scale",
-       "easing": "fade",
-       "target": "h"
       }
      ],
-     "sfx": [
-      {
-       "id": "fast-whoosh",
-       "at": 0
-      }
-     ],
-     "bespoke": [
-      {
-       "id": "onecoin/hand-relay",
-       "anchor": "@h",
-       "at": 0,
-       "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
-       "proves": "buyers trust the paid friend, never the chained-shut ledger",
-       "kind": "metaphor",
-       "props": {
-        "offset": 153
-       }
-      }
-     ],
-     "boxes": [
-      {
-       "id": "h",
-       "kind": "text",
-       "role": "display",
-       "text": "TRUST ON COMMISSION",
-       "lines": [
-        "TRUST ON",
-        "COMMISSION"
-       ],
-       "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
-       "color": "ink",
-       "bg": "surface"
-      },
-      {
-       "id": "cap",
-       "kind": "caption",
-       "role": "caption",
-       "x": 6,
-       "y": 63,
-       "w": 79,
-       "h": 15,
-       "px": 84,
-       "color": "ink",
-       "bg": "surface",
-       "font": "Abril Fatface"
-      }
-     ],
-     "transition": {
-      "id": "dip-to-black",
-      "easing": "fade"
-     }
-    }
-   ]
-  },
-  {
-   "id": "s7",
-   "panels": [
-    {
-     "id": "s7p1",
-     "duration": 7.0667,
-     "layout": "chart",
-     "asset_ids": [],
-     "slots": {},
-     "anchor": "tl",
-     "energy": "build",
      "captions": [
-      "Then in October 2017,",
-      "Ruja boarded",
       "a flight to Athens",
       "and vanished."
-     ],
-     "beats": [
-      {
-       "at": 0.6,
-       "duration": 0.4,
-       "kind": "emphasis",
-       "easing": "settle",
-       "target": "h"
-      },
-      {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
-       "duration": 0.4,
-       "kind": "scale",
-       "easing": "fade",
-       "target": "h"
-      },
-      {
-       "at": 5.4,
-       "duration": 0.4,
-       "kind": "reveal",
-       "easing": "tear"
-      }
      ],
      "sfx": [
       {
@@ -1227,13 +1738,15 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "a boarding pass tears and the flight fades; then all the buyers held was one number in a private book",
        "kind": "metaphor",
-       "props": {}
+       "props": {
+        "offset": 96
+       }
       }
      ],
      "boxes": [
@@ -1247,10 +1760,10 @@
         "ATHENS"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -1259,58 +1772,67 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "vanished",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "slide-in-up",
-      "easing": "tear"
+      "id": "dip-to-black",
+      "easing": "fade"
      }
     },
     {
-     "id": "s7p2",
+     "id": "s7p3",
      "duration": 4.2,
-     "layout": "quote",
+     "layout": "title",
      "asset_ids": [],
      "slots": {},
      "anchor": "tl",
-     "energy": "build",
-     "captions": [
-      "What her buyers held",
-      "was a number",
-      "in a private book."
-     ],
+     "energy": "peak",
      "beats": [
       {
-       "at": 0.6,
+       "at": 1.6333,
        "duration": 0.4,
        "kind": "emphasis",
        "easing": "settle",
        "target": "h"
       },
       {
-       "at": 2.2,
-       "duration": 0.4,
-       "kind": "camera",
-       "easing": "draw"
-      },
-      {
-       "at": 3.8,
+       "at": 2.6,
        "duration": 0.4,
        "kind": "scale",
-       "easing": "fade",
+       "easing": "draw",
        "target": "h"
       }
      ],
+     "captions": [
+      "What her buyers held",
+      "was a number",
+      "in a private book."
+     ],
      "sfx": [
       {
-       "id": "fast-whoosh",
+       "id": "sub-bass-hit",
        "at": 0
       }
      ],
@@ -1320,10 +1842,10 @@
        "anchor": "@h",
        "at": 0,
        "easing": "settle",
-       "x": 8,
-       "y": 28,
-       "w": 75,
-       "h": 33,
+       "x": 10,
+       "y": 34,
+       "w": 71,
+       "h": 27,
        "proves": "a boarding pass tears and the flight fades; then all the buyers held was one number in a private book",
        "kind": "metaphor",
        "props": {
@@ -1336,16 +1858,16 @@
        "id": "h",
        "kind": "text",
        "role": "display",
-       "text": "LAST SEEN: ATHENS",
+       "text": "ONE PRIVATE NUMBER",
        "lines": [
-        "LAST SEEN:",
-        "ATHENS"
+        "ONE PRIVATE",
+        "NUMBER"
        ],
        "x": 8,
-       "y": 8,
-       "w": 72,
-       "h": 15,
-       "px": 104,
+       "y": 13,
+       "w": 70,
+       "h": 14,
+       "px": 100,
        "color": "ink",
        "bg": "surface"
       },
@@ -1354,18 +1876,33 @@
        "kind": "caption",
        "role": "caption",
        "x": 6,
-       "y": 63,
+       "y": 64,
        "w": 79,
-       "h": 15,
+       "h": 14,
        "px": 84,
        "color": "ink",
        "bg": "surface",
        "font": "Abril Fatface"
+      },
+      {
+       "id": "pen",
+       "kind": "text",
+       "role": "label",
+       "text": "number",
+       "x": 58,
+       "y": 28.5,
+       "w": 26,
+       "h": 4.5,
+       "px": 56,
+       "color": "primary",
+       "bg": "surface",
+       "font": "Caveat",
+       "from": 0.5
       }
      ],
      "transition": {
-      "id": "flash-cut",
-      "easing": "fade"
+      "id": "slide-in-up",
+      "easing": "tear"
      }
     }
    ]

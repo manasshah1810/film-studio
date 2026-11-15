@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 1,
+ "scorer": "director-review",
+ "rubric": "rubrics/storyboard.md",
+ "average": 6.3,
+ "minimum": 4,
+ "passed": false,
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 6,
+   "evidence": "The s1p1 cover is a thin sliver in a dashed circle on a grey box; the number never appears on screen."
+  },
+  {
+   "name": "One focal point",
+   "score": 6.5,
+   "evidence": "Twelve ledger cards all carry the red line; s7p1 is nearly empty."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 6.5,
+   "evidence": "s5p2 reads as everyone eliminated, not recruits as product; s2p2 lacks the forged-row flash."
+  },
+  {
+   "name": "Layout choice",
+   "score": 4,
+   "evidence": "Fewer than three archival signature moves; layout labels misdescribe panels; one template throughout."
+  },
+  {
+   "name": "Readability",
+   "score": 7,
+   "evidence": "84 px captions read; double spaces and unreadable in-plate labels remain."
+  },
+  {
+   "name": "Platform fit",
+   "score": 5,
+   "evidence": "Headline in the top interface zone; several panels over 5 s."
+  },
+  {
+   "name": "Rhythm",
+   "score": 5,
+   "evidence": "One copied beat grid; paired panels are identical; four scenes lack a peak."
+  },
+  {
+   "name": "Cast used well",
+   "score": 7,
+   "evidence": "Relay hands are identical frozen mitts that do not act the line."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 9,
+   "evidence": "Every caption figure traces to a verified fact."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 7,
+   "evidence": "The circle surrounds a squiggle, not a number; the headline contradicts the picture."
+  }
+ ],
+ "feedback": [
+  "Torn grained paper, tape, marker sweep and red-pen notes",
+  "Headline out of the top zone; shorter panels",
+  "Layout labels that match; break the template",
+  "s5p2 must show the recruit as the product; second panels must change",
+  "Beats on key words; one peak per scene"
+ ]
+}

@@ -10,8 +10,8 @@ export const CoinCutout: BespokeScene = ({kit}) => {
 	const {frame: f, box, role, ease, pop, k} = kit;
 	const W = box.width, H = box.height, cx = W / 2, cy = H * 0.5, R = Math.min(W, H) * 0.36;
 	const at = Number(kit.props.revealAt ?? 45);
-	const enter = Math.min(1.08, pop(0));
-	const spin = f < at ? Math.cos(f * 0.16) : 0.04 + 0.96 * (1 - ease('settle', at, 14)) * Math.cos(at * 0.16);
+	const enter = Math.min(1.08, 0.82 + 0.18 * pop(0)); // already on screen at frame 0: the cover frame shows the full coin
+	const spin = f < at ? Math.cos(Math.max(0, f - 12) * 0.16) : 0.04 + 0.96 * (1 - ease('settle', at, 14)) * Math.cos(at * 0.16);
 	const flat = ease('tear', at, 14), ghost = ease('fade', at + 10, 16);
 	const sx = Math.max(0.035, Math.abs(spin)) * (1 - flat) + 0.035 * flat;
 	return (
