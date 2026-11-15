@@ -126,6 +126,77 @@
      ]
     }
    ]
+  },
+  {
+   "id": "bubble",
+   "name": "Bubble",
+   "role": "prop",
+   "layers": [
+    {
+     "name": "prop",
+     "depth": 0,
+     "shapes": [
+      {
+       "t": "ellipse",
+       "fill": "ink",
+       "cx": 50,
+       "cy": 92,
+       "rx": 28,
+       "ry": 3
+      },
+      {
+       "t": "ellipse",
+       "fill": "primary",
+       "cx": 50,
+       "cy": 44,
+       "rx": 40,
+       "ry": 30
+      },
+      {
+       "t": "poly",
+       "fill": "primary",
+       "pts": [
+        [
+         30,
+         62
+        ],
+        [
+         22,
+         86
+        ],
+        [
+         48,
+         70
+        ]
+       ]
+      },
+      {
+       "t": "ellipse",
+       "fill": "bg",
+       "cx": 32,
+       "cy": 44,
+       "rx": 5,
+       "ry": 5
+      },
+      {
+       "t": "ellipse",
+       "fill": "bg",
+       "cx": 50,
+       "cy": 44,
+       "rx": 5,
+       "ry": 5
+      },
+      {
+       "t": "ellipse",
+       "fill": "highlight",
+       "cx": 68,
+       "cy": 44,
+       "rx": 5,
+       "ry": 5
+      }
+     ]
+    }
+   ]
   }
  ],
  "panels": [
@@ -387,7 +458,7 @@
    ],
    "cast": [
     {
-     "id": "coin",
+     "id": "bubble",
      "box": {
       "x": 40,
       "y": 40,
@@ -440,15 +511,33 @@
    "max_hold_seconds": 1.23,
    "boxes": [
     {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 77,
+     "h": 20,
+     "role": "display",
+     "text": "Paid to recruit",
+     "lines": [
+      "Paid to",
+      "recruit"
+     ],
+     "px": 144,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
      "id": "a",
      "kind": "text",
-     "x": 6,
-     "y": 20,
-     "w": 60,
-     "h": 10,
+     "x": 8,
+     "y": 34,
+     "w": 70,
+     "h": 9,
      "role": "body",
-     "text": "Buy in",
-     "px": 44,
+     "text": "1. Buy in",
+     "px": 64,
      "color": "ink",
      "bg": "bg",
      "font": "body"
@@ -457,12 +546,12 @@
      "id": "b",
      "kind": "text",
      "x": 12,
-     "y": 34,
-     "w": 60,
-     "h": 10,
+     "y": 46,
+     "w": 70,
+     "h": 9,
      "role": "body",
-     "text": "Recruit",
-     "px": 44,
+     "text": "2. Recruit",
+     "px": 64,
      "color": "ink",
      "bg": "bg",
      "font": "body"
@@ -470,13 +559,13 @@
     {
      "id": "c",
      "kind": "text",
-     "x": 18,
-     "y": 48,
-     "w": 60,
-     "h": 10,
+     "x": 16,
+     "y": 58,
+     "w": 69,
+     "h": 9,
      "role": "body",
-     "text": "Earn commission",
-     "px": 44,
+     "text": "3. Earn commission",
+     "px": 64,
      "color": "ink",
      "bg": "bg",
      "font": "body"
@@ -501,7 +590,7 @@
     {
      "primitive": "path-draw-on",
      "frame": 249,
-     "target": "a",
+     "target": "h",
      "note": "card stack draws in"
     }
    ],
@@ -543,11 +632,12 @@
      "x": 6,
      "y": 8,
      "w": 79,
-     "h": 12,
+     "h": 20,
      "role": "display",
      "text": "Pay in to pay out",
      "lines": [
-      "Pay in to pay out"
+      "Pay in",
+      "to pay out"
      ],
      "px": 108,
      "color": "ink",
@@ -558,9 +648,9 @@
      "id": "l",
      "kind": "text",
      "x": 6,
-     "y": 26,
+     "y": 32,
      "w": 38,
-     "h": 24,
+     "h": 10,
      "role": "body",
      "text": "Early members: paid",
      "lines": [
@@ -576,9 +666,9 @@
      "id": "r",
      "kind": "text",
      "x": 47,
-     "y": 26,
+     "y": 32,
      "w": 38,
-     "h": 24,
+     "h": 10,
      "role": "body",
      "text": "New members: pay in",
      "lines": [
@@ -589,6 +679,14 @@
      "color": "ink",
      "bg": "bg",
      "font": "body"
+    },
+    {
+     "id": "hero",
+     "kind": "subject",
+     "x": 6,
+     "y": 46,
+     "w": 79,
+     "h": 22
     },
     {
      "id": "cap",
@@ -604,7 +702,18 @@
      "font": "body"
     }
    ],
-   "cast": [],
+   "cast": [
+    {
+     "id": "cash",
+     "box": {
+      "x": 6,
+      "y": 46,
+      "w": 79,
+      "h": 22
+     },
+     "from": 345
+    }
+   ],
    "widgets": [],
    "motion": [],
    "beats": [
@@ -685,7 +794,7 @@
    ],
    "cast": [
     {
-     "id": "coin",
+     "id": "cash",
      "box": {
       "x": 6,
       "y": 40,
@@ -855,7 +964,7 @@
    ],
    "cast": [
     {
-     "id": "coin",
+     "id": "bubble",
      "box": {
       "x": 6,
       "y": 36,
@@ -1431,7 +1540,7 @@
    ],
    "cast": [
     {
-     "id": "coin",
+     "id": "bubble",
      "box": {
       "x": 6,
       "y": 30,
@@ -1523,7 +1632,7 @@
    ],
    "cast": [
     {
-     "id": "coin",
+     "id": "bubble",
      "box": {
       "x": 40,
       "y": 46,

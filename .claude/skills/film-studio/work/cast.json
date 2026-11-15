@@ -1,13 +1,189 @@
-{"assets":[
-{"id":"coin","need_id":"coin","approved":true,"round":1,"notes":"Custom neon coin, no logo or text; stands for OneCoin generically.","def":{"kind":"prop","name":"Coin","vb":[100,100],"shapes":[
- {"t":"ellipse","fill":"ink","cx":50,"cy":92,"rx":30,"ry":4},
- {"t":"ellipse","fill":"primary","cx":50,"cy":48,"rx":40,"ry":40},
- {"t":"ellipse","fill":"bg","cx":50,"cy":48,"rx":31,"ry":31},
- {"t":"ellipse","fill":"primary","cx":50,"cy":48,"rx":22,"ry":22},
- {"t":"rect","fill":"highlight","x":46,"y":30,"w":8,"h":36,"r":3}]}},
-{"id":"cash","need_id":"cash","approved":true,"round":1,"notes":"Stack of notes, no text.","def":{"kind":"prop","name":"Cash","vb":[100,100],"shapes":[
- {"t":"rect","fill":"primary","x":14,"y":58,"w":72,"h":20,"r":3},
- {"t":"rect","fill":"bg","x":18,"y":42,"w":72,"h":20,"r":3},
- {"t":"rect","fill":"primary","x":22,"y":26,"w":72,"h":20,"r":3},
- {"t":"ellipse","fill":"highlight","cx":58,"cy":36,"rx":8,"ry":8}]}}
-]}
+{
+ "assets": [
+  {
+   "id": "coin",
+   "need_id": "coin",
+   "approved": true,
+   "round": 1,
+   "notes": "Custom neon coin, no logo or text; stands for OneCoin generically.",
+   "def": {
+    "kind": "prop",
+    "name": "Coin",
+    "vb": [
+     100,
+     100
+    ],
+    "shapes": [
+     {
+      "t": "ellipse",
+      "fill": "ink",
+      "cx": 50,
+      "cy": 92,
+      "rx": 30,
+      "ry": 4
+     },
+     {
+      "t": "ellipse",
+      "fill": "primary",
+      "cx": 50,
+      "cy": 48,
+      "rx": 40,
+      "ry": 40
+     },
+     {
+      "t": "ellipse",
+      "fill": "bg",
+      "cx": 50,
+      "cy": 48,
+      "rx": 31,
+      "ry": 31
+     },
+     {
+      "t": "ellipse",
+      "fill": "primary",
+      "cx": 50,
+      "cy": 48,
+      "rx": 22,
+      "ry": 22
+     },
+     {
+      "t": "rect",
+      "fill": "highlight",
+      "x": 46,
+      "y": 30,
+      "w": 8,
+      "h": 36,
+      "r": 3
+     }
+    ]
+   }
+  },
+  {
+   "id": "cash",
+   "need_id": "cash",
+   "approved": true,
+   "round": 1,
+   "notes": "Stack of notes, no text.",
+   "def": {
+    "kind": "prop",
+    "name": "Cash",
+    "vb": [
+     100,
+     100
+    ],
+    "shapes": [
+     {
+      "t": "rect",
+      "fill": "primary",
+      "x": 14,
+      "y": 58,
+      "w": 72,
+      "h": 20,
+      "r": 3
+     },
+     {
+      "t": "rect",
+      "fill": "bg",
+      "x": 18,
+      "y": 42,
+      "w": 72,
+      "h": 20,
+      "r": 3
+     },
+     {
+      "t": "rect",
+      "fill": "primary",
+      "x": 22,
+      "y": 26,
+      "w": 72,
+      "h": 20,
+      "r": 3
+     },
+     {
+      "t": "ellipse",
+      "fill": "highlight",
+      "cx": 58,
+      "cy": 36,
+      "rx": 8,
+      "ry": 8
+     }
+    ]
+   }
+  },
+  {
+   "id": "bubble",
+   "need_id": "bubble",
+   "approved": true,
+   "round": 1,
+   "notes": "Speech bubble for belief passed along; no text.",
+   "def": {
+    "kind": "prop",
+    "name": "Bubble",
+    "vb": [
+     100,
+     100
+    ],
+    "shapes": [
+     {
+      "t": "ellipse",
+      "fill": "ink",
+      "cx": 50,
+      "cy": 92,
+      "rx": 28,
+      "ry": 3
+     },
+     {
+      "t": "ellipse",
+      "fill": "primary",
+      "cx": 50,
+      "cy": 44,
+      "rx": 40,
+      "ry": 30
+     },
+     {
+      "t": "poly",
+      "fill": "primary",
+      "pts": [
+       [
+        30,
+        62
+       ],
+       [
+        22,
+        86
+       ],
+       [
+        48,
+        70
+       ]
+      ]
+     },
+     {
+      "t": "ellipse",
+      "fill": "bg",
+      "cx": 32,
+      "cy": 44,
+      "rx": 5,
+      "ry": 5
+     },
+     {
+      "t": "ellipse",
+      "fill": "bg",
+      "cx": 50,
+      "cy": 44,
+      "rx": 5,
+      "ry": 5
+     },
+     {
+      "t": "ellipse",
+      "fill": "highlight",
+      "cx": 68,
+      "cy": 44,
+      "rx": 5,
+      "ry": 5
+     }
+    ]
+   }
+  }
+ ]
+}

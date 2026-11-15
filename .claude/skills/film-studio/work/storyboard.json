@@ -198,12 +198,12 @@
      "duration": 2.8,
      "layout": "object",
      "asset_ids": [
-      "coin"
+      "bubble"
      ],
      "slots": {
       "headline": "Every buyer recruits",
       "prop": {
-       "id": "coin"
+       "id": "bubble"
       }
      },
      "anchor": "tl",
@@ -351,15 +351,33 @@
      ],
      "boxes": [
       {
+       "id": "h",
+       "kind": "text",
+       "role": "display",
+       "text": "Paid to recruit",
+       "x": 8,
+       "y": 8,
+       "w": 77,
+       "h": 20,
+       "px": 144,
+       "color": "ink",
+       "bg": "bg",
+       "font": "Space Grotesk",
+       "lines": [
+        "Paid to",
+        "recruit"
+       ]
+      },
+      {
        "id": "a",
        "kind": "text",
        "role": "body",
-       "text": "Buy in",
-       "x": 6,
-       "y": 20,
-       "w": 60,
-       "h": 10,
-       "px": 44,
+       "text": "1. Buy in",
+       "x": 8,
+       "y": 34,
+       "w": 70,
+       "h": 9,
+       "px": 64,
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
@@ -368,12 +386,12 @@
        "id": "b",
        "kind": "text",
        "role": "body",
-       "text": "Recruit",
+       "text": "2. Recruit",
        "x": 12,
-       "y": 34,
-       "w": 60,
-       "h": 10,
-       "px": 44,
+       "y": 46,
+       "w": 70,
+       "h": 9,
+       "px": 64,
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
@@ -382,12 +400,12 @@
        "id": "c",
        "kind": "text",
        "role": "body",
-       "text": "Earn commission",
-       "x": 18,
-       "y": 48,
-       "w": 60,
-       "h": 10,
-       "px": 44,
+       "text": "3. Earn commission",
+       "x": 16,
+       "y": 58,
+       "w": 69,
+       "h": 9,
+       "px": 64,
        "color": "ink",
        "bg": "bg",
        "font": "Inter"
@@ -416,7 +434,9 @@
      "id": "s3p1",
      "duration": 3.0,
      "layout": "versus",
-     "asset_ids": [],
+     "asset_ids": [
+      "cash"
+     ],
      "slots": {
       "headline": "Pay in to pay out",
       "sides": [
@@ -428,7 +448,10 @@
         "label": "New members",
         "value": "Pay in"
        }
-      ]
+      ],
+      "prop": {
+       "id": "cash"
+      }
      },
      "anchor": "c",
      "recipe": "split-comparison",
@@ -467,13 +490,14 @@
        "x": 6,
        "y": 8,
        "w": 79,
-       "h": 12,
+       "h": 20,
        "px": 108,
        "color": "ink",
        "bg": "bg",
        "font": "Space Grotesk",
        "lines": [
-        "Pay in to pay out"
+        "Pay in",
+        "to pay out"
        ]
       },
       {
@@ -482,9 +506,9 @@
        "role": "body",
        "text": "Early members: paid",
        "x": 6,
-       "y": 26,
+       "y": 32,
        "w": 38,
-       "h": 24,
+       "h": 10,
        "px": 44,
        "color": "ink",
        "bg": "bg",
@@ -500,9 +524,9 @@
        "role": "body",
        "text": "New members: pay in",
        "x": 47,
-       "y": 26,
+       "y": 32,
        "w": 38,
-       "h": 24,
+       "h": 10,
        "px": 44,
        "color": "ink",
        "bg": "bg",
@@ -511,6 +535,14 @@
         "New members:",
         "pay in"
        ]
+      },
+      {
+       "id": "hero",
+       "kind": "subject",
+       "x": 6,
+       "y": 46,
+       "w": 79,
+       "h": 22
       },
       {
        "id": "cap",
@@ -532,13 +564,13 @@
      "duration": 3.5,
      "layout": "title",
      "asset_ids": [
-      "coin"
+      "cash"
      ],
      "slots": {
       "headline": "Recruiting never stops",
       "sub": "or the payouts stop",
       "prop": {
-       "id": "coin"
+       "id": "cash"
       }
      },
      "anchor": "t",
@@ -719,13 +751,12 @@
      "duration": 3.5,
      "layout": "title",
      "asset_ids": [
-      "coin"
+      "bubble"
      ],
      "slots": {
       "headline": "Belief was the product",
       "prop": {
-       "id": "coin",
-       "state": "glow"
+       "id": "bubble"
       }
      },
      "anchor": "tl",
@@ -1322,13 +1353,12 @@
      "duration": 3.0,
      "layout": "title",
      "asset_ids": [
-      "coin"
+      "bubble"
      ],
      "slots": {
       "headline": "They lost to a story",
       "prop": {
-       "id": "coin",
-       "state": "glow"
+       "id": "bubble"
       }
      },
      "anchor": "t",
@@ -1406,13 +1436,12 @@
      "duration": 3.0,
      "layout": "object",
      "asset_ids": [
-      "coin"
+      "bubble"
      ],
      "slots": {
       "headline": "Belief was the price",
       "prop": {
-       "id": "coin",
-       "state": "small"
+       "id": "bubble"
       }
      },
      "anchor": "tl",
