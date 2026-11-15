@@ -49,15 +49,15 @@ const bedDb = Number(a['bed-db'] ?? -21);
 const R = 0.03; // ramp seconds at each window edge
 const gate = windows.length ? `1-max(0,${windows.map(([s, e]) => `clip(min((t-${s - R})/${R},(${e + R}-t)/${R}),0,1)`).reduce((x, y) => `max(${x},${y})`)})` : '1';
 const pulse = `(0.55*sin(2*PI*55*t)+0.30*sin(2*PI*110*t)+0.18*sin(2*PI*65.4*t))*(0.35+0.65*pow(abs(sin(PI*2*t)),6))`;
-ff(['-f', 'lavfi', '-i', `aevalsrc=${pulse}:s=44100:d=${T.toFixed(3)}`, '-f', 'lavfi', '-i', `anoisesrc=color=brown:amplitude=0.25:d=${T.toFixed(3)}:r=44100`,
+ff(['-f', 'lavfi', '-i', `aevalsrc='${pulse}':s=44100:d=${T.toFixed(3)}`, '-f', 'lavfi', '-i', `anoisesrc=color=brown:amplitude=0.25:d=${T.toFixed(3)}:r=44100`,
   '-filter_complex', `[1]lowpass=f=180[n];[0][n]amix=inputs=2:normalize=0,lowpass=f=420,loudnorm=I=${bedDb}:TP=-3:LRA=7,volume='${gate}':eval=frame,afade=t=in:d=0.4[o]`, '-map', '[o]', '-ac', '1', '-ar', '44100', path.join(dir, 'bed.wav')]);
 
 // ---- 2. sub-bass impact hits: 95 -> 55 Hz exponential drop, 1.6 s tail
-ff(['-f', 'lavfi', '-i', `aevalsrc=0.95*sin(2*PI*(55*t+40*(1-exp(-8*t))/8))*exp(-2.6*t)*min(1,t/0.004):s=44100:d=1.6`, '-ac', '1', path.join(dir, 'kit-hit.wav')]);
+ff(['-f', 'lavfi', '-i', "aevalsrc='0.95*sin(2*PI*(55*t+40*(1-exp(-8*t))/8))*exp(-2.6*t)*min(1,t/0.004)':s=44100:d=1.6", '-ac', '1', path.join(dir, 'kit-hit.wav')]);
 // ---- 3. transition kit: whoosh (swept band of noise, peak at 0.30 s), tick (2.4 kHz click), stamp (noise snap + 120 Hz thump)
 ff(['-f', 'lavfi', '-i', 'anoisesrc=color=pink:amplitude=0.9:d=0.45:r=44100', '-af', "bandpass=f=1400:w=1800,volume='pow(sin(PI*min(t/0.30,1)*0.5),2)*exp(-max(0,t-0.30)*14)':eval=frame", '-ac', '1', path.join(dir, 'kit-whoosh.wav')]);
-ff(['-f', 'lavfi', '-i', 'aevalsrc=0.8*sin(2*PI*2400*t)*exp(-t*160):s=44100:d=0.05', '-ac', '1', path.join(dir, 'kit-tick.wav')]);
-ff(['-f', 'lavfi', '-i', 'anoisesrc=color=white:amplitude=0.8:d=0.09:r=44100', '-f', 'lavfi', '-i', 'aevalsrc=0.9*sin(2*PI*120*t)*exp(-t*18):s=44100:d=0.35',
+ff(['-f', 'lavfi', '-i', "aevalsrc='0.8*sin(2*PI*2400*t)*exp(-t*160)':s=44100:d=0.05", '-ac', '1', path.join(dir, 'kit-tick.wav')]);
+ff(['-f', 'lavfi', '-i', 'anoisesrc=color=white:amplitude=0.8:d=0.09:r=44100', '-f', 'lavfi', '-i', "aevalsrc='0.9*sin(2*PI*120*t)*exp(-t*18)':s=44100:d=0.35",
   '-filter_complex', "[0]highpass=f=900,volume='exp(-t*45)':eval=frame[s];[s][1]amix=inputs=2:normalize=0:duration=longest[o]", '-map', '[o]', '-ac', '1', path.join(dir, 'kit-stamp.wav')]);
 
 // which kit sound a Sound Designer cue maps to (personas/sound-designer.md section 2 ids)

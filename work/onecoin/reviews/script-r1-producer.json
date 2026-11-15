@@ -1,0 +1,13 @@
+{"stage": "script", "round": 1, "scorer": "producer", "rubric": "rubrics/script.md", "average": 7.6, "minimum": 4, "passed": false,
+ "params": [
+  {"name": "Hook", "score": 8, "evidence": "Question completes at 4.4 s vs the 2 s Instagram window; subject named late."},
+  {"name": "One idea", "score": 7.5, "evidence": "s6 flight does not serve 'sold belief, paid believers to recruit'."},
+  {"name": "Structure and turn", "score": 7, "evidence": "Setup after the turn delays the payoff; 'Until' is a non sequitur."},
+  {"name": "Fact discipline", "score": 4, "evidence": "'Millions' VERIFY on screen x3; Wembley/Dr/thousands/every buyer overstate; undated 'never found'."},
+  {"name": "Written for the ear", "score": 8, "evidence": "s4 19-word stacked line; s6 fragment."},
+  {"name": "On-screen text", "score": 8, "evidence": "ZERO BLOCKCHAIN overstates; WANTED BY THE FBI paraphrases."},
+  {"name": "Visual intent", "score": 8, "evidence": "s4/s8 imply showing a real person; say she is never shown."},
+  {"name": "Voice", "score": 8, "evidence": "But/Yet/But/Until/So template; 'millions' x3, 'never' x4."},
+  {"name": "Length and pacing", "score": 8.5, "evidence": "Re-hook gap 22.5 s after s6."},
+  {"name": "Ending", "score": 9, "evidence": "'Neither was the coin.' unique and loops."}],
+ "feedback": ["Remove unsourced 'millions'", "Payoff directly after turn; drop 'Until'", "Match wording to sources", "Date the 'not found' claim; headline adds to narration", "Land hook tension inside 2 s"]}

@@ -88,3 +88,38 @@ Critique of Draft v4 as a bored scroller (1 to 10): scroll-stop 8, tension 7, pa
   - s7 a pair of scales: a heavy pile of signed believers outweighs an empty blockchain block.
   - s8 a case file slides in, a WANTED stamp lands, then an empty coin outline is stamped NOT FOUND.
 - Re-scored after fixes: scroll-stop 9, tension 9, pacing 9, showability 9. script.json written.
+
+## Review round 1 (Producer 7.6, Director-review 7.2: both under the 9.0 gate)
+Changed only what the scorecards named:
+- Fact discipline (4 and 5): "millions" could not be sourced (justice.gov unreachable from the build sandbox),
+  so it is gone from s1, s4 and s5; the hook now rests on the verified $4 billion. "filled Wembley" became
+  "took the stage" (the source's words), "Dr" and "thousands of copies" were cut, "every buyer... each friend"
+  became "paid members commissions for recruiting new buyers", and "never found" is now "vanished" with the
+  fact dated to the January 2023 report. Headline "ZERO BLOCKCHAIN" became "CLOSED BOOKS".
+- One idea / structure (6-7.5): the Sofia-Athens scene no longer sits between the turn and the payoff. The
+  payoff (s6) follows the turn (s5) directly, and the flight moved into the close, which now lands the
+  recruitment idea: "Her recruits were left holding a coin that never existed." (loops to the hook).
+- One product: s5 says "The coin was the excuse. The recruit was the product."; the payoff headline is
+  "BELIEF ON COMMISSION", so the film names one answer.
+- Hook (8): "Four billion dollars for a coin that never existed?" names the stakes in the first 2 s; OneCoin
+  is named in the next line. The stock "Would you..." opener is gone.
+- Voice (7-8): scene openers are no longer But / Yet / But / Until / So in a row (now: OneCoin..., So who...,
+  A stage..., That is how..., In October...). s4 was split into three short spoken sentences.
+- Visual intent: s4 and the close state the founder is never drawn (empty podium, a boarding pass).
+- s6 metaphor replaced the stock scales: a relay of hands passing a coin, each taking a commission slip,
+  beside a ledger chained shut.
+
+## Review round 2 (Producer 8.45, Director-review 8.3, minimum 7: still under the gate)
+- On-screen text (7 and 7): three headlines echoed the narration. s2 "EVERYONE HOLDS A COPY" became
+  "NOBODY OWNS THE BOOK" (adds: no single owner); s4 "WEMBLEY, 2016" became "SOLD BY A STAR"; s5
+  "PAID TO RECRUIT" became "A PYRAMID, NOT COINS" (adds the scheme's name from the DOJ source).
+- Payoff restated the turn: s6 now delivers only the new thought, in short spoken sentences, and is a marked
+  re-hook: "Here's the catch. Nobody could check OneCoin's books. So buyers trusted the friend who sold it,
+  and that friend was paid to be trusted." s7 opens a final loop ("Then in October 2017...", rehook).
+- Stiff explainer shape: "That is what" / "That is how" are gone; s4 "dubbed" became "The press called her".
+- Facts: s2 narrowed to "Bitcoin runs on a public ledger" (the Nakamoto source). s5 smoothed to "paid its
+  members to recruit new buyers". s7's unsupported "recruits were left holding" became "What her buyers
+  held was a number in a private book.", supported by the DOJ private-ledger fact; it no longer repeats
+  the hook phrase word for word.
+- s7 is one dominant image (a torn boarding pass and a fading flight line). Caption frames across the
+  [PAUSE] gaps are set from the measured voice by generate-voiceover.js --retime (per-beat timing).

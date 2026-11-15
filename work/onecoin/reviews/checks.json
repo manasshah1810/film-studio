@@ -1,8 +1,11 @@
 {
  "pass": true,
- "stage": "script",
+ "stage": "final",
  "ran": [
   "validate-schema",
+  "validate-schema render-manifest",
+  "check-design",
+  "check-safezones",
   "check-ai-tells",
   "check-retention"
  ],

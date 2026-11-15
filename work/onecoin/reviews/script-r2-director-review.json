@@ -1,0 +1,68 @@
+{
+ "stage": "script",
+ "round": 2,
+ "scorer": "director-review",
+ "rubric": "rubrics/script.md",
+ "average": 8.3,
+ "minimum": 7,
+ "passed": false,
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "sourced stakes in 2 s; 'That is what' stiff"
+  },
+  {
+   "name": "One idea",
+   "score": 8.5,
+   "evidence": "s7 first sentence still fugitive thread (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 8.5,
+   "evidence": "payoff re-says the turn (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 9,
+   "evidence": "round-1 flags fixed (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 8,
+   "evidence": "s6 is 22 words with a colon and a 'because' clause and the unclear 'believers earned by finding'; s1 'That is what' and s6 'That is how' are uncontracted and stiff when spoken."
+  },
+  {
+   "name": "On-screen text",
+   "score": 7,
+   "evidence": "s2/s4/s5 headlines repeat narration (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Visual intent",
+   "score": 8.5,
+   "evidence": "s6 intent vs metaphor differ; s7 three images"
+  },
+  {
+   "name": "Voice",
+   "score": 8,
+   "evidence": "'That is what/how' explainer shape (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 8,
+   "evidence": "re-hook lapses after s5; captions ignore pauses pre-retime"
+  },
+  {
+   "name": "Ending",
+   "score": 8.5,
+   "evidence": "reuses hook phrase word for word (see round-2 scorecard summary in script-iterations.md)."
+  }
+ ],
+ "feedback": [
+  "s2/s4/s5 headlines repeat narration",
+  "s6 payoff restates s5; spoken-length sentences",
+  "Re-hook after 34.5 s; captions leave pause gaps (voice retime)",
+  "Replace 'That is what/how' explainer shape",
+  "s6 intent = metaphor; s7 one dominant image; close lands its own weight"
+ ]
+}

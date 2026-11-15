@@ -1,0 +1,68 @@
+{
+ "stage": "script",
+ "round": 2,
+ "scorer": "producer",
+ "rubric": "rubrics/script.md",
+ "average": 8.45,
+ "minimum": 7,
+ "passed": false,
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "$4B lands in 1.2 s (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "One idea",
+   "score": 9,
+   "evidence": "every scene serves paid recruitment (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 8.5,
+   "evidence": "payoff s6 restates the s5 turn (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 8.5,
+   "evidence": "s7 'recruits left holding' and s2 'real crypto' beyond sources"
+  },
+  {
+   "name": "Written for the ear",
+   "score": 8,
+   "evidence": "s6 is 22 words with a colon and a 'because' clause and the unclear 'believers earned by finding'; s1 'That is what' and s6 'That is how' are uncontracted and stiff when spoken."
+  },
+  {
+   "name": "On-screen text",
+   "score": 7,
+   "evidence": "s2, s4, s5 headlines echo narration (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Visual intent",
+   "score": 9,
+   "evidence": "founder never drawn; distinct pictures (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Voice",
+   "score": 8.5,
+   "evidence": "'That is how' stock opener (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 8,
+   "evidence": "no flagged re-hook after 34.5 s (see round-2 scorecard summary in script-iterations.md)."
+  },
+  {
+   "name": "Ending",
+   "score": 9,
+   "evidence": "lands recruitment idea and loops (see round-2 scorecard summary in script-iterations.md)."
+  }
+ ],
+ "feedback": [
+  "s2/s4/s5 headlines must add to narration",
+  "Add a re-hook after s5; payoff needs a new thought",
+  "Split s6 into spoken sentences; drop 'That is how'",
+  "s7 recruits claim needs support",
+  "Narrow s2 to Bitcoin; smooth s5 sound clash"
+ ]
+}

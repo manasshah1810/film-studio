@@ -12,7 +12,7 @@
    "beat": "hook",
    "angle": "a1",
    "emotion": "disbelief",
-   "narration": "Would you hand your savings to a coin that never existed? Millions did, and OneCoin raised over four billion dollars.",
+   "narration": "Four billion dollars for a coin that never existed? OneCoin took that much from victims worldwide.",
    "on_screen_text": "THE COIN THAT WASN'T",
    "visual_intent": "A gold coin spins up as an investment, then is shown to be a flat drawing with nothing behind it.",
    "visualMetaphor": "A glowing gold coin turns edge-on and is revealed as a paper-thin cutout with nothing behind it.",
@@ -21,54 +21,39 @@
      "claim": "OneCoin took in more than $4 billion from victims worldwide between 2014 and 2016.",
      "status": "verified",
      "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
-    },
-    {
-     "claim": "Millions of people worldwide invested in OneCoin.",
-     "status": "VERIFY",
-     "source": ""
     }
    ],
-   "start": 0.0,
-   "duration": 8.0,
+   "start": 0,
+   "duration": 6.9333,
    "captions": [
     [
      0,
-     36,
-     "Would you hand"
+     44,
+     "Four billion dollars",
+     "billion"
     ],
     [
-     36,
-     60,
-     "your savings",
-     "savings"
+     44,
+     64,
+     "for a coin"
     ],
     [
-     60,
-     96,
-     "to a coin"
-    ],
-    [
-     96,
-     132,
+     64,
+     105,
      "that never existed?",
      "never"
     ],
     [
-     132,
-     156,
-     "Millions did,",
-     "Millions"
+     105,
+     152,
+     "OneCoin took that much",
+     "OneCoin"
     ],
     [
-     156,
-     192,
-     "and OneCoin raised"
-    ],
-    [
-     192,
-     240,
-     "over four billion dollars.",
-     "billion"
+     152,
+     208,
+     "from victims worldwide.",
+     "worldwide"
     ]
    ]
   },
@@ -78,9 +63,9 @@
    "angle": "a1",
    "emotion": "clarity",
    "explainer": true,
-   "narration": "A real crypto coin lives on a public ledger: thousands of copies, so nobody can fake a balance.",
-   "on_screen_text": "EVERYONE HOLDS A COPY",
-   "visual_intent": "One ledger page is copied everywhere, so a forged line is caught by every copy at once.",
+   "narration": "Bitcoin runs on a public ledger. Many computers hold the same copy, so a fake balance gets rejected.",
+   "on_screen_text": "NOBODY OWNS THE BOOK",
+   "visual_intent": "One ledger page is copied to many machines, so a forged line is caught by every copy at once.",
    "visualMetaphor": "One ledger page fans out into a wall of identical copies; a forged row flashes red on every copy.",
    "facts": [
     {
@@ -89,41 +74,41 @@
      "source": "Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. https://bitcoin.org/bitcoin.pdf"
     }
    ],
-   "start": 8.0,
-   "duration": 7.5,
+   "start": 6.9333,
+   "duration": 7.1,
    "captions": [
     [
-     240,
-     290,
-     "A real crypto coin"
+     208,
+     236,
+     "Bitcoin runs"
     ],
     [
-     290,
-     315,
-     "lives on"
-    ],
-    [
-     315,
-     352,
-     "a public ledger:",
+     236,
+     276,
+     "on a public ledger.",
      "public"
     ],
     [
-     352,
-     390,
-     "thousands of copies,",
-     "thousands"
+     276,
+     319,
+     "Many computers hold"
     ],
     [
-     390,
-     440,
-     "so nobody can fake",
-     "fake"
+     319,
+     349,
+     "the same copy,",
+     "same"
     ],
     [
-     440,
-     465,
-     "a balance."
+     349,
+     384,
+     "so a fake balance"
+    ],
+    [
+     384,
+     421,
+     "gets rejected.",
+     "rejected"
     ]
    ]
   },
@@ -134,10 +119,10 @@
    "emotion": "shock",
    "rehook": true,
    "impact": true,
-   "narration": "But OneCoin kept its ledger private. [PAUSE 0.9s] Prosecutors say there was no real blockchain, and its bosses handed out coins that existed nowhere.",
-   "on_screen_text": "ZERO BLOCKCHAIN",
-   "visual_intent": "The wall of public copies goes dark, leaving one locked notebook that someone simply types numbers into.",
-   "visualMetaphor": "The wall of copies goes dark; one locked private notebook remains and a hand types balances into it.",
+   "narration": "OneCoin kept its ledger private. [PAUSE 0.9s] Prosecutors say it had no true blockchain, and its bosses handed out coins that existed nowhere.",
+   "on_screen_text": "CLOSED BOOKS",
+   "visual_intent": "The wall of public copies goes dark, leaving one locked book that someone simply writes numbers into.",
+   "visualMetaphor": "The wall of copies goes dark; one padlocked ledger book remains and a hand writes balances into it.",
    "facts": [
     {
      "claim": "Prosecutors say OneCoin had no true, verifiable blockchain.",
@@ -150,49 +135,50 @@
      "source": "https://www.justice.gov/usao-sdny/pr/bulgarian-woman-charged-role-multi-billion-dollar-cryptocurrency-pyramid-scheme-onecoin"
     }
    ],
-   "start": 15.5,
-   "duration": 10.0,
+   "start": 14.0333,
+   "duration": 11.5,
    "captions": [
     [
-     465,
-     506,
-     "But OneCoin kept"
+     421,
+     458,
+     "OneCoin kept"
     ],
     [
-     506,
-     547,
+     458,
+     541,
      "its ledger private."
     ],
     [
-     547,
-     574,
+     541,
+     579,
      "Prosecutors say"
     ],
     [
-     574,
-     615,
-     "there was no",
-     "no"
+     579,
+     598,
+     "it had no"
     ],
     [
-     615,
-     642,
-     "real blockchain,"
+     598,
+     639,
+     "true blockchain,",
+     "true"
     ],
     [
-     642,
-     683,
+     639,
+     671,
      "and its bosses"
     ],
     [
-     683,
-     724,
+     671,
+     709,
      "handed out coins"
     ],
     [
-     724,
-     765,
-     "that existed nowhere."
+     709,
+     766,
+     "that existed nowhere.",
+     "nowhere"
     ]
    ]
   },
@@ -202,10 +188,10 @@
    "angle": "a3",
    "emotion": "awe",
    "rehook": true,
-   "narration": "Yet millions believed, because Dr Ruja Ignatova filled Wembley Arena in 2016 and sold OneCoin as the bitcoin killer.",
-   "on_screen_text": "ENTER THE CRYPTOQUEEN",
-   "visual_intent": "A packed arena lights up for one confident founder on stage, and credibility does the selling.",
-   "visualMetaphor": "Arena spotlights sweep and lock on a podium while thousands of phone lights rise in the crowd.",
+   "narration": "So who sold it? Ruja Ignatova. The press called her the Cryptoqueen. In 2016 she took the stage at Wembley Arena and called OneCoin the bitcoin killer.",
+   "on_screen_text": "SOLD BY A STAR",
+   "visual_intent": "An arena lights up for a pitch from an empty, faceless podium; the founder herself is never drawn.",
+   "visualMetaphor": "Arena spotlights sweep and lock on an empty podium while rows of phone lights rise in the crowd.",
    "facts": [
     {
      "claim": "In the summer of 2016 Ruja Ignatova took the stage at Wembley Arena and promoted OneCoin as the bitcoin killer.",
@@ -218,39 +204,57 @@
      "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
     }
    ],
-   "start": 25.5,
-   "duration": 8.0,
+   "start": 25.5333,
+   "duration": 12.8667,
    "captions": [
     [
-     765,
+     766,
      803,
-     "Yet millions believed,"
+     "So who sold it?",
+     "who"
     ],
     [
      803,
-     853,
-     "because Dr Ruja Ignatova"
+     842,
+     "Ruja Ignatova."
     ],
     [
-     853,
-     891,
-     "filled Wembley Arena",
-     "Wembley"
+     842,
+     894,
+     "The press called her"
     ],
     [
-     891,
-     917,
-     "in 2016"
+     894,
+     940,
+     "the Cryptoqueen.",
+     "Cryptoqueen"
     ],
     [
-     917,
-     954,
-     "and sold OneCoin"
+     940,
+     979,
+     "In 2016 she took"
     ],
     [
-     954,
-     1005,
-     "as the bitcoin killer."
+     979,
+     1004,
+     "the stage",
+     "stage"
+    ],
+    [
+     1004,
+     1046,
+     "at Wembley Arena"
+    ],
+    [
+     1046,
+     1095,
+     "and called OneCoin"
+    ],
+    [
+     1095,
+     1152,
+     "the bitcoin killer.",
+     "killer"
     ]
    ]
   },
@@ -261,8 +265,8 @@
    "emotion": "realisation",
    "rehook": true,
    "impact": true,
-   "narration": "But a speech alone cannot reach millions. Every buyer earned a commission for each friend they signed up. [PAUSE 0.6s] The real product was the next recruit.",
-   "on_screen_text": "PAID TO RECRUIT",
+   "narration": "A stage only sells one crowd, so OneCoin paid its members to recruit new buyers. [PAUSE 0.6s] The coin was the excuse. The recruit was the product.",
+   "on_screen_text": "A PYRAMID, NOT COINS",
    "visual_intent": "A recruitment tree spreads downward while the money from every new buyer climbs to the top.",
    "visualMetaphor": "A recruitment tree grows downward; money climbs every branch to a single crown at the top.",
    "facts": [
@@ -272,199 +276,188 @@
      "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
     }
    ],
-   "start": 33.5,
-   "duration": 11.0,
+   "start": 38.4,
+   "duration": 12.5,
    "captions": [
     [
-     1005,
-     1058,
-     "But a speech alone",
-     "alone"
+     1152,
+     1202,
+     "A stage only sells"
     ],
     [
-     1058,
-     1097,
-     "cannot reach millions."
+     1202,
+     1231,
+     "one crowd,",
+     "one"
     ],
     [
-     1097,
-     1137,
-     "Every buyer earned"
+     1231,
+     1274,
+     "so OneCoin paid"
     ],
     [
-     1137,
-     1163,
-     "a commission",
-     "commission"
+     1274,
+     1337,
+     "its members to recruit",
+     "recruit"
     ],
     [
-     1163,
-     1203,
-     "for each friend"
+     1337,
+     1388,
+     "new buyers."
     ],
     [
-     1203,
-     1243,
-     "they signed up."
+     1388,
+     1418,
+     "The coin was"
     ],
     [
-     1243,
-     1282,
-     "The real product"
+     1418,
+     1449,
+     "the excuse.",
+     "excuse"
     ],
     [
-     1282,
-     1335,
-     "was the next recruit."
+     1449,
+     1479,
+     "The recruit"
+    ],
+    [
+     1479,
+     1527,
+     "was the product.",
+     "product"
     ]
    ]
   },
   {
    "id": "s6",
-   "beat": "setup",
-   "angle": "a4",
-   "emotion": "dread",
+   "beat": "payoff",
+   "angle": "a5",
+   "emotion": "clarity",
    "rehook": true,
-   "impact": true,
-   "narration": "Until October 2017, when Ruja boarded a flight from Sofia to Athens, [PAUSE 0.9s] and vanished.",
-   "on_screen_text": "LAST SEEN: ATHENS",
-   "visual_intent": "The founder's flight path draws across the sea and the signal disappears before it lands.",
-   "visualMetaphor": "A boarding pass tears in two as a flight line draws Sofia to Athens and the radar blip fades.",
+   "narration": "Here's the catch. Nobody could check OneCoin's books. So buyers trusted the friend who sold it, and that friend was paid to be trusted.",
+   "on_screen_text": "TRUST ON COMMISSION",
+   "visual_intent": "A relay of hands passes one coin down the line, each taking a commission slip, beside a ledger chained shut.",
+   "visualMetaphor": "A relay of hands passes a coin down a line, each taking a commission slip, beside a ledger that stays chained shut.",
    "facts": [
     {
-     "claim": "On 25 October 2017 Ruja Ignatova boarded a flight from Sofia to Athens and has not been seen since.",
+     "claim": "Prosecutors say OneCoin had no true, verifiable blockchain; its records were a purported private blockchain.",
      "status": "verified",
-     "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
+     "source": "https://www.justice.gov/usao-sdny/pr/bulgarian-woman-charged-role-multi-billion-dollar-cryptocurrency-pyramid-scheme-onecoin"
+    },
+    {
+     "claim": "OneCoin members were paid commissions for recruiting others to buy packages.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
     }
    ],
-   "start": 44.5,
-   "duration": 7.0,
+   "start": 50.9,
+   "duration": 10.2,
    "captions": [
     [
-     1335,
-     1380,
-     "Until October 2017,"
+     1527,
+     1567,
+     "Here's the catch.",
+     "catch"
     ],
     [
-     1380,
-     1425,
-     "when Ruja boarded"
+     1567,
+     1610,
+     "Nobody could check",
+     "check"
     ],
     [
-     1425,
-     1455,
-     "a flight"
+     1610,
+     1651,
+     "OneCoin's books."
     ],
     [
-     1455,
-     1515,
-     "from Sofia to Athens,"
+     1651,
+     1691,
+     "So buyers trusted"
     ],
     [
-     1515,
-     1545,
-     "and vanished."
+     1691,
+     1742,
+     "the friend who sold it,",
+     "friend"
+    ],
+    [
+     1742,
+     1777,
+     "and that friend"
+    ],
+    [
+     1777,
+     1833,
+     "was paid to be trusted.",
+     "paid"
     ]
    ]
   },
   {
    "id": "s7",
-   "beat": "payoff",
-   "angle": "a5",
-   "emotion": "clarity",
-   "narration": "So OneCoin never needed a blockchain. It needed believers, and it paid them to find more.",
-   "on_screen_text": "BELIEF WAS THE PRODUCT",
-   "visual_intent": "Belief outweighs technology: signed-up believers tip the scale against an empty blockchain block.",
-   "visualMetaphor": "A pair of scales: a heavy pile of signed believers outweighs an empty blockchain block.",
-   "facts": [],
-   "start": 51.5,
-   "duration": 6.5,
-   "captions": [
-    [
-     1545,
-     1594,
-     "So OneCoin never needed",
-     "never"
-    ],
-    [
-     1594,
-     1618,
-     "a blockchain."
-    ],
-    [
-     1618,
-     1655,
-     "It needed believers,"
-    ],
-    [
-     1655,
-     1703,
-     "and it paid them",
-     "paid"
-    ],
-    [
-     1703,
-     1740,
-     "to find more."
-    ]
-   ]
-  },
-  {
-   "id": "s8",
    "beat": "close",
+   "angle": "a4",
    "emotion": "resolve",
-   "narration": "In 2022 the FBI put Ruja Ignatova on its Ten Most Wanted list. She was never found. [PAUSE 0.6s] Neither was the coin.",
-   "on_screen_text": "WANTED BY THE FBI",
-   "visual_intent": "A case file closes on a fugitive and an empty coin outline: neither was ever found.",
-   "visualMetaphor": "A case file slides in, a WANTED stamp lands, then an empty coin outline is stamped NOT FOUND.",
+   "rehook": true,
+   "narration": "Then in October 2017, Ruja boarded a flight to Athens and vanished. [PAUSE 0.9s] What her buyers held was a number in a private book.",
+   "on_screen_text": "LAST SEEN: ATHENS",
+   "visual_intent": "A torn boarding pass and a flight line that fades out over the sea before it reaches Athens.",
+   "visualMetaphor": "A boarding pass tears in two while a dotted flight line toward Athens fades out over the sea.",
    "facts": [
     {
-     "claim": "In 2022 the FBI added Ruja Ignatova to its Ten Most Wanted Fugitives list.",
+     "claim": "On 25 October 2017 Ruja Ignatova boarded a flight from Sofia to Athens and has not been seen since (as of the January 2023 report).",
      "status": "verified",
      "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
     },
     {
-     "claim": "Ignatova has not been found since boarding the October 2017 flight (as of the January 2023 report).",
+     "claim": "OneCoins were allocated to members in OneCoin's own private records and did not exist on any true blockchain.",
      "status": "verified",
-     "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
+     "source": "https://www.justice.gov/usao-sdny/pr/bulgarian-woman-charged-role-multi-billion-dollar-cryptocurrency-pyramid-scheme-onecoin"
     }
    ],
-   "start": 58.0,
-   "duration": 9.0,
+   "start": 61.1,
+   "duration": 11.2667,
    "captions": [
     [
-     1740,
-     1791,
-     "In 2022 the FBI",
-     "2022"
+     1833,
+     1892,
+     "Then in October 2017,"
     ],
     [
-     1791,
-     1830,
-     "put Ruja Ignatova"
+     1892,
+     1929,
+     "Ruja boarded"
     ],
     [
-     1830,
-     1869,
-     "on its Ten"
+     1929,
+     1978,
+     "a flight to Athens"
     ],
     [
-     1869,
-     1907,
-     "Most Wanted list.",
-     "Wanted"
+     1978,
+     2045,
+     "and vanished.",
+     "vanished"
     ],
     [
-     1907,
-     1959,
-     "She was never found.",
-     "never"
+     2045,
+     2094,
+     "What her buyers held"
     ],
     [
-     1959,
-     2010,
-     "Neither was the coin.",
-     "coin"
+     2094,
+     2123,
+     "was a number",
+     "number"
+    ],
+    [
+     2123,
+     2171,
+     "in a private book.",
+     "private"
     ]
    ]
   }

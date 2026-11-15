@@ -1,0 +1,184 @@
+{
+ "provider": "gemini",
+ "model": "gemini-2.5-flash-preview-tts",
+ "voice": "Charon",
+ "fps": 30,
+ "pause": 0.15,
+ "total_seconds": 72.367,
+ "direction": "documentary storyteller",
+ "clips": [
+  {
+   "scene": "s1",
+   "model": "gemini-3.8-flash-tts",
+   "voice": "Charon",
+   "file": "audio/vo-s1.wav",
+   "mp3": "audio/vo-s1.mp3",
+   "seconds": 6.762,
+   "frames": 203,
+   "start": 0,
+   "segments": [
+    {
+     "text": "Four billion dollars for a coin that never existed? OneCoin took that much from victims worldwide.",
+     "words": 16,
+     "start": 0,
+     "end": 6.762
+    }
+   ],
+   "pauses": [],
+   "scene_frames": 208
+  },
+  {
+   "scene": "s2",
+   "model": "gemini-3.8-flash-tts",
+   "voice": "Charon",
+   "file": "audio/vo-s2.wav",
+   "mp3": "audio/vo-s2.mp3",
+   "seconds": 6.95,
+   "frames": 209,
+   "start": 6.933333333333334,
+   "segments": [
+    {
+     "text": "Bitcoin runs on a public ledger. Many computers hold the same copy, so a fake balance gets rejected.",
+     "words": 18,
+     "start": 0,
+     "end": 6.95
+    }
+   ],
+   "pauses": [],
+   "scene_frames": 213
+  },
+  {
+   "scene": "s3",
+   "model": "gemini-3.1-flash-tts-preview",
+   "voice": "Charon",
+   "file": "audio/vo-s3.wav",
+   "mp3": "audio/vo-s3.mp3",
+   "seconds": 11.32,
+   "frames": 340,
+   "start": 14.033333333333333,
+   "segments": [
+    {
+     "text": "OneCoin kept its ledger private.",
+     "words": 5,
+     "start": 0,
+     "end": 3.088
+    },
+    {
+     "text": "Prosecutors say it had no true blockchain, and its bosses handed out coins that existed nowhere.",
+     "words": 16,
+     "start": 3.988,
+     "end": 11.32
+    }
+   ],
+   "pauses": [
+    {
+     "at": 3.088,
+     "seconds": 0.9
+    }
+   ],
+   "scene_frames": 345
+  },
+  {
+   "scene": "s4",
+   "model": "gemini-3.1-flash-tts-preview",
+   "voice": "Charon",
+   "file": "audio/vo-s4.wav",
+   "mp3": "audio/vo-s4.mp3",
+   "seconds": 12.71,
+   "frames": 381,
+   "start": 25.533333333333335,
+   "segments": [
+    {
+     "text": "So who sold it? Ruja Ignatova. The press called her the Cryptoqueen. In 2016 she took the stage at Wembley Arena and called OneCoin the bitcoin killer.",
+     "words": 27,
+     "start": 0,
+     "end": 12.71
+    }
+   ],
+   "pauses": [],
+   "scene_frames": 386
+  },
+  {
+   "scene": "s5",
+   "model": "gemini-2.5-flash-preview-tts",
+   "voice": "Charon",
+   "file": "audio/vo-s5.wav",
+   "mp3": "audio/vo-s5.mp3",
+   "seconds": 12.349,
+   "frames": 370,
+   "start": 38.4,
+   "segments": [
+    {
+     "text": "A stage only sells one crowd, so OneCoin paid its members to recruit new buyers.",
+     "words": 15,
+     "start": 0,
+     "end": 7.252
+    },
+    {
+     "text": "The coin was the excuse. The recruit was the product.",
+     "words": 10,
+     "start": 7.852,
+     "end": 12.349
+    }
+   ],
+   "pauses": [
+    {
+     "at": 7.252,
+     "seconds": 0.6
+    }
+   ],
+   "scene_frames": 375
+  },
+  {
+   "scene": "s6",
+   "model": "gemini-2.5-flash-preview-tts",
+   "voice": "Charon",
+   "file": "audio/vo-s6.wav",
+   "mp3": "audio/vo-s6.mp3",
+   "seconds": 10.042,
+   "frames": 301,
+   "start": 50.9,
+   "segments": [
+    {
+     "text": "Here's the catch. Nobody could check OneCoin's books. So buyers trusted the friend who sold it, and that friend was paid to be trusted.",
+     "words": 24,
+     "start": 0,
+     "end": 10.042
+    }
+   ],
+   "pauses": [],
+   "scene_frames": 306
+  },
+  {
+   "scene": "s7",
+   "model": "gemini-2.5-flash-preview-tts",
+   "voice": "Charon",
+   "file": "audio/vo-s7.wav",
+   "mp3": "audio/vo-s7.mp3",
+   "seconds": 11.088,
+   "frames": 333,
+   "start": 61.1,
+   "segments": [
+    {
+     "text": "Then in October 2017, Ruja boarded a flight to Athens and vanished.",
+     "words": 12,
+     "start": 0,
+     "end": 6.179
+    },
+    {
+     "text": "What her buyers held was a number in a private book.",
+     "words": 11,
+     "start": 7.079,
+     "end": 11.088
+    }
+   ],
+   "pauses": [
+    {
+     "at": 6.179,
+     "seconds": 0.9
+    }
+   ],
+   "scene_frames": 338
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "stage": "script",
+ "round": 3,
+ "scorer": "director-review",
+ "rubric": "rubrics/script.md",
+ "average": 8.7,
+ "minimum": 8,
+ "passed": false,
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "Sourced stakes and contradiction inside about 2 s; subject named cleanly in line two."
+  },
+  {
+   "name": "One idea",
+   "score": 9,
+   "evidence": "'OneCoin sold paid trust in a coin nobody could check'; no scene can be cut."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 8.5,
+   "evidence": "The close opens a new plot event (the vanishing) before landing the idea."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 9,
+   "evidence": "Every name, date and figure has a verified fact with a specific source."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 9,
+   "evidence": "2.3 to 2.5 words per second; short active sentences."
+  },
+  {
+   "name": "On-screen text",
+   "score": 8.5,
+   "evidence": "s4 'SOLD BY A STAR' is generic and not anchored by the faceless podium."
+  },
+  {
+   "name": "Visual intent",
+   "score": 8.5,
+   "evidence": "s7's closing line 'a number in a private book' has no image of its own."
+  },
+  {
+   "name": "Voice",
+   "score": 8,
+   "evidence": "s6 opens on the stock phrase 'Here's the catch.' at the payoff."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 9,
+   "evidence": "66.0 s against 66; no re-hook gap over 11 s."
+  },
+  {
+   "name": "Ending",
+   "score": 8.5,
+   "evidence": "Restates s3's private-ledger reveal; the final stress lands softly."
+  }
+ ],
+ "feedback": [
+  "replace 'Here's the catch.'",
+  "image for the closing line",
+  "close lands paid-trust idea",
+  "specific s4 headline"
+ ]
+}

@@ -1,0 +1,142 @@
+{
+ "fps": 30,
+ "frames": 2171,
+ "ambient": [
+  {
+   "layer": "stage",
+   "motion": "drift",
+   "frames": [
+    0,
+    2171
+   ]
+  }
+ ],
+ "resets": [
+  {
+   "frame": 14,
+   "primitive": "spring-overshoot",
+   "phase": "hook",
+   "panel": "s1p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s1 headline"
+  },
+  {
+   "frame": 122,
+   "primitive": "stop-motion-jitter",
+   "phase": "hook",
+   "panel": "s1p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s1 headline"
+  },
+  {
+   "frame": 226,
+   "primitive": "spring-overshoot",
+   "phase": "setup",
+   "panel": "s2p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s2 headline"
+  },
+  {
+   "frame": 332,
+   "primitive": "stop-motion-jitter",
+   "phase": "setup",
+   "panel": "s2p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s2 headline"
+  },
+  {
+   "frame": 439,
+   "primitive": "spring-overshoot",
+   "phase": "setup",
+   "panel": "s3p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s3 headline"
+  },
+  {
+   "frame": 559,
+   "primitive": "stop-motion-jitter",
+   "phase": "setup",
+   "panel": "s3p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s3 headline"
+  },
+  {
+   "frame": 784,
+   "primitive": "spring-overshoot",
+   "phase": "setup",
+   "panel": "s4p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s4 headline"
+  },
+  {
+   "frame": 977,
+   "primitive": "stop-motion-jitter",
+   "phase": "setup",
+   "panel": "s4p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s4 headline"
+  },
+  {
+   "frame": 1170,
+   "primitive": "spring-overshoot",
+   "phase": "turn",
+   "panel": "s5p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s5 headline"
+  },
+  {
+   "frame": 1406,
+   "primitive": "stop-motion-jitter",
+   "phase": "turn",
+   "panel": "s5p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s5 headline"
+  },
+  {
+   "frame": 1545,
+   "primitive": "spring-overshoot",
+   "phase": "payoff",
+   "panel": "s6p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s6 headline"
+  },
+  {
+   "frame": 1698,
+   "primitive": "stop-motion-jitter",
+   "phase": "payoff",
+   "panel": "s6p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s6 headline"
+  },
+  {
+   "frame": 1851,
+   "primitive": "spring-overshoot",
+   "phase": "close",
+   "panel": "s7p1",
+   "target": "h",
+   "frames": 18,
+   "note": "s7 headline"
+  },
+  {
+   "frame": 2063,
+   "primitive": "stop-motion-jitter",
+   "phase": "close",
+   "panel": "s7p2",
+   "target": "h",
+   "frames": 18,
+   "note": "s7 headline"
+  }
+ ]
+}

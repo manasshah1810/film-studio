@@ -1,0 +1,165 @@
+{
+ "scenes": [
+  {
+   "id": "s1",
+   "effects": [
+    {
+     "panel_id": "s1p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 3.4667,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s1p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 3.4667,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "effects": [
+    {
+     "panel_id": "s2p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 3.5333,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s2p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 3.5667,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "effects": [
+    {
+     "panel_id": "s3p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 4.0,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s3p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 7.5,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "effects": [
+    {
+     "panel_id": "s4p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 6.4333,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s4p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 6.4333,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "effects": [
+    {
+     "panel_id": "s5p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 7.8667,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s5p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 4.6333,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "effects": [
+    {
+     "panel_id": "s6p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 5.1,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s6p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 5.1,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "effects": [
+    {
+     "panel_id": "s7p1",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 7.0667,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    },
+    {
+     "panel_id": "s7p2",
+     "effect_id": "paper-grain",
+     "start": 0,
+     "duration": 4.2,
+     "params": {},
+     "easing": "fade",
+     "reason": "archival paper texture keeps every frame tactile and moving"
+    }
+   ]
+  }
+ ]
+}

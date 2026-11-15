@@ -1,0 +1,11 @@
+{
+ "widgets": [],
+ "bespoke_code": [
+  "components/bespoke/onecoin/CoinCutout.tsx",
+  "components/bespoke/onecoin/LedgerWall.tsx",
+  "components/bespoke/onecoin/ArenaPodium.tsx",
+  "components/bespoke/onecoin/RecruitTree.tsx",
+  "components/bespoke/onecoin/HandRelay.tsx",
+  "components/bespoke/onecoin/FlightFade.tsx"
+ ]
+}

@@ -1,0 +1,1978 @@
+{
+ "version": 1,
+ "meta": {
+  "title": "How did OneCoin convince millions to invest in a cryptocurrency that was not real?",
+  "platform": "instagram",
+  "ratio": "9:16",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "frames": 2171,
+  "safe": {
+   "top": 250,
+   "right": 120,
+   "bottom": 350,
+   "left": 60
+  }
+ },
+ "design": {
+  "style": "archival-grunge",
+  "palette_id": "true-crime",
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "pairing_id": "abril-courier-caveat",
+  "seed": "onecoin-blind-20261115-1"
+ },
+ "subject_mode": "layered",
+ "cast": [],
+ "panels": [
+  {
+   "id": "s1p1",
+   "scene": "s1",
+   "from": 0,
+   "frames": 104,
+   "max_hold_seconds": 1.57,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "THE COIN THAT WASN'T",
+     "lines": [
+      "THE COIN",
+      "THAT WASN'T"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/coin-cutout",
+     "anchor": "@h",
+     "from": 0,
+     "frames": 104,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "revealAt": 70
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 14,
+     "frames": 18,
+     "target": "h",
+     "note": "s1 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 14,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 61,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 0,
+     "frames": 104,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s1p2",
+   "scene": "s1",
+   "from": 104,
+   "frames": 104,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "THE COIN THAT WASN'T",
+     "lines": [
+      "THE COIN",
+      "THAT WASN'T"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/coin-cutout",
+     "anchor": "@h",
+     "from": 104,
+     "frames": 104,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "offset": 104,
+      "revealAt": 70
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 122,
+     "frames": 18,
+     "target": "h",
+     "note": "s1 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 122,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 170,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 104,
+     "frames": 104,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s2p1",
+   "scene": "s2",
+   "from": 208,
+   "frames": 106,
+   "max_hold_seconds": 1.6,
+   "transition": {
+    "primitive": "whip-pan",
+    "frames": 10,
+    "easing": "tear"
+   },
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "NOBODY OWNS THE BOOK",
+     "lines": [
+      "NOBODY OWNS",
+      "THE BOOK"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/ledger-wall",
+     "anchor": "@h",
+     "from": 208,
+     "frames": 106,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 226,
+     "frames": 18,
+     "target": "h",
+     "note": "s2 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 226,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 274,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 208,
+     "frames": 106,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s2p2",
+   "scene": "s2",
+   "from": 314,
+   "frames": 107,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "NOBODY OWNS THE BOOK",
+     "lines": [
+      "NOBODY OWNS",
+      "THE BOOK"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/ledger-wall",
+     "anchor": "@h",
+     "from": 314,
+     "frames": 107,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "offset": 106
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 332,
+     "frames": 18,
+     "target": "h",
+     "note": "s2 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 332,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 380,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 314,
+     "frames": 107,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s3p1",
+   "scene": "s3",
+   "from": 421,
+   "frames": 120,
+   "max_hold_seconds": 1.8,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "CLOSED BOOKS",
+     "lines": [
+      "CLOSED",
+      "BOOKS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/ledger-wall",
+     "anchor": "@h",
+     "from": 421,
+     "frames": 120,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "phase": "public-hold"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 439,
+     "frames": 18,
+     "target": "h",
+     "note": "s3 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 439,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 487,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 421,
+     "frames": 120,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s3p2",
+   "scene": "s3",
+   "from": 541,
+   "frames": 225,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "CLOSED BOOKS",
+     "lines": [
+      "CLOSED",
+      "BOOKS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/ledger-wall",
+     "anchor": "@h",
+     "from": 541,
+     "frames": 225,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "phase": "dark"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 559,
+     "frames": 18,
+     "target": "h",
+     "note": "s3 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 559,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 607,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 655,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    },
+    {
+     "frame": 703,
+     "frames": 12,
+     "kind": "reveal",
+     "easing": "tear"
+    },
+    {
+     "frame": 751,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 541,
+     "frames": 225,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s4p1",
+   "scene": "s4",
+   "from": 766,
+   "frames": 193,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "SOLD BY A STAR",
+     "lines": [
+      "SOLD BY",
+      "A STAR"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/arena-podium",
+     "anchor": "@h",
+     "from": 766,
+     "frames": 193,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 784,
+     "frames": 18,
+     "target": "h",
+     "note": "s4 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 784,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 832,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 880,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    },
+    {
+     "frame": 928,
+     "frames": 12,
+     "kind": "reveal",
+     "easing": "tear"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 766,
+     "frames": 193,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s4p2",
+   "scene": "s4",
+   "from": 959,
+   "frames": 193,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "SOLD BY A STAR",
+     "lines": [
+      "SOLD BY",
+      "A STAR"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/arena-podium",
+     "anchor": "@h",
+     "from": 959,
+     "frames": 193,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "offset": 193
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 977,
+     "frames": 18,
+     "target": "h",
+     "note": "s4 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 977,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1025,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1073,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    },
+    {
+     "frame": 1121,
+     "frames": 12,
+     "kind": "reveal",
+     "easing": "tear"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 959,
+     "frames": 193,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s5p1",
+   "scene": "s5",
+   "from": 1152,
+   "frames": 236,
+   "max_hold_seconds": 1.6,
+   "transition": {
+    "primitive": "whip-pan",
+    "frames": 10,
+    "easing": "tear"
+   },
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "A PYRAMID, NOT COINS",
+     "lines": [
+      "A PYRAMID,",
+      "NOT COINS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/recruit-tree",
+     "anchor": "@h",
+     "from": 1152,
+     "frames": 236,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 1170,
+     "frames": 18,
+     "target": "h",
+     "note": "s5 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1170,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1218,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1266,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    },
+    {
+     "frame": 1314,
+     "frames": 12,
+     "kind": "reveal",
+     "easing": "tear"
+    },
+    {
+     "frame": 1362,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 1152,
+     "frames": 236,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s5p2",
+   "scene": "s5",
+   "from": 1388,
+   "frames": 139,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "A PYRAMID, NOT COINS",
+     "lines": [
+      "A PYRAMID,",
+      "NOT COINS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/recruit-tree",
+     "anchor": "@h",
+     "from": 1388,
+     "frames": 139,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "phase": "product"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 1406,
+     "frames": 18,
+     "target": "h",
+     "note": "s5 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1406,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1454,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1502,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 1388,
+     "frames": 139,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s6p1",
+   "scene": "s6",
+   "from": 1527,
+   "frames": 153,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "TRUST ON COMMISSION",
+     "lines": [
+      "TRUST ON",
+      "COMMISSION"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/hand-relay",
+     "anchor": "@h",
+     "from": 1527,
+     "frames": 153,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 1545,
+     "frames": 18,
+     "target": "h",
+     "note": "s6 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1545,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1593,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1641,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 1527,
+     "frames": 153,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s6p2",
+   "scene": "s6",
+   "from": 1680,
+   "frames": 153,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "TRUST ON COMMISSION",
+     "lines": [
+      "TRUST ON",
+      "COMMISSION"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/hand-relay",
+     "anchor": "@h",
+     "from": 1680,
+     "frames": 153,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "offset": 153
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 1698,
+     "frames": 18,
+     "target": "h",
+     "note": "s6 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1698,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1746,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1794,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 1680,
+     "frames": 153,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s7p1",
+   "scene": "s7",
+   "from": 1833,
+   "frames": 212,
+   "max_hold_seconds": 1.67,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "LAST SEEN: ATHENS",
+     "lines": [
+      "LAST SEEN:",
+      "ATHENS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/flight-fade",
+     "anchor": "@h",
+     "from": 1833,
+     "frames": 212,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 1851,
+     "frames": 18,
+     "target": "h",
+     "note": "s7 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1851,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 1899,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 1947,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    },
+    {
+     "frame": 1995,
+     "frames": 12,
+     "kind": "reveal",
+     "easing": "tear"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 1833,
+     "frames": 212,
+     "params": {}
+    }
+   ]
+  },
+  {
+   "id": "s7p2",
+   "scene": "s7",
+   "from": 2045,
+   "frames": 126,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 8,
+     "y": 8,
+     "w": 72,
+     "h": 15,
+     "role": "display",
+     "text": "LAST SEEN: ATHENS",
+     "lines": [
+      "LAST SEEN:",
+      "ATHENS"
+     ],
+     "px": 104,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 63,
+     "w": 79,
+     "h": 15,
+     "role": "caption",
+     "px": 84,
+     "color": "ink",
+     "bg": "surface",
+     "font": "display"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/flight-fade",
+     "anchor": "@h",
+     "from": 2045,
+     "frames": 126,
+     "box": {
+      "x": 8,
+      "y": 28,
+      "w": 75,
+      "h": 33
+     },
+     "props": {
+      "phase": "book"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 2063,
+     "frames": 18,
+     "target": "h",
+     "note": "s7 headline"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 2063,
+     "frames": 12,
+     "kind": "emphasis",
+     "target": "h",
+     "easing": "settle"
+    },
+    {
+     "frame": 2111,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "draw"
+    },
+    {
+     "frame": 2159,
+     "frames": 12,
+     "kind": "scale",
+     "target": "h",
+     "easing": "fade"
+    }
+   ],
+   "fx": [
+    {
+     "id": "paper-grain",
+     "from": 2045,
+     "frames": 126,
+     "params": {}
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 44,
+   "text": "Four billion dollars",
+   "power": "billion"
+  },
+  {
+   "from": 44,
+   "to": 64,
+   "text": "for a coin"
+  },
+  {
+   "from": 64,
+   "to": 105,
+   "text": "that never existed?",
+   "power": "never"
+  },
+  {
+   "from": 105,
+   "to": 152,
+   "text": "OneCoin took that much",
+   "power": "OneCoin"
+  },
+  {
+   "from": 152,
+   "to": 208,
+   "text": "from victims worldwide.",
+   "power": "worldwide"
+  },
+  {
+   "from": 208,
+   "to": 236,
+   "text": "Bitcoin runs"
+  },
+  {
+   "from": 236,
+   "to": 276,
+   "text": "on a public ledger.",
+   "power": "public"
+  },
+  {
+   "from": 276,
+   "to": 319,
+   "text": "Many computers hold"
+  },
+  {
+   "from": 319,
+   "to": 349,
+   "text": "the same copy,",
+   "power": "same"
+  },
+  {
+   "from": 349,
+   "to": 384,
+   "text": "so a fake balance"
+  },
+  {
+   "from": 384,
+   "to": 421,
+   "text": "gets rejected.",
+   "power": "rejected"
+  },
+  {
+   "from": 421,
+   "to": 458,
+   "text": "OneCoin kept"
+  },
+  {
+   "from": 458,
+   "to": 541,
+   "text": "its ledger private."
+  },
+  {
+   "from": 541,
+   "to": 579,
+   "text": "Prosecutors say"
+  },
+  {
+   "from": 579,
+   "to": 598,
+   "text": "it had no"
+  },
+  {
+   "from": 598,
+   "to": 639,
+   "text": "true blockchain,",
+   "power": "true"
+  },
+  {
+   "from": 639,
+   "to": 671,
+   "text": "and its bosses"
+  },
+  {
+   "from": 671,
+   "to": 709,
+   "text": "handed out coins"
+  },
+  {
+   "from": 709,
+   "to": 766,
+   "text": "that existed nowhere.",
+   "power": "nowhere"
+  },
+  {
+   "from": 766,
+   "to": 803,
+   "text": "So who sold it?",
+   "power": "who"
+  },
+  {
+   "from": 803,
+   "to": 842,
+   "text": "Ruja Ignatova."
+  },
+  {
+   "from": 842,
+   "to": 894,
+   "text": "The press called her"
+  },
+  {
+   "from": 894,
+   "to": 940,
+   "text": "the Cryptoqueen.",
+   "power": "Cryptoqueen"
+  },
+  {
+   "from": 940,
+   "to": 979,
+   "text": "In 2016 she took"
+  },
+  {
+   "from": 979,
+   "to": 1004,
+   "text": "the stage",
+   "power": "stage"
+  },
+  {
+   "from": 1004,
+   "to": 1046,
+   "text": "at Wembley Arena"
+  },
+  {
+   "from": 1046,
+   "to": 1095,
+   "text": "and called OneCoin"
+  },
+  {
+   "from": 1095,
+   "to": 1152,
+   "text": "the bitcoin killer.",
+   "power": "killer"
+  },
+  {
+   "from": 1152,
+   "to": 1202,
+   "text": "A stage only sells"
+  },
+  {
+   "from": 1202,
+   "to": 1231,
+   "text": "one crowd,",
+   "power": "one"
+  },
+  {
+   "from": 1231,
+   "to": 1274,
+   "text": "so OneCoin paid"
+  },
+  {
+   "from": 1274,
+   "to": 1337,
+   "text": "its members to recruit",
+   "power": "recruit"
+  },
+  {
+   "from": 1337,
+   "to": 1388,
+   "text": "new buyers."
+  },
+  {
+   "from": 1388,
+   "to": 1418,
+   "text": "The coin was"
+  },
+  {
+   "from": 1418,
+   "to": 1449,
+   "text": "the excuse.",
+   "power": "excuse"
+  },
+  {
+   "from": 1449,
+   "to": 1479,
+   "text": "The recruit"
+  },
+  {
+   "from": 1479,
+   "to": 1527,
+   "text": "was the product.",
+   "power": "product"
+  },
+  {
+   "from": 1527,
+   "to": 1567,
+   "text": "Here's the catch.",
+   "power": "catch"
+  },
+  {
+   "from": 1567,
+   "to": 1610,
+   "text": "Nobody could check",
+   "power": "check"
+  },
+  {
+   "from": 1610,
+   "to": 1651,
+   "text": "OneCoin's books."
+  },
+  {
+   "from": 1651,
+   "to": 1691,
+   "text": "So buyers trusted"
+  },
+  {
+   "from": 1691,
+   "to": 1742,
+   "text": "the friend who sold it,",
+   "power": "friend"
+  },
+  {
+   "from": 1742,
+   "to": 1777,
+   "text": "and that friend"
+  },
+  {
+   "from": 1777,
+   "to": 1833,
+   "text": "was paid to be trusted.",
+   "power": "paid"
+  },
+  {
+   "from": 1833,
+   "to": 1892,
+   "text": "Then in October 2017,"
+  },
+  {
+   "from": 1892,
+   "to": 1929,
+   "text": "Ruja boarded"
+  },
+  {
+   "from": 1929,
+   "to": 1978,
+   "text": "a flight to Athens"
+  },
+  {
+   "from": 1978,
+   "to": 2045,
+   "text": "and vanished.",
+   "power": "vanished"
+  },
+  {
+   "from": 2045,
+   "to": 2094,
+   "text": "What her buyers held"
+  },
+  {
+   "from": 2094,
+   "to": 2123,
+   "text": "was a number",
+   "power": "number"
+  },
+  {
+   "from": 2123,
+   "to": 2171,
+   "text": "in a private book.",
+   "power": "private"
+  }
+ ],
+ "audio": {
+  "sfx": [
+   {
+    "id": "tactile-pop",
+    "frame": 0,
+    "peak_frame": 0,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s1p1",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 98,
+    "peak_frame": 104,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s1p2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 202,
+    "peak_frame": 208,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s2p1",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 308,
+    "peak_frame": 314,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s2p2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 415,
+    "peak_frame": 421,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s3p1",
+    "file": null
+   },
+   {
+    "id": "sub-bass-hit",
+    "frame": 541,
+    "peak_frame": 541,
+    "pre_roll": 0,
+    "db": -6,
+    "sync": "cut:s3p2",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 655,
+    "peak_frame": 655,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s3p2#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 760,
+    "peak_frame": 766,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s4p1",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 880,
+    "peak_frame": 880,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s4p1#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 953,
+    "peak_frame": 959,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s4p2",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1073,
+    "peak_frame": 1073,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s4p2#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 1146,
+    "peak_frame": 1152,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s5p1",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1266,
+    "peak_frame": 1266,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s5p1#2",
+    "file": null
+   },
+   {
+    "id": "sub-bass-hit",
+    "frame": 1388,
+    "peak_frame": 1388,
+    "pre_roll": 0,
+    "db": -6,
+    "sync": "cut:s5p2",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1502,
+    "peak_frame": 1502,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s5p2#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 1521,
+    "peak_frame": 1527,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s6p1",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1641,
+    "peak_frame": 1641,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s6p1#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 1674,
+    "peak_frame": 1680,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s6p2",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1794,
+    "peak_frame": 1794,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s6p2#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 1827,
+    "peak_frame": 1833,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s7p1",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 1947,
+    "peak_frame": 1947,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s7p1#2",
+    "file": null
+   },
+   {
+    "id": "fast-whoosh",
+    "frame": 2039,
+    "peak_frame": 2045,
+    "pre_roll": 6,
+    "db": -12,
+    "sync": "cut:s7p2",
+    "file": null
+   },
+   {
+    "id": "digital-tick",
+    "frame": 2159,
+    "peak_frame": 2159,
+    "pre_roll": 0,
+    "db": -16,
+    "sync": "beat:s7p2#2",
+    "file": null
+   }
+  ],
+  "voiceover": {
+   "clips": [
+    {
+     "file": "audio/vo-s1.wav",
+     "from": 0
+    },
+    {
+     "file": "audio/vo-s2.wav",
+     "from": 208
+    },
+    {
+     "file": "audio/vo-s3.wav",
+     "from": 421
+    },
+    {
+     "file": "audio/vo-s4.wav",
+     "from": 766
+    },
+    {
+     "file": "audio/vo-s5.wav",
+     "from": 1152
+    },
+    {
+     "file": "audio/vo-s6.wav",
+     "from": 1527
+    },
+    {
+     "file": "audio/vo-s7.wav",
+     "from": 1833
+    }
+   ],
+   "segments": [
+    [
+     0,
+     203
+    ],
+    [
+     208,
+     417
+    ],
+    [
+     421,
+     761
+    ],
+    [
+     766,
+     1147
+    ],
+    [
+     1152,
+     1522
+    ],
+    [
+     1527,
+     1828
+    ],
+    [
+     1833,
+     2166
+    ]
+   ]
+  },
+  "music": null,
+  "sfx_duck": 0.25,
+  "mix": {
+   "file": "voiceover.mp3",
+   "layers": [
+    "narration",
+    "pulse bed -21 dB (silent in 3 pause window(s))",
+    "4 sub-bass hit(s) 95->55 Hz",
+    "20 transition sfx (sidechain-ducked)"
+   ]
+  }
+ },
+ "showSafeZones": false
+}

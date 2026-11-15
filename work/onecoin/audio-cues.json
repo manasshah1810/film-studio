@@ -1,0 +1,193 @@
+{
+ "fps": 30,
+ "cues": [
+  {
+   "frame": 104,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s1p2",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 208,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s2p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 314,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s2p2",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 421,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s3p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 541,
+   "sfx": "sub-bass-hit",
+   "peak": "cut to s3p2",
+   "pre_roll": 0,
+   "db": -6
+  },
+  {
+   "frame": 655,
+   "sfx": "digital-tick",
+   "peak": "s3p2 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 766,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s4p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 880,
+   "sfx": "digital-tick",
+   "peak": "s4p1 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 959,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s4p2",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1073,
+   "sfx": "digital-tick",
+   "peak": "s4p2 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1152,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s5p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1266,
+   "sfx": "digital-tick",
+   "peak": "s5p1 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1388,
+   "sfx": "sub-bass-hit",
+   "peak": "cut to s5p2",
+   "pre_roll": 0,
+   "db": -6
+  },
+  {
+   "frame": 1502,
+   "sfx": "digital-tick",
+   "peak": "s5p2 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1527,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s6p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1641,
+   "sfx": "digital-tick",
+   "peak": "s6p1 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1680,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s6p2",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1794,
+   "sfx": "digital-tick",
+   "peak": "s6p2 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 1833,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s7p1",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 1947,
+   "sfx": "digital-tick",
+   "peak": "s7p1 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  },
+  {
+   "frame": 2045,
+   "sfx": "fast-whoosh",
+   "peak": "cut to s7p2",
+   "pre_roll": 6,
+   "db": -12
+  },
+  {
+   "frame": 2159,
+   "sfx": "digital-tick",
+   "peak": "s7p2 headline scale beat",
+   "pre_roll": 0,
+   "db": -16
+  }
+ ],
+ "frames": 2171,
+ "duck": {
+  "voiceover": [
+   [
+    0,
+    203
+   ],
+   [
+    208,
+    417
+   ],
+   [
+    421,
+    761
+   ],
+   [
+    766,
+    1147
+   ],
+   [
+    1152,
+    1522
+   ],
+   [
+    1527,
+    1828
+   ],
+   [
+    1833,
+    2166
+   ]
+  ],
+  "sfx_gain": 0.25
+ }
+}

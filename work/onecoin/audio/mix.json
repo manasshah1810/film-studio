@@ -1,0 +1,146 @@
+{
+ "file": "voiceover.mp3",
+ "seconds": 72.367,
+ "fps": 30,
+ "layers": [
+  "narration",
+  "pulse bed -21 dB (silent in 3 pause window(s))",
+  "4 sub-bass hit(s) 95->55 Hz",
+  "20 transition sfx (sidechain-ducked)"
+ ],
+ "bed_db": -21,
+ "pause_windows": [
+  [
+   17.121,
+   18.021
+  ],
+  [
+   45.652,
+   46.252
+  ],
+  [
+   67.279,
+   68.179
+  ]
+ ],
+ "hits": [
+  {
+   "t": 0,
+   "why": "title slam"
+  },
+  {
+   "t": 18.021,
+   "why": "s3 reveal after pause"
+  },
+  {
+   "t": 46.252,
+   "why": "s5 reveal after pause"
+  },
+  {
+   "t": 68.179,
+   "why": "s7 reveal after pause"
+  }
+ ],
+ "sfx": [
+  {
+   "kit": "whoosh",
+   "t": 3.467,
+   "why": "cut to s1p2"
+  },
+  {
+   "kit": "whoosh",
+   "t": 6.933,
+   "why": "cut to s2p1"
+  },
+  {
+   "kit": "whoosh",
+   "t": 10.467,
+   "why": "cut to s2p2"
+  },
+  {
+   "kit": "whoosh",
+   "t": 14.033,
+   "why": "cut to s3p1"
+  },
+  {
+   "kit": "tick",
+   "t": 21.833,
+   "why": "s3p2 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 25.533,
+   "why": "cut to s4p1"
+  },
+  {
+   "kit": "tick",
+   "t": 29.333,
+   "why": "s4p1 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 31.967,
+   "why": "cut to s4p2"
+  },
+  {
+   "kit": "tick",
+   "t": 35.767,
+   "why": "s4p2 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 38.4,
+   "why": "cut to s5p1"
+  },
+  {
+   "kit": "tick",
+   "t": 42.2,
+   "why": "s5p1 headline scale beat"
+  },
+  {
+   "kit": "tick",
+   "t": 50.067,
+   "why": "s5p2 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 50.9,
+   "why": "cut to s6p1"
+  },
+  {
+   "kit": "tick",
+   "t": 54.7,
+   "why": "s6p1 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 56,
+   "why": "cut to s6p2"
+  },
+  {
+   "kit": "tick",
+   "t": 59.8,
+   "why": "s6p2 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 61.1,
+   "why": "cut to s7p1"
+  },
+  {
+   "kit": "tick",
+   "t": 64.9,
+   "why": "s7p1 headline scale beat"
+  },
+  {
+   "kit": "whoosh",
+   "t": 68.167,
+   "why": "cut to s7p2"
+  },
+  {
+   "kit": "tick",
+   "t": 71.967,
+   "why": "s7p2 headline scale beat"
+  }
+ ]
+}

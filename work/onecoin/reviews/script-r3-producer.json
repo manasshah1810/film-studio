@@ -1,0 +1,67 @@
+{
+ "stage": "script",
+ "round": 3,
+ "scorer": "producer",
+ "rubric": "rubrics/script.md",
+ "average": 8.8,
+ "minimum": 8.5,
+ "passed": false,
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "'Four billion dollars' lands in 1.2 s, inside the 2 s window, on a sourced figure."
+  },
+  {
+   "name": "One idea",
+   "score": 9,
+   "evidence": "Every scene serves 'OneCoin had no coin; it paid people to sell trust'."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 9,
+   "evidence": "One turn at s5; the s6 payoff now adds a new thought."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 8.5,
+   "evidence": "s7 'a number in a private book' paraphrase sits uneasily with s3's 'existed nowhere'; s6 'friend' stretches 'recruiting others'."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 9,
+   "evidence": "Every scene speaks at 2.3 to 2.55 words per second in short sentences."
+  },
+  {
+   "name": "On-screen text",
+   "score": 8.5,
+   "evidence": "s4 'SOLD BY A STAR' is generic; s7 'LAST SEEN: ATHENS' sits close to the narration."
+  },
+  {
+   "name": "Visual intent",
+   "score": 9,
+   "evidence": "Distinct, castable pictures; the founder is never drawn."
+  },
+  {
+   "name": "Voice",
+   "score": 8.5,
+   "evidence": "s6 opens on the stock phrase 'Here's the catch.'."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 9,
+   "evidence": "66.0 s on a 66 s target; re-hooks at 14, 23.5, 34.5, 45.5 and 55.5 s."
+  },
+  {
+   "name": "Ending",
+   "score": 8.5,
+   "evidence": "The close fits only this film but lands more quietly than the turn."
+  }
+ ],
+ "feedback": [
+  "s7 line vs s3 fact",
+  "replace 'Here's the catch.'",
+  "specific s4 headline",
+  "s7 headline adds to narration"
+ ]
+}

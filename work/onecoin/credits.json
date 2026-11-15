@@ -1,0 +1,44 @@
+{
+ "items": [
+  {
+   "asset_id": "font-abril-fatface",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Abril+Fatface",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-15",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  },
+  {
+   "asset_id": "font-courier-prime",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Courier+Prime",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-15",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  },
+  {
+   "asset_id": "font-caveat",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Caveat",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-15",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  },
+  {
+   "asset_id": "font-cutive-mono",
+   "kind": "font",
+   "source_url": "https://fonts.google.com/specimen/Cutive+Mono",
+   "author": "See the specimen page",
+   "license": "Google-Fonts",
+   "date_checked": "2026-11-15",
+   "trademark_sensitive": false,
+   "note": "Loaded through @remotion/google-fonts. [CHECK] the licence tab of this family."
+  }
+ ]
+}

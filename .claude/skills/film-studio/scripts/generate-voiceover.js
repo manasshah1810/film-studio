@@ -36,6 +36,8 @@ const VOICES = ['Charon', 'Fenrir', 'Orus', 'Alnilam'];
 // Expressive read (personas/sound-designer.md section 3a). The verify step catches a model that reads it aloud.
 const DIRECTION = 'Speak like a charismatic, high-energy documentary storyteller: build genuine curiosity on questions, pick up pace during tense build-ups, hit numbers and twists with sharp emphasis, and honor natural dramatic pauses. Never sound flat or robotic. Read only the quoted words';
 const TAG = '';
+// the fallback when a model loops or drags under the long direction: a short inline delivery tag
+const COMPACT = '[energetic, curious documentary storyteller; sharp on numbers and twists]';
 const STYLE = DIRECTION;
 const a = args();
 const [cmd, work] = a._;
@@ -237,7 +239,17 @@ function retime(work, timing, fps) {
       let t0 = 0;
       for (const [k, b] of beats.entries()) {
         au = await tts(b.text, a.voice ?? 'Charon', style, tag);
-        const base = path.join(dir, `vo-${s.id}-b${k + 1}`), bd = encode(au, base);
+        const base = path.join(dir, `vo-${s.id}-b${k + 1}`);
+        let bd = encode(au, base);
+        // a beat far longer than its words (a model that loops or drags under the long direction) is regenerated
+        // once with the compact delivery tag instead; a second overlong read stops the run
+        const nw = b.text.split(/\s+/).filter(Boolean).length, cap = nw * 0.5 + 1.5;
+        if (bd > cap) {
+          console.error(`note ${s.id} beat ${k + 1}: ${bd.toFixed(1)} s for ${nw} words (cap ${cap.toFixed(1)} s); regenerating with the compact tag`);
+          au = await tts(b.text, a.voice ?? 'Charon', '', COMPACT);
+          bd = encode(au, base);
+          if (bd > cap) fail(`${s.id} beat ${k + 1}: still ${bd.toFixed(1)} s for ${nw} words. Stop and report.`);
+        }
         segments.push({text: b.text, words: b.text.split(/\s+/).filter(Boolean).length, start: Math.round(t0 * 1000) / 1000, end: Math.round((t0 + bd) * 1000) / 1000});
         parts.push(`${base}.wav`); t0 += bd;
         const gap = k < beats.length - 1 ? Math.min(1.2, Math.max(0.6, b.pause || 0.6)) : 0; // 600 to 900 ms by the script, 1.2 s cap

@@ -336,18 +336,18 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const bg = cb?.bg ?? 'bg';
 	const ink = r.role(cb?.color ?? 'ink');
 	const accent = contrast(r.role('primary'), r.role(bg)) >= 4.5 ? r.role('primary') : ink;
-	const font = fontCss(r.pairing[cb?.font ?? 'display'], Math.max(CAPTION_MIN_PX, cb?.px ?? r.ds.type_scale?.caption ?? CAPTION_MIN_PX) * r.k);
+	const font = fontCss(r.pairing[cb?.font && cb.font !== 'body' ? cb.font : 'display'], Math.max(CAPTION_MIN_PX, cb?.px ?? r.ds.type_scale?.caption ?? CAPTION_MIN_PX) * r.k);
 	const plateHex = bg !== 'bg' ? r.role(bg) : r.roles.bg;
 	const plate = bg !== 'bg' ? plateHex : alpha(plateHex, 0.62);
 	// the glow behind the words is the plate colour, so it lifts dark ink on paper and light ink on a dark plate alike
 	const shadow = `0 ${2 * r.k}px ${12 * r.k}px ${alpha(plateHex, 0.9)}`;
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
-			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.32 * (font.fontSize as number)}px`, textShadow: shadow}}>
+			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', columnGap: '0.3em', textShadow: shadow}}>
 				{hl.words.map((w) => {
 					const on = w.state === 'active' ? w.t : 0;
 					return (
-						<span key={w.index} style={{color: w.power ? accent : ink, transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+						<span key={w.index} style={{color: w.power ? accent : ink, marginRight: '0.12em', transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
 							{w.text}
 						</span>
 					);
