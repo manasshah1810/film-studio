@@ -9,8 +9,8 @@
  "scenes": [
   {
    "id": "s1",
-   "start": 0.0,
-   "duration": 5.5,
+   "start": 0,
+   "duration": 4.5333,
    "beat": "hook",
    "angle": "a1",
    "narration": "Prosecutors say OneCoin never had a real blockchain. It still raised four billion dollars.",
@@ -32,29 +32,29 @@
    "captions": [
     [
      0,
-     35,
+     36,
      "Prosecutors say OneCoin"
     ],
     [
-     35,
-     82,
+     36,
+     58,
      "never had a real",
      "never"
     ],
     [
-     82,
-     94,
+     58,
+     77,
      "blockchain.",
      "blockchain"
     ],
     [
-     94,
-     129,
+     77,
+     99,
      "It still raised"
     ],
     [
-     129,
-     165,
+     99,
+     136,
      "four billion dollars.",
      "billion"
     ]
@@ -62,8 +62,8 @@
   },
   {
    "id": "s2",
-   "start": 5.5,
-   "duration": 6.0,
+   "start": 4.5333,
+   "duration": 3.9333,
    "beat": "setup",
    "angle": "a1",
    "narration": "So its bosses handed out coins that existed nowhere, not even on their own ledger.",
@@ -79,30 +79,30 @@
    ],
    "captions": [
     [
-     165,
-     201,
+     136,
+     154,
      "So its bosses",
      "bosses"
     ],
     [
-     201,
-     237,
+     154,
+     178,
      "handed out coins"
     ],
     [
-     237,
-     273,
+     178,
+     209,
      "that existed nowhere,",
      "nowhere"
     ],
     [
-     273,
-     321,
+     209,
+     232,
      "not even on their"
     ],
     [
-     321,
-     345,
+     232,
+     254,
      "own ledger.",
      "ledger"
     ]
@@ -110,8 +110,8 @@
   },
   {
    "id": "s3",
-   "start": 11.5,
-   "duration": 6.5,
+   "start": 8.4667,
+   "duration": 4.6,
    "beat": "setup",
    "angle": "a3",
    "rehook": true,
@@ -128,30 +128,30 @@
    ],
    "captions": [
     [
-     345,
-     384,
+     254,
+     288,
      "Yet people believed.",
      "Yet"
     ],
     [
-     384,
-     423,
+     288,
+     314,
      "Dr Ruja Ignatova"
     ],
     [
-     423,
-     462,
+     314,
+     329,
      "sold it at"
     ],
     [
-     462,
-     488,
+     329,
+     351,
      "Wembley Arena",
      "Wembley"
     ],
     [
-     488,
-     540,
+     351,
+     392,
      "as the bitcoin killer.",
      "killer"
     ]
@@ -159,8 +159,8 @@
   },
   {
    "id": "s4",
-   "start": 18.0,
-   "duration": 5.0,
+   "start": 13.0667,
+   "duration": 3.3333,
    "beat": "setup",
    "angle": "a5",
    "rehook": true,
@@ -177,20 +177,20 @@
    ],
    "captions": [
     [
-     540,
-     600,
+     392,
+     430,
      "Instead, buyers paid for",
      "Instead"
     ],
     [
-     600,
-     630,
+     430,
+     453,
      "coin packages,",
      "packages"
     ],
     [
-     630,
-     690,
+     453,
+     492,
      "sold member to member.",
      "member"
     ]
@@ -198,8 +198,8 @@
   },
   {
    "id": "s5",
-   "start": 23.0,
-   "duration": 6.0,
+   "start": 16.4,
+   "duration": 3.8667,
    "beat": "turn",
    "angle": "a5",
    "rehook": true,
@@ -216,25 +216,25 @@
    ],
    "captions": [
     [
-     690,
-     735,
+     492,
+     522,
      "But recruiting paid",
      "But"
     ],
     [
-     735,
-     750,
+     522,
+     543,
      "commissions,",
      "commissions"
     ],
     [
-     750,
-     810,
+     543,
+     571,
      "so the real product"
     ],
     [
-     810,
-     870,
+     571,
+     608,
      "was the next recruit.",
      "recruit"
     ]
@@ -242,8 +242,8 @@
   },
   {
    "id": "s6",
-   "start": 29.0,
-   "duration": 5.5,
+   "start": 20.2667,
+   "duration": 4.1667,
    "beat": "payoff",
    "angle": "a4",
    "rehook": true,
@@ -260,30 +260,30 @@
    ],
    "captions": [
     [
-     870,
-     905,
+     608,
+     641,
      "Until October 2017,",
      "Until"
     ],
     [
-     905,
-     940,
+     641,
+     665,
      "when the woman"
     ],
     [
-     940,
-     975,
+     665,
+     681,
      "at the top",
      "top"
     ],
     [
-     975,
-     1010,
+     681,
+     704,
      "flew to Athens"
     ],
     [
-     1010,
-     1035,
+     704,
+     733,
      "and vanished.",
      "vanished"
     ]
@@ -291,8 +291,8 @@
   },
   {
    "id": "s7",
-   "start": 34.5,
-   "duration": 7.5,
+   "start": 24.4333,
+   "duration": 6.1,
    "beat": "close",
    "angle": "a4",
    "narration": "In 2022 the FBI added her to its Ten Most Wanted list. Like the blockchain, she was never found.",
@@ -313,31 +313,31 @@
    ],
    "captions": [
     [
-     1035,
-     1082,
+     733,
+     760,
      "In 2022 the FBI",
      "FBI"
     ],
     [
-     1082,
-     1129,
+     760,
+     790,
      "added her to its"
     ],
     [
-     1129,
-     1176,
+     790,
+     831,
      "Ten Most Wanted list.",
      "Wanted"
     ],
     [
-     1176,
-     1212,
+     831,
+     872,
      "Like the blockchain,",
      "blockchain"
     ],
     [
-     1212,
-     1260,
+     872,
+     916,
      "she was never found.",
      "never"
     ]

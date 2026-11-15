@@ -1,0 +1,41 @@
+{
+ "provider": "gemini",
+ "clips": [
+  {
+   "file": "audio/vo-s1.wav",
+   "start": 0,
+   "seconds": 4.362
+  },
+  {
+   "file": "audio/vo-s2.wav",
+   "start": 4.533333333333333,
+   "seconds": 3.751
+  },
+  {
+   "file": "audio/vo-s3.wav",
+   "start": 8.466666666666667,
+   "seconds": 4.449
+  },
+  {
+   "file": "audio/vo-s4.wav",
+   "start": 13.066666666666666,
+   "seconds": 3.157
+  },
+  {
+   "file": "audio/vo-s5.wav",
+   "start": 16.4,
+   "seconds": 3.71
+  },
+  {
+   "file": "audio/vo-s6.wav",
+   "start": 20.266666666666666,
+   "seconds": 3.993
+  },
+  {
+   "file": "audio/vo-s7.wav",
+   "start": 24.433333333333334,
+   "seconds": 5.942
+  }
+ ],
+ "voice_credit": "voice-gemini"
+}

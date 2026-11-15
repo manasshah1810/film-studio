@@ -977,6 +977,12 @@
        }
       }
      ]
+    },
+    "sfx_duck": {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1,
+     "description": "Gain applied to every SFX cue while the narrator speaks (voiceover segments). 0.25 = 25%."
     }
    }
   },

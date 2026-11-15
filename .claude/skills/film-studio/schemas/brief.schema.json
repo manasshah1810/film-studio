@@ -61,6 +61,7 @@
    "properties": {
     "provider": {
      "enum": [
+      "gemini",
       "piper",
       "system",
       "elevenlabs",

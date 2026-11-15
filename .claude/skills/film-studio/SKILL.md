@@ -33,6 +33,13 @@ When the user says only "make a video on X" (or similar):
   `components/bespoke/registry.ts` (contract: `components/bespoke/kit.ts`). Never force-fit an unrelated
   widget (a camera lens on a finance story); rule 26 rejects domain-locked widgets out of domain.
 
+## 0c. Voiceover default
+When `GEMINI_API_KEY` is set (environment or the project `.env`, never a tracked file), the film is
+voiced through Google AI Studio: `node scripts/generate-voiceover.js make work --retime` after the
+script stage, before the storyboard. The voice becomes the clock (scene = clip + 150 ms), SFX duck to
+25% and music 12 dB under the narrator. Without a key the film is captions-only (`scripts/voice.js` for
+local voices).
+
 ## 1. The one-file rule
 - Open exactly one manual per stage: the "Open only" column of `references/director-cheatsheet.md`.
 - Do not pre-read the next stage. Do not re-read a finished one. Never open two style folders.

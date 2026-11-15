@@ -172,7 +172,7 @@ const manifest = {
   cast,
   panels: panels.map(({_sfx, _captions, ...p}) => p),
   captions,
-  audio: {sfx, voiceover, music},
+  audio: {sfx, voiceover, music, ...(voiceover ? {sfx_duck: aSheet?.duck?.sfx_gain ?? 0.25} : {})},
   showSafeZones: !!a['safe-zones'],
 };
 const out = a.out ?? path.join(work, 'render-manifest.json');

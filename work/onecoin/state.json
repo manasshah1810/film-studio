@@ -1,5 +1,5 @@
 {
- "brief_hash": "03b2790fc617",
+ "brief_hash": "b525ebf6fb7b",
  "stages": {
   "director": {
    "status": "passed",
@@ -9,12 +9,14 @@
   "treasurer": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/budget.json"
+   "output_path": "../../../work/onecoin/budget.json",
+   "note": "voice retime 2026-11-15"
   },
   "angles": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/angles.json"
+   "output_path": "../../../work/onecoin/angles.json",
+   "note": "voice retime 2026-11-15"
   },
   "scriptwriter": {
    "status": "flagged",
@@ -25,7 +27,8 @@
   "casting": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/cast.json"
+   "output_path": "../../../work/onecoin/cast.json",
+   "note": "voice retime 2026-11-15"
   },
   "art-director": {
    "status": "flagged",
@@ -42,27 +45,32 @@
   "motion-choreographer": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/motion.json"
+   "output_path": "../../../work/onecoin/motion.json",
+   "note": "voice retime 2026-11-15"
   },
   "vfx-director": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/vfx-plan.json"
+   "output_path": "../../../work/onecoin/vfx-plan.json",
+   "note": "voice retime 2026-11-15"
   },
   "sound-designer": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/audio-cues.json"
+   "output_path": "../../../work/onecoin/audio-cues.json",
+   "note": "voice retime 2026-11-15"
   },
   "checks": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/reviews/checks.json"
+   "output_path": "../../../work/onecoin/reviews/checks.json",
+   "note": "voice retime 2026-11-15"
   },
   "pass1": {
    "status": "passed",
    "round": 0,
-   "output_path": "../../../work/onecoin/out/pass1.mp4"
+   "output_path": "../../../work/onecoin/out/pass1.mp4",
+   "note": "captions-only Pass 1; the voiced film was rendered directly as Pass 2 on request"
   },
   "qa-inspector": {
    "status": "passed",
@@ -75,5 +83,5 @@
    "output_path": "../../../work/onecoin/out/final.mp4"
   }
  },
- "updated": "2026-11-15T06:31:24.762Z"
+ "updated": "2026-11-15T06:52:37.200Z"
 }

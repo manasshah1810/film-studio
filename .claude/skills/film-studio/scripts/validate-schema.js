@@ -72,7 +72,8 @@ const semantic = {
         if (f.status === 'verified' && !/^https?:\/\/|\(\d{4}\)|\d{4}/.test(f.source)) E.push(`scene ${s.id}: fact marked verified has no source: "${f.claim.slice(0, 50)}"`);
         if (f.status === 'VERIFY') W.push(`scene ${s.id}: [VERIFY: ${f.claim.slice(0, 70)}]`);
       }
-      if (words(s.narration) / s.duration > 3.2) W.push(`scene ${s.id}: ${(words(s.narration) / s.duration).toFixed(1)} words per second is too fast to speak (aim for 2.3-2.8)`);
+      // a measured voice (generate-voiceover.js) sets the timing itself, so the writing-pace guide does not apply
+      if (!ctx.get('voiceover-timing') && words(s.narration) / s.duration > 3.2) W.push(`scene ${s.id}: ${(words(s.narration) / s.duration).toFixed(1)} words per second is too fast to speak (aim for 2.3-2.8)`);
     }
     if (!brief) return W.push('SKIP length checks: no brief next to file');
     const [lo, hi] = BUCKETS[brief.length_bucket];

@@ -3,7 +3,7 @@
  "platform": "instagram",
  "ratio": "9:16",
  "length_bucket": "30-1m",
- "target_seconds": 45,
+ "target_seconds": 31,
  "style": "dark-neon-dataviz",
  "subject_mode": "ui-first",
  "domains": [
@@ -11,7 +11,7 @@
   "history"
  ],
  "angle": "Everyone assumes a crypto coin runs on a blockchain; OneCoin raised billions selling recruits, not coins.",
- "voiceover": false,
+ "voiceover": true,
  "design": {
   "palette_tier": "focused",
   "palette_size": 5,
@@ -20,5 +20,10 @@
   "seed": "onecoin-20261115-1"
  },
  "audience": "general Instagram viewers curious about crypto and scams",
- "tone": "investigative, tense, precise"
+ "tone": "investigative, tense, precise",
+ "voice": {
+  "provider": "gemini",
+  "voice_id": "Charon",
+  "env_key": "GEMINI_API_KEY"
+ }
 }

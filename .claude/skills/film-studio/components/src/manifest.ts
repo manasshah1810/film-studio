@@ -34,7 +34,7 @@ export type RenderManifest = {
 	cast: CastEntry[];
 	panels: PanelDefM[];
 	captions: {from: number; to: number; text: string; power?: string}[];
-	audio: {sfx: SfxCue[]; voiceover: {clips: {file: string; from: number}[]; segments: [number, number][]} | null; music: Music | null};
+	audio: {sfx: SfxCue[]; voiceover: {clips: {file: string; from: number}[]; segments: [number, number][]} | null; music: Music | null; sfx_duck?: number};
 	showSafeZones: boolean;
 };
 

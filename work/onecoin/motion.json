@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "frames": 1260,
+ "frames": 916,
  "max_gap": 105,
  "ambient": [
   {
@@ -8,13 +8,13 @@
    "motion": "drift",
    "frames": [
     0,
-    1260
+    916
    ]
   }
  ],
  "resets": [
   {
-   "frame": 9,
+   "frame": 8,
    "primitive": "odometer-roll",
    "phase": "hook",
    "panel": "s1p1",
@@ -27,7 +27,7 @@
    "note": "$4B rolls up"
   },
   {
-   "frame": 69,
+   "frame": 57,
    "primitive": "rgb-split-glitch",
    "phase": "hook",
    "panel": "s1p2",
@@ -36,7 +36,7 @@
    "note": "fake coin"
   },
   {
-   "frame": 183,
+   "frame": 148,
    "primitive": "text-decode",
    "phase": "rising",
    "panel": "s2p1",
@@ -45,7 +45,7 @@
    "note": "coins from nothing"
   },
   {
-   "frame": 399,
+   "frame": 292,
    "primitive": "spring-overshoot",
    "phase": "rising",
    "panel": "s3p1",
@@ -53,7 +53,7 @@
    "note": "Wembley lands"
   },
   {
-   "frame": 552,
+   "frame": 400,
    "primitive": "path-draw-on",
    "phase": "rising",
    "panel": "s4p1",
@@ -62,7 +62,7 @@
    "note": "underline the packages"
   },
   {
-   "frame": 786,
+   "frame": 554,
    "primitive": "rgb-split-glitch",
    "phase": "turn",
    "panel": "s5p2",
@@ -71,7 +71,7 @@
    "note": "paid to recruit"
   },
   {
-   "frame": 957,
+   "frame": 674,
    "primitive": "stop-motion-jitter",
    "phase": "payoff",
    "panel": "s6p2",
@@ -80,7 +80,7 @@
    "note": "signal lost"
   },
   {
-   "frame": 1044,
+   "frame": 740,
    "primitive": "spring-overshoot",
    "phase": "close",
    "panel": "s7p1",
@@ -88,7 +88,7 @@
    "note": "no chain, no Ruja"
   },
   {
-   "frame": 1143,
+   "frame": 821,
    "primitive": "text-decode",
    "phase": "close",
    "panel": "s7p2",

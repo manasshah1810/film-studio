@@ -44,7 +44,9 @@ ids, each with ONE line that ties the look to this topic (not the cheatsheet tex
 `style_note`. Never list all twelve. Never open a style folder to decide. [your first pick]
 
 **Q4. Voiceover:** ask only yes or no, then provider and voice. Nothing about scripts or music.
-- **No:** captions only, `voiceover: false`. [default]
+- **Google AI Studio (Gemini TTS):** the default whenever `GEMINI_API_KEY` is set (`node scripts/generate-voiceover.js models`
+  lists the TTS models it reaches): `voice: {provider: gemini, voice_id: Charon, env_key: GEMINI_API_KEY}`. [default with key]
+- **No:** captions only, `voiceover: false`. [default without a key]
 - **Free local:** `piper` or `system`. Run `node scripts/voice.js check` and offer only READY voices.
 - **Own key:** `elevenlabs` or `openai`. Ask for the NAME of the environment variable, never the key:
   "Put the key in `.env` in the project root or in your shell. Do not paste it here." Store the name

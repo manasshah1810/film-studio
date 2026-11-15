@@ -23,7 +23,8 @@ import {CHANNEL_MATRIX, axisFlip3D, filmGateFlicker, rgbChromaticGlitch, stopMot
  *
  * Layers, back to front: background, camera drift (Zero Dead Velocity), panels (transition, boxes, motion
  * primitives, layered cast, bespoke topic scenes, micro-widgets, VFX wrappers), captions, film-gate texture, safe-zone overlay.
- * Audio: SFX on their frames, voiceover clips, music ducked under the voice.
+ * Audio: SFX on their frames (ducked to audio.sfx_duck while the narrator speaks), voiceover clips, music ducked
+ * under the voice.
  */
 
 type DS = (typeof DESIGN_SYSTEMS)[string];
@@ -358,7 +359,7 @@ export const FilmComposition: React.FC<RenderManifest> = (m) => {
 				</AbsoluteFill>
 				{m.audio.sfx.filter((c) => c.file).map((c, i) => (
 					<Sequence key={`sfx-${i}`} from={c.frame} layout="none">
-						<Audio src={staticFile(c.file as string)} volume={dbToGain(c.db)} />
+						<Audio src={staticFile(c.file as string)} volume={(f) => dbToGain(c.db) * (segs.some(([a, b]) => c.frame + f >= a && c.frame + f <= b) ? (m.audio.sfx_duck ?? 1) : 1)} />
 					</Sequence>
 				))}
 				{(m.audio.voiceover?.clips ?? []).map((c, i) => (

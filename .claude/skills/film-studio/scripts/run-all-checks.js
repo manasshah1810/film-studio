@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Usage:
-//   node run-all-checks.js <work-dir> [--stage script|storyboard|final]   the whole gate in one command
+//   node run-all-checks.js <work-dir | work/render-manifest.json> [--stage script|storyboard|final]   the whole gate in one command
 //   node run-all-checks.js --selftest                                     prove the gate passes the good fixture and catches planted violations
 // Chains, in order: validate-schema.js (schemas + cross-file rules, render-manifest.json when present),
 // check-design.js (closed palette and fonts, WCAG AA 4.5:1 body / 3.0:1 display), check-safezones.js
@@ -93,7 +93,8 @@ if (a.selftest) {
   }
   process.exit(bad ? 1 : 0);
 }
-const work = a._[0];
+// a render-manifest.json (or any file in the work folder) stands for its folder
+const work = a._[0] && fs.existsSync(a._[0]) && fs.statSync(a._[0]).isFile() ? path.dirname(a._[0]) : a._[0];
 if (!work) { console.error('Usage: node run-all-checks.js <work-dir> [--stage script|storyboard|final] | --selftest'); process.exit(2); }
 const stage = ['script', 'storyboard', 'final'].includes(a.stage) ? a.stage : 'final';
 const res = gate(work, stage);

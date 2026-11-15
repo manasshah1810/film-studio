@@ -52,8 +52,15 @@ frame, cut the music (and any ambient bed) to silence with a fade of 3 frames or
 continue. The twist lands on `sub-bass-hit`, and the music re-enters on or just after it.
 - One silence drop per film. Two dilute the first.
 - Under 12 frames reads as a glitch; over 18 reads as a dropout.
-**Voiceover ducking.** The music bed plays at its open level (about -8 dB) when nobody speaks and
-sits at -18 dB while the voiceover is active.
+**Voiceover source (Google AI Studio, the default when `GEMINI_API_KEY` is set).**
+`node scripts/generate-voiceover.js make work --retime` speaks each scene with Gemini TTS (voice `Charon`,
+inline tag `[fast, urgent]`; models then voices fall back, a 429 waits its `retryDelay`), transcribes every
+clip back to check the words, writes 44.1 kHz wav + mp3 per scene, `work/voiceover.mp3` (clips + 150 ms
+air) and `work/voiceover-timing.json` (ffprobe seconds). `--retime` makes the voice the clock: each scene
+= its clip + pause to the frame; captions, panels, cues and music cuts follow. Run it before your cue
+sheet. One narrator voice per film: a WARN that the voice changed between clips means re-run.
+**Voiceover ducking.** The music bed sits 12 dB (25%) under its open level while the narrator speaks,
+and every SFX cue plays at `duck.sfx_gain` (0.25) under the voice; the render applies both by frame.
 | Curve | Value |
 |---|---|
 | Attack | duck starts 6 frames before the first word, reaching -18 dB on the first word |

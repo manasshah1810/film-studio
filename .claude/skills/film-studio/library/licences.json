@@ -72,6 +72,12 @@
    "attribution": false,
    "commercial": true,
    "note": "Only for families loaded through @remotion/google-fonts. [CHECK] the licence tab of the family before publishing."
+  },
+  "Gemini-API-Output": {
+   "name": "Google Gemini API generated output",
+   "attribution": false,
+   "commercial": true,
+   "note": "Speech made with the user's own Gemini API key (scripts/generate-voiceover.js). The Gemini API Additional Terms say Google does not claim ownership of generated content [CHECK current terms before commercial publishing]."
   }
  },
  "always_reject": [
