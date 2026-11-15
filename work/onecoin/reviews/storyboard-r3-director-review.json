@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 3,
+ "scorer": "director-review",
+ "rubric": "rubrics/storyboard.md",
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 7.5,
+   "evidence": "s1p1 '$4B' and first block left of the guide; static numeral."
+  },
+  {
+   "name": "One focal point",
+   "score": 7,
+   "evidence": "s7p1 card states the FBI fact three ways; chips repeat headlines."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 7.5,
+   "evidence": "chain already broken in the s1 stills; s5p2 reveal set to build."
+  },
+  {
+   "name": "Layout choice",
+   "score": 5.5,
+   "evidence": "two-panel template unchanged s2-s6; layout ids mismatch; no counter or line chart."
+  },
+  {
+   "name": "Readability",
+   "score": 6,
+   "evidence": "s7p1 meta line below the 34 px floor."
+  },
+  {
+   "name": "Platform fit",
+   "score": 6,
+   "evidence": "edges cross guides in s1p1, s4p2, s1p2, s5p2."
+  },
+  {
+   "name": "Rhythm",
+   "score": 6.5,
+   "evidence": "every scene two panels on a similar beat grid."
+  },
+  {
+   "name": "Cast used well",
+   "score": 8.5,
+   "evidence": "Mode C respected; money beads do not read as money."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 7.5,
+   "evidence": "package bars and 1-2-4-8 branching not labelled illustrative."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 9,
+   "evidence": "wreckage cuts cleanly back to s1p1."
+  }
+ ],
+ "average": 7.1,
+ "minimum": 5.5,
+ "passed": false,
+ "feedback": [
+  "Break the headline-then-enlarged pair",
+  "A counter or line chart carries the film",
+  "All edges inside the guides",
+  "One FBI statement, readable",
+  "Label illustrative bars and branching"
+ ]
+}

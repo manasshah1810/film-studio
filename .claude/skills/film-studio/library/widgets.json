@@ -1,5 +1,5 @@
 {
- "description": "The 50 built micro-widgets. id is what storyboard.json, widgets.json and render-manifest.json use; component is the export in components/widgets/<family>/. Generated from references/widgets-*.md; regenerate after adding a widget.",
+ "description": "The 50 built micro-widgets. id is what storyboard.json, widgets.json and render-manifest.json use; component is the export in components/widgets/<family>/. Generated from references/widgets-*.md; regenerate after adding a widget. An entry with `domain` draws the UI of that domain (an edit timeline, a camera lens, a code editor) and may be used only when brief.domains lists it (check-ai-tells rule 26).",
  "entries": [
   {
    "id": "live-cursor",
@@ -85,7 +85,8 @@
     "posts",
     "hero",
     "heroAt"
-   ]
+   ],
+   "domain": "social-media"
   },
   {
    "id": "reel-feed",
@@ -105,7 +106,8 @@
     "reels",
     "firstSwipe",
     "every"
-   ]
+   ],
+   "domain": "social-media"
   },
   {
    "id": "reel-cascade",
@@ -125,7 +127,8 @@
     "seed",
     "views",
     "speeds"
-   ]
+   ],
+   "domain": "social-media"
   },
   {
    "id": "video-card",
@@ -149,7 +152,8 @@
     "thumb",
     "views",
     "playAt"
-   ]
+   ],
+   "domain": "social-media"
   },
   {
    "id": "comment-cta",
@@ -192,7 +196,8 @@
     "answer",
     "typeAt",
     "cps"
-   ]
+   ],
+   "domain": "software"
   },
   {
    "id": "jiggle-delete",
@@ -214,7 +219,8 @@
     "editAt",
     "deleteAt",
     "cols"
-   ]
+   ],
+   "domain": "social-media"
   },
   {
    "id": "magazine-cover",
@@ -308,7 +314,8 @@
     "dialogue",
     "typeAt",
     "cps"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "serif-stamp",
@@ -397,7 +404,8 @@
     "label",
     "subject",
     "drawAt"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "contact-sheet-hook",
@@ -419,7 +427,8 @@
     "caption",
     "subjects",
     "startNo"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "title-card",
@@ -529,7 +538,8 @@
     "focus",
     "typeAt",
     "cps"
-   ]
+   ],
+   "domain": "software"
   },
   {
    "id": "banknote",
@@ -651,7 +661,8 @@
     "tracks",
     "scrubAt",
     "scrubFrames"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "keycaps",
@@ -674,7 +685,8 @@
     "pressAt",
     "each",
     "holdAll"
-   ]
+   ],
+   "domain": "software"
   },
   {
    "id": "rack-focus",
@@ -697,7 +709,8 @@
     "rackAt",
     "swaps",
     "hold"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "impact-frame",
@@ -782,7 +795,8 @@
     "label",
     "onAt",
     "each"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "lens-ring",
@@ -804,7 +818,8 @@
     "zoom",
     "moveAt",
     "moveFrames"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "grade-slider",
@@ -827,7 +842,8 @@
     "log",
     "rest",
     "sweepAt"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "eyedropper-grade",
@@ -848,7 +864,8 @@
     "names",
     "at",
     "each"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "file-drop",
@@ -873,7 +890,8 @@
     "dragAt",
     "dropAt",
     "upFrames"
-   ]
+   ],
+   "domain": "filmmaking"
   },
   {
    "id": "icon-strike",
@@ -1113,7 +1131,8 @@
     "scenes",
     "dealAt",
     "dealGap"
-   ]
+   ],
+   "domain": "filmmaking"
   }
  ]
 }

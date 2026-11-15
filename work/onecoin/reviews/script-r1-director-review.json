@@ -1,0 +1,68 @@
+{
+ "stage": "script",
+ "round": 1,
+ "scorer": "director-review",
+ "rubric": "rubrics/script.md",
+ "params": [
+  {
+   "name": "Hook",
+   "score": 8,
+   "evidence": "'never' after 2 s."
+  },
+  {
+   "name": "One idea",
+   "score": 6,
+   "evidence": "needs 'and': vanishing is a second story."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 7,
+   "evidence": "turn label on the mechanism; setup after payoff."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 5,
+   "evidence": "s2 VERIFY claim on screen; s1 stronger than 'prosecutors say'."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 8,
+   "evidence": "s3 stacked clauses; 'trading packages' jargon."
+  },
+  {
+   "name": "On-screen text",
+   "score": 6,
+   "evidence": "s3, s7, s8 echo narration."
+  },
+  {
+   "name": "Visual intent",
+   "score": 8,
+   "evidence": "s7: the case file stamped wanted is generic and could open any fugitive video."
+  },
+  {
+   "name": "Voice",
+   "score": 7.5,
+   "evidence": "stock reveal and tricolon shapes."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 7.5,
+   "evidence": "24% spent after the payoff."
+  },
+  {
+   "name": "Ending",
+   "score": 7.5,
+   "evidence": "closes on the database thesis, drops the recruits idea."
+  }
+ ],
+ "average": 7.05,
+ "minimum": 5,
+ "passed": false,
+ "feedback": [
+  "Source s2 or keep it off screen",
+  "Make the vanishing serve the one idea",
+  "Put the turn where the reveal happens",
+  "On-screen text adds, not echoes",
+  "Replace stock reveal and tricolon lines"
+ ]
+}

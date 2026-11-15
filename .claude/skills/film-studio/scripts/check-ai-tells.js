@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // Usage:
 //   node check-ai-tells.js <work-dir> [--stage script|storyboard|final] [--ds <file>] [--json] [--out report.json]
-//   node check-ai-tells.js --list        the 25 rules, one line each
+//   node check-ai-tells.js --list        the 28 rules, one line each
 //   node check-ai-tells.js --selftest    prove every rule passes on the good fixture and fires on the bad one
 // Zero tokens: run it, do not read it. Exit 0 = all rules of the stage PASS, 1 = any FAIL.
-// The 25 rules are documented, with a pass and a fail example each, in references/ai-tells.md.
+// The 28 rules are documented, with a pass and a fail example each, in references/ai-tells.md.
 // Stages: script = rules that need only script.json; storyboard = those plus the picture rules;
-// final (default) = all 25, and a missing input file is a FAIL.
+// final (default) = all 28, and a missing input file is a FAIL.
 const fs = require('fs');
 const path = require('path');
 const {SKILL, readJson, args} = require('./lib');
@@ -31,6 +31,12 @@ const ORPHAN_CHARS = 3;            // 20
 const INTERRUPT_SECONDS = 1.5;     // 21
 const SAME_TRANSITIONS = 2;        // 22
 const SFX_FRAMES = 2;              // 23
+const BESPOKE_MIN = 2;             // 27: bespoke topic scenes per film, in at least 2 scenes
+const ANGLES = [6, 8], WINNERS = [3, 4]; // 28: angles mined, angles selected
+const HEADLINE_WORDS = [2, 4];     // 28: on_screen_text power words
+const PRONOUN = /^(she|he|it|they|her|his|its|their|them|this)\b/i; // 28: never before the subject is named
+// 26: words in brief.topic that unlock a domain-locked widget when brief.domains is not set
+const DOMAIN_WORDS = {filmmaking: /\b(film|films|movie|cinema|camera|video|editing|editor|photograph\w*|youtube|director|footage)\b/i, software: /\b(code|coding|software|program\w*|developer|ai|app|apps|computer|keyboard)\b/i, 'social-media': /\b(instagram|tiktok|youtube|reels?|social media|influencer|creator|followers)\b/i};
 const CHAR_W = 0.55;               // 20: average glyph width as a share of the font size, for wrap estimates
 
 const sb = (P) => P.panels;
@@ -94,6 +100,7 @@ const RULES = [
     for (const p of sb(P)) {
       (p.beats ?? []).forEach((b, i) => chk(`${p.id} beat ${i + 1}`, b.easing, true));
       (p.widgets ?? []).forEach((w) => chk(`${p.id} widget "${w.id}"`, w.easing, true));
+      (p.bespoke ?? []).forEach((b) => chk(`${p.id} bespoke "${b.id}"`, b.easing, true));
       if (p.transition) chk(`${p.id} transition`, p.transition.easing, true);
       p.fx.forEach((e) => chk(`${p.id} effect "${e.effect_id}"`, e.easing ?? e.params?.easing, false));
     }
@@ -128,9 +135,9 @@ const RULES = [
   }},
   {n: 16, id: 'contrast', stage: 'storyboard', needs: ['storyboard', 'ds'], title: 'WCAG AA contrast floor', run(P) { return [...checkSystem(P.ds, 'design system').filter((e) => /:1; needs/.test(e)), ...checkPlan(P).contrast]; }},
   {n: 17, id: 'safe-zone', stage: 'storyboard', needs: ['storyboard'], title: '9:16 safe zones: bottom 20%, right 15%', run(P) { return checkSafe(P); }},
-  {n: 18, id: 'widgets', stage: 'storyboard', needs: ['storyboard'], title: 'At least 1 micro-widget per 2 scenes', run(P) {
-    // counted on the merged panels, so widgets.json placements count too
-    const count = P.scenes.map((sc) => P.panels.filter((p) => p.scene === sc.id).reduce((n, p) => n + (p.widgets ?? []).length, 0)), E = [];
+  {n: 18, id: 'widgets', stage: 'storyboard', needs: ['storyboard'], title: 'At least 1 micro-widget or bespoke scene per 2 scenes', run(P) {
+    // counted on the merged panels, so widgets.json placements count too; a bespoke scene counts as a widget
+    const count = P.scenes.map((sc) => P.panels.filter((p) => p.scene === sc.id).reduce((n, p) => n + (p.widgets ?? []).length + (p.bespoke ?? []).length, 0)), E = [];
     if (count.length === 1 && !count[0]) E.push(`scene ${P.scenes[0].id} has no widget. Fix: add one to a panel: "widgets": [{"id": "<widget id>", "anchor": "tr", "at": 0.5, "easing": "<named>"}].`);
     for (let i = 0; i + 1 < count.length; i++) if (!count[i] && !count[i + 1]) E.push(`scenes ${P.scenes[i].id} and ${P.scenes[i + 1].id} have no micro-widget between them. Fix: add one to a panel in either scene.`);
     const lib = path.join(SKILL, 'library', 'widgets.json');
@@ -178,6 +185,42 @@ const RULES = [
     return E;
   }},
   {n: 25, id: 'design-lock', stage: 'storyboard', needs: ['storyboard', 'ds'], title: '100% single design-system.json compliance', run(P) { return checkPlan(P).lock; }},
+  {n: 26, id: 'forced-widget', stage: 'storyboard', needs: ['storyboard'], title: 'No domain-locked widget out of its domain', run(P) {
+    const lib = path.join(SKILL, 'library', 'widgets.json'), E = [];
+    if (!fs.existsSync(lib)) return E;
+    const dom = new Map(readJson(lib).entries.filter((e) => e.domain).map((e) => [e.id, e.domain]));
+    const listed = P.brief?.domains, topic = String(P.brief?.topic ?? '');
+    const ok = (d) => (listed ? listed.includes(d) : !!DOMAIN_WORDS[d]?.test(topic));
+    for (const p of sb(P)) for (const w of p.widgets ?? []) { const d = dom.get(w.id); if (d && !ok(d)) E.push(`${p.id}: widget "${w.id}" draws ${d} UI, but the topic "${topic.slice(0, 40)}" is not a ${d} topic${listed ? ` (brief.domains: ${listed.join(', ')})` : ''}. Fix: prove the claim with a bespoke scene (components/bespoke/<topic>/) or a widget without a domain.`); }
+    return E;
+  }},
+  {n: 27, id: 'zero-bespoke', stage: 'storyboard', needs: ['storyboard'], title: 'At least 2 bespoke topic scenes', run(P) {
+    const placed = sb(P).flatMap((p) => (p.bespoke ?? []).map((b) => ({...b, scene: p.scene, panel: p.id}))), E = [];
+    const scenes = new Set(placed.map((b) => b.scene)), ids = new Set(placed.map((b) => b.id));
+    if (placed.length < BESPOKE_MIN || scenes.size < BESPOKE_MIN || ids.size < BESPOKE_MIN) E.push(`${ids.size} distinct bespoke scene(s) in ${scenes.size} scene(s); the film needs at least ${BESPOKE_MIN} distinct ones in ${BESPOKE_MIN} different scenes. Fix: code a topic-specific animated diagram or metaphor in components/bespoke/<topic>/, register it, and place it with "bespoke": [{"id": "<topic>/<scene>", "anchor", "easing", "x", "y", "w", "h", "proves"}].`);
+    for (const b of placed) if (!String(b.proves ?? '').trim()) E.push(`${b.panel}: bespoke "${b.id}" has no "proves". Fix: name the story beat it shows.`);
+    return E;
+  }},
+  {n: 28, id: 'shallow-script', stage: 'script', needs: ['script'], title: 'Angle-mined script with disciplined copy', run(P) {
+    const E = [], A = P.angles, scenes = P.script.scenes ?? [];
+    if (!A) E.push(`work/angles.json is missing: the script was not angle-mined. Fix: list 6 to 8 scored angles and select the top 3 or 4 (personas/scriptwriter.md section 0).`);
+    else {
+      const n = (A.angles ?? []).length, sel = A.selected ?? [];
+      if (n < ANGLES[0] || n > ANGLES[1]) E.push(`angles.json has ${n} angles; mine ${ANGLES[0]} to ${ANGLES[1]}.`);
+      if (sel.length < WINNERS[0] || sel.length > WINNERS[1]) E.push(`angles.json selects ${sel.length}; select the top ${WINNERS[0]} or ${WINNERS[1]}.`);
+      for (const s of scenes) if (s.beat !== 'close' && !sel.includes(s.angle)) E.push(`script ${s.id}: angle ${JSON.stringify(s.angle ?? null)} is not a selected angle (${sel.join(', ')}). Fix: build the scene from a winner, or cut it as filler.`);
+      for (const id of sel) if (!scenes.some((s) => s.angle === id)) E.push(`selected angle ${id} is used by no scene. Fix: give it a scene, or select another.`);
+    }
+    for (const s of scenes) {
+      const hw = words(s.on_screen_text).length;
+      if (hw < HEADLINE_WORDS[0] || hw > HEADLINE_WORDS[1]) E.push(`script ${s.id}: on_screen_text "${s.on_screen_text}" has ${hw} words; a headline is ${HEADLINE_WORDS[0]} to ${HEADLINE_WORDS[1]} power words ("ZERO BLOCKCHAIN").`);
+      const head = String(s.on_screen_text ?? '').toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').trim();
+      for (const c of s.captions ?? []) if (head && String(c[2]).toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').trim() === head) E.push(`script ${s.id}: caption "${c[2]}" repeats the headline. Fix: the caption advances the story, the headline names it.`);
+    }
+    const first = scenes[0]?.captions?.[0]?.[2] ?? sentences(scenes[0]?.narration)[0];
+    if (first && PRONOUN.test(first.trim())) E.push(`script s1: the film opens on a pronoun ("${words(first)[0]}") before naming the subject. Fix: name it first.`);
+    return E;
+  }},
 ];
 
 const ORDER = ['script', 'storyboard', 'final'];
@@ -211,9 +254,9 @@ if (require.main === module) {
     const wrongPass = good.filter((r) => !r.pass), wrongFail = bad.filter((r) => r.pass);
     wrongPass.forEach((r) => console.error(`FAIL selftest: rule ${r.n} ${r.id} fails on the good fixture: ${r.errs[0]}`));
     wrongFail.forEach((r) => console.error(`FAIL selftest: rule ${r.n} ${r.id} does not fire on the bad fixture`));
-    if (RULES.length !== 25) console.error(`FAIL selftest: ${RULES.length} rules, expected 25`);
-    if (wrongPass.length || wrongFail.length || RULES.length !== 25) process.exit(1);
-    console.log('PASS selftest: 25/25 rules pass on fixtures/tells-pass and 25/25 fire on fixtures/tells-fail');
+    if (RULES.length !== 28) console.error(`FAIL selftest: ${RULES.length} rules, expected 28`);
+    if (wrongPass.length || wrongFail.length || RULES.length !== 28) process.exit(1);
+    console.log('PASS selftest: 28/28 rules pass on fixtures/tells-pass and 28/28 fire on fixtures/tells-fail');
     process.exit(0);
   }
   if (!a._[0]) { console.error('Usage: node check-ai-tells.js <work-dir> [--stage script|storyboard|final] [--ds file] [--json] | --list | --selftest'); process.exit(2); }

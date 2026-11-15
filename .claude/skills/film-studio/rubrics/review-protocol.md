@@ -8,7 +8,7 @@ The author never scores. Two reviewers score independently and neither sees the 
   attention, is it clear, is it honest, does it fit the brief.
 - `director-review` (agent): scores as the person who answers for the craft. Is the idea sharp, is
   the style used as designed, is every choice deliberate.
-- AI tells are not reviewed by an agent. `scripts/check-ai-tells.js` checks all 25 (`references/ai-tells.md`).
+- AI tells are not reviewed by an agent. `scripts/check-ai-tells.js` checks all 28 (`references/ai-tells.md`).
 Both reviewers get the same rubric and the same file paths. They are launched in the same message.
 
 ## 2. What a reviewer receives

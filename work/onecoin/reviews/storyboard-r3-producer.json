@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 3,
+ "scorer": "producer",
+ "rubric": "rubrics/storyboard.md",
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 8,
+   "evidence": "s1p1 hook inside 2 s; '$' and left block cross the left guide."
+  },
+  {
+   "name": "One focal point",
+   "score": 8,
+   "evidence": "s7p1 WANTED once now; card still carries four text items."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 8,
+   "evidence": "s5p2 barcodes read; peak sits on s5p1 not the turn panel."
+  },
+  {
+   "name": "Layout choice",
+   "score": 7,
+   "evidence": "s5p2 'versus' shows one tree; s4p1 'list' shows bars."
+  },
+  {
+   "name": "Readability",
+   "score": 7.5,
+   "evidence": "s7p1 meta line unreadable; SOFIA/ATHENS borderline."
+  },
+  {
+   "name": "Platform fit",
+   "score": 7,
+   "evidence": "s4p2 pill and first bar left of the guide; '$' crosses the guide."
+  },
+  {
+   "name": "Rhythm",
+   "score": 7,
+   "evidence": "second panels are recrops; same beat template."
+  },
+  {
+   "name": "Cast used well",
+   "score": 8.5,
+   "evidence": "empty mic weakest stand-in."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 8.5,
+   "evidence": "'$4B' unlabelled on the cover; 2022 and 2016 match facts."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 9,
+   "evidence": "wreckage mirrors s1p1."
+  }
+ ],
+ "average": 7.85,
+ "minimum": 7,
+ "passed": false,
+ "feedback": [
+  "Fix s5p2 layout id; peak on the turn panel",
+  "Pull s4p2 and s1p1 inside the left guide",
+  "Readable or removed meta line",
+  "Second panels more than recrops",
+  "Label what $4B counts"
+ ]
+}

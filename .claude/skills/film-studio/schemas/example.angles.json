@@ -1,0 +1,12 @@
+{
+ "topic": "Smaller plans beat discipline",
+ "angles": [
+  {"id": "a1", "kind": "irony", "angle": "People who plan the biggest change quit soonest, because one missed day breaks the whole plan [VERIFY].", "visual": "A giant plan card cracks on day three.", "scores": {"curiosity": 9, "showability": 8, "stakes": 8}, "total": 25},
+  {"id": "a2", "kind": "mechanism", "angle": "A two-minute version survives a bad day, so the streak never resets.", "visual": "A tiny card slides under a falling big one.", "scores": {"curiosity": 7, "showability": 9, "stakes": 7}, "total": 23},
+  {"id": "a3", "kind": "stakes", "angle": "Every reset costs the motivation the plan was meant to build.", "visual": "A motivation meter drains at each reset.", "scores": {"curiosity": 6, "showability": 7, "stakes": 9}, "total": 22},
+  {"id": "a4", "kind": "hook", "angle": "Discipline is not the missing ingredient most people think it is.", "visual": "The word discipline is struck out.", "scores": {"curiosity": 8, "showability": 6, "stakes": 6}, "total": 20},
+  {"id": "a5", "kind": "human", "angle": "Most people blame their character, not the size of the plan.", "visual": "A mirror label flips from me to plan.", "scores": {"curiosity": 5, "showability": 5, "stakes": 6}, "total": 16},
+  {"id": "a6", "kind": "twist", "angle": "Habit apps reward long streaks, which punishes the small days that matter.", "visual": "A streak counter mocks a one-minute day.", "scores": {"curiosity": 6, "showability": 6, "stakes": 4}, "total": 16}
+ ],
+ "selected": ["a1", "a2", "a3"]
+}

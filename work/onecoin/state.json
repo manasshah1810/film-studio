@@ -1,0 +1,79 @@
+{
+ "brief_hash": "03b2790fc617",
+ "stages": {
+  "director": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/brief.json"
+  },
+  "treasurer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/budget.json"
+  },
+  "angles": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/angles.json"
+  },
+  "scriptwriter": {
+   "status": "flagged",
+   "round": 3,
+   "output_path": "../../../work/onecoin/script.json",
+   "note": "review gate not met after round 3; see flags.md"
+  },
+  "casting": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/cast.json"
+  },
+  "art-director": {
+   "status": "flagged",
+   "round": 3,
+   "output_path": "../../../work/onecoin/storyboard.json",
+   "note": "review gate not met after round 3; see flags.md"
+  },
+  "widget-integrator": {
+   "status": "flagged",
+   "round": 3,
+   "output_path": "../../../work/onecoin/widgets.json",
+   "note": "review gate not met after round 3; see flags.md"
+  },
+  "motion-choreographer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/motion.json"
+  },
+  "vfx-director": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/vfx-plan.json"
+  },
+  "sound-designer": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/audio-cues.json"
+  },
+  "checks": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/reviews/checks.json"
+  },
+  "pass1": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/out/pass1.mp4"
+  },
+  "qa-inspector": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/reviews/qa-audit.json"
+  },
+  "pass2": {
+   "status": "passed",
+   "round": 0,
+   "output_path": "../../../work/onecoin/out/final.mp4"
+  }
+ },
+ "updated": "2026-11-15T06:31:24.762Z"
+}

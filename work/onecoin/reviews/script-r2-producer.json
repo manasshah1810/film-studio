@@ -1,0 +1,68 @@
+{
+ "stage": "script",
+ "round": 2,
+ "scorer": "producer",
+ "rubric": "rubrics/script.md",
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "s1: 'never' lands in frames 0-38."
+  },
+  {
+   "name": "One idea",
+   "score": 7,
+   "evidence": "s6 escape could be cut without losing the idea."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 7.5,
+   "evidence": "s4 card and 'flowing up' pre-empt the s5 reveal."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 6,
+   "evidence": "s7 'never found' no fact; s1 drops the attribution; s5 stronger than source."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 8,
+   "evidence": "s4 2.9 wps, three stacked clauses."
+  },
+  {
+   "name": "On-screen text",
+   "score": 8,
+   "evidence": "s7 and s5 cards restate their lines."
+  },
+  {
+   "name": "Visual intent",
+   "score": 9,
+   "evidence": "seven distinct castable pictures."
+  },
+  {
+   "name": "Voice",
+   "score": 8,
+   "evidence": "'simply' twice as a tic."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 8,
+   "evidence": "densest scene s4 shorter than the lighter turn s5."
+  },
+  {
+   "name": "Ending",
+   "score": 8.5,
+   "evidence": "loop works but rests on an unrecorded claim."
+  }
+ ],
+ "average": 7.9,
+ "minimum": 6,
+ "passed": false,
+ "feedback": [
+  "Source or reword s7",
+  "Keep the prosecutors' attribution",
+  "Bring s5 to the source",
+  "Stop pre-empting the turn; s4 at 2.8 wps or less",
+  "Tie s6 to the one idea"
+ ]
+}

@@ -17,11 +17,21 @@ When the user says only "make a video on X" (or similar):
    - Any question or label topic ("Why X", "How X", "What is X") is rewritten into a 3-second
      assumption-flip hook (`personas/scriptwriter.md`).
    - Load ONLY the one selected style's `design-system.json` and `style.md`. Never a second style.
-   - The scripts enforce visual resets every 3.5 s or less, Zero Dead Velocity, diegetic widgets,
+   - The scripts enforce visual resets every 3.5 s or less, Zero Dead Velocity, diegetic widgets, bespoke scenes,
      the 9:16 safe zones and frame-synced SFX. You do not check these by eye.
    - Always: Pass 1 render, `node scripts/run-all-checks.js work`, the QA Inspector's critique, fixes,
      then the Pass 2 polish render, before you present the video.
    The only stop before rendering is the budget dry run (`roles/treasurer.md`): the user says yes once.
+
+## 0b. Reference floor, not creative ceiling
+- **Strict (guardrails):** the closed palette roles, the font pairing, 9:16 safe zones, WCAG contrast and a
+  visual state change every 3 to 4 s. Scripts enforce these on every scene, bespoke or not.
+- **Open (execution):** the 50 widgets in `components/widgets/` and each style's `recipes.md` are reference
+  examples and accelerators, not a closed menu. Use one only when it fits the topic's world.
+- **Bespoke scene mandate:** every film codes at least 2 to 3 topic-specific animated scenes (SVG diagrams,
+  visual metaphors, kinetic type, Three.js) in `components/bespoke/<topic>/`, registered in
+  `components/bespoke/registry.ts` (contract: `components/bespoke/kit.ts`). Never force-fit an unrelated
+  widget (a camera lens on a finance story); rule 26 rejects domain-locked widgets out of domain.
 
 ## 1. The one-file rule
 - Open exactly one manual per stage: the "Open only" column of `references/director-cheatsheet.md`.
@@ -40,10 +50,11 @@ If it prints STOP, report and wait. If it prints DONE, go to section 6.
 |---|---|---|---|---|
 | 1 | director | `personas/director.md` | `brief.json` | `pick-design.js work`; `validate-schema.js --work work` |
 | 2 | treasurer | `roles/treasurer.md` | `budget.json` | `ledger.js estimate work`, then the user says yes |
+| 3a | angles | `personas/scriptwriter.md` section 0 | `angles.json` | `validate-schema.js --work work` |
 | 3 | scriptwriter | `personas/scriptwriter.md` | `script.json` | `run-all-checks.js work --stage script` |
 | 4 | casting | `roles/selector.md`, then `personas/casting-rig-designer.md` | `needs.json`, `cast.json` | `validate-schema.js --work work` |
 | 5 | art-director | `personas/art-director.md` + `styles/<style>/style.md` | `storyboard.json` | `run-all-checks.js work --stage storyboard` |
-| 6 | widget-integrator | `personas/widget-integrator.md` | `widgets.json` | `run-all-checks.js work --stage storyboard` |
+| 6 | widget-integrator | `personas/widget-integrator.md` (+ bespoke scenes) | `widgets.json` | `run-all-checks.js work --stage storyboard` |
 | 7 | motion-choreographer | `personas/motion-choreographer.md` | `motion.json` | `run-all-checks.js work --stage storyboard` |
 | 8 | vfx-director | `roles/vfx-director.md` | `vfx-plan.json` | `validate-schema.js --work work` |
 | 9 | sound-designer | `personas/sound-designer.md` | `audio-cues.json` | `build-film.js work` |
@@ -56,7 +67,7 @@ only, run the gate, fix every FAIL, then `state-manager.js set work <stage> pass
 
 ## 4. The gates
 - **One command.** `node scripts/run-all-checks.js work` chains the schemas, the closed design check
-  (palette, fonts, WCAG AA 4.5:1 body and 3.0:1 display), the safe zones and all 25 AI tells. Exit 0 is
+  (palette, fonts, WCAG AA 4.5:1 body and 3.0:1 display), the safe zones and all 28 AI tells. Exit 0 is
   PASS; otherwise each line is JSON: `check`, `file`, `item`, `problem`, `fix`. Fix that file, re-run.
 - **Taste review (stages 3, 5, 6).** Two subagents, `producer` and `director-review`, score in parallel
   from the stage rubric in `rubrics/` and file paths only. Pass: both average 9.0 or more, no parameter
@@ -84,6 +95,6 @@ every flagged parameter, every trademark flag, and the credit lines from `node s
 
 ## Reference (open only when a line above sends you there)
 - Routing per persona: `references/director-cheatsheet.md`. Style choice: `references/style-cheatsheet.md`.
-- The 25 tells: `references/ai-tells.md`. Widgets: `library/widgets.json`. Platforms: `library/platforms.json`.
+- The 28 tells: `references/ai-tells.md`. Widgets: `library/widgets.json`. Platforms: `library/platforms.json`.
 - Contracts: `schemas/` (`render-manifest.schema.json` is the render input). Renderer: `components/src/compositions/FilmComposition.tsx`.
 - After editing the skill itself: `node scripts/check-static.js`.

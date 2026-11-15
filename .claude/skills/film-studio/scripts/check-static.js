@@ -89,13 +89,16 @@ const walk = (d) => fs.readdirSync(d, {withFileTypes: true}).flatMap((e) => (e.n
 for (const f of walk(SKILL)) if (/\.(md|json|js|ts|tsx|env)$/.test(f) && fs.statSync(f).size < 400000 && SECRET.test(fs.readFileSync(f, 'utf8'))) E.push(`${rel(f)} looks like it contains an API key`);
 if (walk(SKILL).some((f) => path.basename(f) === '.env')) E.push('a .env file sits inside the skill folder; keys belong in the project root .env, listed in .gitignore');
 
-// 4b. references: the cheatsheet lists exactly the 12 styles; every built style is one of them; 25 tells documented
+// 4b. references: the cheatsheet lists exactly the 12 styles; every built style is one of them; 28 tells documented
 const sheet = path.join(SKILL, 'references', 'style-cheatsheet.md'), tells = path.join(SKILL, 'references', 'ai-tells.md');
 const sheetIds = fs.existsSync(sheet) ? [...fs.readFileSync(sheet, 'utf8').matchAll(/^\| `([a-z0-9-]+)` \|/gm)].map((m) => m[1]) : [];
 if (sheetIds.length !== 12) E.push(`references/style-cheatsheet.md lists ${sheetIds.length} styles; it needs exactly 12`);
 for (const s of styles) if (!sheetIds.includes(s)) E.push(`styles/${s} is not a row in references/style-cheatsheet.md`);
 const tellRows = fs.existsSync(tells) ? [...fs.readFileSync(tells, 'utf8').matchAll(/^\| (\d+) \|/gm)].map((m) => +m[1]).sort((x, y) => x - y) : [];
-if (tellRows.join() !== Array.from({length: 25}, (_, i) => i + 1).join()) E.push(`references/ai-tells.md documents rules [${tellRows.join(', ')}]; it needs 1 to 25, once each`);
+if (tellRows.join() !== Array.from({length: 28}, (_, i) => i + 1).join()) E.push(`references/ai-tells.md documents rules [${tellRows.join(', ')}]; it needs 1 to 28, once each`);
+// 4c. bespoke scenes: every registered id has its file, and a file exists for every import
+const br = fs.readFileSync(path.join(COMPONENTS, 'bespoke', 'registry.ts'), 'utf8');
+for (const m of br.matchAll(/from '\.\/([a-z0-9-]+\/[A-Za-z0-9]+)'/g)) if (!fs.existsSync(path.join(COMPONENTS, 'bespoke', `${m[1]}.tsx`))) E.push(`components/bespoke/registry.ts imports ${m[1]}, which does not exist`);
 for (const f of ['preview.json']) if (fs.existsSync(path.join(SKILL, 'library', f))) E.push(`library/${f} is the retired shared preview; delete it`);
 
 // 5. sub-checks

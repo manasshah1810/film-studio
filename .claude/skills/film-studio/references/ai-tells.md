@@ -1,12 +1,12 @@
-# The 25 AI tells
+# The 28 AI tells
 
 These are the exact things that make a short video read as machine-made. They are not for you to
-judge. A script checks all 25 and prints PASS or FAIL with the fix:
+judge. A script checks all 28 and prints PASS or FAIL with the fix:
 
 ```
-node scripts/check-ai-tells.js work --stage script       # rules 1 2 11 12 14 24
-node scripts/check-ai-tells.js work --stage storyboard   # those + 5 6 7 8 10 13 15 16 17 18 19 20 25
-node scripts/check-ai-tells.js work                      # all 25 (a missing input is a FAIL)
+node scripts/check-ai-tells.js work --stage script       # rules 1 2 11 12 14 24 28
+node scripts/check-ai-tells.js work --stage storyboard   # those + 5 6 7 8 10 13 15 16 17 18 19 20 25 26 27
+node scripts/check-ai-tells.js work                      # all 28 (a missing input is a FAIL)
 ```
 
 Read this file only to learn what a FAIL line means. Do not score by eye. Fix every FAIL, run again.
@@ -21,6 +21,7 @@ The numbers below are the same constants as in `scripts/check-ai-tells.js`; chan
 | 11 | **Sentence cadence varies.** Words per sentence: standard deviation of at least 2, and never three sentences in a row within 1 word of each other. | 5, 5, 5, 5, 5 words | 6, 13, 14, 10, 6, 2 words |
 | 12 | **Causal connectors over listicles.** At least max(2, sentences / 4) of: because, so, but, therefore, which means, that's why, until, unless, instead, yet, except, turns out, as a result, then. List markers (first, second, next, also, another, finally, step 1...) may not outnumber them. | "First, pick a cue. Second, make it tiny. Also, repeat it." | "Most people set a huge goal, so one missed day feels like failure. But two minutes survives a bad day." |
 | 14 | **Zero placeholder strings.** specimen, placeholder, lorem and 42% never appear; a stat of value 42 with unit % is rejected. | "Placeholder quote", stat 42 % | The real line; the sourced number |
+| 28 | **Single-angle / shallow script.** `work/angles.json` exists with 6 to 8 scored angles and 3 or 4 selected; every scene but the close names a selected `angle`, and every winner is used. Headlines (`on_screen_text`) are 2 to 4 power words, no caption repeats its headline, and the film never opens on a pronoun. | no `angles.json`; headline "The story of a coin"; caption = headline; first caption "She sold it" | 7 angles, a1 a3 a4 a5 selected; "ZERO BLOCKCHAIN" over "So every coin was" |
 | 24 | **[VERIFY] on unsourced claims.** A fact with an empty source has status VERIFY. A sentence with a digit sits in a scene that has a fact entry. No number goes on screen while its fact is VERIFY. | "80% of people quit." with `facts: []` | Same line with `{"claim": "...", "status": "VERIFY", "source": ""}` and the number kept off screen |
 
 ## Picture (from `work/storyboard.json`, `work/cast.json`, the design system)
@@ -36,7 +37,9 @@ The numbers below are the same constants as in `scripts/check-ai-tells.js`; chan
 | 15 | **Zero text box overlaps.** Two text boxes on screen at the same time never intersect. | headline y 62-86 over body y 70-80 | headline y 18-42, body y 46-58, caption y 68-76 |
 | 16 | **WCAG AA contrast.** Display text at least 3.0:1, all other text at least 4.5:1, for every text box and for every text role on every surface role of the palette. | #333333 on #0B0D10 = 1.54:1 | #F4F6F8 on #0B0D10 |
 | 17 | **9:16 safe zones.** Text, captions and faces stay out of the bottom 20% and the right 15%: y + h at most 80, x + w at most 85. Every panel has boxes; captions have a caption box. | box x 10, w 80 (ends 90); y 62, h 24 (ends 86) | box x 8, w 70; caption y 68, h 8 |
-| 18 | **At least 1 micro-widget per 2 scenes.** No two scenes in a row are both without a widget. | scenes s1 and s2 with no `widgets` | a widget in s1, s2 and s3 |
+| 18 | **At least 1 micro-widget or bespoke scene per 2 scenes.** No two scenes in a row are both without one. | scenes s1 and s2 with no `widgets` or `bespoke` | a widget or bespoke scene in s1, s2 and s3 |
+| 26 | **Forced-widget mismatch.** A widget whose `library/widgets.json` entry has a `domain` (filmmaking, software, social-media UI) is used only when `brief.domains` lists it (else the topic must name it). | `nle-timeline` or `lens-ring` on a finance story | a bespoke ledger scene; `orbit-ring` |
+| 27 | **Zero bespoke visuals.** At least 2 distinct bespoke scenes (`components/bespoke/<topic>/`) in 2 different scenes, each with `proves`. | a film of generic boxes, icons and stock widgets only | `onecoin/broken-chain` in s1, `onecoin/recruit-pyramid` in s4 |
 | 19 | **Display at least 2.2x body.** In any panel with both, largest display `px` / largest body `px`. | 60 px over 40 px = 1.5 | 132 px over 44 px = 3.0 |
 | 20 | **No short orphan lines.** In text of 2+ lines, no line is one word of 3 characters or fewer. | "Small habits always" / "win" | "Not more" / "discipline" |
 | 25 | **One design system.** Every colour is a role of the chosen palette, every font is in the chosen pairing, every easing is named in the system, and no panel overrides style, palette or pairing. | `"color": "#333333"`, `"font": "Arial"` | `"color": "ink"`, `"font": "Archivo Black"` |

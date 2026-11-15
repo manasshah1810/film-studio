@@ -8,6 +8,8 @@ import {DesignProvider, contrast, fontCss} from '../../engine/tokens';
 import type {Design, FilmDef, Pairing} from '../../engine/types';
 import {EFFECTS} from '../../effects';
 import {WIDGETS, WIDGET_TOKENS, type WidgetFamily} from '../../widgets/registry';
+import {BESPOKE} from '../../bespoke/registry';
+import {makeKit} from '../../bespoke/kit';
 import {elasticPullBackZoom, gravityDropBounce, springPopIn} from '../../motions/physics';
 import {directionalWhipPan, simulatedDollyPush, zeroDeadVelocityDrift} from '../../motions/camera';
 import {activeWordHighlight, hackerDecodeScramble, odometerNumberRoll, svgPathDrawOn} from '../../motions/text-data';
@@ -20,7 +22,7 @@ import {CHANNEL_MATRIX, axisFlip3D, filmGateFlicker, rgbChromaticGlitch, stopMot
  * and every colour is a palette role, every font a pairing role.
  *
  * Layers, back to front: background, camera drift (Zero Dead Velocity), panels (transition, boxes, motion
- * primitives, layered cast, micro-widgets, VFX wrappers), captions, film-gate texture, safe-zone overlay.
+ * primitives, layered cast, bespoke topic scenes, micro-widgets, VFX wrappers), captions, film-gate texture, safe-zone overlay.
  * Audio: SFX on their frames, voiceover clips, music ducked under the voice.
  */
 
@@ -63,7 +65,8 @@ const rollLines = (lines: string[], f: number, m: MotionDef) =>
 	});
 
 const TextBox: React.FC<{r: R; b: BoxDef; i: number; f: number; p: PanelDefM}> = ({r, b, i, f, p}) => {
-	const enterAt = (b.from ?? p.from) + i * (r.ds.motion?.stagger_frames ?? 4);
+	// frame 0 is the platform cover frame: text of the film's first panel is already landed there
+	const enterAt = p.from === 0 && b.from === undefined ? -30 : (b.from ?? p.from) + i * (r.ds.motion?.stagger_frames ?? 4);
 	if (f < (b.from ?? p.from) || (b.to !== undefined && f >= b.to)) return null;
 	const pop = springPopIn(f, {start: enterAt, spring: 'snappy', from: 0.9, rise: 18 * r.k});
 	let lines = b.lines ?? (b.text ? [b.text] : []);
@@ -178,6 +181,17 @@ const WidgetMount: React.FC<{id: string; tk: unknown; box: Pct; props: Record<st
 	return <C tk={tk} frame={Math.min(local, Math.max(frames, e.frames) - 1)} box={box} {...props} />;
 };
 
+// ------------------------------------------------------------------ bespoke topic scenes (colours, fonts and easings still come from the one design system)
+const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, unknown>; frames: number}> = ({id, r, box, props, frames}) => {
+	const local = useCurrentFrame();
+	const C = BESPOKE[id];
+	if (!C) throw new Error(`film-studio: bespoke scene "${id}" is not in components/bespoke/registry.ts`);
+	// props.offset (frames) continues a scene across a cut: the second panel picks up where the first left off
+	const offset = Number(props.offset ?? 0);
+	const kit = makeKit({frame: local + offset, frames: frames + offset, fps: r.m.meta.fps, box: pctPx(box, r.W, r.H), k: r.k, role: r.role, pairing: r.pairing, easings: r.ds.motion?.easings ?? {}, springs: r.ds.motion?.springs, props});
+	return <C kit={kit} />;
+};
+
 // ------------------------------------------------------------------ one panel
 const panelMotion = (p: PanelDefM, local: number, f: number, r: R) => {
 	const tf: string[] = [];
@@ -217,6 +231,11 @@ const PanelView: React.FC<{p: PanelDefM; r: R; castById: Map<string, CastEntry>;
 			{boxes.filter((b) => b.kind === 'card').map((b, i) => <CardBox key={b.id} r={r} b={b} f={f} p={p} i={i} />)}
 			{p.cast.map((c) => { const e = castById.get(c.id); return e ? <CastFigure key={c.id} r={r} c={e} at={c} f={f} talking={e.role === 'narrator' && talking(f)} /> : null; })}
 			{boxes.filter((b) => b.kind === 'text').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
+			{(p.bespoke ?? []).map((b, i) => (
+				<Sequence key={`bespoke-${b.id}-${i}`} from={b.from - p.from} durationInFrames={b.frames} layout="none">
+					<BespokeMount id={b.id} r={r} box={b.box} props={b.props} frames={b.frames} />
+				</Sequence>
+			))}
 			{p.widgets.map((w, i) => (
 				<Sequence key={`${w.id}-${i}`} from={w.from - p.from} durationInFrames={w.frames} layout="none">
 					<WidgetMount id={w.id} tk={tokens(WIDGETS[w.id]?.family ?? 'social')} box={w.box} props={w.props} frames={w.frames} />
@@ -265,9 +284,9 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const font = fontCss(r.pairing[cb?.font ?? 'display'], (cb?.px ?? r.ds.type_scale?.caption ?? 56) * r.k);
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
-			<div style={{...font, background: bg !== 'bg' ? r.role(bg) : undefined, padding: bg !== 'bg' ? `${8 * r.k}px ${16 * r.k}px` : 0, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.28 * (font.fontSize as number)}px`}}>
+			<div style={{...font, background: bg !== 'bg' ? r.role(bg) : undefined, padding: bg !== 'bg' ? `${8 * r.k}px ${16 * r.k}px` : 0, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.4 * (font.fontSize as number)}px`}}>
 				{hl.words.map((w) => (
-					<span key={w.index} style={{color: w.power ? accent : ink, transform: `scale(${(1 + 0.08 * (w.state === 'active' ? w.t : 0)).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+					<span key={w.index} style={{color: w.power ? accent : ink, transform: `scale(${(1 + 0.04 * (w.state === 'active' ? w.t : 0)).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
 						{w.text}
 					</span>
 				))}
@@ -286,6 +305,7 @@ const SafeZones: React.FC<{W: number; H: number}> = ({W, H}) => (
 );
 
 // ------------------------------------------------------------------ the composition
+const DRIFT_SPAN = 14;
 export const FilmComposition: React.FC<RenderManifest> = (m) => {
 	const frame = useCurrentFrame();
 	const {width: W, height: H} = useVideoConfig();
@@ -302,7 +322,11 @@ export const FilmComposition: React.FC<RenderManifest> = (m) => {
 	};
 	const segs = m.audio.voiceover?.segments ?? [];
 	const talking = (f: number) => (segs.length ? segs.some(([a, b]) => f >= a && f <= b) : !!captionAt(m.captions, f));
-	const drift = zeroDeadVelocityDrift(frame, {start: 0, end: m.meta.frames, seed: m.design.seed});
+	// The drift keeps its speed but folds back and forth inside DRIFT_SPAN px, so a long film never walks the stage
+	// out of the safe zones (an unfolded 12 px/s drift travels about 500 px over 45 s).
+	const raw = zeroDeadVelocityDrift(frame, {start: 0, end: m.meta.frames, seed: m.design.seed});
+	const travel = Math.hypot(raw.x, raw.y), folded = DRIFT_SPAN - Math.abs((travel % (2 * DRIFT_SPAN)) - DRIFT_SPAN);
+	const drift = {x: travel ? (raw.x / travel) * folded : 0, y: travel ? (raw.y / travel) * folded : 0, scale: raw.scale};
 	const sf = m.meta.safe;
 	const ctx = {
 		design: {style: m.design.style, palette: {id: m.design.palette_id, roles: d.roles}, fonts: d.pairing, seed: m.design.seed, system: d.ds} as unknown as Design,

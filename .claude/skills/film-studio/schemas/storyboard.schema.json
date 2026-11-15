@@ -728,6 +728,80 @@
           },
           "additionalProperties": false
          }
+        },
+        "bespoke": {
+         "type": "array",
+         "description": "Bespoke scenes coded for this topic (components/bespoke/<topic>/). Same box and anchor rules as a widget.",
+         "items": {
+          "type": "object",
+          "required": [
+           "id",
+           "anchor",
+           "easing",
+           "x",
+           "y",
+           "w",
+           "h",
+           "proves"
+          ],
+          "additionalProperties": false,
+          "properties": {
+           "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*/[a-z0-9][a-z0-9-]*$",
+            "description": "A bespoke scene id <topic>/<scene> registered in components/bespoke/registry.ts."
+           },
+           "anchor": {
+            "type": "string",
+            "pattern": "^(tl|t|tr|l|r|bl|b|br|@[a-z0-9][a-z0-9-]*)$"
+           },
+           "at": {
+            "type": "number",
+            "minimum": 0
+           },
+           "easing": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+           },
+           "props": {
+            "type": "object"
+           },
+           "x": {
+            "type": "number",
+            "minimum": 6,
+            "maximum": 85
+           },
+           "y": {
+            "type": "number",
+            "minimum": 8,
+            "maximum": 80
+           },
+           "w": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 79
+           },
+           "h": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 72
+           },
+           "proves": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 160,
+            "description": "The story beat this scene proves, in plain words."
+           },
+           "kind": {
+            "enum": [
+             "svg-diagram",
+             "metaphor",
+             "kinetic-type",
+             "three-d"
+            ]
+           }
+          }
+         }
         }
        },
        "additionalProperties": false

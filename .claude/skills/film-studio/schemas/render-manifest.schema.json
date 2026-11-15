@@ -694,6 +694,76 @@
         }
        }
       }
+     },
+     "bespoke": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "id",
+        "anchor",
+        "from",
+        "frames",
+        "box",
+        "props"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "id": {
+         "type": "string",
+         "pattern": "^[a-z0-9][a-z0-9-]*/[a-z0-9][a-z0-9-]*$",
+         "description": "A bespoke scene id <topic>/<scene> registered in components/bespoke/registry.ts."
+        },
+        "anchor": {
+         "type": "string",
+         "pattern": "^(tl|t|tr|l|r|bl|b|br|@[A-Za-z0-9_-]+)$"
+        },
+        "from": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "frames": {
+         "type": "integer",
+         "minimum": 1
+        },
+        "props": {
+         "type": "object"
+        },
+        "box": {
+         "type": "object",
+         "required": [
+          "x",
+          "y",
+          "w",
+          "h"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "x": {
+           "type": "number",
+           "minimum": 6,
+           "maximum": 85
+          },
+          "y": {
+           "type": "number",
+           "minimum": 8,
+           "maximum": 80
+          },
+          "w": {
+           "type": "number",
+           "minimum": 1,
+           "maximum": 79
+          },
+          "h": {
+           "type": "number",
+           "minimum": 1,
+           "maximum": 72
+          }
+         }
+        }
+       }
+      },
+      "description": "Bespoke topic scenes, mounted through components/bespoke/registry.ts."
      }
     }
    }

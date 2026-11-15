@@ -181,6 +181,24 @@
    "minLength": 1,
    "maxLength": 300,
    "description": "The belief the hook flips. Unsourced claims carry [VERIFY: ...]."
+  },
+  "domains": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "filmmaking",
+     "software",
+     "social-media",
+     "finance",
+     "history",
+     "science",
+     "health",
+     "culture",
+     "business",
+     "other"
+    ]
+   },
+   "description": "Subject domains of the topic. Domain-locked widgets (library/widgets.json `domain`) are allowed only when their domain is listed."
   }
  },
  "additionalProperties": false,

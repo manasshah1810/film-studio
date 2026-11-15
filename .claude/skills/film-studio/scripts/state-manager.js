@@ -16,10 +16,11 @@ const {readJson, writeJson, args, fail} = require('./lib');
 const PIPE = [
   ['director', 'Director', 'personas/director.md', '-', 'brief.json', 'node scripts/pick-design.js work && node scripts/validate-schema.js --work work'],
   ['treasurer', 'Treasurer', 'roles/treasurer.md', 'brief.json', 'budget.json', 'node scripts/ledger.js estimate work, then the user says yes'],
-  ['scriptwriter', 'Scriptwriter', 'personas/scriptwriter.md', 'brief.json', 'script.json', 'node scripts/run-all-checks.js work --stage script'],
+  ['angles', 'Scriptwriter (angle mining)', 'personas/scriptwriter.md section 0', 'brief.json', 'angles.json', 'node scripts/validate-schema.js --work work'],
+  ['scriptwriter', 'Scriptwriter', 'personas/scriptwriter.md', 'brief.json, angles.json', 'script.json', 'node scripts/run-all-checks.js work --stage script'],
   ['casting', 'Selector, then Casting and Rig Designer', 'roles/selector.md, then personas/casting-rig-designer.md', 'script.json, brief.json', 'cast.json', 'node scripts/validate-schema.js --work work'],
   ['art-director', 'Art Director', 'personas/art-director.md + styles/<style>/style.md', 'script.json, cast.json', 'storyboard.json', 'node scripts/run-all-checks.js work --stage storyboard'],
-  ['widget-integrator', 'Widget Integrator', 'personas/widget-integrator.md', 'script.json, storyboard.json', 'widgets.json', 'node scripts/run-all-checks.js work --stage storyboard'],
+  ['widget-integrator', 'Widget Integrator (+ bespoke scenes in components/bespoke/)', 'personas/widget-integrator.md', 'script.json, storyboard.json', 'widgets.json', 'node scripts/run-all-checks.js work --stage storyboard'],
   ['motion-choreographer', 'Motion Choreographer', 'personas/motion-choreographer.md', 'script.json, storyboard.json', 'motion.json', 'node scripts/run-all-checks.js work --stage storyboard'],
   ['vfx-director', 'VFX Director', 'roles/vfx-director.md', 'storyboard.json, brief.json', 'vfx-plan.json', 'node scripts/validate-schema.js --work work'],
   ['sound-designer', 'Sound Designer', 'personas/sound-designer.md', 'storyboard.json, motion.json, widgets.json', 'audio-cues.json', 'node scripts/build-film.js work'],

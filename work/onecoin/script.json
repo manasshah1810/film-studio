@@ -1,0 +1,347 @@
+{
+ "title": "OneCoin never had a blockchain",
+ "fps": 30,
+ "hook": {
+  "formula": "assumption-flip",
+  "belief": "Every cryptocurrency runs on a blockchain.",
+  "gap": "If OneCoin had no blockchain, what were people really paying for?"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0.0,
+   "duration": 5.5,
+   "beat": "hook",
+   "angle": "a1",
+   "narration": "Prosecutors say OneCoin never had a real blockchain. It still raised four billion dollars.",
+   "on_screen_text": "$4B FAKE COIN",
+   "emotion": "disbelief",
+   "visual_intent": "A chain of linked blocks snaps apart within two seconds while a counter rolls to four billion.",
+   "facts": [
+    {
+     "claim": "Prosecutors say OneCoin had no true, verifiable blockchain.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/bulgarian-woman-charged-role-multi-billion-dollar-cryptocurrency-pyramid-scheme-onecoin"
+    },
+    {
+     "claim": "OneCoin took in more than $4 billion from victims worldwide between 2014 and 2016.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
+    }
+   ],
+   "captions": [
+    [
+     0,
+     35,
+     "Prosecutors say OneCoin"
+    ],
+    [
+     35,
+     82,
+     "never had a real",
+     "never"
+    ],
+    [
+     82,
+     94,
+     "blockchain.",
+     "blockchain"
+    ],
+    [
+     94,
+     129,
+     "It still raised"
+    ],
+    [
+     129,
+     165,
+     "four billion dollars.",
+     "billion"
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "start": 5.5,
+   "duration": 6.0,
+   "beat": "setup",
+   "angle": "a1",
+   "narration": "So its bosses handed out coins that existed nowhere, not even on their own ledger.",
+   "on_screen_text": "COINS FROM NOTHING",
+   "emotion": "contempt",
+   "visual_intent": "A private table where a caret types balances into rows that no chain records.",
+   "facts": [
+    {
+     "claim": "By about March 2015 Greenwood and Ignatova were allocating to members OneCoins that did not exist even in OneCoin's purported private blockchain.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/bulgarian-woman-charged-role-multi-billion-dollar-cryptocurrency-pyramid-scheme-onecoin"
+    }
+   ],
+   "captions": [
+    [
+     165,
+     201,
+     "So its bosses",
+     "bosses"
+    ],
+    [
+     201,
+     237,
+     "handed out coins"
+    ],
+    [
+     237,
+     273,
+     "that existed nowhere,",
+     "nowhere"
+    ],
+    [
+     273,
+     321,
+     "not even on their"
+    ],
+    [
+     321,
+     345,
+     "own ledger.",
+     "ledger"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 11.5,
+   "duration": 6.5,
+   "beat": "setup",
+   "angle": "a3",
+   "rehook": true,
+   "narration": "Yet people believed. Dr Ruja Ignatova sold it at Wembley Arena as the bitcoin killer.",
+   "on_screen_text": "WEMBLEY, 2016",
+   "emotion": "awe",
+   "visual_intent": "An arena from the back rows: spotlights find an empty mic and the crowd lights up wave by wave.",
+   "facts": [
+    {
+     "claim": "In the summer of 2016 Ruja Ignatova took the stage at Wembley Arena and promoted OneCoin as the bitcoin killer.",
+     "status": "verified",
+     "source": "https://moneyweek.com/economy/people/601859/great-frauds-in-history-crypto-queen-ruja-ignatova-and-her-bitcoin-killer"
+    }
+   ],
+   "captions": [
+    [
+     345,
+     384,
+     "Yet people believed.",
+     "Yet"
+    ],
+    [
+     384,
+     423,
+     "Dr Ruja Ignatova"
+    ],
+    [
+     423,
+     462,
+     "sold it at"
+    ],
+    [
+     462,
+     488,
+     "Wembley Arena",
+     "Wembley"
+    ],
+    [
+     488,
+     540,
+     "as the bitcoin killer.",
+     "killer"
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "start": 18.0,
+   "duration": 5.0,
+   "beat": "setup",
+   "angle": "a5",
+   "rehook": true,
+   "narration": "Instead, buyers paid for coin packages, sold member to member.",
+   "on_screen_text": "SOLD IN PACKAGES",
+   "emotion": "hope",
+   "visual_intent": "Package cards of growing size fill with coin glyphs while a dotted line climbs past them (illustrative sizes).",
+   "facts": [
+    {
+     "claim": "Members bought OneCoin packages through its multi-level marketing network.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
+    }
+   ],
+   "captions": [
+    [
+     540,
+     600,
+     "Instead, buyers paid for",
+     "Instead"
+    ],
+    [
+     600,
+     630,
+     "coin packages,",
+     "packages"
+    ],
+    [
+     630,
+     690,
+     "sold member to member.",
+     "member"
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "start": 23.0,
+   "duration": 6.0,
+   "beat": "turn",
+   "angle": "a5",
+   "rehook": true,
+   "narration": "But recruiting paid commissions, so the real product was the next recruit.",
+   "on_screen_text": "PAID TO RECRUIT",
+   "emotion": "shock",
+   "visual_intent": "A recruitment tree grows with money climbing every edge, then each coin badge is crossed out and stamped with a barcode.",
+   "facts": [
+    {
+     "claim": "OneCoin paid members commissions for recruiting others to buy OneCoin packages, a pyramid scheme.",
+     "status": "verified",
+     "source": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
+    }
+   ],
+   "captions": [
+    [
+     690,
+     735,
+     "But recruiting paid",
+     "But"
+    ],
+    [
+     735,
+     750,
+     "commissions,",
+     "commissions"
+    ],
+    [
+     750,
+     810,
+     "so the real product"
+    ],
+    [
+     810,
+     870,
+     "was the next recruit.",
+     "recruit"
+    ]
+   ]
+  },
+  {
+   "id": "s6",
+   "start": 29.0,
+   "duration": 5.5,
+   "beat": "payoff",
+   "angle": "a4",
+   "rehook": true,
+   "narration": "Until October 2017, when the woman at the top flew to Athens and vanished.",
+   "on_screen_text": "SIGNAL LOST",
+   "emotion": "dread",
+   "visual_intent": "A flight path draws from Sofia toward Athens and the radar ping fades out before landing.",
+   "facts": [
+    {
+     "claim": "On 25 October 2017 Ruja Ignatova boarded a flight from Sofia to Athens and has not been seen since.",
+     "status": "verified",
+     "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
+    }
+   ],
+   "captions": [
+    [
+     870,
+     905,
+     "Until October 2017,",
+     "Until"
+    ],
+    [
+     905,
+     940,
+     "when the woman"
+    ],
+    [
+     940,
+     975,
+     "at the top",
+     "top"
+    ],
+    [
+     975,
+     1010,
+     "flew to Athens"
+    ],
+    [
+     1010,
+     1035,
+     "and vanished.",
+     "vanished"
+    ]
+   ]
+  },
+  {
+   "id": "s7",
+   "start": 34.5,
+   "duration": 7.5,
+   "beat": "close",
+   "angle": "a4",
+   "narration": "In 2022 the FBI added her to its Ten Most Wanted list. Like the blockchain, she was never found.",
+   "on_screen_text": "NO CHAIN, NO RUJA",
+   "emotion": "resolve",
+   "visual_intent": "A case file is stamped, then the broken chain from the first shot returns as wreckage.",
+   "facts": [
+    {
+     "claim": "In 2022 the FBI added Ruja Ignatova to its Ten Most Wanted Fugitives list.",
+     "status": "verified",
+     "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
+    },
+    {
+     "claim": "Ignatova has not been found since boarding the October 2017 flight (as of the January 2023 report).",
+     "status": "verified",
+     "source": "https://wtop.com/business-finance/2023/01/cryptoqueen-scammed-investors-out-of-4-billion-before-disappearing-fbi-says/"
+    }
+   ],
+   "captions": [
+    [
+     1035,
+     1082,
+     "In 2022 the FBI",
+     "FBI"
+    ],
+    [
+     1082,
+     1129,
+     "added her to its"
+    ],
+    [
+     1129,
+     1176,
+     "Ten Most Wanted list.",
+     "Wanted"
+    ],
+    [
+     1176,
+     1212,
+     "Like the blockchain,",
+     "blockchain"
+    ],
+    [
+     1212,
+     1260,
+     "she was never found.",
+     "never"
+    ]
+   ]
+  }
+ ]
+}

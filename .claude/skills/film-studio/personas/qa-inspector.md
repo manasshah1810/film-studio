@@ -17,8 +17,15 @@ output (one JSON line per defect: check, file, item, problem, fix), never the sc
 | 1 | `validate-schema.js` | malformed or missing plan files, wrong ids, timing that does not add up |
 | 2 | `check-design.js` | out-of-palette colours, unapproved fonts, contrast under 4.5:1 body or 3.0:1 display |
 | 3 | `check-safezones.js` | text, faces or widgets in the bottom 20% or right 15% of a 9:16 frame |
-| 4 | `check-ai-tells.js` | the 25 AI tells: weak openers, placeholder strings, stick figures, static holds, unsynced SFX |
+| 4 | `check-ai-tells.js` | the 28 AI tells: weak openers, placeholder strings, stick figures, static holds, unsynced SFX, and the three below |
 Its report is saved to `work/reviews/checks.json`; exit 0 is a clean Stage 1.
+Three rejection checks you also confirm on the stills (the script catches the plan; you catch the picture):
+- **Forced-widget mismatch (rule 26):** a pre-built widget out of its domain (an edit timeline or a camera
+  lens on a non-filmmaking topic). Reject; owner widget-integrator.
+- **Zero bespoke visuals (rule 27):** the film relies on generic boxes, icons and stock widgets with no
+  animated diagram or metaphor coded for this topic. Reject; owner art-director.
+- **Single-angle / shallow script (rule 28):** no `angles.json`, or the script reads as a generic summary
+  instead of the highest-scoring twists. Reject; owner scriptwriter.
 Rules:
 - **Any single violation blocks approval immediately.** One FAIL line in any script means verdict
   `rejected`, stage `1`. Do not continue to Stage 2 and do not average it away.
@@ -37,11 +44,11 @@ scene or panel id, a frame number or a quoted line. A score with no evidence is 
 | 3 | Subject Appeal / Zero Stick Figures | layered, shaded, expressive subject, or a clean ui-first film | circle head, line limbs, floating figure, dead face |
 | 4 | Color & Contrast Discipline | every colour is a palette role; tier fits the topic; all text readable | off-palette hex, dark red on black, two colours on an epic |
 | 5 | Typography Hierarchy | display 2.2x body or more; 5-word captions; no orphans | one size everywhere; a line ending on "of" |
-| 6 | Widget Integration | a widget proves a claim at least every 2 scenes, in style tokens | no widgets, or decoration with hardcoded colours |
+| 6 | Widget Integration | a widget or bespoke scene proves a claim at least every 2 scenes, in style tokens, in the topic's own world | no proof, a forced-fit widget, hardcoded colours |
 | 7 | 3-4s Pacing & Motion Variety | a state change within 105 frames; nothing frozen 45 frames; varied primitives | long holds, default fades, the same transition three times |
 | 8 | SFX Sync | each peak has a sound within 2 frames; silence drop before the twist | silent pops, late whooshes, music over the voice |
 | 9 | Platform Safe-Zone Fit | everything readable inside x 6 to 85, y 8 to 80 | captions under the platform buttons |
-| 10 | Designer-Made Authenticity | looks art-directed by a person; specific, varied, intentional | template feel, centred everything, generic stock look |
+| 10 | Designer-Made Authenticity | 2+ bespoke scenes no other video could reuse; specific, varied, intentional | template feel, centred everything, generic stock look |
 Scoring rules:
 - **Pass needs an average of 9.0 or more AND no parameter below 7.** Either miss is a rejection.
 - Score what is on screen, not what the plan intended. If a still contradicts the plan, the still wins.

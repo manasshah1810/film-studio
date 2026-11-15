@@ -57,7 +57,7 @@ next work` prints the row to run now.
 ## Commands (run from the skill folder)
 | Command | What it does |
 |---|---|
-| `node scripts/run-all-checks.js work` | the whole gate: schemas, design lock and WCAG AA, safe zones, 25 AI tells; JSON fix lines on failure; `--selftest` |
+| `node scripts/run-all-checks.js work` | the whole gate: schemas, design lock and WCAG AA, safe zones, 28 AI tells; JSON fix lines on failure; `--selftest` |
 | `node scripts/state-manager.js next work` | the stage to run now (resume); `set`, `show` |
 | `node scripts/pick-design.js --suggest "<topic>"` | top 3 styles for a topic; `work` locks tier, palette, pairing, seed |
 | `node scripts/validate-schema.js --work work` | schema and cross-file checks; `render-manifest <file>` for one manifest |

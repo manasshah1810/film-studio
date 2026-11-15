@@ -18,6 +18,8 @@ export type PanelDefM = {
 	boxes: BoxDef[];
 	cast: {id: string; box: Pct; flip?: boolean; from?: number}[];
 	widgets: {id: string; anchor: string; from: number; frames: number; box: Pct; props: Record<string, unknown>}[];
+	/** bespoke topic scenes (components/bespoke/registry.ts), same placement shape as a widget */
+	bespoke?: {id: string; anchor: string; from: number; frames: number; box: Pct; props: Record<string, unknown>}[];
 	motion: MotionDef[];
 	beats: {frame: number; frames?: number; kind: string; target?: string; easing?: string}[];
 	fx?: {id: string; from: number; frames: number; params?: Record<string, unknown>}[];

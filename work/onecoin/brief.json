@@ -1,0 +1,24 @@
+{
+ "topic": "OneCoin: the $4 billion cryptocurrency with no blockchain",
+ "platform": "instagram",
+ "ratio": "9:16",
+ "length_bucket": "30-1m",
+ "target_seconds": 45,
+ "style": "dark-neon-dataviz",
+ "subject_mode": "ui-first",
+ "domains": [
+  "finance",
+  "history"
+ ],
+ "angle": "Everyone assumes a crypto coin runs on a blockchain; OneCoin raised billions selling recruits, not coins.",
+ "voiceover": false,
+ "design": {
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "palette_id": "gold-ledger",
+  "pairing_id": "chakra-inter-redhat",
+  "seed": "onecoin-20261115-1"
+ },
+ "audience": "general Instagram viewers curious about crypto and scams",
+ "tone": "investigative, tense, precise"
+}

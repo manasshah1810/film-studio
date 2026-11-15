@@ -36,7 +36,7 @@ function load(target, o = {}) {
     work = path.dirname(target);
     if (j.meta && j.design) film = j; else if (j.scenes) sbOnly = j; else throw new Error(`${target} is neither a film.json nor a storyboard.json`);
   }
-  const brief = opt(path.join(work, 'brief.json')), script = opt(path.join(work, 'script.json')), cast = opt(path.join(work, 'cast.json')), vfx = opt(path.join(work, 'vfx-plan.json'));
+  const angles = opt(path.join(work, 'angles.json')), brief = opt(path.join(work, 'brief.json')), script = opt(path.join(work, 'script.json')), cast = opt(path.join(work, 'cast.json')), vfx = opt(path.join(work, 'vfx-plan.json'));
   const storyboard = film ?? sbOnly ?? opt(path.join(work, 'storyboard.json'));
   const widgetsSheet = opt(path.join(work, 'widgets.json')), motionSheet = opt(path.join(work, 'motion.json')), audioSheet = opt(path.join(work, 'audio-cues.json'));
 
@@ -75,6 +75,8 @@ function load(target, o = {}) {
     motion.push([start, start + Math.min(enter, frames)]);
     for (const b of p.beats ?? []) { const bf = start + fr(b.at); events.push({f: bf, kind: b.kind ?? 'beat', at: p.id}); motion.push([bf, bf + Math.max(1, fr(b.duration ?? 0.4))]); }
     for (const w of p.widgets ?? []) { const wf = start + fr(w.at); events.push({f: wf, kind: 'widget', at: p.id}); motion.push([wf, wf + enter]); }
+    // a bespoke scene animates for its whole stay on screen
+    for (const b of p.bespoke ?? []) { const bf = start + fr(b.at); events.push({f: bf, kind: 'bespoke', at: p.id}); motion.push([bf, start + frames]); }
     for (const e of fx) { const ef = start + fr(e.start); events.push({f: ef, kind: 'fx', at: p.id}); motion.push([ef, Math.min(start + frames, e.duration ? ef + fr(e.duration) : start + frames)]); }
     for (const s of p.sfx ?? []) sfx.push({id: s.id, f: s.frame ?? start + fr(s.at), scene: sc.id, at: p.id});
     f += frames;
@@ -99,11 +101,11 @@ function load(target, o = {}) {
   for (const c of audioSheet?.cues ?? []) { const p = panelAt(c.frame); sfx.push({id: c.sfx, f: c.frame, scene: p?.scene, at: p?.id}); } // frame = the peak; the file starts pre_roll earlier
   events.sort((a, b) => a.f - b.f);
 
-  return {work, brief, script, cast, vfx, storyboard, film, widgetsSheet, motionSheet, audioSheet, ds, dsPath, roles, pairing, fps, ratio, W, H, scenes, panels, events, motion, sfx, totalFrames: f};
+  return {work, angles, brief, script, cast, vfx, storyboard, film, widgetsSheet, motionSheet, audioSheet, ds, dsPath, roles, pairing, fps, ratio, W, H, scenes, panels, events, motion, sfx, totalFrames: f};
 }
 
-/** Boxes of a panel. A widget that carries x/y/w/h counts as a box of kind "widget". */
-const boxesOf = (p) => [...(p.boxes ?? []), ...(p.widgets ?? []).filter((w) => typeof w.x === 'number').map((w) => ({kind: 'widget', ...w}))];
+/** Boxes of a panel. A widget that carries x/y/w/h counts as a box of kind "widget"; a bespoke scene as kind "bespoke". */
+const boxesOf = (p) => [...(p.boxes ?? []), ...(p.widgets ?? []).filter((w) => typeof w.x === 'number').map((w) => ({kind: 'widget', ...w})), ...(p.bespoke ?? []).map(({id, x, y, w, h}) => ({kind: 'bespoke', id, x, y, w, h}))];
 const isText = (b) => b.kind === 'text' || b.kind === 'caption' || typeof b.text === 'string';
 const captionsOf = (p) => (p.captions ?? (p.caption ? [p.caption] : [])).map((c) => (typeof c === 'string' ? c : c.text));
 /** All copy: script first, then storyboard panels in order. */

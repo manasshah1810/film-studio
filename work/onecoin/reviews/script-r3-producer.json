@@ -1,0 +1,68 @@
+{
+ "stage": "script",
+ "round": 3,
+ "scorer": "producer",
+ "rubric": "rubrics/script.md",
+ "params": [
+  {
+   "name": "Hook",
+   "score": 9,
+   "evidence": "s1: '$4B FAKE COIN' from frame 0; 'never' at 1.2 s."
+  },
+  {
+   "name": "One idea",
+   "score": 7.5,
+   "evidence": "s6 adds nothing to the recruits idea; s7 ties back."
+  },
+  {
+   "name": "Structure and turn",
+   "score": 8,
+   "evidence": "one clear turn at s5; s6 payoff is a new event."
+  },
+  {
+   "name": "Fact discipline",
+   "score": 6,
+   "evidence": "s4 'Instead of mining' unsourced; s7 present tense vs 2023 source; s5 'every package' stronger than source."
+  },
+  {
+   "name": "Written for the ear",
+   "score": 6,
+   "evidence": "s7 20 words in 6.5 s, 3.08 wps."
+  },
+  {
+   "name": "On-screen text",
+   "score": 8,
+   "evidence": "s4 and s5 cards restate their lines."
+  },
+  {
+   "name": "Visual intent",
+   "score": 9,
+   "evidence": "seven distinct castable pictures."
+  },
+  {
+   "name": "Voice",
+   "score": 8.5,
+   "evidence": "s5 'the real product was recruits' is generic."
+  },
+  {
+   "name": "Length and pacing",
+   "score": 7.5,
+   "evidence": "s7 close rushed; scenes 5-6.5 s regardless of load."
+  },
+  {
+   "name": "Ending",
+   "score": 8.5,
+   "evidence": "'never been found' loops to s1 but overstates the 2023 source."
+  }
+ ],
+ "average": 7.8,
+ "minimum": 6,
+ "passed": false,
+ "feedback": [
+  "s7 under 2.8 wps; keep 'never found' to the source",
+  "Source or remove 'Instead of mining'",
+  "Bring s5 to the fact",
+  "s4 card adds something",
+  "Link s6 to the turn"
+ ]
+}

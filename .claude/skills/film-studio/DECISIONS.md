@@ -64,7 +64,7 @@ the reason, and what was given up.
 19. **Reversed (2026-11-14).** Kit proofs used one shared neutral specimen. That made all 12 styles
     one wireframe (see POST_MORTEM.md, F1). The specimen and its script are deleted; each style
     brings its own preview copy.
-20. **AI tells are a script, not a reviewer.** The 25 rules in `references/ai-tells.md` are hardcoded
+20. **AI tells are a script, not a reviewer.** The 28 rules in `references/ai-tells.md` are hardcoded
     in `scripts/check-ai-tells.js`, with `scripts/check-design.js` and `scripts/check-safezones.js`.
     A small model cannot reliably list or judge them; a script costs zero tokens and never drifts.
 

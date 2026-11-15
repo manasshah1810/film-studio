@@ -24,6 +24,8 @@ const script = opt('script.json'), castFile = opt('cast.json') ?? {assets: []}, 
 const wSheet = opt('widgets.json') ?? {widgets: []}, mSheet = opt('motion.json') ?? {resets: []}, aSheet = opt('audio-cues.json');
 const voice = opt(path.join('audio', 'manifest.json'));
 const lib = new Map(readJson(path.join(SKILL, 'library', 'widgets.json')).entries.map((e) => [e.id, e]));
+// bespoke scenes: ids registered in components/bespoke/registry.ts as '<topic>/<scene>': {...}
+const bespokeIds = new Set([...fs.readFileSync(path.join(SKILL, 'components', 'bespoke', 'registry.ts'), 'utf8').matchAll(/^\t'([a-z0-9-]+\/[a-z0-9-]+)':/gm)].map((m) => m[1]));
 
 const platforms = readJson(path.join(SKILL, 'library', 'platforms.json'));
 const pfId = brief.platform === 'youtube' && ['15-30s', '30-1m'].includes(brief.length_bucket) ? 'youtube-shorts' : brief.platform;
@@ -87,6 +89,12 @@ for (const p of allPanels) {
   };
   for (const w of p.widgets ?? []) addWidget(w, w);
   for (const w of wSheet.widgets.filter((x) => x.panel === p.id)) if (!widgets.some((x) => x.id === w.id)) addWidget(w, w.box);
+  const bespoke = [];
+  for (const b of p.bespoke ?? []) {
+    if (!bespokeIds.has(b.id)) { E.push(`panel ${p.id}: bespoke scene "${b.id}" is not registered in components/bespoke/registry.ts. Fix: code it in components/bespoke/<topic>/ and register it.`); continue; }
+    const bf = from + fr(b.at);
+    bespoke.push({id: b.id, anchor: b.anchor, from: bf, frames: Math.max(1, end - bf), box: {x: b.x, y: b.y, w: b.w, h: b.h}, props: b.props ?? {}});
+  }
   const motion = [];
   let transition;
   const [tp, tf] = TRANS(p.transition?.id);
@@ -102,11 +110,11 @@ for (const p of allPanels) {
   const fx = [];
   for (const sc of vfx.scenes) for (const e of sc.effects ?? []) if (e.panel_id === p.id) for (const id of [e.effect_id, ...(e.merged_with ?? [])]) fx.push({id, from: from + fr(e.start), frames: Math.max(1, fr(e.duration)), params: id === e.effect_id ? e.params ?? {} : {}});
   // longest gap between visual events
-  const ev = [from, ...beats.map((b) => b.frame), ...motion.map((m) => m.frame), ...widgets.map((w) => w.from), ...boxes.filter((b) => typeof b.from === 'number').map((b) => b.from)].filter((f) => f >= from && f < end).sort((x, y) => x - y);
+  const ev = [from, ...beats.map((b) => b.frame), ...motion.map((m) => m.frame), ...widgets.map((w) => w.from), ...bespoke.map((b) => b.from), ...boxes.filter((b) => typeof b.from === 'number').map((b) => b.from)].filter((f) => f >= from && f < end).sort((x, y) => x - y);
   const gap = Math.max(...[...ev, end].map((f, i, arr) => (i ? f - arr[i - 1] : 0)));
   const max_hold_seconds = Math.round((gap / fps) * 100) / 100;
   if (max_hold_seconds > 3.5) E.push(`panel ${p.id}: ${max_hold_seconds} s with no new visual event (max 3.5 s). Fix: add a beat, widget or motion reset inside the gap, or split the panel.`);
-  panels.push({id: p.id, scene: p.scene, from, frames, max_hold_seconds, ...(transition ? {transition} : {}), boxes, cast: castIn, widgets, motion, beats, ...(fx.length ? {fx} : {}), _sfx: p.sfx ?? [], _captions: p.captions ?? (p.caption ? [p.caption] : [])});
+  panels.push({id: p.id, scene: p.scene, from, frames, max_hold_seconds, ...(transition ? {transition} : {}), boxes, cast: castIn, widgets, ...(bespoke.length ? {bespoke} : {}), motion, beats, ...(fx.length ? {fx} : {}), _sfx: p.sfx ?? [], _captions: p.captions ?? (p.caption ? [p.caption] : [])});
   at = end;
 }
 const total = at;
@@ -129,6 +137,7 @@ const events = panels.flatMap((p) => [
   ...p.beats.map((b, i) => ({key: `beat:${p.id}#${i}`, f: b.frame})),
   ...p.motion.map((m, i) => ({key: `motion:${p.id}#${i}`, f: m.frame})),
   ...p.widgets.map((w, i) => ({key: `widget:${p.id}#${i}`, f: w.from})),
+  ...(p.bespoke ?? []).map((b, i) => ({key: `bespoke:${p.id}#${i}`, f: b.from})),
 ]);
 const sfxFile = (id) => { for (const ext of ['wav', 'mp3', 'ogg']) { const rel = `audio/sfx/${id}.${ext}`; if (fs.existsSync(path.join(work, rel))) return rel; } return null; };
 const syncOf = (peak, label) => {

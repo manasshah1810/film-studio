@@ -2,8 +2,19 @@
 
 You attach micro-widgets to the story. For each scene you pick the widget that proves the claim and
 write where, when and how it enters. You read `work/script.json`, `work/storyboard.json`, `work/brief.json`
-and this file, and you write `work/widgets.json` (section 6 shape). You choose widgets by id from the
-table in section 2 (the same 50 ids as `library/widgets.json`) and never invent one. They are components in `components/widgets/`; you place them, you do not draw them.
+and this file, and you write `work/widgets.json` (section 6 shape). Library widgets come by id from the
+table in section 2 (the same 50 ids as `library/widgets.json`); you place them, you do not draw them.
+
+## 0. Reference floor, not creative ceiling
+The 50 widgets are reference examples and accelerators, NOT a closed menu. Guardrails stay strict
+(palette roles, pairing, safe zones, contrast, a state change every 3 to 4 s); execution is open.
+- **Bespoke scenes.** You code every `bespoke` placement the storyboard names: one component per scene in
+  `components/bespoke/<topic>/`, registered in `components/bespoke/registry.ts`. Use only the kit in
+  `components/bespoke/kit.ts` (`role()`, `font()`, `ease()`, `pop()`): no hex, no font name, only script
+  words. At least 2 to 3 per film (rule 27); each animates for its whole stay on screen.
+- **No forced fit.** A widget with a `domain` in `library/widgets.json` (camera, edit timeline, code
+  editor, reels) is only for that domain's topics (rule 26). When no widget proves the claim in the
+  topic's own world, code a bespoke scene instead of borrowing an unrelated one.
 
 ## 1. Diegetic proof principles
 A widget is an object that could exist in the world of the video: a cursor, a comment, a banknote, a
@@ -120,12 +131,11 @@ is covered on the phone.
 | Only words from the script | "42%" invented to fill the ring |
 
 ## 6. Worked placement sheet: Nokia, 35 s, `dark-neon-dataviz`, palette `obsidian-cyan`
-Scenes s1 to s7 match `personas/scriptwriter.md`. `at` is seconds from the panel start. Six widgets
-in seven scenes.
+Scenes s1 to s7 match `personas/scriptwriter.md`. `at` is seconds from the panel start. Five widgets;
+s1 (a decade-long lead) and s4 (Symbian redrawing for touch) are bespoke scenes in the storyboard.
 ```json
 {"widgets": [
- {"scene": "s1", "panel": "s1p1", "id": "nle-timeline", "anchor": "t", "at": 1.2, "easing": "snap", "box": {"x": 6, "y": 10, "w": 79, "h": 14}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "a decade between the first smartphone and the iPhone"},
- {"scene": "s2", "panel": "s2p1", "id": "orbit-ring", "anchor": "l", "at": 0.8, "easing": "pop", "box": {"x": 6, "y": 30, "w": 36, "h": 36}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "about half of the market"},
+  {"scene": "s2", "panel": "s2p1", "id": "orbit-ring", "anchor": "l", "at": 0.8, "easing": "pop", "box": {"x": 6, "y": 30, "w": 36, "h": 36}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "about half of the market"},
  {"scene": "s3", "panel": "s3p1", "id": "voice-note", "anchor": "t", "at": 1.5, "easing": "snap", "box": {"x": 6, "y": 8, "w": 79, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "alert"}, "proves": "the threat was inside Nokia"},
  {"scene": "s4", "panel": "s4p1", "id": "keycaps", "anchor": "l", "at": 1.6, "easing": "pop", "box": {"x": 6, "y": 40, "w": 40, "h": 12}, "tokens": {"bg": "surface", "ink": "ink", "accent": "primary"}, "proves": "buttons to touch, a flip that took months"},
  {"scene": "s5", "panel": "s5p1", "id": "live-markup", "anchor": "@h", "at": 2.4, "easing": "snap", "box": {"x": 6, "y": 44, "w": 79, "h": 10}, "tokens": {"bg": "ink", "ink": "bg", "accent": "alert"}, "proves": "managers hid bad news"},

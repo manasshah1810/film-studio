@@ -65,6 +65,20 @@
        "color": "ink",
        "bg": "bg"
       }
+     ],
+     "bespoke": [
+      {
+       "id": "habits/plan-crack",
+       "anchor": "b",
+       "at": 0.3,
+       "easing": "draw",
+       "x": 8,
+       "y": 44,
+       "w": 70,
+       "h": 20,
+       "proves": "a giant plan cracks on day three",
+       "kind": "metaphor"
+      }
      ]
     },
     {
@@ -224,6 +238,20 @@
        "px": 56,
        "color": "ink",
        "bg": "bg"
+      }
+     ],
+     "bespoke": [
+      {
+       "id": "habits/tiny-card",
+       "anchor": "b",
+       "at": 0.3,
+       "easing": "draw",
+       "x": 8,
+       "y": 44,
+       "w": 70,
+       "h": 20,
+       "proves": "a two-minute card survives the fall",
+       "kind": "svg-diagram"
       }
      ]
     },

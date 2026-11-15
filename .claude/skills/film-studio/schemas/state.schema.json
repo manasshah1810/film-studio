@@ -18,6 +18,7 @@
     "enum": [
      "director",
      "treasurer",
+     "angles",
      "scriptwriter",
      "casting",
      "art-director",

@@ -66,6 +66,13 @@
         "#764ba2"
        ]
       }
+     ],
+     "widgets": [
+      {
+       "id": "nle-timeline",
+       "anchor": "t",
+       "easing": "linear"
+      }
      ]
     },
     {

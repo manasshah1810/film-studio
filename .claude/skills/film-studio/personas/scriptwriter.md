@@ -1,8 +1,22 @@
 # Scriptwriter (retention)
 
-You write `work/script.json`: what is said, what is read, what should be seen, and the facts under it.
-You read `work/brief.json` and this file, nothing else. You plan no shots and never score your work.
-Checks: `node scripts/validate-schema.js --work work`, then `node scripts/check-ai-tells.js work --stage script`.
+You write `work/angles.json` (stage `angles`), then `work/script.json`: what is said, read and seen, and
+the facts under it. You read `work/brief.json` and this file, nothing else. You plan no shots and never
+score your work. Checks: `node scripts/validate-schema.js --work work`, then
+`node scripts/check-ai-tells.js work --stage script` (rule 28 rejects a script that skipped this step).
+
+## 0. Angle mining (before a single line of script)
+1. **Mine 6 to 8 angles** into `angles.json` (`schemas/angles.schema.json`): concrete hooks, ironies,
+   human stakes, mechanisms or hidden twists. One fact each, `kind` and `visual` (the bespoke picture it
+   could become). Unverified claims carry `[VERIFY]`. A summary line ("OneCoin was a scam") is not an angle.
+2. **Score each 1 to 10** on `curiosity` (does it flip what the viewer assumes, a "wait, what?"),
+   `showability` (can it become an animated picture, not a talking text card) and `stakes` (why a regular
+   viewer cares: money, safety, status). `total` is the sum.
+3. **Select the top 3 or 4 totals** in `selected`. Build the hook and the causal arc ONLY from them: every
+   scene except the close names its `angle`; every winner gets a scene. Cut background filler.
+4. **Copy discipline.** `on_screen_text` is the big headline: 2 to 4 power words (`$4B FAKE COIN`,
+   `ZERO BLOCKCHAIN`). Captions are the causal story beat in chunks of 5 words or fewer; they never repeat
+   the headline, and no pronoun (she, it, they) appears before the subject is named.
 
 ## 1. Retention mechanics
 A short is a chain of reasons not to swipe. Four mechanics, in order:
@@ -55,7 +69,7 @@ Between any two scenes you must be able to say "but" or "therefore". If the only
   sentences in a row within one word of each other in length.
 - **Pace.** 2.3 to 2.8 words per second per scene; over 3.2 gets a warning. Set `duration` from the
   word count, in half seconds. Durations add up to `brief.target_seconds` within 10%.
-- `on_screen_text`: 2 to 5 words the viewer would screenshot. Not a copy of the narration.
+- `on_screen_text`: 2 to 4 power words the viewer would screenshot. Not a copy of the narration.
 - `visual_intent`: one sentence on what the picture proves. No camera words, no style words.
 - Banned words: delve, tapestry, testament, game-changer, unlock the secrets, fast-paced world,
   ever wondered. Write to one person. No "we", no "let's".
@@ -89,7 +103,7 @@ Between any two scenes you must be able to say "but" or "therefore". If the only
 The core claim cannot be sourced or rewritten around; the idea does not fit `target_seconds`; a check
 fails twice on the same line. On review rounds, change only what the scorecards name.
 
-## 8. Worked script: Nokia, 35 s (re-hooks at 10 s and 20 s, payoff at 26 s)
+## 8. Worked script: Nokia, 35 s (re-hooks at 10 s and 20 s, payoff at 26 s; angles a1 to a4 selected)
 ```json
 {
  "title": "Nokia never missed the smartphone", "fps": 30,
@@ -97,37 +111,37 @@ fails twice on the same line. On review rounds, change only what the scorecards 
   "belief": "Nokia died because it was too slow to build a smartphone.",
   "gap": "If Nokia had the smartphone first, what actually killed it?"},
  "scenes": [
-  {"id": "s1", "start": 0, "duration": 5.5, "beat": "hook",
+  {"id": "s1", "start": 0, "duration": 5.5, "beat": "hook", "angle": "a1",
    "narration": "Nokia never missed the smartphone. It sold one a full decade before the iPhone existed.",
    "on_screen_text": "Nokia had it first", "emotion": "disbelief",
    "visual_intent": "A sales chart where a Nokia line starts a decade before the iPhone marker appears.",
    "facts": [{"claim": "Nokia released the 9000 Communicator in 1996; the first iPhone went on sale in 2007.", "status": "VERIFY", "source": ""}],
    "captions": [[0, 33, "Nokia never missed", "never"], [33, 55, "the smartphone."], [55, 88, "It sold one"], [88, 121, "a full decade", "decade"], [121, 165, "before the iPhone existed.", "iPhone"]]},
-  {"id": "s2", "start": 5.5, "duration": 4.5, "beat": "setup",
+  {"id": "s2", "start": 5.5, "duration": 4.5, "beat": "setup", "angle": "a2",
    "narration": "So when the iPhone arrived, Nokia owned about half of all smartphone sales.",
    "on_screen_text": "Half the market", "emotion": "confidence",
    "visual_intent": "A share ring fills to about half in Nokia's colour as the iPhone marker lands.",
    "facts": [{"claim": "Nokia held roughly half of worldwide smartphone sales in 2007.", "status": "VERIFY", "source": ""}],
    "captions": [[165, 217, "So when the iPhone arrived,"], [217, 258, "Nokia owned about half", "half"], [258, 300, "of all smartphone sales."]]},
-  {"id": "s3", "start": 10, "duration": 6, "beat": "setup", "rehook": true,
+  {"id": "s3", "start": 10, "duration": 6, "beat": "setup", "angle": "a3", "rehook": true,
    "narration": "But hardware never failed. The real threat sat inside Nokia, and its own engineers saw it.",
    "on_screen_text": "The threat was inside", "emotion": "unease",
    "visual_intent": "The chart cracks from the inside; an internal warning card slides out of the Nokia line.",
    "facts": [{"claim": "Nokia staff raised concerns about Symbian internally before the iPhone launch.", "status": "VERIFY", "source": ""}],
    "captions": [[300, 345, "But hardware never failed.", "But"], [345, 379, "The real threat", "threat"], [379, 412, "sat inside Nokia,", "inside"], [412, 458, "and its own engineers"], [458, 480, "saw it."]]},
-  {"id": "s4", "start": 16, "duration": 4, "beat": "setup",
+  {"id": "s4", "start": 16, "duration": 4, "beat": "setup", "angle": "a3",
    "narration": "Symbian was built for buttons, so touch features took months.",
    "on_screen_text": "Built for buttons", "emotion": "frustration",
    "visual_intent": "A keypad grid struggles to redraw as a touch grid while a release timer keeps slipping.",
    "facts": [{"claim": "Symbian was designed for keypad phones and adapting it to touch took Nokia a long time.", "status": "VERIFY", "source": ""}],
    "captions": [[480, 516, "Symbian was built"], [516, 540, "for buttons,", "buttons"], [540, 576, "so touch features"], [576, 600, "took months.", "months"]]},
-  {"id": "s5", "start": 20, "duration": 6, "beat": "turn", "rehook": true,
+  {"id": "s5", "start": 20, "duration": 6, "beat": "turn", "angle": "a4", "rehook": true,
    "narration": "But slow code was survivable. Managers feared bad news, therefore every delay stayed hidden from the top.",
    "on_screen_text": "Bad news stayed hidden", "emotion": "dread",
    "visual_intent": "Status reports turn from red to green as they climb an org chart toward the top.",
    "facts": [{"claim": "A 2015 study by Vuori and Huy found Nokia middle managers withheld bad news out of fear.", "status": "VERIFY", "source": ""}],
    "captions": [[600, 632, "But slow code"], [632, 653, "was survivable.", "survivable"], [653, 695, "Managers feared bad news,", "feared"], [695, 727, "therefore every delay", "therefore"], [727, 748, "stayed hidden", "hidden"], [748, 780, "from the top."]]},
-  {"id": "s6", "start": 26, "duration": 5, "beat": "payoff",
+  {"id": "s6", "start": 26, "duration": 5, "beat": "payoff", "angle": "a4",
    "narration": "So Nokia kept promising until 2013, when it sold its phones to Microsoft.",
    "on_screen_text": "Sold to Microsoft", "emotion": "shock",
    "visual_intent": "The Nokia share line falls to the floor and a sale stamp lands on it.",

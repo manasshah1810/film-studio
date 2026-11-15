@@ -6,7 +6,7 @@ Every later task must follow these rules.
 film-studio turns a topic into a video through a crew of roles:
 Director, Writer, Selector, Talent Acquisition, Storyboard, Treasurer,
 VFX Director, Renderer. Independent reviewers (Producer, Director-review)
-judge taste; the 25 AI tells are checked by `scripts/check-ai-tells.js`, not by a reviewer. Skill lives in `.claude/skills/film-studio/`; subagents in
+judge taste; the 28 AI tells are checked by `scripts/check-ai-tells.js`, not by a reviewer. Skill lives in `.claude/skills/film-studio/`; subagents in
 `.claude/agents/`.
 
 ## 2. Build rules

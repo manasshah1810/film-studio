@@ -4,12 +4,13 @@ The Director's routing card. Each stage opens exactly ONE manual, reads at most 
 writes exactly ONE file in `work/`, and is proved by a script, not by eye. `node scripts/state-manager.js
 next work` prints the same row for the stage to run now, so a resumed session never re-reads this file.
 
-## 1. The pipeline (13 stages, in order)
+## 1. The pipeline (14 stages, in order)
 | # | Stage (state-manager) | Persona | Open only | Inputs from `work/` | Writes | Gate (0 tokens) |
 |---|---|---|---|---|---|---|
 | 1 | `director` | Director | `personas/director.md`; `references/style-cheatsheet.md` at Q3 | none | `brief.json` | `pick-design.js work`; `validate-schema.js --work work` |
 | 2 | `treasurer` | Treasurer | `roles/treasurer.md` | brief | `budget.json` | `ledger.js estimate work`, then the user's yes |
-| 3 | `scriptwriter` | Scriptwriter | `personas/scriptwriter.md` | brief | `script.json` | `run-all-checks.js work --stage script` |
+| 3a | `angles` | Scriptwriter | `personas/scriptwriter.md` section 0 | brief | `angles.json` | `validate-schema.js --work work` |
+| 3 | `scriptwriter` | Scriptwriter | `personas/scriptwriter.md` | brief, angles | `script.json` | `run-all-checks.js work --stage script` (rule 28) |
 | 4 | `casting` | Selector, then Casting and Rig Designer | `roles/selector.md`, then `personas/casting-rig-designer.md` | script, brief, needs | `needs.json`, then `cast.json` | `validate-schema.js --work work` |
 | 5 | `art-director` | Art Director | `personas/art-director.md` + `styles/<style>/style.md` | script, cast | `storyboard.json` | `run-all-checks.js work --stage storyboard` |
 | 6 | `widget-integrator` | Widget Integrator | `personas/widget-integrator.md` | script, storyboard | `widgets.json` | `run-all-checks.js work --stage storyboard` |
@@ -32,10 +33,10 @@ finished manual from context.
 | Persona | Owns | Hard numbers it enforces |
 |---|---|---|
 | Director | platform, length, style, voice, palette tier, seed | focused 3-5 colours, expanded 8-12 |
-| Scriptwriter | hook, causal chain, captions, facts | 3 s assumption-flip hook; caption chunks of 5 words or fewer; `[VERIFY: ...]` on every unsourced claim |
+| Scriptwriter | angles, hook, causal chain, captions, facts | 6-8 scored angles, top 3-4 only; 3 s assumption-flip hook; headline 2-4 power words; caption chunks of 5 words or fewer; `[VERIFY: ...]` on every unsourced claim |
 | Casting and Rig Designer | narrators, actors, props | 4 or more named layers; ui-first styles get props only |
-| Art Director | boxes, colours, type | contrast 4.5:1 body, 3.0:1 display; display at least 2.2x body |
-| Widget Integrator | which of the 50 widgets proves each claim | ids from `library/widgets.json`; one per two scenes; box inside x 6-85, y 8-80 |
+| Art Director | boxes, colours, type, which beats get bespoke scenes | contrast 4.5:1 body, 3.0:1 display; display at least 2.2x body; 2-3 bespoke scenes |
+| Widget Integrator | library widgets that fit, and the bespoke scene code | ids from `library/widgets.json`, never out of `domain`; bespoke in `components/bespoke/<topic>/`; one proof per two scenes; box inside x 6-85, y 8-80 |
 | Motion Choreographer | resets and primitives | a visual reset every 3.5 s at most; nothing still for 45 frames |
 | VFX Director | effect wrappers | ids from `library/vfx/`; style bans in `library/vfx/style-rules.json` |
 | Sound Designer | cues, music bed, ducking | onset within 2 frames of its peak; bed ducked under the voice |
@@ -45,7 +46,7 @@ finished manual from context.
 `scripts/build-film.js` joins the files into `work/render-manifest.json` (`schemas/render-manifest.schema.json`).
 `components/src/compositions/FilmComposition.tsx` renders only that file: it looks up the style's
 `design-system.json` by id, draws layered narrators and actors or a UI-first frame, mounts widgets
-through `components/widgets/registry.ts`, runs the motion modules in `components/motions/`, plays the
+through `components/widgets/registry.ts` and bespoke scenes through `components/bespoke/registry.ts`, runs the motion modules in `components/motions/`, plays the
 cues on their frames and ducks music under the voice. `showSafeZones` draws the 9:16 dead zones on Pass 1.
 
 ## 5. When to stop

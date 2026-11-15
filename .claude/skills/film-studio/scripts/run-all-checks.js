@@ -4,7 +4,7 @@
 //   node run-all-checks.js --selftest                                     prove the gate passes the good fixture and catches planted violations
 // Chains, in order: validate-schema.js (schemas + cross-file rules, render-manifest.json when present),
 // check-design.js (closed palette and fonts, WCAG AA 4.5:1 body / 3.0:1 display), check-safezones.js
-// (9:16 bottom 20% and right 15%), check-ai-tells.js (the 25 rules). Stage "script" runs only what a
+// (9:16 bottom 20% and right 15%), check-ai-tells.js (the 28 rules). Stage "script" runs only what a
 // script can fail. Zero tokens: run it, do not read it.
 // Exit 0: one PASS line, and work/reviews/checks.json says pass. Exit 1: one JSON object per line on stdout,
 //   {"check", "file", "item", "problem", "fix"}, the same list in work/reviews/checks.json. Fix each line at its
@@ -20,7 +20,7 @@ const run = (script, argv) => {
   const r = spawnSync(process.execPath, [path.join(HERE, script), ...argv], {encoding: 'utf8'});
   return {code: r.status, out: `${r.stdout ?? ''}\n${r.stderr ?? ''}`};
 };
-const SCRIPT_RULES = new Set(['opener', 'buzzwords', 'cadence', 'causal', 'placeholder', 'verify']);
+const SCRIPT_RULES = new Set(['opener', 'buzzwords', 'cadence', 'causal', 'placeholder', 'verify', 'shallow-script']);
 const itemOf = (s) => (s.match(/\bs\d+p\d+\b/) ?? s.match(/\bscene s\d+\b/) ?? s.match(/\bsfx [a-z0-9-]+ at \d+\b/) ?? s.match(/\bcast [a-z0-9-]+\b/) ?? [''])[0];
 const split = (msg) => { const i = msg.search(/\.?\s*Fix: /); return i < 0 ? [msg.trim(), ''] : [msg.slice(0, i).trim(), msg.slice(i).replace(/^\.?\s*Fix:\s*/, '').trim()]; };
 const fileFor = (s, fallback) => (/widget/.test(s) && fs.existsSync(path.join(cur.work, 'widgets.json')) ? 'widgets.json' : fallback);
@@ -57,7 +57,7 @@ function gate(work, stage) {
       if (r.code !== 0 && !r.out.includes('FAIL ')) add(name.replace('.js', ''), file, r.out.trim().split(/\r?\n/).pop());
     }
   }
-  // 4. the 25 AI tells
+  // 4. the 28 AI tells
   const t = run('check-ai-tells.js', [work, '--stage', stage, '--json']);
   ran.push('check-ai-tells');
   try {

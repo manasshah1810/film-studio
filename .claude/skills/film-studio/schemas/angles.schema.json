@@ -1,0 +1,102 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "angles",
+ "description": "Scriptwriter angle-mining step (personas/scriptwriter.md section 0): 6 to 8 scored angles, the 3 or 4 winners the script is built from.",
+ "type": "object",
+ "required": [
+  "topic",
+  "angles",
+  "selected"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "topic": {
+   "type": "string",
+   "minLength": 1
+  },
+  "angles": {
+   "type": "array",
+   "minItems": 6,
+   "maxItems": 8,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "kind",
+     "angle",
+     "scores",
+     "total"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^a[0-9]+$"
+     },
+     "kind": {
+      "enum": [
+       "hook",
+       "irony",
+       "stakes",
+       "mechanism",
+       "twist",
+       "human"
+      ]
+     },
+     "angle": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 240,
+      "description": "The concrete fact or twist. Unverified claims carry [VERIFY]."
+     },
+     "visual": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "The bespoke picture this angle could become."
+     },
+     "scores": {
+      "type": "object",
+      "required": [
+       "curiosity",
+       "showability",
+       "stakes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "curiosity": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+       },
+       "showability": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+       },
+       "stakes": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+       }
+      }
+     },
+     "total": {
+      "type": "integer",
+      "minimum": 3,
+      "maximum": 30
+     }
+    }
+   }
+  },
+  "selected": {
+   "type": "array",
+   "minItems": 3,
+   "maxItems": 4,
+   "uniqueItems": true,
+   "items": {
+    "type": "string",
+    "pattern": "^a[0-9]+$"
+   }
+  }
+ }
+}

@@ -10,7 +10,7 @@ const {SKILL, creq, readJson, loadDS, listStyles, frontmatter, args} = require('
 
 const SCHEMA_DIR = path.join(SKILL, 'schemas');
 const BUCKETS = {'15-30s': [15, 30], '30-1m': [30, 60], '1-5m': [60, 300], '5-10m': [300, 600], '10m+': [600, Infinity]};
-const NAMES = ['brief', 'budget', 'script', 'needs', 'cast', 'storyboard', 'vfx-plan', 'credits', 'state', 'render-manifest'];
+const NAMES = ['brief', 'budget', 'angles', 'script', 'needs', 'cast', 'storyboard', 'vfx-plan', 'credits', 'state', 'render-manifest'];
 const TIERS = {focused: [3, 5], expanded: [8, 12]};
 const widgetLib = () => { const p = path.join(SKILL, 'library', 'widgets.json'); return fs.existsSync(p) ? new Map(readJson(p).entries.map((e) => [e.id, e])) : new Map(); };
 /** A palette of the brief's style must match the brief's tier, and its size must sit inside that tier. */
@@ -219,7 +219,7 @@ const semantic = {
       const T = `panel ${p.id}`;
       if (p.from !== at) E.push(`${T}: from ${p.from} but the previous panel ends at ${at}`);
       at = p.from + p.frames;
-      const ev = [p.from, ...p.beats.map((b) => b.frame), ...p.motion.map((m) => m.frame), ...p.widgets.map((w) => w.from), ...p.boxes.filter((b) => typeof b.from === 'number').map((b) => b.from)].filter((f) => f >= p.from && f < at).sort((a, b) => a - b);
+      const ev = [p.from, ...p.beats.map((b) => b.frame), ...p.motion.map((m) => m.frame), ...p.widgets.map((w) => w.from), ...(p.bespoke ?? []).map((b) => b.from), ...p.boxes.filter((b) => typeof b.from === 'number').map((b) => b.from)].filter((f) => f >= p.from && f < at).sort((a, b) => a - b);
       const gaps = [...ev, at].map((f, i, arr) => (i ? f - arr[i - 1] : 0));
       const hold = Math.round((Math.max(...gaps) / fps) * 100) / 100;
       if (Math.abs(hold - p.max_hold_seconds) > 0.05) E.push(`${T}: max_hold_seconds says ${p.max_hold_seconds}; the events give ${hold}. Rebuild with build-film.js.`);
@@ -227,6 +227,7 @@ const semantic = {
       p.beats.forEach((b, i) => events.push({key: `beat:${p.id}#${i}`, f: b.frame}));
       p.motion.forEach((m, i) => events.push({key: `motion:${p.id}#${i}`, f: m.frame}));
       p.widgets.forEach((w, i) => events.push({key: `widget:${p.id}#${i}`, f: w.from}));
+      (p.bespoke ?? []).forEach((b, i) => events.push({key: `bespoke:${p.id}#${i}`, f: b.from}));
       events.push({key: `cut:${p.id}`, f: p.from});
       if (p.transition) events.push({key: `transition:${p.id}`, f: p.from + p.transition.frames});
       const boxIds = new Set(p.boxes.map((b) => b.id));
@@ -269,6 +270,18 @@ const semantic = {
       else if (l.attribution && !c.attribution) E.push(`${c.asset_id}: ${c.license} requires attribution text`);
       if (c.trademark_sensitive) W.push(`${c.asset_id}: flagged trademark-sensitive; needs the user's sign-off before render`);
     }
+  },
+  angles(d, ctx, E) {
+    const ids = new Set();
+    for (const x of d.angles) {
+      if (ids.has(x.id)) E.push(`angle ${x.id}: duplicate id`);
+      ids.add(x.id);
+      const t = x.scores.curiosity + x.scores.showability + x.scores.stakes;
+      if (t !== x.total) E.push(`angle ${x.id}: total is ${x.total} but the scores add up to ${t}`);
+    }
+    for (const id of d.selected) if (!ids.has(id)) E.push(`selected "${id}" is not an angle id`);
+    const sel = d.angles.filter((x) => d.selected.includes(x.id)), low = Math.min(...sel.map((x) => x.total));
+    for (const x of d.angles) if (!d.selected.includes(x.id) && x.total > low) E.push(`angle ${x.id} (total ${x.total}) outscores a selected angle (lowest ${low}). Fix: select the highest totals only.`);
   },
   state(d, ctx, E) {
     for (const [k, s] of Object.entries(d.stages)) if (s.status === 'passed' && !s.output_path) E.push(`stage ${k} passed with no output_path`);

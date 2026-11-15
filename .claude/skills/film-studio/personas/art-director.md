@@ -6,6 +6,15 @@ the one `styles/<style>/style.md` named in the brief. You do not plan effects (t
 and you never score your own work. Checks: `node scripts/validate-schema.js --work work`, then
 `node scripts/check-ai-tells.js work --stage storyboard`, `check-design.js work`, `check-safezones.js work`.
 
+## 0. Reference floor, not creative ceiling
+Strict: palette roles, the pairing, safe zones, contrast, a state change every 3 to 4 s. Open: the six
+templates below, the style's `recipes.md` and the 50 widgets are examples and accelerators, not a menu.
+**Bespoke scene mandate:** mark at least 2 to 3 of the selected angles' beats for a custom scene coded for
+this topic (an animated SVG diagram, a visual metaphor, kinetic type or a Three.js stage) and place it in
+the panel's `bespoke` list: `{"id": "<topic>/<scene>", "anchor", "at", "easing", "x", "y", "w", "h",
+"proves", "kind"}`, box inside x 6 to 85, y 8 to 80. The Widget Integrator codes it. Ask of every panel:
+could this picture open any other video? If yes, it is a template: make it bespoke.
+
 ## 1. Closed design-system law
 Everything visible comes from `styles/<style>/design-system.json`, chosen by the brief's `design` block.
 - **Colours are role names** (`bg`, `surface`, `ink`, `primary`, `alert`, ...). A hex code anywhere in
@@ -54,8 +63,8 @@ Font scaling on the 1080 x 1920 frame, taken from the design system's `type_scal
 | `body` | 44 px | support line under a headline |
 | `caption` | 56 px | spoken words, 5 words per chunk at most |
 
-## 4. Six composition templates
-Name the template in each panel's `recipe`. Coordinates are x, y, w, h in percent.
+## 4. Six composition templates (starting points)
+Name the template in each panel's `recipe`, or `bespoke` when the panel is built around a bespoke scene. Coordinates are x, y, w, h in percent.
 | id | Structure | Boxes |
 |---|---|---|
 | `split-comparison` | Two halves, one claim each | left 6,22,38,50; right 47,22,38,50 |

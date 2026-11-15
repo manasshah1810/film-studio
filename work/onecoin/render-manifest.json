@@ -1,0 +1,1800 @@
+{
+ "version": 1,
+ "meta": {
+  "title": "OneCoin: the $4 billion cryptocurrency with no blockchain",
+  "platform": "instagram",
+  "ratio": "9:16",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "frames": 1260,
+  "safe": {
+   "top": 250,
+   "right": 120,
+   "bottom": 350,
+   "left": 60
+  }
+ },
+ "design": {
+  "style": "dark-neon-dataviz",
+  "palette_id": "gold-ledger",
+  "palette_tier": "focused",
+  "palette_size": 5,
+  "pairing_id": "chakra-inter-redhat",
+  "seed": "onecoin-20261115-1"
+ },
+ "subject_mode": "ui-first",
+ "cast": [],
+ "panels": [
+  {
+   "id": "s1p1",
+   "scene": "s1",
+   "from": 0,
+   "frames": 60,
+   "max_hold_seconds": 1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 11,
+     "y": 14,
+     "w": 64,
+     "h": 13,
+     "role": "display",
+     "text": "$4B",
+     "lines": [
+      "$4B"
+     ],
+     "px": 200,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/broken-chain",
+     "anchor": "b",
+     "from": 0,
+     "frames": 60,
+     "box": {
+      "x": 6,
+      "y": 31,
+      "w": 75,
+      "h": 36
+     },
+     "props": {
+      "breakAt": 30,
+      "label": "BLOCKCHAIN"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "odometer-roll",
+     "frame": 9,
+     "frames": 18,
+     "target": "h",
+     "params": {
+      "from": 0,
+      "to": 4
+     },
+     "note": "$4B rolls up"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 9,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 30,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 0,
+     "frames": 60,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s1p2",
+   "scene": "s1",
+   "from": 60,
+   "frames": 105,
+   "max_hold_seconds": 1.3,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 64,
+     "h": 8,
+     "role": "display",
+     "text": "FAKE COIN",
+     "lines": [
+      "FAKE COIN"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/broken-chain",
+     "anchor": "b",
+     "from": 60,
+     "frames": 105,
+     "box": {
+      "x": 6,
+      "y": 31,
+      "w": 75,
+      "h": 36
+     },
+     "props": {
+      "breakAt": 30,
+      "label": "BLOCKCHAIN",
+      "offset": 60
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "rgb-split-glitch",
+     "frame": 69,
+     "frames": 12,
+     "target": "h",
+     "note": "fake coin"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 66,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 99,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 138,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 60,
+     "frames": 105,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2p1",
+   "scene": "s2",
+   "from": 165,
+   "frames": 90,
+   "max_hold_seconds": 1.1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 70,
+     "h": 14,
+     "role": "display",
+     "text": "COINS FROM NOTHING",
+     "lines": [
+      "COINS FROM",
+      "NOTHING"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/typed-ledger",
+     "anchor": "b",
+     "from": 165,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 31,
+      "w": 75,
+      "h": 36
+     },
+     "props": {
+      "title": "LEDGER",
+      "seed": 3
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "text-decode",
+     "frame": 183,
+     "frames": 18,
+     "target": "h",
+     "note": "coins from nothing"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 180,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 216,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 243,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 165,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2p2",
+   "scene": "s2",
+   "from": 255,
+   "frames": 90,
+   "max_hold_seconds": 1.5,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 62,
+     "w": 64,
+     "h": 5,
+     "role": "body",
+     "text": "COINS FROM NOTHING",
+     "lines": [
+      "COINS FROM NOTHING"
+     ],
+     "px": 44,
+     "color": "ink",
+     "bg": "surface",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/typed-ledger",
+     "anchor": "b",
+     "from": 255,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 13,
+      "w": 75,
+      "h": 46
+     },
+     "props": {
+      "title": "LEDGER",
+      "seed": 3,
+      "offset": 90
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 267,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 312,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 255,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3p1",
+   "scene": "s3",
+   "from": 345,
+   "frames": 90,
+   "max_hold_seconds": 1.3,
+   "transition": {
+    "primitive": "whip-pan",
+    "frames": 10,
+    "easing": "pop"
+   },
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 55,
+     "w": 64,
+     "h": 14,
+     "role": "display",
+     "text": "WEMBLEY, 2016",
+     "lines": [
+      "WEMBLEY,",
+      "2016"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/arena-pitch",
+     "anchor": "t",
+     "from": 345,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 13,
+      "w": 75,
+      "h": 40
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 399,
+     "target": "h",
+     "note": "Wembley lands"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 360,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 399,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 345,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3p2",
+   "scene": "s3",
+   "from": 435,
+   "frames": 105,
+   "max_hold_seconds": 1.3,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 13,
+     "w": 64,
+     "h": 5,
+     "role": "body",
+     "text": "BITCOIN KILLER PITCH",
+     "lines": [
+      "BITCOIN KILLER PITCH"
+     ],
+     "px": 44,
+     "color": "ink",
+     "bg": "surface",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/arena-pitch",
+     "anchor": "t",
+     "from": 435,
+     "frames": 105,
+     "box": {
+      "x": 6,
+      "y": 21,
+      "w": 75,
+      "h": 46
+     },
+     "props": {
+      "offset": 90
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 456,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 495,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 525,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 435,
+     "frames": 105,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s4p1",
+   "scene": "s4",
+   "from": 540,
+   "frames": 75,
+   "max_hold_seconds": 1.3,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 70,
+     "h": 14,
+     "role": "display",
+     "text": "SOLD IN PACKAGES",
+     "lines": [
+      "SOLD IN",
+      "PACKAGES"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/coin-packages",
+     "anchor": "b",
+     "from": 540,
+     "frames": 75,
+     "box": {
+      "x": 9,
+      "y": 31,
+      "w": 72,
+      "h": 36
+     },
+     "props": {}
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "path-draw-on",
+     "frame": 552,
+     "frames": 20,
+     "target": "h",
+     "note": "underline the packages"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 549,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 576,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 540,
+     "frames": 75,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s4p2",
+   "scene": "s4",
+   "from": 615,
+   "frames": 75,
+   "max_hold_seconds": 1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 9,
+     "y": 62,
+     "w": 64,
+     "h": 5,
+     "role": "body",
+     "text": "SOLD IN PACKAGES",
+     "lines": [
+      "SOLD IN PACKAGES"
+     ],
+     "px": 44,
+     "color": "ink",
+     "bg": "surface",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/coin-packages",
+     "anchor": "b",
+     "from": 615,
+     "frames": 75,
+     "box": {
+      "x": 9,
+      "y": 13,
+      "w": 72,
+      "h": 46
+     },
+     "props": {
+      "offset": 75
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 633,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 663,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 615,
+     "frames": 75,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s5p1",
+   "scene": "s5",
+   "from": 690,
+   "frames": 90,
+   "max_hold_seconds": 1.1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 64,
+     "h": 14,
+     "role": "display",
+     "text": "PAID TO RECRUIT",
+     "lines": [
+      "PAID TO",
+      "RECRUIT"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/recruit-pyramid",
+     "anchor": "b",
+     "from": 690,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 31,
+      "w": 75,
+      "h": 36
+     },
+     "props": {
+      "phase": "grow",
+      "note": "illustrative branching"
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 702,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 735,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 762,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 690,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s5p2",
+   "scene": "s5",
+   "from": 780,
+   "frames": 90,
+   "max_hold_seconds": 1.1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 13,
+     "w": 64,
+     "h": 5,
+     "role": "body",
+     "text": "PAID TO RECRUIT",
+     "lines": [
+      "PAID TO RECRUIT"
+     ],
+     "px": 44,
+     "color": "ink",
+     "bg": "surface",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/recruit-pyramid",
+     "anchor": "b",
+     "from": 780,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 21,
+      "w": 75,
+      "h": 46
+     },
+     "props": {
+      "phase": "product"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "rgb-split-glitch",
+     "frame": 786,
+     "frames": 12,
+     "target": "h",
+     "note": "paid to recruit"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 786,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 813,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 846,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 780,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s6p1",
+   "scene": "s6",
+   "from": 870,
+   "frames": 75,
+   "max_hold_seconds": 1.1,
+   "transition": {
+    "primitive": "whip-pan",
+    "frames": 10,
+    "easing": "pop"
+   },
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 55,
+     "w": 64,
+     "h": 8,
+     "role": "display",
+     "text": "SIGNAL LOST",
+     "lines": [
+      "SIGNAL LOST"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/flight-vanish",
+     "anchor": "t",
+     "from": 870,
+     "frames": 75,
+     "box": {
+      "x": 6,
+      "y": 13,
+      "w": 75,
+      "h": 40
+     },
+     "props": {
+      "from": "SOFIA",
+      "to": "ATHENS",
+      "lostAt": 0.68
+     }
+    }
+   ],
+   "motion": [],
+   "beats": [
+    {
+     "frame": 882,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 912,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 870,
+     "frames": 75,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s6p2",
+   "scene": "s6",
+   "from": 945,
+   "frames": 90,
+   "max_hold_seconds": 1,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 13,
+     "w": 64,
+     "h": 5,
+     "role": "body",
+     "text": "SIGNAL LOST",
+     "lines": [
+      "SIGNAL LOST"
+     ],
+     "px": 44,
+     "color": "ink",
+     "bg": "surface",
+     "font": "body"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/flight-vanish",
+     "anchor": "t",
+     "from": 945,
+     "frames": 90,
+     "box": {
+      "x": 6,
+      "y": 21,
+      "w": 75,
+      "h": 46
+     },
+     "props": {
+      "from": "SOFIA",
+      "to": "ATHENS",
+      "lostAt": 0.68,
+      "offset": 75
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "stop-motion-jitter",
+     "frame": 957,
+     "frames": 20,
+     "target": "h",
+     "note": "signal lost"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 960,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    },
+    {
+     "frame": 987,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 1017,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 945,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s7p1",
+   "scene": "s7",
+   "from": 1035,
+   "frames": 90,
+   "max_hold_seconds": 1.23,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 64,
+     "h": 14,
+     "role": "display",
+     "text": "NO CHAIN, NO RUJA",
+     "lines": [
+      "NO CHAIN,",
+      "NO RUJA"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [
+    {
+     "id": "serif-stamp",
+     "anchor": "b",
+     "from": 1038,
+     "frames": 87,
+     "box": {
+      "x": 14,
+      "y": 31,
+      "w": 58,
+      "h": 36
+     },
+     "props": {
+      "word": "WANTED",
+      "title": "FBI",
+      "meta": "2022",
+      "sign": "TOP TEN",
+      "stampAt": 28,
+      "tilt": -8,
+      "seed": "onecoin-stamp"
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "spring-overshoot",
+     "frame": 1044,
+     "target": "h",
+     "note": "no chain, no Ruja"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1044,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 1064,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 1101,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 1035,
+     "frames": 90,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  },
+  {
+   "id": "s7p2",
+   "scene": "s7",
+   "from": 1125,
+   "frames": 135,
+   "max_hold_seconds": 1.6,
+   "boxes": [
+    {
+     "id": "h",
+     "kind": "text",
+     "x": 6,
+     "y": 14,
+     "w": 64,
+     "h": 8,
+     "role": "display",
+     "text": "NEVER FOUND",
+     "lines": [
+      "NEVER FOUND"
+     ],
+     "px": 108,
+     "color": "ink",
+     "bg": "bg",
+     "font": "display"
+    },
+    {
+     "id": "cap",
+     "kind": "caption",
+     "x": 6,
+     "y": 70,
+     "w": 79,
+     "h": 8,
+     "role": "caption",
+     "px": 56,
+     "color": "ink",
+     "bg": "bg",
+     "font": "body"
+    }
+   ],
+   "cast": [],
+   "widgets": [],
+   "bespoke": [
+    {
+     "id": "onecoin/broken-chain",
+     "anchor": "b",
+     "from": 1125,
+     "frames": 135,
+     "box": {
+      "x": 6,
+      "y": 31,
+      "w": 75,
+      "h": 36
+     },
+     "props": {
+      "breakAt": 30,
+      "label": "BLOCKCHAIN",
+      "offset": 150
+     }
+    }
+   ],
+   "motion": [
+    {
+     "primitive": "text-decode",
+     "frame": 1143,
+     "frames": 18,
+     "target": "h",
+     "note": "never found"
+    }
+   ],
+   "beats": [
+    {
+     "frame": 1143,
+     "frames": 12,
+     "kind": "swap",
+     "easing": "pop"
+    },
+    {
+     "frame": 1176,
+     "frames": 12,
+     "kind": "scale",
+     "easing": "pop"
+    },
+    {
+     "frame": 1212,
+     "frames": 12,
+     "kind": "camera",
+     "easing": "focus"
+    }
+   ],
+   "fx": [
+    {
+     "id": "push-in",
+     "from": 1125,
+     "frames": 135,
+     "params": {
+      "amount": 0.04
+     }
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 35,
+   "text": "Prosecutors say OneCoin"
+  },
+  {
+   "from": 35,
+   "to": 82,
+   "text": "never had a real",
+   "power": "never"
+  },
+  {
+   "from": 82,
+   "to": 94,
+   "text": "blockchain.",
+   "power": "blockchain"
+  },
+  {
+   "from": 94,
+   "to": 129,
+   "text": "It still raised"
+  },
+  {
+   "from": 129,
+   "to": 165,
+   "text": "four billion dollars.",
+   "power": "billion"
+  },
+  {
+   "from": 165,
+   "to": 201,
+   "text": "So its bosses",
+   "power": "bosses"
+  },
+  {
+   "from": 201,
+   "to": 237,
+   "text": "handed out coins"
+  },
+  {
+   "from": 237,
+   "to": 273,
+   "text": "that existed nowhere,",
+   "power": "nowhere"
+  },
+  {
+   "from": 273,
+   "to": 321,
+   "text": "not even on their"
+  },
+  {
+   "from": 321,
+   "to": 345,
+   "text": "own ledger.",
+   "power": "ledger"
+  },
+  {
+   "from": 345,
+   "to": 384,
+   "text": "Yet people believed.",
+   "power": "Yet"
+  },
+  {
+   "from": 384,
+   "to": 423,
+   "text": "Dr Ruja Ignatova"
+  },
+  {
+   "from": 423,
+   "to": 462,
+   "text": "sold it at"
+  },
+  {
+   "from": 462,
+   "to": 488,
+   "text": "Wembley Arena",
+   "power": "Wembley"
+  },
+  {
+   "from": 488,
+   "to": 540,
+   "text": "as the bitcoin killer.",
+   "power": "killer"
+  },
+  {
+   "from": 540,
+   "to": 600,
+   "text": "Instead, buyers paid for",
+   "power": "Instead"
+  },
+  {
+   "from": 600,
+   "to": 630,
+   "text": "coin packages,",
+   "power": "packages"
+  },
+  {
+   "from": 630,
+   "to": 690,
+   "text": "sold member to member.",
+   "power": "member"
+  },
+  {
+   "from": 690,
+   "to": 735,
+   "text": "But recruiting paid",
+   "power": "But"
+  },
+  {
+   "from": 735,
+   "to": 750,
+   "text": "commissions,",
+   "power": "commissions"
+  },
+  {
+   "from": 750,
+   "to": 810,
+   "text": "so the real product"
+  },
+  {
+   "from": 810,
+   "to": 870,
+   "text": "was the next recruit.",
+   "power": "recruit"
+  },
+  {
+   "from": 870,
+   "to": 905,
+   "text": "Until October 2017,",
+   "power": "Until"
+  },
+  {
+   "from": 905,
+   "to": 940,
+   "text": "when the woman"
+  },
+  {
+   "from": 940,
+   "to": 975,
+   "text": "at the top",
+   "power": "top"
+  },
+  {
+   "from": 975,
+   "to": 1010,
+   "text": "flew to Athens"
+  },
+  {
+   "from": 1010,
+   "to": 1035,
+   "text": "and vanished.",
+   "power": "vanished"
+  },
+  {
+   "from": 1035,
+   "to": 1082,
+   "text": "In 2022 the FBI",
+   "power": "FBI"
+  },
+  {
+   "from": 1082,
+   "to": 1129,
+   "text": "added her to its"
+  },
+  {
+   "from": 1129,
+   "to": 1176,
+   "text": "Ten Most Wanted list.",
+   "power": "Wanted"
+  },
+  {
+   "from": 1176,
+   "to": 1212,
+   "text": "Like the blockchain,",
+   "power": "blockchain"
+  },
+  {
+   "from": 1212,
+   "to": 1260,
+   "text": "she was never found.",
+   "power": "never"
+  }
+ ],
+ "audio": {
+  "sfx": [
+   {
+    "id": "impact",
+    "frame": 0,
+    "peak_frame": 0,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s1p1",
+    "file": "audio/sfx/impact.wav"
+   },
+   {
+    "id": "snap",
+    "frame": 30,
+    "peak_frame": 30,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s1p1#1",
+    "file": "audio/sfx/snap.wav"
+   },
+   {
+    "id": "glitch",
+    "frame": 60,
+    "peak_frame": 60,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s1p2",
+    "file": "audio/sfx/glitch.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 99,
+    "peak_frame": 99,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s1p2#1",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "glitch",
+    "frame": 165,
+    "peak_frame": 165,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s2p1",
+    "file": "audio/sfx/glitch.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 216,
+    "peak_frame": 216,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s2p1#1",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 255,
+    "peak_frame": 255,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s2p2",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 312,
+    "peak_frame": 312,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s2p2#1",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "whoosh",
+    "frame": 345,
+    "peak_frame": 345,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s3p1",
+    "file": "audio/sfx/whoosh.wav"
+   },
+   {
+    "id": "swell",
+    "frame": 399,
+    "peak_frame": 399,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s3p1#1",
+    "file": "audio/sfx/swell.wav"
+   },
+   {
+    "id": "swell",
+    "frame": 435,
+    "peak_frame": 435,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s3p2",
+    "file": "audio/sfx/swell.wav"
+   },
+   {
+    "id": "pop",
+    "frame": 495,
+    "peak_frame": 495,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s3p2#1",
+    "file": "audio/sfx/pop.wav"
+   },
+   {
+    "id": "impact",
+    "frame": 540,
+    "peak_frame": 540,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s4p1",
+    "file": "audio/sfx/impact.wav"
+   },
+   {
+    "id": "pop",
+    "frame": 576,
+    "peak_frame": 576,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s4p1#1",
+    "file": "audio/sfx/pop.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 615,
+    "peak_frame": 615,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s4p2",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "pop",
+    "frame": 663,
+    "peak_frame": 663,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s4p2#1",
+    "file": "audio/sfx/pop.wav"
+   },
+   {
+    "id": "bass",
+    "frame": 690,
+    "peak_frame": 690,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s5p1",
+    "file": "audio/sfx/bass.wav"
+   },
+   {
+    "id": "pop",
+    "frame": 735,
+    "peak_frame": 735,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s5p1#1",
+    "file": "audio/sfx/pop.wav"
+   },
+   {
+    "id": "glitch",
+    "frame": 780,
+    "peak_frame": 780,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s5p2",
+    "file": "audio/sfx/glitch.wav"
+   },
+   {
+    "id": "tick",
+    "frame": 813,
+    "peak_frame": 813,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s5p2#1",
+    "file": "audio/sfx/tick.wav"
+   },
+   {
+    "id": "whoosh",
+    "frame": 870,
+    "peak_frame": 870,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s6p1",
+    "file": "audio/sfx/whoosh.wav"
+   },
+   {
+    "id": "ping",
+    "frame": 912,
+    "peak_frame": 912,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s6p1#1",
+    "file": "audio/sfx/ping.wav"
+   },
+   {
+    "id": "ping",
+    "frame": 945,
+    "peak_frame": 945,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s6p2",
+    "file": "audio/sfx/ping.wav"
+   },
+   {
+    "id": "bass",
+    "frame": 987,
+    "peak_frame": 987,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s6p2#1",
+    "file": "audio/sfx/bass.wav"
+   },
+   {
+    "id": "impact",
+    "frame": 1035,
+    "peak_frame": 1035,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s7p1",
+    "file": "audio/sfx/impact.wav"
+   },
+   {
+    "id": "bass",
+    "frame": 1064,
+    "peak_frame": 1064,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s7p1#1",
+    "file": "audio/sfx/bass.wav"
+   },
+   {
+    "id": "glitch",
+    "frame": 1125,
+    "peak_frame": 1125,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "cut:s7p2",
+    "file": "audio/sfx/glitch.wav"
+   },
+   {
+    "id": "impact",
+    "frame": 1176,
+    "peak_frame": 1176,
+    "pre_roll": 0,
+    "db": -12,
+    "sync": "beat:s7p2#1",
+    "file": "audio/sfx/impact.wav"
+   }
+  ],
+  "voiceover": null,
+  "music": {
+   "file": "audio/music/drone.wav",
+   "open_db": -14,
+   "ducked_db": -20,
+   "attack_frames": 6,
+   "release_frames": 12,
+   "merge_gaps_under": 15,
+   "cuts": [
+    {
+     "from": 681,
+     "to": 690
+    }
+   ]
+  }
+ },
+ "showSafeZones": false
+}

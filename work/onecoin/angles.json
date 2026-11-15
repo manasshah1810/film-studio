@@ -1,0 +1,107 @@
+{
+ "topic": "OneCoin: the $4 billion cryptocurrency with no blockchain",
+ "angles": [
+  {
+   "id": "a1",
+   "kind": "irony",
+   "angle": "OneCoin took in more than $4 billion yet, prosecutors say, had no true blockchain: its bosses handed out coins that did not exist even in its own private ledger.",
+   "visual": "A chain of blocks snaps apart and collapses into a plain table a caret retypes.",
+   "scores": {
+    "curiosity": 10,
+    "showability": 9,
+    "stakes": 10
+   },
+   "total": 29
+  },
+  {
+   "id": "a2",
+   "kind": "stakes",
+   "angle": "At least 3.5 million people worldwide bought in between 2014 and 2016.",
+   "visual": "A crowd of dots spreading across a map.",
+   "scores": {
+    "curiosity": 6,
+    "showability": 7,
+    "stakes": 9
+   },
+   "total": 22
+  },
+  {
+   "id": "a3",
+   "kind": "human",
+   "angle": "Dr Ruja Ignatova filled Wembley Arena in 2016 and sold OneCoin on stage as the bitcoin killer.",
+   "visual": "An arena seen from the back rows; spotlights find a mic, the crowd lights up.",
+   "scores": {
+    "curiosity": 8,
+    "showability": 9,
+    "stakes": 7
+   },
+   "total": 24
+  },
+  {
+   "id": "a4",
+   "kind": "twist",
+   "angle": "In October 2017 Ruja boarded a flight from Sofia to Athens and was never seen again; she is on the FBI Ten Most Wanted list.",
+   "visual": "A flight path draws, the radar ping fades before landing.",
+   "scores": {
+    "curiosity": 9,
+    "showability": 8,
+    "stakes": 7
+   },
+   "total": 24
+  },
+  {
+   "id": "a5",
+   "kind": "mechanism",
+   "angle": "Buyers paid for trading packages and earned commissions for recruiting the next buyers: the recruits, not the coins, were the product.",
+   "visual": "A four-tier recruitment tree with money climbing every edge to the top.",
+   "scores": {
+    "curiosity": 7,
+    "showability": 9,
+    "stakes": 8
+   },
+   "total": 24
+  },
+  {
+   "id": "a6",
+   "kind": "irony",
+   "angle": "Co-founder Sebastian Greenwood got 20 years in prison while the founder never faced a courtroom.",
+   "visual": "Two cells, one empty.",
+   "scores": {
+    "curiosity": 7,
+    "showability": 5,
+    "stakes": 6
+   },
+   "total": 18
+  },
+  {
+   "id": "a7",
+   "kind": "mechanism",
+   "angle": "The coin's price was set by management and only ever went up [VERIFY].",
+   "visual": "A price line drawn by a hand, never by a market.",
+   "scores": {
+    "curiosity": 7,
+    "showability": 6,
+    "stakes": 6
+   },
+   "total": 19
+  },
+  {
+   "id": "a8",
+   "kind": "stakes",
+   "angle": "Victims can now claim from about $40 million in forfeited assets, a sliver of what was lost.",
+   "visual": "A huge stack beside a thin coin.",
+   "scores": {
+    "curiosity": 6,
+    "showability": 6,
+    "stakes": 8
+   },
+   "total": 20
+  }
+ ],
+ "selected": [
+  "a1",
+  "a3",
+  "a4",
+  "a5"
+ ]
+}

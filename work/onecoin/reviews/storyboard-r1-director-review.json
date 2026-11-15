@@ -1,0 +1,68 @@
+{
+ "stage": "storyboard",
+ "round": 1,
+ "scorer": "director-review",
+ "rubric": "rubrics/storyboard.md",
+ "params": [
+  {
+   "name": "Cover frame and hook",
+   "score": 7.5,
+   "evidence": "cover shows no conflict; label outside the safe guide."
+  },
+  {
+   "name": "One focal point",
+   "score": 7,
+   "evidence": "strike reads as a trend line; FBI duplicated."
+  },
+  {
+   "name": "Script fidelity",
+   "score": 7,
+   "evidence": "turn s4 is build; barcodes unreadable."
+  },
+  {
+   "name": "Layout choice",
+   "score": 5,
+   "evidence": "labels mismatch; repeated two-panel template; no counter."
+  },
+  {
+   "name": "Readability",
+   "score": 6,
+   "evidence": "s7 meta under the 34 px floor; struck label hard to read; all caps vs sentence case."
+  },
+  {
+   "name": "Platform fit",
+   "score": 5,
+   "evidence": "headlines inside Instagram's top zone."
+  },
+  {
+   "name": "Rhythm",
+   "score": 6,
+   "evidence": "metronome beats; s7 longest yet simplest."
+  },
+  {
+   "name": "Cast used well",
+   "score": 8.5,
+   "evidence": "Mode C respected."
+  },
+  {
+   "name": "Numbers honest",
+   "score": 5,
+   "evidence": "ledger balances not in the script."
+  },
+  {
+   "name": "Ending and loop",
+   "score": 7.5,
+   "evidence": "s8 repeats s2; no visual bridge to s1."
+  }
+ ],
+ "average": 6.45,
+ "minimum": 5,
+ "passed": false,
+ "feedback": [
+  "Move text below the top safe guide",
+  "Ledger must not show figures",
+  "Vary composition, match layout ids, keep the counter",
+  "Peak on the turn; vary energy and length",
+  "One focal point per panel; labels at or above 34 px"
+ ]
+}
