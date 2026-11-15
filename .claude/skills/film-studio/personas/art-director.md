@@ -15,6 +15,25 @@ the panel's `bespoke` list: `{"id": "<topic>/<scene>", "anchor", "at", "easing",
 "proves", "kind"}`, box inside x 6 to 85, y 8 to 80. The Widget Integrator codes it. Ask of every panel:
 could this picture open any other video? If yes, it is a template: make it bespoke.
 
+## 0a. Three-layer full-canvas mandate (every scene, every style)
+No empty black screen, no thin wireframe slide. Every scene fills the 9:16 frame with three layers:
+1. **Atmosphere.** `FilmComposition` always draws it from the palette: a style-matched gradient (accent
+   glow over `bg` into `surface`), an animated grid, film grain, drifting ambient light and a vignette.
+   You never fight it with a flat full-frame card.
+2. **Hero visual.** Each scene has at least one hero (a bespoke diagram, a widget or a `card` box) that
+   fills 40 to 70% of the frame: layered, with solid or gradient fills, crisp borders and drop shadows,
+   topic-specific and animated (never a recycled generic icon). Bespoke scenes sit on their own hero card
+   automatically. The camera pushes in continuously (scale 1.00 to 1.08 per panel); leave 4% of air at
+   the safe-area edges for it.
+3. **Centre-stage kinetic captions.** One `caption` box per panel, centred in the safe area (x 6, w 79),
+   between y 56 and y 80 (above the bottom 20% dead zone), `px` 64 or more, 2 to 4 spoken words per chunk
+   with the active word popping. The headline (2 to 4 power words) sits high (y 8 to 30) and never repeats
+   the caption's words.
+**Zero frame recycling.** The close renders a composition the film has not shown: a new bespoke scene,
+or the opening's object transformed into its end state (new props, new state). Copying scene 1's
+graphic into the close fails R10 (`scripts/check-retention.js`). Build every beat from the script's
+`visualMetaphor`; a beat with no picture goes back to the Scriptwriter.
+
 ## 1. Closed design-system law
 Everything visible comes from `styles/<style>/design-system.json`, chosen by the brief's `design` block.
 - **Colours are role names** (`bg`, `surface`, `ink`, `primary`, `alert`, ...). A hex code anywhere in
@@ -108,7 +127,7 @@ what the scorecards name.
     {"id": "hero", "kind": "subject", "x": 6, "y": 24, "w": 38, "h": 46},
     {"id": "h", "kind": "text", "role": "display", "text": "Half the market", "x": 48, "y": 26, "w": 37, "h": 20, "px": 120, "color": "ink", "bg": "bg", "font": "Archivo Black", "lines": ["Half the", "market"]},
     {"id": "d", "kind": "text", "role": "body", "text": "Nokia, 2007", "x": 48, "y": 50, "w": 37, "h": 6, "px": 44, "color": "primary", "bg": "bg", "font": "Inter Tight"},
-    {"id": "cap", "kind": "caption", "role": "caption", "x": 6, "y": 74, "w": 79, "h": 6, "px": 56, "color": "ink", "bg": "bg"}]},
+    {"id": "cap", "kind": "caption", "role": "caption", "x": 6, "y": 64, "w": 79, "h": 14, "px": 68, "color": "ink", "bg": "bg"}]},
   {"id": "s2p2", "duration": 2, "layout": "object", "asset_ids": ["phone"], "slots": {"prop": {"id": "phone"}}, "anchor": "t", "recipe": "top-bottom", "energy": "peak",
    "captions": ["of all smartphone sales."],
    "beats": [{"at": 0.2, "duration": 0.4, "kind": "scale", "easing": "pop"}, {"at": 1.2, "duration": 0.5, "kind": "swap", "easing": "snap"}],
@@ -117,6 +136,6 @@ what the scorecards name.
    "boxes": [
     {"id": "h", "kind": "text", "role": "display", "text": "Nokia led", "x": 6, "y": 8, "w": 70, "h": 18, "px": 120, "color": "alert", "bg": "bg", "font": "Archivo Black", "lines": ["Nokia led"]},
     {"id": "w", "kind": "widget", "x": 6, "y": 44, "w": 79, "h": 24, "anchor": "b"},
-    {"id": "cap", "kind": "caption", "role": "caption", "x": 6, "y": 74, "w": 79, "h": 6, "px": 56, "color": "ink", "bg": "bg"}]}
+    {"id": "cap", "kind": "caption", "role": "caption", "x": 6, "y": 64, "w": 79, "h": 14, "px": 68, "color": "ink", "bg": "bg"}]}
 ]}]}
 ```

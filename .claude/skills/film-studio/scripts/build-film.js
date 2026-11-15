@@ -163,6 +163,9 @@ if (aSheet?.music?.bed) {
   else music = {file, open_db: aSheet.music.open_db ?? -8, ducked_db: aSheet.music.ducked_db ?? -18, attack_frames: aSheet.duck?.attack_frames ?? 6, release_frames: aSheet.duck?.release_frames ?? 12, merge_gaps_under: aSheet.duck?.merge_gaps_under ?? 15, cuts: (aSheet.music.cuts ?? []).map((c) => ({from: c.from, to: c.to}))};
 }
 
+// the pre-mixed 3-layer track (scripts/sound-bed.js): narration, pulse bed, sub-bass hits and transition SFX in one file
+const mixInfo = opt(path.join('audio', 'mix.json'));
+const mix = brief.voiceover && mixInfo && fs.existsSync(path.join(work, mixInfo.file)) ? {file: mixInfo.file, layers: mixInfo.layers ?? []} : null;
 if (E.length) fail(E.join('\nFAIL '));
 const manifest = {
   version: 1,
@@ -172,7 +175,7 @@ const manifest = {
   cast,
   panels: panels.map(({_sfx, _captions, ...p}) => p),
   captions,
-  audio: {sfx, voiceover, music, ...(voiceover ? {sfx_duck: aSheet?.duck?.sfx_gain ?? 0.25} : {})},
+  audio: {sfx, voiceover, music, ...(voiceover ? {sfx_duck: aSheet?.duck?.sfx_gain ?? 0.25} : {}), ...(mix ? {mix} : {})},
   showSafeZones: !!a['safe-zones'],
 };
 const out = a.out ?? path.join(work, 'render-manifest.json');

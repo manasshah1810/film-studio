@@ -81,3 +81,20 @@ Storyboard panel fields (all times in seconds from the panel start):
 
 Related zero-token checks, already included in rules 16, 17 and 25:
 `node scripts/check-design.js work` and `node scripts/check-safezones.js work`.
+
+## Retention gate (beside the 28, in `scripts/check-retention.js`)
+`run-all-checks.js` also runs these. They are not AI tells; they prove the 5-pass script engine and the
+full-canvas mandate ran. Same output shape, same rule: fix the file, run again.
+| Id | Stage | Check | Pass | Fail |
+|---|---|---|---|---|
+| R1 | script | `work/script-iterations.md` logs `## Iteration 1` to `## Iteration 5`, each with its required work | five sections, scores, hook, explainer, pauses, metaphor audit | one draft, no log |
+| R2 | script | first sentence is a question of 16 words or fewer, never How / Why / What-is | "Would you buy a coin you can never cash out?" | "OneCoin was a huge scam." |
+| R3 | script | a re-hook at least every 15 s until the payoff | re-hooks at 13 s and 27 s | 30 s of explanation |
+| R4 | script | exactly one 5 to 7 s `explainer` in the first 40% | one ledger beat at 12 s | none, or two |
+| R5 | script | `[PAUSE 0.6s]` to `[PAUSE 0.9s]`, one per 30 s, at least one | a pause before each twist | no pause, or `[PAUSE 2s]` |
+| R6 | script | every scene names its own concrete `visualMetaphor` | "a vault fills while its cable hangs unplugged" | missing, or shared |
+| R7 | script | the headline's words never sit inside a caption chunk | `ZERO BLOCKCHAIN` / "just a spreadsheet" | `ZERO BLOCKCHAIN` / "zero blockchain, really" |
+| R8 | script | no scene opens on a pronoun before a subject is named | "Ruja Ignatova..." then "She..." | "She..." first |
+| R9 | script | `brief.runtime_tier` set; the script fits it | 75 s in `60-90` | 75 s in `30-45` |
+| R10 | storyboard | the close never re-shows scene 1's graphic (same id and props, or the same set) | a new closing scene | scene 1's diagram pasted |
+| R11 | storyboard | every scene has a hero; caption boxes `px` >= 64 and end above y 80 | bespoke on a card, 68 px captions | text-only scene, 48 px captions |

@@ -4,7 +4,8 @@
 //   node run-all-checks.js --selftest                                     prove the gate passes the good fixture and catches planted violations
 // Chains, in order: validate-schema.js (schemas + cross-file rules, render-manifest.json when present),
 // check-design.js (closed palette and fonts, WCAG AA 4.5:1 body / 3.0:1 display), check-safezones.js
-// (9:16 bottom 20% and right 15%), check-ai-tells.js (the 28 rules). Stage "script" runs only what a
+// (9:16 bottom 20% and right 15%), check-ai-tells.js (the 28 rules), check-retention.js (R1-R11: the 5-pass
+// script log in work/script-iterations.md, hook, re-hooks, pauses, metaphors, tier, recycling). Stage "script" runs only what a
 // script can fail. Zero tokens: run it, do not read it.
 // Exit 0: one PASS line, and work/reviews/checks.json says pass. Exit 1: one JSON object per line on stdout,
 //   {"check", "file", "item", "problem", "fix"}, the same list in work/reviews/checks.json. Fix each line at its
@@ -64,6 +65,10 @@ function gate(work, stage) {
     const j = JSON.parse(t.out.slice(t.out.indexOf('{'), t.out.lastIndexOf('}') + 1));
     for (const rule of j.rules.filter((x) => !x.pass)) for (const e of rule.errs) add(`check-ai-tells #${String(rule.n).padStart(2, '0')} ${rule.id}`, fileFor(e, SCRIPT_RULES.has(rule.id) ? 'script.json' : 'storyboard.json'), e);
   } catch (e) { add('check-ai-tells', '-', `could not read its report: ${t.out.trim().split(/\r?\n/).slice(-1)[0]}`); }
+  // 5. the retention gate beside the tells (5-pass script log, question hook, re-hooks, explainer, pauses,
+  // visual metaphors, runtime tier, no recycled closing frame, full-bleed heroes)
+  ran.push('check-retention');
+  for (const x of require('./check-retention').check(work, stage)) add(`check-retention ${x.id}`, x.file, `${x.problem}. Fix: ${x.fix}`);
   return {pass: !items.length, stage, ran, items};
 }
 

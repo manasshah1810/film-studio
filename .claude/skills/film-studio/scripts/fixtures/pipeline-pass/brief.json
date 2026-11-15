@@ -16,5 +16,6 @@
   "seed": "smaller-plans-20261114-1"
  },
  "audience": "students",
- "tone": "warm, practical"
+ "tone": "warm, practical",
+ "runtime_tier": "15-30"
 }

@@ -50,6 +50,10 @@ const args = (argv = process.argv.slice(2)) => {
   }
   return o;
 };
+/** `[PAUSE 0.6s]` markers (personas/scriptwriter.md iteration 4): spoken text drops them; pauses() lists their seconds. */
+const PAUSE_RE = /\[PAUSE\s*([0-9.]+)\s*s?\]/gi;
+const spoken = (t) => String(t ?? '').replace(PAUSE_RE, ' ').replace(/\s+/g, ' ').trim();
+const pauses = (t) => [...String(t ?? '').matchAll(PAUSE_RE)].map((m) => Number(m[1]));
 const fail = (msg) => { console.error('FAIL ' + msg); process.exit(1); };
 
-module.exports = {SKILL, COMPONENTS, creq, ROLES, FONT_ROLES, readJson, writeJson, listStyles, loadDS, frontmatter, hexRgb, lum, contrast, roleHex, dist, fontModule, fontInfo, hash01, args, fail};
+module.exports = {SKILL, COMPONENTS, creq, ROLES, FONT_ROLES, readJson, writeJson, listStyles, loadDS, frontmatter, hexRgb, lum, contrast, roleHex, dist, fontModule, fontInfo, hash01, args, fail, PAUSE_RE, spoken, pauses};

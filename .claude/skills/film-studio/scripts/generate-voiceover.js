@@ -3,13 +3,17 @@
 //   node generate-voiceover.js models                                   list the Gemini TTS models this key can reach
 //   node generate-voiceover.js sample --text "<one sentence>" --out <file.wav> [--voice Charon]
 //   node generate-voiceover.js verify <file.wav> --text "<expected words>"   transcribe a clip and compare (QA)
-//   node generate-voiceover.js make <work-dir> [--voice Charon] [--pause 0.15] [--tag "[fast, urgent]"] [--style "<direction>"] [--retime] [--no-verify]
+//   node generate-voiceover.js make <work-dir> [--voice Charon] [--pause 0.15] [--tag "[fast, urgent]"] [--style "<direction>"] [--retime] [--no-verify] [--no-mix]
 // Google AI Studio (Gemini API) text-to-speech. The default voiceover provider whenever GEMINI_API_KEY is set.
 //   make    one clip per script scene, each transcribed back and compared to its narration (one regeneration
 //           on a mismatch, then stop): Gemini returns raw PCM (audio/L16), ffmpeg turns it into a trimmed,
 //           loudness-matched 44.1 kHz mono wav + mp3 in work/audio/, and the clips are merged with `--pause`
-//           seconds of air into work/voiceover.wav and work/voiceover.mp3. ffprobe measures every clip into
-//           work/voiceover-timing.json and work/audio/manifest.json (the file build-film.js reads).
+//           seconds of air into work/voiceover-dry.wav. ffprobe measures every clip into work/voiceover-timing.json
+//           and work/audio/manifest.json (the file build-film.js reads). Then scripts/sound-bed.js mixes the
+//           3-layer bed (pulse bed, sub-bass hits, transition SFX) under it into work/voiceover.wav + .mp3.
+//   Per-beat pause stitching: a narration is cut at its [PAUSE 0.6s] / [PAUSE 0.9s] markers; each beat is
+//           spoken on its own and the beats are joined with exactly that much silence, so a twist breathes.
+//   Performance: every beat is read under DIRECTION (a charismatic documentary storyteller), --style overrides.
 //   --retime  makes the voice the clock: each scene lasts exactly its clip + pause (to the frame), and
 //           script.json (starts, durations, caption chunks), storyboard.json (panel durations, beat/widget/
 //           bespoke/sfx times), widgets.json, motion.json, vfx-plan.json and audio-cues.json (music cuts,
@@ -29,8 +33,10 @@ const VOICES = ['Charon', 'Fenrir', 'Orus', 'Alnilam'];
 // Delivery: an inline tag ahead of the line. Tested 2026-11-15 on one 14-word line: "[fast, urgent]" 3.75 s,
 // "[energetic, brisk]" 5.4 s, plain 5.8-6.8 s, and a long natural-language direction 11.4 s (the model slows
 // down to "perform" it). --style "<direction>" still works for a slower, acted read.
-const TAG = '[fast, urgent]';
-const STYLE = '';
+// Expressive read (personas/sound-designer.md section 3a). The verify step catches a model that reads it aloud.
+const DIRECTION = 'Speak like a charismatic, high-energy documentary storyteller: build genuine curiosity on questions, pick up pace during tense build-ups, hit numbers and twists with sharp emphasis, and honor natural dramatic pauses. Never sound flat or robotic. Read only the quoted words';
+const TAG = '';
+const STYLE = DIRECTION;
 const a = args();
 const [cmd, work] = a._;
 
@@ -50,6 +56,7 @@ async function listTts() {
   return ((await r.json()).models ?? []).map((m) => m.name.replace(/^models\//, '')).filter((n) => /tts/.test(n));
 }
 
+const dead = new Set(); // models that answered 429 with a long wait in this run
 let chosen = null; // the first model + voice that worked is reused for every later clip
 /** text -> {pcm: Buffer, rate, model, voice}. Falls back across models and voices; never retries the same pair. */
 async function tts(text, voice, style, tag = TAG) {
@@ -59,18 +66,19 @@ async function tts(text, voice, style, tag = TAG) {
   const models = [...new Set([chosen?.model, ...MODELS.filter((m) => !listed.length || listed.includes(m)), ...listed].filter(Boolean))];
   const voices = [...new Set([chosen?.voice, voice, ...VOICES].filter(Boolean))];
   const errs = [];
-  // one narrator voice for the whole film: models are tried before voices. A 429 (quota) is not a failure of
-  // the pair: wait the retryDelay the API sends (70 s at most) and try the same pair again, 3 times at most.
-  for (const v of voices) for (const model of models) {
+  // one narrator voice for the whole film: models are tried before voices. A 429 (quota) waits once for a short
+  // retryDelay (25 s at most); a longer one marks the model spent for this run and falls through to the next.
+  for (const v of voices) for (const model of models.filter((x) => !dead.has(x))) {
     const body = {contents: [{parts: [{text: style ? `${style}: "${text}"` : text}]}], generationConfig: {responseModalities: ['AUDIO'], speechConfig: {voiceConfig: {prebuiltVoiceConfig: {voiceName: v}}}}};
     let r, waits = 0;
     for (;;) {
       try { r = await fetch(`${API}/models/${model}:generateContent`, {signal: AbortSignal.timeout(90000), method: 'POST', headers: {'x-goog-api-key': key(), 'content-type': 'application/json'}, body: JSON.stringify(body)}); } catch (e) { r = null; errs.push(`${model}/${v}: ${e.message}`); break; }
-      if (r.status !== 429 || waits >= 3) break;
+      if (r.status !== 429 || waits >= 1) break;
       const j = await r.clone().json().catch(() => ({}));
-      const delay = Math.min(70, Number(String((j.error?.details ?? []).find((d) => d.retryDelay)?.retryDelay ?? '20s').replace(/s$/, '')) + 2);
+      const delay = Number(String((j.error?.details ?? []).find((d) => d.retryDelay)?.retryDelay ?? '20s').replace(/s$/, '')) + 2;
+      if (delay > 25 || dead.has(model)) { dead.add(model); break; } // a long quota wait: fall through to the next model now
       waits++;
-      console.error(`note ${model}/${v}: quota (429), waiting ${delay} s (${waits}/3)`);
+      console.error(`note ${model}/${v}: quota (429), waiting ${delay} s once`);
       await new Promise((res) => setTimeout(res, delay * 1000));
     }
     if (!r) continue;
@@ -135,10 +143,22 @@ function retime(work, timing, fps) {
   // script: starts, durations, caption chunks spread over the spoken part by character weight
   script.scenes.forEach((s, i) => {
     const n = neu[i]; s.start = r4(n.start); s.duration = r4(n.dur);
-    const caps = s.captions ?? [], w = caps.map((c) => Math.max(1, c[2].replace(/\s/g, '').length)), W = w.reduce((x, y) => x + y, 0);
-    const f0 = Math.round(n.start * fps), f1 = Math.round((n.start + n.dur) * fps), fs_ = f0 + Math.round(n.speech * fps);
-    let cur = f0, acc = 0;
-    caps.forEach((c, j) => { acc += w[j]; const nxt = j === caps.length - 1 ? f1 : Math.max(cur + 1, f0 + Math.round(((fs_ - f0) * acc) / W)); c[0] = cur; c[1] = nxt; cur = nxt; });
+    const caps = s.captions ?? [], f0 = Math.round(n.start * fps), f1 = Math.round((n.start + n.dur) * fps);
+    const clip = timing.clips.find((x) => x.scene === s.id);
+    // spoken beats (between [PAUSE] markers) in film frames; a caption chunk lives inside the beat its first word
+    // belongs to, so the screen holds still through the pause and the twist line lands with the voice
+    const segs = (clip?.segments?.length ? clip.segments : [{words: 1e9, start: 0, end: n.speech}]).map((g) => ({...g, f0: f0 + Math.round(g.start * fps), f1: f0 + Math.round(g.end * fps)}));
+    let wi = 0, cum = 0, gi = 0;
+    const groups = segs.map(() => []);
+    for (const c of caps) { while (gi < segs.length - 1 && wi >= cum + segs[gi].words) { cum += segs[gi].words; gi++; } groups[gi].push(c); wi += c[2].split(/\s+/).filter(Boolean).length; }
+    groups.forEach((g, k) => {
+      const w = g.map((c) => Math.max(1, c[2].replace(/\s/g, '').length)), W = w.reduce((x, y) => x + y, 0) || 1;
+      let cur = segs[k].f0, acc = 0;
+      g.forEach((c, j) => { acc += w[j]; c[0] = cur; c[1] = Math.max(cur + 1, segs[k].f0 + Math.round(((segs[k].f1 - segs[k].f0) * acc) / W)); cur = c[1]; });
+    });
+    // no gaps: each chunk holds until the next one starts; the last one holds to the scene end
+    const flat = groups.flat();
+    flat.forEach((c, j) => { if (j === 0) c[0] = f0; c[1] = j === flat.length - 1 ? f1 : flat[j + 1][0]; });
   });
   writeJson(J('script.json'), script);
   // storyboard: panel durations scale with their scene (whole frames, the last panel takes the remainder)
@@ -201,20 +221,42 @@ function retime(work, timing, fps) {
   fs.mkdirSync(dir, {recursive: true});
   const clips = [];
   let t = 0;
+  const style = a.style === undefined ? STYLE : String(a.style), tag = a.tag === undefined ? TAG : String(a.tag);
   for (const s of script.scenes) {
-    const text = s.narration.replace(/\[VERIFY:[^\]]*\]/g, '').trim();
-    if (!text) continue;
-    let au, d, v;
+    const raw = s.narration.replace(/\[VERIFY:[^\]]*\]/g, '').trim();
+    // beats between [PAUSE n s] markers: [text, pause, text, pause, text]
+    const bits = raw.split(/\[PAUSE\s*([0-9.]+)\s*s?\]/i);
+    const beats = [];
+    for (let i = 0; i < bits.length; i += 2) { const t = bits[i].trim(); const ps = i + 1 < bits.length ? Number(bits[i + 1]) : 0; if (t) beats.push({text: t, pause: ps}); else if (beats.length) beats[beats.length - 1].pause += ps; }
+    if (!beats.length) continue;
+    const text = beats.map((b) => b.text).join(' ');
+    let au, v, segments, pauses, d;
     for (let attempt = 1; attempt <= 2; attempt++) {
-      au = await tts(text, a.voice ?? 'Charon', (a.style === undefined ? STYLE : String(a.style)), a.tag === undefined ? TAG : String(a.tag));
-      d = encode(au, path.join(dir, `vo-${s.id}`));
+      segments = []; pauses = [];
+      const parts = [];
+      let t0 = 0;
+      for (const [k, b] of beats.entries()) {
+        au = await tts(b.text, a.voice ?? 'Charon', style, tag);
+        const base = path.join(dir, `vo-${s.id}-b${k + 1}`), bd = encode(au, base);
+        segments.push({text: b.text, words: b.text.split(/\s+/).filter(Boolean).length, start: Math.round(t0 * 1000) / 1000, end: Math.round((t0 + bd) * 1000) / 1000});
+        parts.push(`${base}.wav`); t0 += bd;
+        const gap = k < beats.length - 1 ? Math.min(1.2, Math.max(0.6, b.pause || 0.6)) : 0; // 600 to 900 ms by the script, 1.2 s cap
+        if (gap) { const sil = `${base}-gap.wav`; ff(['-f', 'lavfi', '-i', `anullsrc=r=44100:cl=mono:d=${gap.toFixed(3)}`, sil]); parts.push(sil); pauses.push({at: Math.round(t0 * 1000) / 1000, seconds: gap}); t0 += gap; }
+      }
+      const list = path.join(os.tmpdir(), `fs-vo-${process.pid}-${s.id}.txt`);
+      fs.writeFileSync(list, parts.map((p) => `file '${path.resolve(p)}'`).join('\n'));
+      ff(['-f', 'concat', '-safe', '0', '-i', list, '-ar', '44100', '-ac', '1', path.join(dir, `vo-${s.id}.wav`)]);
+      ff(['-i', path.join(dir, `vo-${s.id}.wav`), '-codec:a', 'libmp3lame', '-b:a', '192k', path.join(dir, `vo-${s.id}.mp3`)]);
+      fs.unlinkSync(list);
+      for (const p of parts) { fs.rmSync(p, {force: true}); fs.rmSync(p.replace(/\.wav$/, '.mp3'), {force: true}); }
+      d = secs(path.join(dir, `vo-${s.id}.wav`));
       v = a['no-verify'] ? null : await verify(path.join(dir, `vo-${s.id}.wav`), text);
       if (!v || (v.recall >= 0.85 && v.extra <= 3)) break;
       if (attempt === 2) fail(`${s.id}: the voice does not match the narration twice (recall ${(v.recall * 100).toFixed(0)}%, ${v.extra} extra words: "${v.said.slice(0, 120)}"). Stop and report.`);
       console.error(`note ${s.id}: transcript recall ${(v.recall * 100).toFixed(0)}%, regenerating once`);
     }
-    clips.push({scene: s.id, model: au.model, voice: au.voice, file: `audio/vo-${s.id}.wav`, mp3: `audio/vo-${s.id}.mp3`, seconds: Math.round(d * 1000) / 1000, frames: Math.round(d * fps), start: 0});
-    console.log(`clip ${s.id}: ${d.toFixed(2)} s (${au.model}, ${au.voice})${v ? `, transcript recall ${(v.recall * 100).toFixed(0)}%` : ''}`);
+    clips.push({scene: s.id, model: au.model, voice: au.voice, file: `audio/vo-${s.id}.wav`, mp3: `audio/vo-${s.id}.mp3`, seconds: Math.round(d * 1000) / 1000, frames: Math.round(d * fps), start: 0, segments, pauses});
+    console.log(`clip ${s.id}: ${d.toFixed(2)} s, ${segments.length} beat(s)${pauses.length ? `, pauses ${pauses.map((p) => p.seconds + ' s').join(' + ')}` : ''} (${au.model}, ${au.voice})${v ? `, transcript recall ${(v.recall * 100).toFixed(0)}%` : ''}`);
   }
   // merged track: each clip padded to its scene length (clip + pause, rounded up to a whole frame), so the
   // track lines up with the film frame for frame
@@ -227,13 +269,15 @@ function retime(work, timing, fps) {
     pads.push(pad);
   }
   fs.writeFileSync(list, pads.map((p) => `file '${p}'`).join('\n'));
-  ff(['-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', path.join(work, 'voiceover.wav')]);
-  ff(['-i', path.join(work, 'voiceover.wav'), '-codec:a', 'libmp3lame', '-b:a', '192k', path.join(work, 'voiceover.mp3')]);
+  ff(['-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', path.join(work, 'voiceover-dry.wav')]);
   fs.unlinkSync(list); pads.forEach((p) => fs.unlinkSync(p));
   if (new Set(clips.map((c) => c.voice)).size > 1) console.error(`WARN the narrator voice changed between clips (${[...new Set(clips.map((c) => c.voice))].join(', ')}): re-run when the quota resets for one voice throughout`);
-  const timing = {provider: 'gemini', model: chosen.model, voice: chosen.voice, fps, pause, total_seconds: Math.round(secs(path.join(work, 'voiceover.wav')) * 1000) / 1000, clips};
+  const timing = {provider: 'gemini', model: chosen.model, voice: chosen.voice, fps, pause, total_seconds: Math.round(secs(path.join(work, 'voiceover-dry.wav')) * 1000) / 1000, direction: style ? 'documentary storyteller' : 'plain', clips};
   writeJson(path.join(work, 'voiceover-timing.json'), timing);
   writeJson(path.join(dir, 'manifest.json'), {provider: 'gemini', clips: clips.map((c) => ({file: c.file, start: c.start, seconds: c.seconds})), voice_credit: 'voice-gemini'});
   if (a.retime) { const r = retime(work, timing, fps); console.log(`PASS retimed to the voice: ${r.frames} frames (${r.seconds.toFixed(2)} s); scene = clip + ${pause} s`); }
+  // the 3-layer mix (pulse bed, sub-bass hits, transition SFX) under the narration -> voiceover.wav + voiceover.mp3
+  if (a['no-mix']) { fs.copyFileSync(path.join(work, 'voiceover-dry.wav'), path.join(work, 'voiceover.wav')); ff(['-i', path.join(work, 'voiceover.wav'), '-codec:a', 'libmp3lame', '-b:a', '192k', path.join(work, 'voiceover.mp3')]); }
+  else console.log(execFileSync(process.execPath, [path.join(__dirname, 'sound-bed.js'), work]).toString().trim());
   console.log(`PASS ${clips.length} clips, voiceover ${timing.total_seconds} s (${timing.model}, ${timing.voice}). Next: node scripts/build-film.js ${work}`);
 })().catch((e) => fail(e && e.message ? e.message : String(e)));

@@ -6,7 +6,7 @@
 // Schema check first (ajv), then the rules a schema cannot express. Exit 1 on any FAIL. WARN never fails.
 const fs = require('fs');
 const path = require('path');
-const {SKILL, creq, readJson, loadDS, listStyles, frontmatter, args} = require('./lib');
+const {SKILL, creq, readJson, loadDS, listStyles, frontmatter, args, spoken} = require('./lib');
 
 const SCHEMA_DIR = path.join(SKILL, 'schemas');
 const BUCKETS = {'15-30s': [15, 30], '30-1m': [30, 60], '1-5m': [60, 300], '5-10m': [300, 600], '10m+': [600, Infinity]};
@@ -67,7 +67,7 @@ const semantic = {
       at = sum([at, s.duration]);
       // every figure a viewer hears or reads must be backed by a fact entry in the same scene
       const claims = s.facts.map((f) => f.claim).join(' ');
-      for (const n of new Set(`${s.narration} ${s.on_screen_text}`.match(/\d[\d,.]*%?/g) ?? [])) if (!claims.includes(n.replace(/[.,]$/, ''))) E.push(`scene ${s.id}: number "${n}" is not in any fact claim for that scene (no invented facts)`);
+      for (const n of new Set(`${spoken(s.narration)} ${s.on_screen_text}`.match(/\d[\d,.]*%?/g) ?? [])) if (!claims.includes(n.replace(/[.,]$/, ''))) E.push(`scene ${s.id}: number "${n}" is not in any fact claim for that scene (no invented facts)`);
       for (const f of s.facts) {
         if (f.status === 'verified' && !/^https?:\/\/|\(\d{4}\)|\d{4}/.test(f.source)) E.push(`scene ${s.id}: fact marked verified has no source: "${f.claim.slice(0, 50)}"`);
         if (f.status === 'VERIFY') W.push(`scene ${s.id}: [VERIFY: ${f.claim.slice(0, 70)}]`);

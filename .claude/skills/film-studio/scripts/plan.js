@@ -8,7 +8,7 @@
 //          pixels on the real frame (1080 wide for 9:16).
 const fs = require('fs');
 const path = require('path');
-const {SKILL, readJson} = require('./lib');
+const {SKILL, readJson, spoken} = require('./lib');
 
 const EDGES = ['tl', 't', 'tr', 'l', 'r', 'bl', 'b', 'br'];
 const NAMED_EASINGS = ['spring-snappy', 'spring-bouncy', 'spring-gentle', 'spring-heavy', 'ease-out-expo', 'ease-out-quint', 'ease-out-back', 'ease-out-cubic', 'ease-in-out-cubic', 'ease-in-expo', 'anticipate', 'overshoot'];
@@ -17,8 +17,8 @@ const BANNED_EASINGS = ['linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out', 
 const NOT_COPY = new Set(['id', 'layout', 'anchor', 'energy', 'accent', 'recipe', 'pose', 'expr', 'state', 'type', 'role', 'kind', 'easing', 'color', 'bg', 'fill', 'stroke', 'scale', 'font', 'prop', 'cast', 'media', 'scene', 'beat', 'status', 'source', 'emotion', 'visual_intent', 'unit', 'gradient', 'tier', 't', 'effect_id', 'panel_id', 'reason']);
 
 const opt = (p) => (fs.existsSync(p) ? readJson(p) : null);
-const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean);
-const sentences = (s) => String(s ?? '').split(/(?<=[.!?])\s+/).map((x) => x.trim()).filter(Boolean);
+const words = (s) => spoken(s).trim().split(/\s+/).filter(Boolean);
+const sentences = (s) => spoken(s).split(/(?<=[.!?])\s+/).map((x) => x.trim()).filter(Boolean);
 
 /** Every string a viewer could read under `node`, with a path label. */
 function copyOf(node, where, out = []) {

@@ -983,6 +983,28 @@
      "minimum": 0,
      "maximum": 1,
      "description": "Gain applied to every SFX cue while the narrator speaks (voiceover segments). 0.25 = 25%."
+    },
+    "mix": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "required": [
+      "file"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "file": {
+       "type": "string"
+      },
+      "layers": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     "description": "work/voiceover.mp3 from scripts/sound-bed.js: narration + pulse bed + sub-bass hits + transition SFX, pre-mixed. When set, FilmComposition plays only this track."
     }
    }
   },

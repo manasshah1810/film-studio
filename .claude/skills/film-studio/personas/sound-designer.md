@@ -45,22 +45,42 @@ The first six rows are the core mapping. Rows for other events use the nearest s
 `click-soft`. A widget that is silent in the real world (a ring filling) takes `digital-tick`.
 
 ## 3. Dynamic pacing rules
-**Riser swells into re-hooks.** A re-hook comes every 8 to 10 seconds. A riser starts 24 to 30
-frames before it and ends exactly on the re-hook frame, where the first sound of the new beat lands.
-**Silence drop before the twist.** 12 to 18 frames immediately before the major twist or the impact
-frame, cut the music (and any ambient bed) to silence with a fade of 3 frames or less. Voiceover may
-continue. The twist lands on `sub-bass-hit`, and the music re-enters on or just after it.
-- One silence drop per film. Two dilute the first.
-- Under 12 frames reads as a glitch; over 18 reads as a dropout.
-**Voiceover source (Google AI Studio, the default when `GEMINI_API_KEY` is set).**
-`node scripts/generate-voiceover.js make work --retime` speaks each scene with Gemini TTS (voice `Charon`,
-inline tag `[fast, urgent]`; models then voices fall back, a 429 waits its `retryDelay`), transcribes every
-clip back to check the words, writes 44.1 kHz wav + mp3 per scene, `work/voiceover.mp3` (clips + 150 ms
-air) and `work/voiceover-timing.json` (ffprobe seconds). `--retime` makes the voice the clock: each scene
-= its clip + pause to the frame; captions, panels, cues and music cuts follow. Run it before your cue
-sheet. One narrator voice per film: a WARN that the voice changed between clips means re-run.
-**Voiceover ducking.** The music bed sits 12 dB (25%) under its open level while the narrator speaks,
-and every SFX cue plays at `duck.sfx_gain` (0.25) under the voice; the render applies both by frame.
+**Riser swells into re-hooks.** A re-hook comes every 12 to 15 seconds. A riser (a `zoom-swell` cue) starts
+24 to 30 frames before it and ends exactly on the re-hook frame, where the first sound of the new beat lands.
+**Silence before every twist.** The script's `[PAUSE 0.6s]` / `[PAUSE 0.9s]` markers are the silence drops:
+the narrator stops, the pulse bed cuts to complete silence for the whole window (18 to 27 frames), and
+the first word after it lands on a sub-bass hit while the bed re-enters. Add no other silence drops;
+a pause under 0.6 s reads as a glitch, over 0.9 s as a dropout.
+
+## 3a. Expressive narration and per-beat pause stitching (Google AI Studio, whenever `GEMINI_API_KEY` is set)
+`node scripts/generate-voiceover.js make work --retime` (the key is read from the environment or `.env`,
+never printed). Every beat is read under this performance direction, sent with the text:
+*"Speak like a charismatic, high-energy documentary storyteller: build genuine curiosity on questions, pick
+up pace during tense build-ups, hit numbers and twists with sharp emphasis, and honor natural dramatic
+pauses. Never sound flat or robotic."* Models fall back in order; a long 429 quota wait skips to the next
+model at once. One narrator voice (`Charon`) for the whole film: a WARN that it changed means re-run.
+- **Per-beat clips.** A narration is cut at its `[PAUSE 0.6s]` / `[PAUSE 0.9s]` markers. Each beat is spoken
+  on its own, trimmed, loudness-matched (-16 LUFS) and joined with exactly that much silence (600 to 900 ms).
+- **Proof.** Each scene clip is transcribed back and compared to the narration (one regeneration, then stop).
+- **Clock.** `--retime` makes the voice the clock: scene = clip + 150 ms; captions sit inside the spoken beat
+  their first word belongs to and hold through the pause; panels, cues and music cuts follow.
+- Writes `work/voiceover-dry.wav`, `work/voiceover-timing.json` (clips, beats, pause windows) and
+  `work/audio/manifest.json`, then runs the mix below.
+
+## 3b. The automatic 3-layer cinema mix (`node scripts/sound-bed.js work`)
+Everything is synthesized by ffmpeg (no downloads, nothing to license) into `work/voiceover.mp3`:
+| Layer | What | Level and rule |
+|---|---|---|
+| 1. Pulse bed | a dark 55/110 Hz pulse at 120 BPM with brown-noise air, lowpassed | -21 dB; drops to complete silence inside every `[PAUSE]` window (30 ms ramps), so the twist lands in silence |
+| 2. Sub-bass hits | a 95 to 55 Hz drop with a 1.6 s tail | -6 dB; on the title slam (frame 0), the first word after every pause, and each `"impact": true` scene |
+| 3. Transition SFX | crisp whoosh (0.30 s pre-roll), UI tick, stamp hit | -14 dB, sidechain-ducked under the narrator; placed on your `audio-cues.json` cues (else on every scene cut) |
+Run it again after you write `audio-cues.json`, so layer 3 lands on your frame-synced cues; ids map by
+name (whoosh / swell / flick to whoosh, stamp / rip / zap to stamp, sub-bass to the hit layer, the rest to
+tick). `work/audio/mix.json` logs every layer; `build-film.js` then makes the mix the film's only audio
+track, so nothing is doubled. `--no-mix` on the voiceover gives a dry track for local tests only.
+
+**Voiceover ducking (only when no mix exists).** Without `audio/mix.json` the render ducks the music bed
+12 dB under the narrator and plays every SFX cue at `duck.sfx_gain` (0.25) under the voice, by frame.
 | Curve | Value |
 |---|---|
 | Attack | duck starts 6 frames before the first word, reaching -18 dB on the first word |

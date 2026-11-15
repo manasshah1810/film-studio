@@ -130,6 +130,20 @@
       "type": "string",
       "pattern": "^a[0-9]+$",
       "description": "The id of the winning angle in work/angles.json this scene is built from."
+     },
+     "visualMetaphor": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 300,
+      "description": "Iteration 5: the concrete picture the Art Director builds for this beat (a bespoke diagram or metaphor, never a generic icon)."
+     },
+     "explainer": {
+      "type": "boolean",
+      "description": "Iteration 3: the one 5 to 7 s concept micro-explainer beat, early in Act 1."
+     },
+     "impact": {
+      "type": "boolean",
+      "description": "A major reveal: the sound bed fires a 55 Hz sub-bass hit on the scene's first word after its pause."
      }
     },
     "additionalProperties": false

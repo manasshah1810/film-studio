@@ -21,10 +21,16 @@ import {CHANNEL_MATRIX, axisFlip3D, filmGateFlicker, rgbChromaticGlitch, stopMot
  * in this file: the style is chosen by `design.style`, its design-system.json is looked up in DESIGN_SYSTEMS,
  * and every colour is a palette role, every font a pairing role.
  *
- * Layers, back to front: background, camera drift (Zero Dead Velocity), panels (transition, boxes, motion
- * primitives, layered cast, bespoke topic scenes, micro-widgets, VFX wrappers), captions, film-gate texture, safe-zone overlay.
- * Audio: SFX on their frames (ducked to audio.sfx_duck while the narrator speaks), voiceover clips, music ducked
- * under the voice.
+ * Full-canvas mandate (personas/art-director.md section 0a), back to front:
+ *   1. Atmosphere: style-matched gradient from the palette roles, an animated grid, film grain, drifting ambient
+ *      light and a vignette, so no frame is ever an empty flat field.
+ *   2. Hero: panels (transition, cards with gradient fill, crisp border and drop shadow, motion primitives, layered
+ *      cast, bespoke topic scenes on their own card, micro-widgets, VFX wrappers) under a continuous camera push-in
+ *      (scale 1.00 -> 1.08 per panel) inside the Zero Dead Velocity drift.
+ *   3. Center-stage kinetic captions: 2 to 4 words, at least 64 px, centred above the bottom 20% dead zone, the
+ *      active word pops.
+ * Then the safe-zone overlay (Pass 1). Audio: audio.mix (scripts/sound-bed.js: narration + pulse bed + sub-bass
+ * hits + transition SFX) when present; otherwise SFX on their frames, voiceover clips and the ducked music bed.
  */
 
 type DS = (typeof DESIGN_SYSTEMS)[string];
@@ -46,8 +52,14 @@ export const resolveDesign = (m: RenderManifest) => {
 	return {ds, roles, pairing, role};
 };
 
-const pctPx = (b: Pct, W: number, H: number) => ({left: (b.x / 100) * W, top: (b.y / 100) * H, width: (b.w / 100) * W, height: (b.h / 100) * H});
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+/** #rrggbb + alpha -> #rrggbbaa (palette roles stay the only colour source). */
+const alpha = (hex: string, a: number) => (/^#[0-9a-f]{6}$/i.test(hex) ? hex + Math.round(clamp01(a) * 255).toString(16).padStart(2, '0') : hex);
+const isDark = (hex: string) => { const n = parseInt(hex.slice(1, 7), 16); return ((n >> 16) & 255) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114 < 128; };
+/** A role, or the first fallback role the palette has (focused palettes lack some roles). */
+const roleOr = (r: R, ...names: string[]) => { for (const n of names) if (r.roles[n]) return r.roles[n]; return r.roles.ink; };
+const smooth = (x: number) => { const t = clamp01(x); return t * t * (3 - 2 * t); };
+const pctPx = (b: Pct, W: number, H: number) => ({left: (b.x / 100) * W, top: (b.y / 100) * H, width: (b.w / 100) * W, height: (b.h / 100) * H});
 const bump = (f: number, at: number, frames: number) => (f < at || f > at + frames ? 0 : Math.sin(Math.PI * clamp01((f - at) / Math.max(1, frames))));
 const SIZE: Record<string, string> = {display: 'display', body: 'body', label: 'label', caption: 'caption'};
 const pxFor = (r: R, b: BoxDef) => (b.px ?? r.ds.type_scale?.[SIZE[b.role ?? 'body']] ?? r.ds.type_scale?.body ?? 44) * r.k;
@@ -128,8 +140,11 @@ const CardBox: React.FC<{r: R; b: BoxDef; f: number; p: PanelDefM; i: number}> =
 	if (f < (b.from ?? p.from) || (b.to !== undefined && f >= b.to)) return null;
 	const pop = springPopIn(f, {start: (b.from ?? p.from) + i * 2, spring: 'heavy', from: 0.94});
 	const t = r.ds.tokens?.card ?? {};
-	const border = t.border?.width ? `${t.border.width * r.k}px solid ${r.role(t.border.role ?? 'ink')}` : undefined;
-	return <div style={{position: 'absolute', ...pctPx(b, r.W, r.H), background: r.role(b.bg ?? 'surface'), borderRadius: (t.radius ?? 0) * r.k, border, opacity: pop.opacity, transform: `scale(${pop.scale.toFixed(4)})`}} />;
+	const fill = r.role(b.bg ?? 'surface');
+	const border = t.border?.width ? `${t.border.width * r.k}px solid ${r.role(t.border.role ?? 'ink')}` : `${2 * r.k}px solid ${alpha(r.roles.ink, 0.16)}`;
+	// hero card: gradient fill (lit from the top by the accent), crisp border, deep drop shadow
+	const background = `linear-gradient(160deg, ${alpha(r.roles.primary, 0.14)} 0%, ${fill} 38%, ${fill} 100%)`;
+	return <div style={{position: 'absolute', ...pctPx(b, r.W, r.H), background, borderRadius: (t.radius ?? 0) * r.k, border, boxShadow: `0 ${24 * r.k}px ${64 * r.k}px ${alpha(isDark(r.roles.bg) ? '#000000' : r.roles.ink, isDark(r.roles.bg) ? 0.55 : 0.22)}`, opacity: pop.opacity, transform: `scale(${pop.scale.toFixed(4)})`}} />;
 };
 
 // ------------------------------------------------------------------ layered characters (Narrator / Actor) and props
@@ -190,7 +205,40 @@ const BespokeMount: React.FC<{id: string; r: R; box: Pct; props: Record<string, 
 	// props.offset (frames) continues a scene across a cut: the second panel picks up where the first left off
 	const offset = Number(props.offset ?? 0);
 	const kit = makeKit({frame: local + offset, frames: frames + offset, fps: r.m.meta.fps, box: pctPx(box, r.W, r.H), k: r.k, role: r.role, pairing: r.pairing, easings: r.ds.motion?.easings ?? {}, springs: r.ds.motion?.springs, props});
-	return <C kit={kit} />;
+	if (props.bare) return <C kit={kit} />;
+	// every bespoke scene sits on its own hero card (gradient, border, shadow) so the diagram never floats on a void
+	const px = pctPx(box, r.W, r.H), pad = 18 * r.k, dark = isDark(r.roles.bg);
+	const surf = roleOr(r, 'surface', 'shadow', 'bg');
+	return (
+		<>
+			<div style={{position: 'absolute', left: px.left - pad, top: px.top - pad, width: px.width + 2 * pad, height: px.height + 2 * pad, borderRadius: 28 * r.k, background: `linear-gradient(165deg, ${alpha(surf, dark ? 0.82 : 0.9)} 0%, ${alpha(r.roles.bg, 0.72)} 100%)`, border: `${2 * r.k}px solid ${alpha(r.roles.primary, 0.32)}`, boxShadow: `0 ${30 * r.k}px ${80 * r.k}px ${alpha('#000000', dark ? 0.6 : 0.2)}, inset 0 ${2 * r.k}px 0 ${alpha(r.roles.ink, 0.08)}`, opacity: clamp01(local / 8)}} />
+			<C kit={kit} />
+		</>
+	);
+};
+
+// ------------------------------------------------------------------ 1. atmosphere layer (never an empty frame)
+const Atmosphere: React.FC<{r: R; f: number}> = ({r, f}) => {
+	const {W, H, k} = r, dark = isDark(r.roles.bg), ink = r.roles.ink, pri = r.roles.primary, hi = roleOr(r, 'highlight', 'secondary', 'primary');
+	const surf = roleOr(r, 'surface', 'shadow', 'bg'), cell = 90 * k, off = (f * 0.35 * k) % cell, T = (p: number, ph = 0) => Math.sin((2 * Math.PI * f) / p + ph);
+	return (
+		<AbsoluteFill style={{pointerEvents: 'none'}}>
+			<AbsoluteFill style={{background: `radial-gradient(120% 70% at 50% 18%, ${alpha(pri, dark ? 0.2 : 0.12)} 0%, ${r.roles.bg} 55%), linear-gradient(180deg, ${r.roles.bg} 0%, ${alpha(surf, 0.85)} 100%)`}} />
+			<div style={{position: 'absolute', left: W * (0.12 + 0.05 * T(400)), top: H * (0.2 + 0.04 * T(330, 1)), width: W * 0.8, height: W * 0.8, borderRadius: '50%', background: `radial-gradient(circle, ${alpha(pri, dark ? 0.22 : 0.14)} 0%, ${alpha(pri, 0)} 70%)`}} />
+			<div style={{position: 'absolute', left: W * (0.35 + 0.06 * T(470, 2)), top: H * (0.55 + 0.05 * T(390)), width: W * 0.7, height: W * 0.7, borderRadius: '50%', background: `radial-gradient(circle, ${alpha(hi, dark ? 0.16 : 0.1)} 0%, ${alpha(hi, 0)} 70%)`}} />
+			<svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
+				<defs>
+					<pattern id="fs-grid" width={cell} height={cell} patternUnits="userSpaceOnUse" patternTransform={`translate(${off.toFixed(2)} ${off.toFixed(2)})`}>
+						<path d={`M ${cell} 0 L 0 0 0 ${cell}`} fill="none" stroke={alpha(ink, dark ? 0.07 : 0.06)} strokeWidth={1.5 * k} />
+					</pattern>
+					<filter id="fs-grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={2} seed={Math.floor(f / 2) % 97} /><feColorMatrix type="saturate" values="0" /></filter>
+				</defs>
+				<rect width={W} height={H} fill="url(#fs-grid)" />
+				<rect width={W} height={H} filter="url(#fs-grain)" opacity={dark ? 0.07 : 0.09} style={{mixBlendMode: dark ? 'screen' : 'multiply'}} />
+			</svg>
+			<AbsoluteFill style={{background: `radial-gradient(110% 80% at 50% 45%, ${alpha('#000000', 0)} 55%, ${alpha(dark ? '#000000' : ink, dark ? 0.55 : 0.16)} 100%)`}} />
+		</AbsoluteFill>
+	);
 };
 
 // ------------------------------------------------------------------ one panel
@@ -224,11 +272,13 @@ const PanelView: React.FC<{p: PanelDefM; r: R; castById: Map<string, CastEntry>;
 	const local = useCurrentFrame();
 	const f = p.from + local;
 	const pm = panelMotion(p, local, f, r);
+	// continuous camera push-in: scale 1.00 -> 1.08 across the panel, eased, so the hero never sits still
+	const push = `scale(${(1 + 0.08 * smooth(local / Math.max(1, p.frames - 1))).toFixed(4)})`;
 	const gate = p.motion.find((x) => x.primitive === 'film-gate' && f >= x.frame);
 	const g = gate ? filmGateFlicker(f, {start: gate.frame, seed: `${r.seed}-${p.id}`}) : null;
 	const boxes = p.boxes;
 	let node: React.ReactNode = (
-		<AbsoluteFill style={{transform: [pm.transform, g?.weaveTransform].filter(Boolean).join(' ') || undefined, filter: pm.filter, transformOrigin: '50% 50%'}}>
+		<AbsoluteFill style={{transform: [push, pm.transform, g?.weaveTransform].filter(Boolean).join(' '), filter: pm.filter, transformOrigin: '50% 45%'}}>
 			{boxes.filter((b) => b.kind === 'card').map((b, i) => <CardBox key={b.id} r={r} b={b} f={f} p={p} i={i} />)}
 			{p.cast.map((c) => { const e = castById.get(c.id); return e ? <CastFigure key={c.id} r={r} c={e} at={c} f={f} talking={e.role === 'narrator' && talking(f)} /> : null; })}
 			{boxes.filter((b) => b.kind === 'text').map((b, i) => <TextBox key={b.id} r={r} b={b} i={i} f={f} p={p} />)}
@@ -266,7 +316,9 @@ const PanelView: React.FC<{p: PanelDefM; r: R; castById: Map<string, CastEntry>;
 };
 
 // ------------------------------------------------------------------ captions (5-word chunks, active word highlight)
-const DEFAULT_CAPTION: Pct = {x: 8, y: 66, w: 74, h: 10};
+// centre stage, inside the 9:16 safe area (x 6 to 85, above the bottom 20%)
+const DEFAULT_CAPTION: Pct = {x: 6, y: 62, w: 79, h: 14};
+const CAPTION_MIN_PX = 64;
 const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const {m} = r;
 	const c = captionAt(m.captions, f);
@@ -282,15 +334,20 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const bg = cb?.bg ?? 'bg';
 	const ink = r.role(cb?.color ?? 'ink');
 	const accent = contrast(r.role('primary'), r.role(bg)) >= 4.5 ? r.role('primary') : ink;
-	const font = fontCss(r.pairing[cb?.font ?? 'display'], (cb?.px ?? r.ds.type_scale?.caption ?? 56) * r.k);
+	const font = fontCss(r.pairing[cb?.font ?? 'display'], Math.max(CAPTION_MIN_PX, cb?.px ?? r.ds.type_scale?.caption ?? CAPTION_MIN_PX) * r.k);
+	const plate = bg !== 'bg' ? r.role(bg) : alpha(r.roles.bg, 0.62);
+	const shadow = `0 ${4 * r.k}px ${18 * r.k}px ${alpha(isDark(r.roles.bg) ? '#000000' : r.roles.bg, 0.85)}`;
 	return (
-		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
-			<div style={{...font, background: bg !== 'bg' ? r.role(bg) : undefined, padding: bg !== 'bg' ? `${8 * r.k}px ${16 * r.k}px` : 0, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.4 * (font.fontSize as number)}px`}}>
-				{hl.words.map((w) => (
-					<span key={w.index} style={{color: w.power ? accent : ink, transform: `scale(${(1 + 0.04 * (w.state === 'active' ? w.t : 0)).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
-						{w.text}
-					</span>
-				))}
+		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
+			<div style={{...font, textAlign: 'center', justifyContent: 'center', background: plate, borderRadius: 22 * r.k, padding: `${10 * r.k}px ${26 * r.k}px`, boxShadow: `0 ${12 * r.k}px ${40 * r.k}px ${alpha('#000000', 0.35)}`, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.32 * (font.fontSize as number)}px`, textShadow: shadow}}>
+				{hl.words.map((w) => {
+					const on = w.state === 'active' ? w.t : 0;
+					return (
+						<span key={w.index} style={{color: w.power ? accent : ink, transform: `translateY(${(-6 * on * r.k).toFixed(2)}px) scale(${(1 + 0.12 * on).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+							{w.text}
+						</span>
+					);
+				})}
 			</div>
 		</div>
 	);
@@ -347,6 +404,7 @@ export const FilmComposition: React.FC<RenderManifest> = (m) => {
 						<filter id="fs-ch-r" colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={CHANNEL_MATRIX.r} /></filter>
 						<filter id="fs-ch-b" colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={CHANNEL_MATRIX.b} /></filter>
 					</svg>
+					<Atmosphere r={r} f={frame} />
 					<AbsoluteFill style={{transform: `translate(${(drift.x * k).toFixed(2)}px, ${(drift.y * k).toFixed(2)}px) scale(${drift.scale.toFixed(4)})`}}>
 						{m.panels.map((p) => (
 							<Sequence key={p.id} from={p.from} durationInFrames={p.frames}>
@@ -357,17 +415,18 @@ export const FilmComposition: React.FC<RenderManifest> = (m) => {
 					<Captions r={r} f={frame} />
 					{m.showSafeZones ? <SafeZones W={W} H={H} /> : null}
 				</AbsoluteFill>
-				{m.audio.sfx.filter((c) => c.file).map((c, i) => (
+				{m.audio.mix ? <Audio src={staticFile(m.audio.mix.file)} /> : null}
+				{m.audio.mix ? null : m.audio.sfx.filter((c) => c.file).map((c, i) => (
 					<Sequence key={`sfx-${i}`} from={c.frame} layout="none">
 						<Audio src={staticFile(c.file as string)} volume={(f) => dbToGain(c.db) * (segs.some(([a, b]) => c.frame + f >= a && c.frame + f <= b) ? (m.audio.sfx_duck ?? 1) : 1)} />
 					</Sequence>
 				))}
-				{(m.audio.voiceover?.clips ?? []).map((c, i) => (
+				{m.audio.mix ? null : (m.audio.voiceover?.clips ?? []).map((c, i) => (
 					<Sequence key={`vo-${i}`} from={c.from} layout="none">
 						<Audio src={staticFile(c.file)} />
 					</Sequence>
 				))}
-				{music ? <Audio src={staticFile(music.file)} loop volume={(f) => duckedMusicGain(f, music, segs)} /> : null}
+				{music && !m.audio.mix ? <Audio src={staticFile(music.file)} loop volume={(f) => duckedMusicGain(f, music, segs)} /> : null}
 			</FontGate>
 		</DesignProvider>
 	);

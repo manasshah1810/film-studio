@@ -12,19 +12,20 @@
    "start": 0,
    "duration": 5,
    "beat": "hook",
-   "narration": "You do not need more discipline. You need a smaller plan, because big plans collapse on day three.",
+   "narration": "Is discipline really what you lack? You need a smaller plan, because big plans collapse on day three.",
    "on_screen_text": "Smaller plan wins",
    "visual_intent": "The word discipline is struck out; a tiny checklist card slides in.",
    "emotion": "surprise",
    "facts": [],
-   "angle": "a1"
+   "angle": "a1",
+   "visualMetaphor": "A giant wall planner cracks down the middle on day three."
   },
   {
    "id": "s2",
    "start": 5,
    "duration": 6,
    "beat": "turn",
-   "narration": "Most people set a huge goal, so the first missed day feels like failure. But a two minute habit survives a bad day.",
+   "narration": "Most people set a huge goal, so the first missed day feels like failure. [PAUSE 0.6s] But a two minute habit survives a bad day.",
    "on_screen_text": "Two minutes survives",
    "visual_intent": "A streak counter breaks, then a smaller one keeps counting.",
    "emotion": "relief",
@@ -35,7 +36,10 @@
      "source": ""
     }
    ],
-   "angle": "a2"
+   "angle": "a2",
+   "rehook": true,
+   "explainer": true,
+   "visualMetaphor": "A streak counter shatters while a two-minute index card keeps ticking."
   },
   {
    "id": "s3",
@@ -47,7 +51,8 @@
    "visual_intent": "A timer ring closes; the opening line returns.",
    "emotion": "resolve",
    "facts": [],
-   "angle": "a3"
+   "angle": "a3",
+   "visualMetaphor": "A timer ring shrinks to a dot, then closes into a loop arrow."
   }
  ]
 }
