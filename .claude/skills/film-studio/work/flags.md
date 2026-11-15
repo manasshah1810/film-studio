@@ -29,3 +29,6 @@ Note: work/out/final.mp4 was rendered BEFORE these fixes; it does not include th
 
 ## qa-inspector round 4
 Rejected, avg 7.8 (min 7), no blockers. Fixed: D12, D14, D5 downgraded to minor. Open majors: D6 s3p1 (abstract cash bars, empty band, no flow visual), D10 (coin, bubble and cash bars cover 12 of 15 panels). New minors: D15 caption 'Commissionsfor recruiting,' missing space (s2p1), D16 card edges past x 85 (s3p1, s5p2), D17 fragment captions, text and cards still start left of x 6 in several panels.
+
+## final render
+Third render (Pass 2) after minor fixes only (D15 caption gap, D16 card edges, D17 fragment captions, x inset). No QA re-run after these. Majors D6 and D10 remain open.

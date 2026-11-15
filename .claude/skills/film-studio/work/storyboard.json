@@ -320,8 +320,8 @@
      "energy": "peak",
      "accent": "primary",
      "captions": [
-      "which made every buyer",
-      "a salesperson."
+      "which made",
+      "every buyer a salesperson."
      ],
      "beats": [
       {
@@ -371,27 +371,27 @@
       {
        "id": "ka",
        "kind": "card",
-       "x": 8,
+       "x": 10,
        "y": 32,
-       "w": 77,
+       "w": 73,
        "h": 11,
        "anchor": "b"
       },
       {
        "id": "kb",
        "kind": "card",
-       "x": 8,
+       "x": 10,
        "y": 45,
-       "w": 77,
+       "w": 73,
        "h": 11,
        "anchor": "b"
       },
       {
        "id": "kc",
        "kind": "card",
-       "x": 8,
+       "x": 10,
        "y": 58,
-       "w": 77,
+       "w": 73,
        "h": 11,
        "anchor": "b"
       },
@@ -400,9 +400,9 @@
        "kind": "text",
        "role": "body",
        "text": "1. Buy in",
-       "x": 12,
+       "x": 13,
        "y": 33,
-       "w": 70,
+       "w": 68,
        "h": 9,
        "px": 64,
        "color": "ink",
@@ -414,9 +414,9 @@
        "kind": "text",
        "role": "body",
        "text": "2. Recruit",
-       "x": 12,
+       "x": 13,
        "y": 46,
-       "w": 70,
+       "w": 68,
        "h": 9,
        "px": 64,
        "color": "ink",
@@ -428,9 +428,9 @@
        "kind": "text",
        "role": "body",
        "text": "3. Earn commission",
-       "x": 12,
+       "x": 13,
        "y": 59,
-       "w": 70,
+       "w": 68,
        "h": 9,
        "px": 64,
        "color": "ink",
@@ -541,7 +541,7 @@
        "kind": "card",
        "x": 47,
        "y": 30,
-       "w": 38,
+       "w": 36,
        "h": 16,
        "anchor": "b"
       },
@@ -898,8 +898,8 @@
      "energy": "release",
      "accent": "primary",
      "captions": [
-      "and every recruit had",
-      "to sell it on."
+      "and every recruit",
+      "had to sell it on."
      ],
      "beats": [
       {
@@ -1168,18 +1168,18 @@
       {
        "id": "k1",
        "kind": "card",
-       "x": 8,
+       "x": 10,
        "y": 38,
-       "w": 77,
+       "w": 73,
        "h": 10,
        "anchor": "b"
       },
       {
        "id": "k2",
        "kind": "card",
-       "x": 8,
+       "x": 10,
        "y": 52,
-       "w": 77,
+       "w": 73,
        "h": 10,
        "anchor": "b"
       },
@@ -1188,9 +1188,9 @@
        "kind": "text",
        "role": "body",
        "text": "2017: charged in the US",
-       "x": 12,
+       "x": 13,
        "y": 39,
-       "w": 70,
+       "w": 68,
        "h": 8,
        "px": 44,
        "color": "ink",
@@ -1202,9 +1202,9 @@
        "kind": "text",
        "role": "body",
        "text": "Now: still at large",
-       "x": 12,
+       "x": 13,
        "y": 53,
-       "w": 70,
+       "w": 68,
        "h": 8,
        "px": 44,
        "color": "ink",
@@ -1345,8 +1345,8 @@
      "energy": "build",
      "accent": "highlight",
      "captions": [
-      "Nobody lost to",
-      "a better coin."
+      "Nobody lost",
+      "to a better coin."
      ],
      "beats": [
       {
@@ -1430,7 +1430,7 @@
      "accent": "highlight",
      "captions": [
       "They lost to a story",
-      "that only worked while"
+      "that only worked"
      ],
      "beats": [
       {
@@ -1512,7 +1512,7 @@
      "energy": "peak",
      "accent": "highlight",
      "captions": [
-      "enough people",
+      "while enough people",
       "kept believing it."
      ],
      "beats": [

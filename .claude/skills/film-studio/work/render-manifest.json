@@ -531,33 +531,33 @@
     {
      "id": "ka",
      "kind": "card",
-     "x": 8,
+     "x": 10,
      "y": 32,
-     "w": 77,
+     "w": 73,
      "h": 11
     },
     {
      "id": "kb",
      "kind": "card",
-     "x": 8,
+     "x": 10,
      "y": 45,
-     "w": 77,
+     "w": 73,
      "h": 11
     },
     {
      "id": "kc",
      "kind": "card",
-     "x": 8,
+     "x": 10,
      "y": 58,
-     "w": 77,
+     "w": 73,
      "h": 11
     },
     {
      "id": "a",
      "kind": "text",
-     "x": 12,
+     "x": 13,
      "y": 33,
-     "w": 70,
+     "w": 68,
      "h": 9,
      "role": "body",
      "text": "1. Buy in",
@@ -569,9 +569,9 @@
     {
      "id": "b",
      "kind": "text",
-     "x": 12,
+     "x": 13,
      "y": 46,
-     "w": 70,
+     "w": 68,
      "h": 9,
      "role": "body",
      "text": "2. Recruit",
@@ -583,9 +583,9 @@
     {
      "id": "c",
      "kind": "text",
-     "x": 12,
+     "x": 13,
      "y": 59,
-     "w": 70,
+     "w": 68,
      "h": 9,
      "role": "body",
      "text": "3. Earn commission",
@@ -681,7 +681,7 @@
      "kind": "card",
      "x": 47,
      "y": 30,
-     "w": 38,
+     "w": 36,
      "h": 16
     },
     {
@@ -1294,25 +1294,25 @@
     {
      "id": "k1",
      "kind": "card",
-     "x": 8,
+     "x": 10,
      "y": 38,
-     "w": 77,
+     "w": 73,
      "h": 10
     },
     {
      "id": "k2",
      "kind": "card",
-     "x": 8,
+     "x": 10,
      "y": 52,
-     "w": 77,
+     "w": 73,
      "h": 10
     },
     {
      "id": "a",
      "kind": "text",
-     "x": 12,
+     "x": 13,
      "y": 39,
-     "w": 70,
+     "w": 68,
      "h": 8,
      "role": "body",
      "text": "2017: charged in the US",
@@ -1324,9 +1324,9 @@
     {
      "id": "p",
      "kind": "text",
-     "x": 12,
+     "x": 13,
      "y": 53,
-     "w": 70,
+     "w": 68,
      "h": 8,
      "role": "body",
      "text": "Now: still at large",
@@ -1780,14 +1780,14 @@
   },
   {
    "from": 268,
-   "to": 319,
-   "text": "which made every buyer",
-   "power": "buyer"
+   "to": 294,
+   "text": "which made",
+   "power": "made"
   },
   {
-   "from": 319,
+   "from": 294,
    "to": 345,
-   "text": "a salesperson.",
+   "text": "every buyer a salesperson.",
    "power": "salesperson"
   },
   {
@@ -1840,14 +1840,14 @@
   },
   {
    "from": 721,
-   "to": 773,
-   "text": "and every recruit had",
+   "to": 760,
+   "text": "and every recruit",
    "power": "every"
   },
   {
-   "from": 773,
+   "from": 760,
    "to": 825,
-   "text": "to sell it on.",
+   "text": "had to sell it on.",
    "power": "sell"
   },
   {
@@ -1882,14 +1882,14 @@
   },
   {
    "from": 1095,
-   "to": 1133,
-   "text": "Nobody lost to",
+   "to": 1121,
+   "text": "Nobody lost",
    "power": "lost"
   },
   {
-   "from": 1133,
+   "from": 1121,
    "to": 1171,
-   "text": "a better coin.",
+   "text": "to a better coin.",
    "power": "coin"
   },
   {
@@ -1900,14 +1900,14 @@
   },
   {
    "from": 1235,
-   "to": 1286,
-   "text": "that only worked while",
+   "to": 1273,
+   "text": "that only worked",
    "power": "only"
   },
   {
-   "from": 1286,
+   "from": 1273,
    "to": 1312,
-   "text": "enough people",
+   "text": "while enough people",
    "power": "people"
   },
   {

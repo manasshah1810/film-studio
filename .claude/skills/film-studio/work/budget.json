@@ -23,7 +23,7 @@
   },
   "render": {
    "allowance": 25,
-   "spent": 15.8
+   "spent": 27.1
   }
  },
  "log": [
@@ -56,6 +56,12 @@
    "units": 1,
    "note": "bubble prop",
    "at": "2026-11-15T04:22:02.427Z"
+  },
+  {
+   "stage": "render",
+   "units": 11.3,
+   "note": "pass 2 (third render, user approved)",
+   "at": "2026-11-15T04:38:17.837Z"
   }
  ]
 }

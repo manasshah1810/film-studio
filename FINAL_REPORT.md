@@ -1,6 +1,6 @@
 # FINAL_REPORT: OneCoin film-studio run
 
-**Status: QA-REJECTED after four audits (7.1, 7.9, 7.9, 7.8; gate 9.0, no parameter under 7).** `work/out/final.mp4` (1080x1920, 45.0 s, audio) is from before the last round of fixes. The storyboard now contains those fixes but they are not rendered. Not pushed to main.
+**Status: FINAL VIDEO RENDERED, QA-REJECTED (four audits: 7.1, 7.9, 7.9, 7.8; gate 9.0, no parameter under 7).** `work/out/final.mp4` (1080x1920, 45.0 s, audio) now includes the minor fixes (caption spacing, fragment captions, card edges, text inset). Open majors D6 (s3p1) and D10 (recycled props) were not fixed, by choice. Not pushed to main.
 
 ## Setup
 Instagram Reels, 48 s target (script runs 45.0 s), `dark-neon-dataviz` / `obsidian-cyan` (focused) / `grotesk-inter-jb`, captions only, seed `onecoin-scam-20261114-1`. Budget dry run 46 of 100 units, treated as approved from the "full autonomous" note.

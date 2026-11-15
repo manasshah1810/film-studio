@@ -265,9 +265,9 @@ const Captions: React.FC<{r: R; f: number}> = ({r, f}) => {
 	const font = fontCss(r.pairing[cb?.font ?? 'display'], (cb?.px ?? r.ds.type_scale?.caption ?? 56) * r.k);
 	return (
 		<div style={{position: 'absolute', ...pctPx(box, r.W, r.H), display: 'flex', alignItems: 'center', opacity: pop.opacity, transform: `translateY(${pop.y.toFixed(2)}px) scale(${pop.scale.toFixed(4)})`}}>
-			<div style={{...font, background: bg !== 'bg' ? r.role(bg) : undefined, padding: bg !== 'bg' ? `${8 * r.k}px ${16 * r.k}px` : 0, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.28 * (font.fontSize as number)}px`}}>
+			<div style={{...font, background: bg !== 'bg' ? r.role(bg) : undefined, padding: bg !== 'bg' ? `${8 * r.k}px ${16 * r.k}px` : 0, display: 'flex', flexWrap: 'wrap', gap: `0 ${0.36 * (font.fontSize as number)}px`}}>
 				{hl.words.map((w) => (
-					<span key={w.index} style={{color: w.power ? accent : ink, transform: `scale(${(1 + 0.08 * (w.state === 'active' ? w.t : 0)).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
+					<span key={w.index} style={{color: w.power ? accent : ink, transform: `scale(${(1 + 0.04 * (w.state === 'active' ? w.t : 0)).toFixed(4)})`, display: 'inline-block', textDecoration: w.state === 'active' && !w.power && accent === ink ? 'underline' : undefined}}>
 						{w.text}
 					</span>
 				))}
