@@ -26,3 +26,6 @@ SFX sync could not be verified by ear.
 ## qa-inspector round 3 (user-requested re-run after fixes)
 Rejected, avg 7.9 (min 7), no blockers. D5 s2p2, D6 s3p1, D10 prop repetition all improved but still rated partial/major. Open: D12 s6p3 stat overlaps rack-focus row, D14 rack-focus header truncated (s2p1, s6p3), D13 caption fragments, text 4-14px left of x6 in several panels. Parameters at 7: Widget Integration, Designer-Made Authenticity.
 Note: work/out/final.mp4 was rendered BEFORE these fixes; it does not include them (a third render needs a yes).
+
+## qa-inspector round 4
+Rejected, avg 7.8 (min 7), no blockers. Fixed: D12, D14, D5 downgraded to minor. Open majors: D6 s3p1 (abstract cash bars, empty band, no flow visual), D10 (coin, bubble and cash bars cover 12 of 15 panels). New minors: D15 caption 'Commissionsfor recruiting,' missing space (s2p1), D16 card edges past x 85 (s3p1, s5p2), D17 fragment captions, text and cards still start left of x 6 in several panels.
